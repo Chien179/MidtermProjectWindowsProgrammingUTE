@@ -7,13 +7,12 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmMain : Form
     {
-        string workingDirectory = Directory.GetCurrentDirectory();
         public FrmMain()
         {
             InitializeComponent();
         }
 
-        #region Event
+        #region Events Click
         private void Client_Click(object sender, EventArgs e)
         {
             FrmClient frmclient = new FrmClient();
@@ -37,6 +36,14 @@ namespace MidtermProjectWindowsProgrammingUTE
             frmservice.ShowDialog();
         }
 
+        private void TypeRoom_Click(object sender, EventArgs e)
+        {
+            FrmTypeRoom frmTypeRoom = new FrmTypeRoom();
+            frmTypeRoom.ShowDialog();
+        }
+        #endregion
+
+        #region Events Mouse
         private void Client_MouseEnter(object sender, EventArgs e)
         {
             ButtonColorChanged_Enter("client_yellow.png", this.lblClient, this.pbClient);
@@ -76,28 +83,30 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             ButtonColorChanged_Leave("service.png", this.lblService, this.pbService);
         }
+        private void TypeRoom_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged_Enter("typeroom_yellow.png", this.lblTypeRoom, this.pbTypeRoom);
+        }
+
+        private void TypeRoom_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged_Leave("typeroom.png", this.lblTypeRoom, this.pbTypeRoom);
+        }
         #endregion
 
         #region Function
         private void ButtonColorChanged_Enter(string picture, Label lbl, PictureBox pb)
         {
             lbl.ForeColor = Color.Yellow;
-            pb.Image = Image.FromFile(Directory.GetParent(this.workingDirectory).Parent.FullName + "\\Images\\" + picture);
+            pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         private void ButtonColorChanged_Leave(string picture, Label lbl, PictureBox pb)
         {
             lbl.ForeColor = Color.Black;
-            pb.Image = Image.FromFile(Directory.GetParent(this.workingDirectory).Parent.FullName + "\\Images\\" + picture);
+            pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            FrmTypeRoom frmTypeRoom = new FrmTypeRoom();
-            frmTypeRoom.ShowDialog();
-
-        }
     }
 }
