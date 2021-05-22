@@ -10,6 +10,15 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmUseRoom : Form
     {
+        #region Properties
+        DataTable dtUseRoom = null;
+        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
+        bool Them;
+        string err;
+        BLUseRoom dbUseRoom = new BLUseRoom();
+        #endregion
+
+        #region Constructors
         public FrmUseRoom()
         {
             InitializeComponent();
@@ -20,13 +29,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             LoadData();
 
         }
-        #region Properties
-        DataTable dtUseRoom = null;
-        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
-        bool Them;
-        string err;
-        BLUseRoom dbUseRoom = new BLUseRoom();
         #endregion
+
         #region Events Click
         private void pbAdd_Click(object sender, EventArgs e)
         {
@@ -226,8 +230,6 @@ namespace MidtermProjectWindowsProgrammingUTE
                 MessageBox.Show("Cannot get data from table 'Su Dung Phong' !");
             }
         }
-
-        
 
         private void ButtonColorChanged_Enter(string picture, PictureBox pb)
         {

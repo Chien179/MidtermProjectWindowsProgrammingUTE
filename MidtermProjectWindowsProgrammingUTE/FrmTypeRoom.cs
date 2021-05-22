@@ -9,6 +9,15 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmTypeRoom : Form
     {
+        #region Properties
+        DataTable dtTypeRoom = null;
+        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
+        bool Them;
+        string err;
+        BLTypeRoom dbTypeRoom = new BLTypeRoom();
+        #endregion
+
+        #region Constructors
         public FrmTypeRoom()
         {
             InitializeComponent();
@@ -18,11 +27,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             LoadData();
         }
-        DataTable dtTypeRoom = null;
-        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
-        bool Them;
-        string err;
-        BLTypeRoom dbTypeRoom = new BLTypeRoom();
+        #endregion
 
         #region Events Click
         private void pbAdd_Click(object sender, EventArgs e)

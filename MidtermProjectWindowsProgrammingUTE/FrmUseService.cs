@@ -8,6 +8,15 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmUseService : Form
     {
+        #region Properties
+        DataTable dtUseService = null;
+        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
+        bool Them;
+        string err;
+        BLUseService dbUseService = new BLUseService();
+        #endregion
+
+        #region Constructors
         public FrmUseService()
         {
             InitializeComponent();
@@ -17,13 +26,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             LoadData();
         }
-
-        #region Properties
-        DataTable dtUseService = null;
-        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
-        bool Them;
-        string err;
-        BLUseService dbUseService = new BLUseService();
         #endregion
 
         #region Events Click
@@ -48,8 +50,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pnInfor.Enabled = false;
             dgvUseService_CellClick(null, null);
         }
-
-        
 
         private void dgvUseService_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -150,7 +150,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
             // Đóng kết nối
         }
-#endregion
+        #endregion
 
         #region Functions
         void LoadData()

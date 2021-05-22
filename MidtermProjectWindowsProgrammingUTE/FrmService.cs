@@ -8,6 +8,15 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmService : Form
     {
+        #region Properties
+        DataTable dtService = null;
+        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
+        bool Them;
+        string err;
+        BLService dbService = new BLService();
+        #endregion
+
+        #region Constructors
         public FrmService()
         {
             InitializeComponent();
@@ -18,12 +27,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             LoadData();
 
         }
-        DataTable dtService = null;
-        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
-        bool Them;
-        string err;
-        BLService dbService = new BLService();
-       
+        #endregion
+
         #region Events Click
         private void pbAdd_Click(object sender, EventArgs e)
         {

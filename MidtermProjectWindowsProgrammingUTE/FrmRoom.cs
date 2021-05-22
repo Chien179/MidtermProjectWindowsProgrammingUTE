@@ -8,6 +8,15 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmRoom : Form
     {
+        #region Properties
+        DataTable dtRoom = null;
+        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
+        bool Them;
+        string err;
+        BLRoom dbRoom = new BLRoom();
+        #endregion
+
+        #region Constructors
         public FrmRoom()
         {
             InitializeComponent();
@@ -16,13 +25,8 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             LoadData();
         }
+        #endregion
 
-        DataTable dtRoom = null;
-        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
-        bool Them;
-        string err;
-        BLRoom dbRoom = new BLRoom();       
-        
         #region Events Click
         private void pbAdd_Click(object sender, EventArgs e)
         {
@@ -140,6 +144,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbDelete.Enabled = false;
             //
             this.txtRoomID.Enabled = false;
+        }
+        #endregion
+
+        #region Other Events
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+
         }
         #endregion
 

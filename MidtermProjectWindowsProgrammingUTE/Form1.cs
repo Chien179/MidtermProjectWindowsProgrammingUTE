@@ -7,10 +7,12 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmMain : Form
     {
+        #region Constructors
         public FrmMain()
         {
             InitializeComponent();
         }
+        #endregion
 
         #region Events Click
         private void Client_Click(object sender, EventArgs e)
@@ -108,10 +110,5 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

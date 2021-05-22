@@ -18,6 +18,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         BLClient dbClient = new BLClient();
         #endregion
 
+        #region Constructors
         public FrmClient()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             LoadData();
         }
+        #endregion
 
         #region Events Click
         private void pbAdd_Click(object sender, EventArgs e)

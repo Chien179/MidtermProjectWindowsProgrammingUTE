@@ -62,7 +62,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLPurchase blPurchase = new BLPurchase();
-                    blPurchase.AddPurchase(this.txtPurchaseID.Text,float.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
+                    blPurchase.AddPurchase(this.txtPurchaseID.Text,decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -77,7 +77,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLPurchase blPurchase = new BLPurchase();
-                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, float.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
+                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -139,7 +139,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             int r =dgvPurchase.CurrentCell.RowIndex;
             // Lấy MaPhong của record hiện hành 
             string str = dgvPurchase.Rows[r].Cells[3].Value.ToString();
-            float Total = dbPurchase.Bill(str);
+            decimal Total = dbPurchase.Bill(str);
 
             //Hiển thị số tiền phải thanh toán lên màn hình
             MessageBox.Show( Total.ToString());

@@ -6,28 +6,31 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
     class BLPurchase
     {
         DBMain db = null;
+
         public BLPurchase()
         {
             db = new DBMain();
         }
+
         public DataSet GetPurchase()
         {
             return db.ExecuteQueryDataSet("select * from ThanhToan", CommandType.Text);
         }
-        public bool AddPurchase(string MaTT, float ThanhTien, string NgayThanhToan, string MaPhong, ref string err)
+
+        public bool AddPurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, ref string err)
         {
             string sqlString = "Insert Into ThanhToan Values('" + MaTT + "'," + ThanhTien + ",'" + NgayThanhToan + "','" + MaPhong + "')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
-        public bool UpdatePurchase(string MaTT, float ThanhTien, string NgayThanhToan, string MaPhong, ref string err)
+        public bool UpdatePurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, ref string err)
         {
             string sqlString = "Update ThanhToan Set ThanhTien=" + ThanhTien + ",NgayThanhToan='" + NgayThanhToan + "',MaPhong='" + MaPhong + "'Where MaThanhToan='" + MaTT + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public float Bill(string MaPhong)
+        public decimal Bill(string MaPhong)
         {
-            float Bill = 0;
+            decimal Bill = 0;
 
             DataSet SoNgay = db.ExecuteQueryDataSet("Select Max(DateDiff(Day,NgayVao,NgayRa)) From ThuePhong Where MaPhong='" + MaPhong + "'", CommandType.Text);
             DataSet Maloai = db.ExecuteQueryDataSet("Select MaLoai From Phong Where MaPhong='" + MaPhong + "'", CommandType.Text);
@@ -55,14 +58,15 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             //Tính tiền
             for (int i = 0; i < MaDV.Tables[0].Rows.Count; i++)
             {
-                Bill += float.Parse(AGiaTien[i]) * float.Parse(ASoLuong[i]);
+                Bill += decimal.Parse(AGiaTien[i]) * decimal.Parse(ASoLuong[i]);
             }
 
-            return Bill + float.Parse(GiaThue.Tables[0].Rows[0][0].ToString()) * float.Parse(SoNgay.Tables[0].Rows[0][0].ToString());
+            return Bill + decimal.Parse(GiaThue.Tables[0].Rows[0][0].ToString()) * decimal.Parse(SoNgay.Tables[0].Rows[0][0].ToString());
         }
+
         public DataSet SearchPurchase(string key)
         {
-            string sqlString = "Select * From Purchase Where MaThanhToan Like'%" + key + "%'or ThanhTien Like N'%" + key + "%'or NgayThanhToan Like N'%" + key + "%'or MaPhong Like '%" + key + "%'";
+            string sqlString = "Select * From ThanhToan Where MaThanhToan Like'%" + key + "%'or ThanhTien Like '%" + key + "%' or NgayThanhToan Like '%" + key + "%'or MaPhong Like '%" + key + "%'";
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
     }
