@@ -170,5 +170,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtPurchaseID.Enabled = false;
             this.txtTotal.Focus();
         }
+
+        private void pbBill_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

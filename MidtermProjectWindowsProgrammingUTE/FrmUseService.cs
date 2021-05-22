@@ -16,5 +16,10 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             InitializeComponent();
         }
+
+        private void FrmUseService_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

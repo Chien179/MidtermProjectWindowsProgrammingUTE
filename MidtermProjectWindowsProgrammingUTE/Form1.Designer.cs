@@ -254,6 +254,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPurchase)).EndInit();
             this.plClient.ResumeLayout(false);
             this.plClient.PerformLayout();

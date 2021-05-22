@@ -108,5 +108,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

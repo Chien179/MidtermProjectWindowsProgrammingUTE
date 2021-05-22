@@ -82,7 +82,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbSave_Click(object sender, EventArgs e)
         {
-            
+
             // Mở kết nối
             // Thêm dữ liệu
             if (Them)
@@ -107,7 +107,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLService blService = new BLService();
-                blService.AddService(this.txtServiceID.Text, this.txtServiceName.Text, float.Parse(this.txtPrice.Text), ref err);
+                blService.UpdateService(this.txtServiceID.Text, this.txtServiceName.Text, float.Parse(this.txtPrice.Text), ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -115,22 +115,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
             // Đóng kết nối
         }
-
-
-
-
-
-
-        
-
         private void pbBack_Click(object sender, EventArgs e)
         {
             FrmMain f = new FrmMain();
             f.Show();
             this.Hide();
         }
-        
-
+       
         private void dgvService_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Thứ tự dòng hiện hành

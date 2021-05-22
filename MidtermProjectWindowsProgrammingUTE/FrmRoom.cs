@@ -128,5 +128,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             f.Show();
             this.Hide();
         }
+
+        private void btnUseRoom_Click(object sender, EventArgs e)
+        {
+            FrmUseRoom f = new FrmUseRoom();
+            f.ShowDialog();
+        }
     }
 }
