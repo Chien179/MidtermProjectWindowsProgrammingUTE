@@ -47,7 +47,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
-            this.pbDelete.Enabled = false;
             this.pbBack.Enabled = false;
 
             // Đưa con trỏ đến TextField txtThanhPho
@@ -118,24 +117,23 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
-            this.pbDelete.Enabled = false;
             this.pbBack.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtThanhPho
+            //
             this.cmbRoomID.Enabled = false;
+            this.cmbCMND.Enabled = false;
         }
 
         private void pbCancel_Click(object sender, EventArgs e)
         {
             // Xóa trống các đối tượng trong Panel 
             this.cmbRoomID.ResetText();
-            this.cmbRoomID.ResetText();
+            this.cmbCMND.ResetText();
             this.dtpDateIn.ResetText();
             this.dtpDateOut.ResetText();
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
-            this.pbDelete.Enabled = true;
             this.pbBack.Enabled = true;
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Hide();
@@ -219,7 +217,6 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
                 this.pbAdd.Enabled = true;
                 this.pbEdit.Enabled = true;
-                this.pbDelete.Enabled = true;
                 this.pbBack.Enabled = true;
                 //
                 dgvRoom_CellClick(null, null);

@@ -41,22 +41,22 @@
             this.txtServiceName = new System.Windows.Forms.TextBox();
             this.txtServiceID = new System.Windows.Forms.TextBox();
             this.pbBack = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnInfor = new System.Windows.Forms.Panel();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.pnCom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             this.SuspendLayout();
@@ -173,18 +173,18 @@
             this.pbBack.TabStop = false;
             this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
-            // panel2
+            // pnInfor
             // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.txtPrice);
-            this.panel2.Controls.Add(this.txtServiceID);
-            this.panel2.Controls.Add(this.txtServiceName);
-            this.panel2.Location = new System.Drawing.Point(119, 249);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(431, 183);
-            this.panel2.TabIndex = 39;
+            this.pnInfor.Controls.Add(this.label2);
+            this.pnInfor.Controls.Add(this.label3);
+            this.pnInfor.Controls.Add(this.label4);
+            this.pnInfor.Controls.Add(this.txtPrice);
+            this.pnInfor.Controls.Add(this.txtServiceID);
+            this.pnInfor.Controls.Add(this.txtServiceName);
+            this.pnInfor.Location = new System.Drawing.Point(119, 249);
+            this.pnInfor.Name = "pnInfor";
+            this.pnInfor.Size = new System.Drawing.Size(431, 183);
+            this.pnInfor.TabIndex = 39;
             // 
             // pbAdd
             // 
@@ -216,15 +216,16 @@
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEdit.TabIndex = 94;
             this.pbEdit.TabStop = false;
+            this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
             // 
-            // panel3
+            // pnCom
             // 
-            this.panel3.Controls.Add(this.pbCancel);
-            this.panel3.Controls.Add(this.pbSave);
-            this.panel3.Location = new System.Drawing.Point(432, 487);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(148, 67);
-            this.panel3.TabIndex = 102;
+            this.pnCom.Controls.Add(this.pbCancel);
+            this.pnCom.Controls.Add(this.pbSave);
+            this.pnCom.Location = new System.Drawing.Point(432, 487);
+            this.pnCom.Name = "pnCom";
+            this.pnCom.Size = new System.Drawing.Size(148, 67);
+            this.pnCom.TabIndex = 102;
             // 
             // pbCancel
             // 
@@ -235,6 +236,7 @@
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCancel.TabIndex = 98;
             this.pbCancel.TabStop = false;
+            this.pbCancel.Click += new System.EventHandler(this.pbCancel_Click);
             // 
             // pbSave
             // 
@@ -245,14 +247,15 @@
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSave.TabIndex = 97;
             this.pbSave.TabStop = false;
+            this.pbSave.Click += new System.EventHandler(this.pbSave_Click);
             // 
             // FrmService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnCom);
+            this.Controls.Add(this.pnInfor);
             this.Controls.Add(this.pbBack);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.pbDelete);
@@ -271,12 +274,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnInfor.ResumeLayout(false);
+            this.pnInfor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
-            this.panel3.ResumeLayout(false);
+            this.pnCom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             this.ResumeLayout(false);
@@ -298,11 +301,11 @@
         private System.Windows.Forms.TextBox txtServiceName;
         private System.Windows.Forms.TextBox txtServiceID;
         private System.Windows.Forms.PictureBox pbBack;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnInfor;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbDelete;
         private System.Windows.Forms.PictureBox pbEdit;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnCom;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
     }

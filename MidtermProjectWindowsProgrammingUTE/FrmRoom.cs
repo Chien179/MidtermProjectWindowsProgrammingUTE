@@ -16,45 +16,14 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             LoadData();
         }
+
         DataTable dtRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         string err;
         BLRoom dbRoom = new BLRoom();       
-        void LoadData()
-        {
-            try
-            {
-                dtRoom = new DataTable();
-                dtRoom.Clear();
-                DataSet ds = dbRoom.GetRoom();
-                dtRoom = ds.Tables[0];
-                // Đưa dữ liệu lên DataGridView
-                dgvRoom.DataSource = dtRoom;
-                // Thay đổi độ rộng cột
-                dgvRoom.AutoResizeColumns();
-                // Xóa trống các đối tượng trong Panel
-                this.txtRoomID.ResetText();
-                this.txtRoomType.ResetText();
-
-                // Không cho thao tác trên các nút Lưu / Hủy
-                this.pbSave.Enabled = false;
-                //this.pbCancel.Enabled = false;
-                //this.panel.Enabled = false;
-
-                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
-                this.pbAdd.Enabled = true;
-                this.pbEdit.Enabled = true;
-                this.pbDelete.Enabled = true;
-                this.pbBack.Enabled = true;
-                //
-                dgvRoom_CellClick(null, null);
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Cannot get data from table 'Phong' !");
-            }
-        }
+        
+        #region Events Click
         private void pbAdd_Click(object sender, EventArgs e)
         {
             // Kich hoạt biến Them
@@ -63,16 +32,17 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtRoomID.ResetText();
             this.txtRoomType.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
+            this.pbSave.Show();
+            this.pbCancel.Show();
             this.pbSave.Enabled = true;
-            //this.btnHuyBo.Enabled = true;
-            //this.panel.Enabled = true;
+            this.pbCancel.Enabled = true;
+            this.pnInfor.Enabled = true;
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
+            this.pbBack.Enabled = false;
             this.pbDelete.Enabled = false;
-            //this.pbExit.Enabled = false;
-
-            // Đưa con trỏ đến TextField txtRoom
+            // Đưa con trỏ đến TextField txtRoomID
             this.txtRoomID.Focus();
         }
 
@@ -124,9 +94,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbBack_Click(object sender, EventArgs e)
         {
-            FrmMain f = new FrmMain();
-            f.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnUseRoom_Click(object sender, EventArgs e)
@@ -134,5 +102,86 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmUseRoom f = new FrmUseRoom();
             f.ShowDialog();
         }
+
+        private void pbCancel_Click(object sender, EventArgs e)
+        {
+            // Xóa trống các đối tượng trong Panel 
+            this.txtRoomID.ResetText();
+            this.txtRoomType.ResetText();
+            // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
+            this.pbAdd.Enabled = true;
+            this.pbEdit.Enabled = true;
+            this.pbBack.Enabled = true;
+            this.pbDelete.Enabled = true;
+            // Không cho thao tác trên các nút Lưu / Hủy / Panel
+            this.pbSave.Hide();
+            this.pbCancel.Hide();
+            this.pbSave.Enabled = false;
+            this.pbCancel.Enabled = false;
+            // Không cho thao tác trên các ô thông tin
+            this.pnInfor.Enabled = false;
+            dgvRoom_CellClick(null, null);
+        }
+
+        private void pbEdit_Click(object sender, EventArgs e)
+        {
+            // Kich hoạt biến Them
+            Them = false;
+            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            this.pbSave.Show();
+            this.pbCancel.Show();
+            this.pbSave.Enabled = true;
+            this.pbCancel.Enabled = true;
+            this.pnInfor.Enabled = true;
+            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            this.pbAdd.Enabled = false;
+            this.pbEdit.Enabled = false;
+            this.pbBack.Enabled = false;
+            this.pbDelete.Enabled = false;
+            //
+            this.txtRoomID.Enabled = false;
+        }
+        #endregion
+
+        #region Functions
+        void LoadData()
+        {
+            try
+            {
+                dtRoom = new DataTable();
+                dtRoom.Clear();
+                DataSet ds = dbRoom.GetRoom();
+                dtRoom = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView
+                dgvRoom.DataSource = dtRoom;
+                // Thay đổi độ rộng cột
+                dgvRoom.AutoResizeColumns();
+                // Xóa trống các đối tượng trong Panel
+                this.txtRoomID.ResetText();
+                this.txtRoomType.ResetText();
+
+
+                // Không cho thao tác trên các nút Lưu / Hủy
+                this.pbSave.Enabled = false;
+                this.pbCancel.Enabled = false;
+                this.pbSave.Hide();
+                this.pbCancel.Hide();
+                // Không cho thao tác trên các ô thông tin
+                this.pnInfor.Enabled = false;
+
+                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
+                this.pbAdd.Enabled = true;
+                this.pbEdit.Enabled = true;
+                this.pbDelete.Enabled = true;
+                this.pbBack.Enabled = true;
+                //
+                dgvRoom_CellClick(null, null);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Cannot get data from table 'Phong' !");
+            }
+        }
+        #endregion
     }
 }

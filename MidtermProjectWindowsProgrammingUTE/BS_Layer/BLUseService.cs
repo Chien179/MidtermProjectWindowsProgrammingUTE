@@ -10,16 +10,16 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
         {
             db = new DBMain();
         }
-        public DataSet GetUseSerVice()
+        public DataSet GetUseService()
         {
             return db.ExecuteQueryDataSet("select * from SuDungDichVu", CommandType.Text);
         }
-        public bool AddUseSerVice(string MaPhong, string MaDV, string NgaySuDung, string SoLuong, ref string err)
+        public bool AddUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)
         {
             string sqlString = "Insert Into SuDungDichVu Values('" + MaPhong + "','" + MaDV + "','" + NgaySuDung + "','" + SoLuong + ")";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
-        public bool UpdateUseSerVice(string MaPhong, string MaDV, string NgaySuDung, string SoLuong, ref string err)
+        public bool UpdateUseService(string MaPhong, string MaDV, string NgaySuDung, string SoLuong, ref string err)
         {
             string sqlString = "Update  Set NgaySuDung = '" +NgaySuDung + "',SoLuong='" + SoLuong + "Where MaPhong='" + MaPhong + "' and MaDV='" + MaDV + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);

@@ -28,48 +28,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             LoadData();
         }
         #endregion
-
-        void LoadData()
-        {
-            try
-            {
-                dtPurchase = new DataTable();
-                dtRoom = new DataTable();
-                dtPurchase.Clear();
-                dtRoom.Clear();
-                DataSet ds = dbPurchase.GetPurchase();
-                DataSet dsroom = dbRoom.GetRoom();
-                dtPurchase = ds.Tables[0];
-                dtRoom = dsroom.Tables[0];
-                // Đưa dữ liệu lên DataGridView
-                dgvPurchase.DataSource = dtPurchase;
-                // Thay đổi độ rộng cột
-                dgvPurchase.AutoResizeColumns();
-                // Xóa trống các đối tượng trong Panel
-                this.txtPurchaseID.ResetText();
-                this.cmbRoomID.ResetText();
-                this.txtTotal.ResetText();
-                this.dtpPurchaseDate.ResetText();
-                // Không cho thao tác trên các nút Lưu / Hủy
-                this.pbSave.Enabled = false;
-
-                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
-                this.pbAdd.Enabled = true;
-                this.pbEdit.Enabled = true;
-                this.pbDelete.Enabled = true;
-                this.pbBack.Enabled = true;
-                //Đưa dữ liệu mã phòng lên combobox
-                this.cmbRoomID.DataSource = dtRoom;
-                this.cmbRoomID.DisplayMember = dtRoom.Columns[0].ToString();
-                this.cmbRoomID.ValueMember= dtRoom.Columns[0].ToString();
-
-                dgvPurchase_CellClick(null, null);
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Cannot get data from table 'ThanhToan' !");
-            }
-        }
+     
+        #region Events Click
         private void pbAdd_Click(object sender, EventArgs e)
         {
             // Kich hoạt biến Them
@@ -78,15 +38,17 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtPurchaseID.ResetText();
             this.txtTotal.ResetText();
             this.cmbRoomID.ResetText();
+            this.dtpPurchaseDate.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
+            this.pbSave.Show();
+            this.pbCancel.Show();
             this.pbSave.Enabled = true;
+            this.pbCancel.Enabled = true;
+            this.pnInfor.Enabled = true;
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
-            this.pbDelete.Enabled = false;
-
-            // Đưa con trỏ đến TextField txtRoom
-            this.txtPurchaseID.Focus();
+            this.pbBack.Enabled = false;
         }
 
         private void pbSave_Click(object sender, EventArgs e)
@@ -148,27 +110,27 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbBack_Click(object sender, EventArgs e)
         {
-            FrmMain f = new FrmMain();
-            f.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void pbEdit_Click(object sender, EventArgs e)
         {
-            // Kích hoạt biến Sửa 
+            // Kich hoạt biến Them
             Them = false;
-            // Cho phép thao tác trên Panel 
-            dgvPurchase_CellClick(null, null);
-            // Cho thao tác trên các nút Lưu / Hủy / Panel 
+            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            this.pbSave.Show();
+            this.pbCancel.Show();
             this.pbSave.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát 
+            this.pbCancel.Enabled = true;
+            this.pnInfor.Enabled = true;
+            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
-            this.pbDelete.Enabled = false;
             this.pbBack.Enabled = false;
-            // Đưa con trỏ đến TextField txtMaKH 
+
+            // Đưa con trỏ đến TextField txtPurchase
             this.txtPurchaseID.Enabled = false;
-            this.txtTotal.Focus();
+            this.cmbRoomID.Focus();
         }
 
         private void pbBill_Click(object sender, EventArgs e)
@@ -187,5 +149,105 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Load lại dữ liệu trên DataGridView
             LoadData();
         }
+
+        private void pbCancel_Click(object sender, EventArgs e)
+        {
+            // Xóa trống các đối tượng trong Panel 
+            this.txtPurchaseID.ResetText();
+            this.txtTotal.ResetText();
+            this.cmbRoomID.ResetText();
+            this.dtpPurchaseDate.ResetText();
+            // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
+            this.pbAdd.Enabled = true;
+            this.pbEdit.Enabled = true;
+            this.pbBack.Enabled = true;
+            // Không cho thao tác trên các nút Lưu / Hủy / Panel
+            this.pbSave.Hide();
+            this.pbCancel.Hide();
+            this.pbSave.Enabled = false;
+            this.pbCancel.Enabled = false;
+            // Không cho thao tác trên các ô thông tin
+            this.pnInfor.Enabled = false;
+            dgvPurchase_CellClick(null, null);
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+        #endregion
+
+        #region Other Events
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+            Search();
+        }
+        #endregion
+
+        #region Functions
+        void LoadData()
+        {
+            try
+            {
+                dtPurchase = new DataTable();
+                dtRoom = new DataTable();
+                dtPurchase.Clear();
+                dtRoom.Clear();
+                DataSet ds = dbPurchase.GetPurchase();
+                DataSet dsroom = dbRoom.GetRoom();
+                dtPurchase = ds.Tables[0];
+                dtRoom = dsroom.Tables[0];
+                // Đưa dữ liệu lên DataGridView
+                dgvPurchase.DataSource = dtPurchase;
+                // Thay đổi độ rộng cột
+                dgvPurchase.AutoResizeColumns();
+                // Xóa trống các đối tượng trong Panel
+                this.txtPurchaseID.ResetText();
+                this.cmbRoomID.ResetText();
+                this.txtTotal.ResetText();
+                this.dtpPurchaseDate.ResetText();
+                // Không cho thao tác trên các nút Lưu / Hủy
+                this.pbSave.Enabled = false;
+                this.pbCancel.Enabled = false;
+                this.pbSave.Hide();
+                this.pbCancel.Hide();
+                // Không cho thao tác trên các ô thông tin
+                this.pnInfor.Enabled = false;
+
+                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
+                this.pbAdd.Enabled = true;
+                this.pbEdit.Enabled = true;
+                this.pbBack.Enabled = true;
+                //Đưa dữ liệu mã phòng lên combobox
+                this.cmbRoomID.DataSource = dtRoom;
+                this.cmbRoomID.DisplayMember = dtRoom.Columns[0].ToString();
+                this.cmbRoomID.ValueMember = dtRoom.Columns[0].ToString();
+
+                dgvPurchase_CellClick(null, null);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Cannot get data from table 'ThanhToan' !");
+            }
+        }
+        private void Search()
+        {
+            if (this.txtFind.Text == "")
+            {
+                LoadData();
+            }
+            else
+            {
+                dtPurchase = new DataTable();
+                dtPurchase.Clear();
+                string key = this.txtFind.Text;
+                DataSet dsPurchase = dbPurchase.SearchPurchase(key);
+                dtPurchase = dsPurchase.Tables[0];
+                // Đưa dữ liệu lên DataGridView
+                dgvPurchase.DataSource = dtPurchase;
+                // Thay đổi độ rộng cột
+                dgvPurchase.AutoResizeColumns();
+            }
+        }
+        #endregion
     }
 }

@@ -29,7 +29,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
         {
             float Bill = 0;
 
-            DataSet SoNgay= db.ExecuteQueryDataSet("Select Max(DateDiff(Day,NgayVao,NgayRa)) From ThuePhong Where MaPhong='" + MaPhong + "'", CommandType.Text);
+            DataSet SoNgay = db.ExecuteQueryDataSet("Select Max(DateDiff(Day,NgayVao,NgayRa)) From ThuePhong Where MaPhong='" + MaPhong + "'", CommandType.Text);
             DataSet Maloai = db.ExecuteQueryDataSet("Select MaLoai From Phong Where MaPhong='" + MaPhong + "'", CommandType.Text);
             DataSet MaDV = db.ExecuteQueryDataSet("Select MaDV,SoLuong From SuDungDichVu Where MaPhong='" + MaPhong + "'", CommandType.Text);
             DataSet GiaThue = db.ExecuteQueryDataSet("Select GiaThue From LoaiPhong Where MaLoai='" + Maloai.Tables[0].Rows[0][0].ToString() + "'", CommandType.Text);
@@ -59,6 +59,11 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             }
 
             return Bill + float.Parse(GiaThue.Tables[0].Rows[0][0].ToString()) * float.Parse(SoNgay.Tables[0].Rows[0][0].ToString());
+        }
+        public DataSet SearchPurchase(string key)
+        {
+            string sqlString = "Select * From Purchase Where MaThanhToan Like'%" + key + "%'or ThanhTien Like N'%" + key + "%'or NgayThanhToan Like N'%" + key + "%'or MaPhong Like '%" + key + "%'";
+            return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
     }
 }

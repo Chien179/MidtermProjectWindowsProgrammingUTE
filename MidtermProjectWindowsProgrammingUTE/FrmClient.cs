@@ -47,10 +47,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
-            this.pbDelete.Enabled = false;
             this.pbBack.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtThanhPho
+            // 
             this.txtID.Focus();
         }
 
@@ -116,7 +115,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
-            this.pbDelete.Enabled = false;
             this.pbBack.Enabled = false;
 
             // Đưa con trỏ đến TextField txtThanhPho
@@ -134,7 +132,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
-            this.pbDelete.Enabled = true;
             this.pbBack.Enabled = true;
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Hide();
@@ -216,16 +213,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             ButtonColorChanged_Leave("edit_Client.png", this.pbEdit);
         }
 
-        private void pbDelete_MouseEnter(object sender, EventArgs e)
-        {
-            ButtonColorChanged_Enter("delete_Client_blue.png", this.pbDelete);
-        }
-
-        private void pbDelete_MouseLeave(object sender, EventArgs e)
-        {
-            ButtonColorChanged_Leave("delete_Client.png", this.pbDelete);
-        }
-
         private void pbSave_MouseEnter(object sender, EventArgs e)
         {
             ButtonColorChanged_Enter("save_blue.png", this.pbSave);
@@ -284,7 +271,6 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
                 this.pbAdd.Enabled = true;
                 this.pbEdit.Enabled = true;
-                this.pbDelete.Enabled = true;
                 this.pbBack.Enabled = true;
                 //
                 dgvClient_CellClick(null, null);
