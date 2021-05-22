@@ -29,6 +29,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
         {
             float Bill = 0;
 
+            DataSet SoNgay= db.ExecuteQueryDataSet("Select Max(DateDiff(Day,NgayVao,NgayRa)) From ThuePhong Where MaPhong='" + MaPhong + "'", CommandType.Text);
             DataSet Maloai = db.ExecuteQueryDataSet("Select MaLoai From Phong Where MaPhong='" + MaPhong + "'", CommandType.Text);
             DataSet MaDV = db.ExecuteQueryDataSet("Select MaDV,SoLuong From SuDungDichVu Where MaPhong='" + MaPhong + "'", CommandType.Text);
             DataSet GiaThue = db.ExecuteQueryDataSet("Select GiaThue From LoaiPhong Where MaLoai='" + Maloai.Tables[0].Rows[0][0].ToString() + "'", CommandType.Text);
@@ -57,7 +58,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
                 Bill += float.Parse(AGiaTien[i]) * float.Parse(ASoLuong[i]);
             }
 
-            return Bill + float.Parse(GiaThue.Tables[0].Rows[0][0].ToString());
+            return Bill + float.Parse(GiaThue.Tables[0].Rows[0][0].ToString()) * float.Parse(SoNgay.Tables[0].Rows[0][0].ToString());
         }
     }
 }
