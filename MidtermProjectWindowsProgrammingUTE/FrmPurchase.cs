@@ -173,7 +173,19 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbBill_Click(object sender, EventArgs e)
         {
+            // Lấy thứ tự record hiện hành 
+            int r =dgvPurchase.CurrentCell.RowIndex;
+            // Lấy MaPhong của record hiện hành 
+            string str = dgvPurchase.Rows[r].Cells[3].Value.ToString();
+            float Total = dbPurchase.Bill(str);
 
+            //Hiển thị số tiền phải thanh toán lên màn hình
+            MessageBox.Show( Total.ToString());
+            
+            //Thực hiện lệnh
+            dbPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
+            // Load lại dữ liệu trên DataGridView
+            LoadData();
         }
     }
 }

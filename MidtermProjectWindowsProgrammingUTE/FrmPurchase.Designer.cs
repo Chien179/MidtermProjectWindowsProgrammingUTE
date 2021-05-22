@@ -70,7 +70,7 @@
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1713, 177);
             this.panel1.TabIndex = 1;
@@ -90,7 +90,7 @@
             // 
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtFind.Location = new System.Drawing.Point(905, 242);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(288, 37);
             this.txtFind.TabIndex = 22;
@@ -110,7 +110,7 @@
             // 
             this.dgvPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPurchase.Location = new System.Drawing.Point(905, 308);
-            this.dgvPurchase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPurchase.Name = "dgvPurchase";
             this.dgvPurchase.RowHeadersWidth = 51;
             this.dgvPurchase.Size = new System.Drawing.Size(791, 421);
@@ -154,7 +154,7 @@
             // 
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtTotal.Location = new System.Drawing.Point(240, 70);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(233, 36);
             this.txtTotal.TabIndex = 30;
@@ -163,7 +163,7 @@
             // 
             this.txtPurchaseID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtPurchaseID.Location = new System.Drawing.Point(240, 6);
-            this.txtPurchaseID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPurchaseID.Margin = new System.Windows.Forms.Padding(4);
             this.txtPurchaseID.Name = "txtPurchaseID";
             this.txtPurchaseID.Size = new System.Drawing.Size(132, 36);
             this.txtPurchaseID.TabIndex = 29;
@@ -173,7 +173,7 @@
             this.dtpPurchaseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpPurchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpPurchaseDate.Location = new System.Drawing.Point(240, 198);
-            this.dtpPurchaseDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpPurchaseDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpPurchaseDate.Name = "dtpPurchaseDate";
             this.dtpPurchaseDate.Size = new System.Drawing.Size(233, 36);
             this.dtpPurchaseDate.TabIndex = 32;
@@ -182,7 +182,7 @@
             // 
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
             this.pbBack.Location = new System.Drawing.Point(16, 186);
-            this.pbBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbBack.Margin = new System.Windows.Forms.Padding(4);
             this.pbBack.Name = "pbBack";
             this.pbBack.Size = new System.Drawing.Size(64, 48);
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -194,7 +194,7 @@
             // 
             this.pbBill.Image = ((System.Drawing.Image)(resources.GetObject("pbBill.Image")));
             this.pbBill.Location = new System.Drawing.Point(1632, 226);
-            this.pbBill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbBill.Margin = new System.Windows.Forms.Padding(4);
             this.pbBill.Name = "pbBill";
             this.pbBill.Size = new System.Drawing.Size(64, 54);
             this.pbBill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -233,7 +233,7 @@
             this.panel2.Controls.Add(this.txtTotal);
             this.panel2.Controls.Add(this.dtpPurchaseDate);
             this.panel2.Location = new System.Drawing.Point(179, 308);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(527, 249);
             this.panel2.TabIndex = 42;
@@ -242,7 +242,7 @@
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
             this.pbAdd.Location = new System.Drawing.Point(172, 613);
-            this.pbAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pbAdd.Name = "pbAdd";
             this.pbAdd.Size = new System.Drawing.Size(80, 71);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -254,7 +254,7 @@
             // 
             this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
             this.pbDelete.Location = new System.Drawing.Point(391, 613);
-            this.pbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(4);
             this.pbDelete.Name = "pbDelete";
             this.pbDelete.Size = new System.Drawing.Size(80, 71);
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -265,7 +265,7 @@
             // 
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
             this.pbEdit.Location = new System.Drawing.Point(281, 613);
-            this.pbEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbEdit.Margin = new System.Windows.Forms.Padding(4);
             this.pbEdit.Name = "pbEdit";
             this.pbEdit.Size = new System.Drawing.Size(80, 71);
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -275,11 +275,11 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.BackColor = System.Drawing.SystemColors.Control;
             this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Location = new System.Drawing.Point(1203, 242);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(56, 46);
             this.btnSearch.TabIndex = 99;
@@ -290,7 +290,7 @@
             this.panel3.Controls.Add(this.pbCancel);
             this.panel3.Controls.Add(this.pbSave);
             this.panel3.Location = new System.Drawing.Point(584, 613);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(197, 82);
             this.panel3.TabIndex = 102;
@@ -299,7 +299,7 @@
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
             this.pbCancel.Location = new System.Drawing.Point(113, 4);
-            this.pbCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCancel.Margin = new System.Windows.Forms.Padding(4);
             this.pbCancel.Name = "pbCancel";
             this.pbCancel.Size = new System.Drawing.Size(80, 71);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -310,7 +310,7 @@
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
             this.pbSave.Location = new System.Drawing.Point(4, 4);
-            this.pbSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbSave.Margin = new System.Windows.Forms.Padding(4);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(80, 71);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -335,7 +335,7 @@
             this.Controls.Add(this.dgvPurchase);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPurchase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purchase";

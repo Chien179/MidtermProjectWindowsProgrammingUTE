@@ -31,8 +31,28 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public bool DeleteClient(ref string err, string CMND)
         {
+            DataSet dsMaPhong = db.ExecuteQueryDataSet("Select MaPhong From ThuePhong Where CMND='" + CMND + "'",CommandType.Text);
+
+            string[] MaPhong = new string[dsMaPhong.Tables[0].Rows.Count];
+
+            for (int i = 0; i < dsMaPhong.Tables[0].Rows.Count; i++)
+            {
+                MaPhong[i] = dsMaPhong.Tables[0].Rows[i][0].ToString();
+            }
+
             string sqlString = "Delete From ThuePhong Where CMND='" + CMND + "'";
             db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+
+            for (int i = 0; i < dsMaPhong.Tables[0].Rows.Count; i++)
+            {
+                sqlString = "Delete From ThanhToan Where MaPhong='" + MaPhong[i] + "'";
+                db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+                sqlString = "Delete From SuDungDichVu Where MaPhong='" + MaPhong[i] + "'";
+                db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+                sqlString = "Update Phong Set TrangThai=" + 0 + " Where MaPhong='" + MaPhong[i] + "'";
+                db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+            }
+            
             sqlString = "Delete From KhachHang Where CMND='" + CMND + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
