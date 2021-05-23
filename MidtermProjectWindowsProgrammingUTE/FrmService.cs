@@ -189,5 +189,11 @@ namespace MidtermProjectWindowsProgrammingUTE
         }
 
         #endregion
+
+        private void btnUseService_Click(object sender, EventArgs e)
+        {
+            FrmUseService f = new FrmUseService();
+            f.ShowDialog();
+        }
     }
 }

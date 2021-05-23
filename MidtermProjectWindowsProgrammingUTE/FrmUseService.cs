@@ -10,10 +10,14 @@ namespace MidtermProjectWindowsProgrammingUTE
     {
         #region Properties
         DataTable dtUseService = null;
+        DataTable dtClient = null;
+        DataTable dtRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         string err;
         BLUseService dbUseService = new BLUseService();
+        BLClient dbCLient = new BLClient();
+        BLRoom dbRoom = new BLRoom();
         #endregion
 
         #region Constructors
@@ -158,9 +162,21 @@ namespace MidtermProjectWindowsProgrammingUTE
             try
             {
                 dtUseService = new DataTable();
+                dtRoom = new DataTable();
+                dtClient = new DataTable();
+
                 dtUseService.Clear();
+                dtRoom.Clear();
+                dtClient.Clear();
+
                 DataSet ds = dbUseService.GetUseService();
                 dtUseService = ds.Tables[0];
+
+                DataSet dsRoom = dbRoom.GetRoom();
+                dtRoom = dsRoom.Tables[0];
+
+                DataSet dsClient = dbCLient.GetClient();
+                dtClient = dsClient.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvUseService.DataSource = dtUseService;
                 // Thay đổi độ rộng cột
@@ -183,7 +199,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbEdit.Enabled = true;
                 this.pbDelete.Enabled = true;
                 this.pbBack.Enabled = true;
-                //
+                //đẩy dữ liệu lên cmb RoomID và CMND
+                this.cmbRoomID.DataSource = dtRoom;
+                this.cmbRoomID.DisplayMember = dtRoom.Columns[0].ToString();
+                this.cmbRoomID.ValueMember = dtRoom.Columns[0].ToString();
+
+                this.cmbCMND.DataSource = dtClient;
+                this.cmbCMND.DisplayMember = dtClient.Columns[0].ToString();
+                this.cmbCMND.ValueMember = dtClient.Columns[0].ToString();
                 dgvUseService_CellClick(null, null);
             }
             catch (SqlException)
