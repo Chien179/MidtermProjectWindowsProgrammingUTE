@@ -45,6 +45,9 @@
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.pnInfor = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
+            this.cbFemale = new System.Windows.Forms.CheckBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
@@ -209,6 +212,9 @@
             // 
             // pnInfor
             // 
+            this.pnInfor.Controls.Add(this.label6);
+            this.pnInfor.Controls.Add(this.dtpBirthDate);
+            this.pnInfor.Controls.Add(this.cbFemale);
             this.pnInfor.Controls.Add(this.label2);
             this.pnInfor.Controls.Add(this.label3);
             this.pnInfor.Controls.Add(this.label4);
@@ -217,10 +223,40 @@
             this.pnInfor.Controls.Add(this.txtAddress);
             this.pnInfor.Controls.Add(this.txtName);
             this.pnInfor.Controls.Add(this.txtPhoneNumber);
-            this.pnInfor.Location = new System.Drawing.Point(134, 251);
+            this.pnInfor.Location = new System.Drawing.Point(137, 220);
             this.pnInfor.Name = "pnInfor";
-            this.pnInfor.Size = new System.Drawing.Size(404, 205);
+            this.pnInfor.Size = new System.Drawing.Size(508, 248);
             this.pnInfor.TabIndex = 30;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label6.Location = new System.Drawing.Point(20, 211);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 25);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "BirthDate";
+            // 
+            // dtpBirthDate
+            // 
+            this.dtpBirthDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBirthDate.Location = new System.Drawing.Point(198, 214);
+            this.dtpBirthDate.Name = "dtpBirthDate";
+            this.dtpBirthDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpBirthDate.TabIndex = 22;
+            // 
+            // cbFemale
+            // 
+            this.cbFemale.AutoSize = true;
+            this.cbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbFemale.Location = new System.Drawing.Point(409, 64);
+            this.cbFemale.Name = "cbFemale";
+            this.cbFemale.Size = new System.Drawing.Size(96, 29);
+            this.cbFemale.TabIndex = 21;
+            this.cbFemale.Text = "Female";
+            this.cbFemale.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
@@ -326,5 +362,8 @@
         private System.Windows.Forms.Panel pnCom;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
+        private System.Windows.Forms.CheckBox cbFemale;
+        private System.Windows.Forms.DateTimePicker dtpBirthDate;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -14,14 +14,14 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
         {
             return db.ExecuteQueryDataSet("select * from LoaiPhong", CommandType.Text);
         }
-        public bool AddTypeRoom(string MaLoai, string TenLoai, string GhiChu, string DienTich, float GiaThue, ref string err)
+        public bool AddTypeRoom(string MaLoai, string TenLoai,  ref string err)
         {
-            string sqlString = "Insert Into Phong Values('" + MaLoai + "','" + TenLoai + "','" + GhiChu + "','" + DienTich + "'," + GiaThue + ")";
+            string sqlString = "Insert Into Phong Values('" + MaLoai + "','" + TenLoai + ")";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
-        public bool UpdateTypeRoom(string MaLoai, string TenLoai, string GhiChu, string DienTich, float GiaThue, ref string err)
+        public bool UpdateTypeRoom(string MaLoai, string TenLoai,  ref string err)
         {
-            string sqlString = "Update Phong Set TenLoai = '" + TenLoai + "',GhiChu='" + GhiChu + "',DienTich='" + DienTich + "',GiaThue=" + GiaThue + "Where MaLoai='" + MaLoai + "'";
+            string sqlString = "Update Phong Set TenLoai = '" + TenLoai +  "Where MaLoai='" + MaLoai + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
     }

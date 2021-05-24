@@ -37,9 +37,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Xóa trống các đối tượng trong Panel
             this.txtRoomType.ResetText();
             this.txtNameType.ResetText();
-            this.txtArea.ResetText();
-            this.cmbNote.ResetText();
-            this.txtPrice.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
             this.pbCancel.Show();
@@ -67,7 +64,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLTypeRoom blTypeRoom = new BLTypeRoom();
-                    blTypeRoom.AddTypeRoom(this.txtRoomType.Text, this.txtNameType.Text, this.cmbNote.Text,this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
+                    blTypeRoom.AddTypeRoom(this.txtRoomType.Text, this.txtNameType.Text,  ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -82,7 +79,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLTypeRoom blTypeRoom = new BLTypeRoom();
-                blTypeRoom.UpdateTypeRoom(this.txtRoomType.Text, this.txtNameType.Text, this.cmbNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
+                blTypeRoom.UpdateTypeRoom(this.txtRoomType.Text, this.txtNameType.Text,  ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -104,23 +101,14 @@ namespace MidtermProjectWindowsProgrammingUTE
             dgvRoom.Rows[r].Cells[0].Value.ToString();
             this.txtNameType.Text =
             dgvRoom.Rows[r].Cells[1].Value.ToString();
-            this.txtArea.Text =
-            dgvRoom.Rows[r].Cells[2].Value.ToString();
-            this.cmbNote.Text =
-            dgvRoom.Rows[r].Cells[3].Value.ToString(); 
-            this.txtPrice.Text =
-             dgvRoom.Rows[r].Cells[4].Value.ToString();
 
         }
 
         private void pbCancel_Click(object sender, EventArgs e)
         {
             // Xóa trống các đối tượng trong Panel 
-            this.txtArea.ResetText();
-            this.txtNameType.ResetText();
-            this.txtPrice.ResetText();
             this.txtRoomType.ResetText();
-            this.cmbNote.ResetText();
+            this.txtNameType.ResetText();
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
@@ -172,9 +160,6 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Xóa trống các đối tượng trong Panel
                 this.txtRoomType.ResetText();
                 this.txtNameType.ResetText();
-                this.txtArea.ResetText();
-                this.cmbNote.ResetText();
-                this.txtPrice.ResetText();
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
                 this.pbCancel.Enabled = false;

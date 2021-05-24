@@ -32,17 +32,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTypeRoom));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtNameType = new System.Windows.Forms.TextBox();
-            this.cmbNote = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvRoom = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtArea = new System.Windows.Forms.TextBox();
             this.txtRoomType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pbCancel = new System.Windows.Forms.PictureBox();
@@ -84,24 +78,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label1.TabIndex = 0;
             this.label1.Text = "Type Room";
             // 
-            // txtPrice
-            // 
-            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtPrice.Location = new System.Drawing.Point(161, 199);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(176, 30);
-            this.txtPrice.TabIndex = 50;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(21, 204);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 25);
-            this.label6.TabIndex = 49;
-            this.label6.Text = "Price:";
-            // 
             // txtNameType
             // 
             this.txtNameType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -109,35 +85,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtNameType.Name = "txtNameType";
             this.txtNameType.Size = new System.Drawing.Size(176, 30);
             this.txtNameType.TabIndex = 48;
-            // 
-            // cmbNote
-            // 
-            this.cmbNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbNote.FormattingEnabled = true;
-            this.cmbNote.Location = new System.Drawing.Point(161, 154);
-            this.cmbNote.Name = "cmbNote";
-            this.cmbNote.Size = new System.Drawing.Size(121, 32);
-            this.cmbNote.TabIndex = 47;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(21, 161);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 25);
-            this.label5.TabIndex = 46;
-            this.label5.Text = "Note:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(21, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 25);
-            this.label4.TabIndex = 45;
-            this.label4.Text = "Area:";
             // 
             // pbBack
             // 
@@ -177,14 +124,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label2.Size = new System.Drawing.Size(128, 25);
             this.label2.TabIndex = 59;
             this.label2.Text = "Name Type:";
-            // 
-            // txtArea
-            // 
-            this.txtArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtArea.Location = new System.Drawing.Point(161, 106);
-            this.txtArea.Name = "txtArea";
-            this.txtArea.Size = new System.Drawing.Size(176, 30);
-            this.txtArea.TabIndex = 60;
             // 
             // txtRoomType
             // 
@@ -261,18 +200,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pnInfor
             // 
             this.pnInfor.Controls.Add(this.label3);
-            this.pnInfor.Controls.Add(this.label4);
-            this.pnInfor.Controls.Add(this.label5);
-            this.pnInfor.Controls.Add(this.cmbNote);
             this.pnInfor.Controls.Add(this.txtNameType);
-            this.pnInfor.Controls.Add(this.label6);
             this.pnInfor.Controls.Add(this.txtRoomType);
-            this.pnInfor.Controls.Add(this.txtPrice);
             this.pnInfor.Controls.Add(this.label2);
-            this.pnInfor.Controls.Add(this.txtArea);
             this.pnInfor.Location = new System.Drawing.Point(117, 231);
             this.pnInfor.Name = "pnInfor";
-            this.pnInfor.Size = new System.Drawing.Size(463, 242);
+            this.pnInfor.Size = new System.Drawing.Size(463, 123);
             this.pnInfor.TabIndex = 99;
             // 
             // btnSearch
@@ -335,17 +268,11 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNameType;
-        private System.Windows.Forms.ComboBox cmbNote;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvRoom;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtArea;
         private System.Windows.Forms.TextBox txtRoomType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pbCancel;

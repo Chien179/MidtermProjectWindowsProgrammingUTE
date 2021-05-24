@@ -40,6 +40,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtName.ResetText();
             this.txtAddress.ResetText();
             this.txtPhoneNumber.ResetText();
+            this.dtpBirthDate.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
             this.pbCancel.Show();
@@ -65,7 +66,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLClient blClient = new BLClient();
-                    blClient.AddClient(this.txtID.Text, this.txtName.Text,this.txtAddress.Text, this.txtPhoneNumber.Text, ref err);
+                    blClient.AddClient(this.txtID.Text, this.txtName.Text,this.txtAddress.Text, this.txtPhoneNumber.Text, this.dtpBirthDate.Text, ref err);
                     // Thông báo
                     MessageBox.Show("Đã thêm xong!");
                     // Load lại dữ liệu trên DataGridView
@@ -80,7 +81,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLClient blClient = new BLClient();
-                blClient.UpdateClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, ref err);
+                blClient.UpdateClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text,this.dtpBirthDate.Text, ref err);
                 // Thông báo
                 MessageBox.Show("Đã sửa xong!");
                 // Load lại dữ liệu trên DataGridView
@@ -101,7 +102,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtAddress.Text =
             dgvClient.Rows[r].Cells[2].Value.ToString(); 
             this.txtPhoneNumber.Text =
-             dgvClient.Rows[r].Cells[3].Value.ToString();
+            dgvClient.Rows[r].Cells[3].Value.ToString();
+            ///this.cbFemale
+            this.dtpBirthDate.Text =
+            dgvClient.Rows[r].Cells[5].Value.ToString();
         }
 
         private void pbEdit_Click(object sender, EventArgs e)
@@ -131,6 +135,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtName.ResetText();
             this.txtAddress.ResetText();
             this.txtPhoneNumber.ResetText();
+            this.dtpBirthDate.ResetText();
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
@@ -261,7 +266,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.txtName.ResetText();
                 this.txtAddress.ResetText();
                 this.txtPhoneNumber.ResetText();
-
+                this.dtpBirthDate.ResetText();
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
                 this.pbCancel.Enabled = false;

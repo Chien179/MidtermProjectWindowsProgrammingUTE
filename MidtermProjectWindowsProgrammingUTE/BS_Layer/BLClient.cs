@@ -17,15 +17,15 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select * from KhachHang", CommandType.Text);
         }
 
-        public bool AddClient(string CMND, string TenKhachHang, string DiaChi, string SoDienThoai, ref string err)
+        public bool AddClient(string CMND, string TenKhachHang, string DiaChi, string SoDienThoai,string NgaySinh, ref string err)
         {
-            string sqlString = "Insert Into KhachHang Values(" + "'" + CMND + "',N'" + TenKhachHang + "',N'" + DiaChi + "','" + SoDienThoai + "')";
+            string sqlString = "Insert Into KhachHang Values(" + "'" + CMND + "',N'" + TenKhachHang + "',N'" + DiaChi + "','" + SoDienThoai + "'," + NgaySinh + ")";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool UpdateClient(string CMND, string TenKhachHang, string DiaChi, string SoDienThoai, ref string err)
+        public bool UpdateClient(string CMND, string TenKhachHang, string DiaChi, string SoDienThoai,string NgaySinh, ref string err)
         {
-            string sqlString = "Update KhachHang Set TenKH=N'" + TenKhachHang + "',DiaChi=N'" + DiaChi + "',SoDienThoai='" + SoDienThoai + "'" + "Where CMND='" + CMND + "'";
+            string sqlString = "Update KhachHang Set TenKH=N'" + TenKhachHang + "',DiaChi=N'" + DiaChi + "',SoDienThoai='" + SoDienThoai + "',NgaySinh='" + NgaySinh + "'Where CMND='" + CMND + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
