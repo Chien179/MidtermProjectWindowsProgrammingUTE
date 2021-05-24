@@ -38,6 +38,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtServiceID.ResetText();
             this.txtServiceName.ResetText();
             this.txtPrice.ResetText();
+            this.txtUnit.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
             this.pbCancel.Show();
@@ -65,7 +66,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLService blService = new BLService();
-                    blService.AddService(this.txtServiceID.Text, this.txtServiceName.Text, float.Parse(this.txtPrice.Text), ref err);
+                    blService.AddService(this.txtServiceID.Text, this.txtServiceName.Text, float.Parse(this.txtPrice.Text),this.txtUnit.Text, ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -80,7 +81,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLService blService = new BLService();
-                blService.UpdateService(this.txtServiceID.Text, this.txtServiceName.Text, float.Parse(this.txtPrice.Text), ref err);
+                blService.UpdateService(this.txtServiceID.Text, this.txtServiceName.Text, float.Parse(this.txtPrice.Text), this.txtUnit.Text, ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -104,6 +105,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             dgvService.Rows[r].Cells[1].Value.ToString();
             this.txtPrice.Text =
             dgvService.Rows[r].Cells[2].Value.ToString();
+            this.txtUnit.Text =
+            dgvService.Rows[r].Cells[3].Value.ToString();
         }
 
         private void pbEdit_Click(object sender, EventArgs e)
@@ -130,6 +133,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Xóa trống các đối tượng trong Panel 
             this.txtServiceID.ResetText();
             this.txtServiceName.ResetText();
+            this.txtUnit.ResetText();
             this.txtPrice.ResetText();
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
