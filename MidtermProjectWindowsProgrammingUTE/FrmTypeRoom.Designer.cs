@@ -36,6 +36,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvRoom = new System.Windows.Forms.DataGridView();
+            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.txtRoomType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pnInfor = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
@@ -120,6 +120,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dgvRoom.TabIndex = 52;
             this.dgvRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRoom_CellClick);
             // 
+            // RoomType
+            // 
+            this.RoomType.DataPropertyName = "MaLoai";
+            this.RoomType.HeaderText = "Room Type";
+            this.RoomType.Name = "RoomType";
+            // 
+            // NameType
+            // 
+            this.NameType.DataPropertyName = "TenLoai";
+            this.NameType.HeaderText = "Name Type";
+            this.NameType.Name = "NameType";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -158,6 +170,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbCancel.TabIndex = 98;
             this.pbCancel.TabStop = false;
             this.pbCancel.Click += new System.EventHandler(this.pbCancel_Click);
+            this.pbCancel.MouseEnter += new System.EventHandler(this.pbCancel_MouseEnter);
+            this.pbCancel.MouseLeave += new System.EventHandler(this.pbCancel_MouseLeave);
             // 
             // pbSave
             // 
@@ -169,6 +183,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.TabIndex = 97;
             this.pbSave.TabStop = false;
             this.pbSave.Click += new System.EventHandler(this.pbSave_Click);
+            this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
+            this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
             // pbAdd
             // 
@@ -180,6 +196,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbAdd.TabIndex = 96;
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
+            this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
+            this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
             // pbDelete
             // 
@@ -190,6 +208,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 95;
             this.pbDelete.TabStop = false;
+            this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
+            this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
             // pbEdit
             // 
@@ -201,6 +221,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbEdit.TabIndex = 94;
             this.pbEdit.TabStop = false;
             this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
+            this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
+            this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
             // pnInfor
             // 
@@ -233,18 +255,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel3.Size = new System.Drawing.Size(148, 67);
             this.panel3.TabIndex = 101;
             // 
-            // RoomType
-            // 
-            this.RoomType.DataPropertyName = "MaLoai";
-            this.RoomType.HeaderText = "Room Type";
-            this.RoomType.Name = "RoomType";
-            // 
-            // NameType
-            // 
-            this.NameType.DataPropertyName = "TenLoai";
-            this.NameType.HeaderText = "Name Type";
-            this.NameType.Name = "NameType";
-            // 
             // FrmTypeRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,6 +272,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTypeRoom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Type Room";
             this.Load += new System.EventHandler(this.FrmTypeRoom_Load);
             this.panel1.ResumeLayout(false);

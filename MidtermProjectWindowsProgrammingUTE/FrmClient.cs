@@ -1,10 +1,10 @@
-﻿using System;
+﻿using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using MidtermProjectWindowsProgrammingUTE.BS_Layer;
-using System.IO;
 using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace MidtermProjectWindowsProgrammingUTE
 {
@@ -26,6 +26,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void FrmClient_Load(object sender, EventArgs e)
         {
+            this.cbSex.SelectedIndex = 0;
             LoadData();
         }
         #endregion
@@ -66,7 +67,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLClient blClient = new BLClient();
-                    blClient.AddClient(this.txtID.Text, this.txtName.Text,this.txtAddress.Text, this.txtPhoneNumber.Text, this.dtpBirthDate.Text, ref err);
+                    blClient.AddClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.dtpBirthDate.Text, ref err);
                     // Thông báo
                     MessageBox.Show("Đã thêm xong!");
                     // Load lại dữ liệu trên DataGridView
@@ -81,7 +82,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLClient blClient = new BLClient();
-                blClient.UpdateClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text,this.dtpBirthDate.Text, ref err);
+                blClient.UpdateClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.dtpBirthDate.Text, ref err);
                 // Thông báo
                 MessageBox.Show("Đã sửa xong!");
                 // Load lại dữ liệu trên DataGridView
@@ -95,17 +96,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thứ tự dòng hiện hành
             int r = dgvClient.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
-            this.txtID.Text =
-            dgvClient.Rows[r].Cells[0].Value.ToString();
-            this.txtName.Text =
-            dgvClient.Rows[r].Cells[1].Value.ToString();
-            this.txtAddress.Text =
-            dgvClient.Rows[r].Cells[2].Value.ToString(); 
-            this.txtPhoneNumber.Text =
-            dgvClient.Rows[r].Cells[3].Value.ToString();
-            ///this.cbFemale
-            this.dtpBirthDate.Text =
-            dgvClient.Rows[r].Cells[5].Value.ToString();
+            this.txtID.Text = dgvClient.Rows[r].Cells["CMND"].Value.ToString();
+            this.txtName.Text = dgvClient.Rows[r].Cells["NameClient"].Value.ToString();
+            this.txtAddress.Text = dgvClient.Rows[r].Cells["Address"].Value.ToString();
+            this.txtPhoneNumber.Text = dgvClient.Rows[r].Cells["PhoneNumber"].Value.ToString();
+            this.cbFemale.Checked = Convert.ToBoolean(dgvClient.Rows[r].Cells["Female"].Value);
+            this.dtpBirthDate.Text = dgvClient.Rows[r].Cells["BirthDate"].Value.ToString();
         }
 
         private void pbEdit_Click(object sender, EventArgs e)
@@ -124,7 +120,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbBack.Enabled = false;
 
             // Đưa con trỏ đến TextField txtThanhPho
-            this.txtID.Enabled=false;
+            this.txtID.Enabled = false;
             this.txtName.Focus();
         }
 
@@ -150,44 +146,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             dgvClient_CellClick(null, null);
         }
 
-        private void pbDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Thực hiện lệnh 
-                // Lấy thứ tự record hiện hành 
-                int r = dgvClient.CurrentCell.RowIndex;
-                // Lấy MaKH của record hiện hành 
-                string strKhachHang =
-                dgvClient.Rows[r].Cells[0].Value.ToString();
-                // Viết câu lệnh SQL 
-                // Hiện thông báo xác nhận việc xóa mẫu tin 
-                // Khai báo biến traloi 
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp 
-                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không? 
-                if (traloi == DialogResult.Yes)
-                {
-                    dbClient.DeleteClient(ref err, strKhachHang);
-                    // Cập nhật lại DataGridView 
-                    LoadData();
-                    // Thông báo 
-                    MessageBox.Show("Đã xóa xong!");
-                }
-                else
-                {
-                    // Thông báo 
-                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
-                }
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Không xóa được. Lỗi rồi!");
-            }
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             Search();
@@ -202,48 +160,54 @@ namespace MidtermProjectWindowsProgrammingUTE
         #region Events Mouse
         private void pbAdd_MouseEnter(object sender, EventArgs e)
         {
-            ButtonColorChanged_Enter("add_Client_blue.png", this.pbAdd);
+            ButtonColorChanged("add_Client_blue.png", this.pbAdd);
         }
 
         private void pbAdd_MouseLeave(object sender, EventArgs e)
         {
-            ButtonColorChanged_Leave("add_Client.png", this.pbAdd);
+            ButtonColorChanged("add_Client.png", this.pbAdd);
         }
 
         private void pbEdit_MouseEnter(object sender, EventArgs e)
         {
-            ButtonColorChanged_Enter("edit_Client_blue.png", this.pbEdit);
+            ButtonColorChanged("edit_Client_blue.png", this.pbEdit);
         }
 
         private void pbEdit_MouseLeave(object sender, EventArgs e)
         {
-            ButtonColorChanged_Leave("edit_Client.png", this.pbEdit);
+            ButtonColorChanged("edit_Client.png", this.pbEdit);
         }
 
         private void pbSave_MouseEnter(object sender, EventArgs e)
         {
-            ButtonColorChanged_Enter("save_blue.png", this.pbSave);
+            ButtonColorChanged("save_blue.png", this.pbSave);
         }
 
         private void pbSave_MouseLeave(object sender, EventArgs e)
         {
-            ButtonColorChanged_Leave("save.png", this.pbSave);
+            ButtonColorChanged("save.png", this.pbSave);
         }
 
         private void pbCancel_MouseEnter(object sender, EventArgs e)
         {
-            ButtonColorChanged_Enter("cancel_blue.png", this.pbCancel);
+            ButtonColorChanged("cancel_blue.png", this.pbCancel);
         }
 
         private void pbCancel_MouseLeave(object sender, EventArgs e)
         {
-            ButtonColorChanged_Leave("cancel.png", this.pbCancel);
+            ButtonColorChanged("cancel.png", this.pbCancel);
         }
         #endregion
 
         #region Other Events
         private void txtFind_TextChanged(object sender, EventArgs e)
         {
+            Search();
+        }
+
+        private void cbSex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.txtFind.Focus();
             Search();
         }
         #endregion
@@ -290,7 +254,9 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void Search()
         {
-            if (this.txtFind.Text == "")
+            int Sex = this.cbSex.SelectedIndex - 1;
+
+            if (this.txtFind.Text == "" && Sex == -1)
             {
                 LoadData();
             }
@@ -299,7 +265,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 dtClient = new DataTable();
                 dtClient.Clear();
                 string key = this.txtFind.Text;
-                DataSet dsclient = dbClient.SearchClient(key);
+                DataSet dsclient = dbClient.SearchClient(key, Sex);
                 dtClient = dsclient.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvClient.DataSource = dtClient;
@@ -308,12 +274,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
         }
 
-        private void ButtonColorChanged_Enter(string picture, PictureBox pb)
-        {
-            pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
-            pb.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-        private void ButtonColorChanged_Leave(string picture, PictureBox pb)
+        private void ButtonColorChanged(string picture, PictureBox pb)
         {
             pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;

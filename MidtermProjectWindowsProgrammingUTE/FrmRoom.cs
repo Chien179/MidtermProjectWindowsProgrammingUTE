@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace MidtermProjectWindowsProgrammingUTE
 {
@@ -23,6 +25,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         }
         private void FrmRoom_Load(object sender, EventArgs e)
         {
+            this.cbStatusSearch.SelectedIndex = 0;
             LoadData();
         }
         #endregion
@@ -36,7 +39,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtRoomID.ResetText();
             this.txtRoomType.ResetText();
             this.txtArea.ResetText();
-            this.cmbNote.ResetText();
+            this.txtNote.ResetText();
             this.txtPrice.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
@@ -59,12 +62,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
-                
+
                 try
                 {
                     // Thực hiện lệnh
                     BLRoom blRoom = new BLRoom();
-                    blRoom.AddRoom(this.txtRoomID.Text, this.txtRoomType.Text, true, this.cmbNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
+                    blRoom.AddRoom(this.txtRoomID.Text, this.txtRoomType.Text, true, this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -79,7 +82,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLRoom blRoom = new BLRoom();
-                blRoom.UpdateRoom(this.txtRoomID.Text, this.txtRoomType.Text, true, this.cmbNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
+                blRoom.UpdateRoom(this.txtRoomID.Text, this.txtRoomType.Text, true, this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -93,19 +96,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thứ tự dòng hiện hành
             int r = dgvRoom.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
-            this.txtRoomID.Text =
-            dgvRoom.Rows[r].Cells[0].Value.ToString();
-            this.txtRoomType.Text =
-            dgvRoom.Rows[r].Cells[1].Value.ToString();
-           // this.cbStatus.Checked =
-
-            this.cmbNote.Text =
-            dgvRoom.Rows[r].Cells[3].Value.ToString();
-            this.txtArea.Text =
-            dgvRoom.Rows[r].Cells[4].Value.ToString();
-            this.txtPrice.Text =
-            dgvRoom.Rows[r].Cells[5].Value.ToString();
-
+            this.txtRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
+            this.txtRoomType.Text = dgvRoom.Rows[r].Cells["RoomType"].Value.ToString();
+            this.cbStatus.Checked = Convert.ToBoolean(dgvRoom.Rows[r].Cells["Used"].Value);
+            this.txtNote.Text = dgvRoom.Rows[r].Cells["Note"].Value.ToString();
+            this.txtArea.Text = dgvRoom.Rows[r].Cells["Area"].Value.ToString();
+            this.txtPrice.Text = dgvRoom.Rows[r].Cells["Price"].Value.ToString();
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -126,7 +122,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtRoomType.ResetText();
             this.txtArea.ResetText();
             this.txtPrice.ResetText();
-            this.cmbNote.ResetText();
+            this.txtNote.ResetText();
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
@@ -160,12 +156,81 @@ namespace MidtermProjectWindowsProgrammingUTE
             //
             this.txtRoomID.Enabled = false;
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region Events Mouse
+        private void pbAdd_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add_blue.png", this.pbAdd);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add.png", this.pbAdd);
+        }
+
+        private void pbEdit_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit_blue.png", this.pbEdit);
+        }
+
+        private void pbEdit_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit.png", this.pbEdit);
+        }
+
+        private void pbDelete_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_blue.png", this.pbDelete);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete.png", this.pbDelete);
+        }
+
+        private void pbSave_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save_blue.png", this.pbSave);
+        }
+
+        private void pbSave_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save.png", this.pbSave);
+        }
+
+        private void pbCancel_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel_blue.png", this.pbCancel);
+        }
+
+        private void pbCancel_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel.png", this.pbCancel);
+        }
         #endregion
 
         #region Other Events
         private void txtFind_TextChanged(object sender, EventArgs e)
         {
+            Search();
+        }
 
+        private void cbSex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.cbStatusSearch.Focus();
+            Search();
         }
         #endregion
 
@@ -186,7 +251,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.txtRoomID.ResetText();
                 this.txtRoomType.ResetText();
                 this.txtArea.ResetText();
-                this.cmbNote.ResetText();
+                this.txtNote.ResetText();
                 this.txtPrice.ResetText();
 
                 // Không cho thao tác trên các nút Lưu / Hủy
@@ -209,6 +274,34 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 MessageBox.Show("Cannot get data from table 'Phong' !");
             }
+        }
+
+        private void Search()
+        {
+            int Status = this.cbStatusSearch.SelectedIndex - 1;
+
+            if (this.txtFind.Text == "" && Status == -1)
+            {
+                LoadData();
+            }
+            else
+            {
+                dtRoom = new DataTable();
+                dtRoom.Clear();
+                string key = this.txtFind.Text;
+                DataSet dscroom = dbRoom.SearchRoom(key, Status);
+                dtRoom = dscroom.Tables[0];
+                // Đưa dữ liệu lên DataGridView
+                dgvRoom.DataSource = dtRoom;
+                // Thay đổi độ rộng cột
+                dgvRoom.AutoResizeColumns();
+            }
+        }
+
+        private void ButtonColorChanged(string picture, PictureBox pb)
+        {
+            pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
     }

@@ -34,6 +34,10 @@
             this.pbSearch = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvService = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,10 +55,6 @@
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.btnUseService = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
@@ -107,18 +107,49 @@
             // 
             // dgvService
             // 
+            this.dgvService.AllowUserToAddRows = false;
+            this.dgvService.AllowUserToDeleteRows = false;
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Name,
+            this.NameService,
             this.Price,
             this.Unit});
             this.dgvService.Location = new System.Drawing.Point(679, 249);
             this.dgvService.Name = "dgvService";
+            this.dgvService.ReadOnly = true;
             this.dgvService.RowHeadersWidth = 51;
             this.dgvService.Size = new System.Drawing.Size(593, 341);
             this.dgvService.TabIndex = 20;
             this.dgvService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvService_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "MaDV";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // NameService
+            // 
+            this.NameService.DataPropertyName = "TenDV";
+            this.NameService.HeaderText = "Name";
+            this.NameService.Name = "NameService";
+            this.NameService.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "GiaTien";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "DonViTinh";
+            this.Unit.HeaderText = "Unit";
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
             // 
             // label4
             // 
@@ -228,6 +259,8 @@
             this.pbAdd.TabIndex = 96;
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
+            this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
+            this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
             // pbDelete
             // 
@@ -238,6 +271,8 @@
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 95;
             this.pbDelete.TabStop = false;
+            this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
+            this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
             // pbEdit
             // 
@@ -249,6 +284,8 @@
             this.pbEdit.TabIndex = 94;
             this.pbEdit.TabStop = false;
             this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
+            this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
+            this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
             // pnCom
             // 
@@ -269,6 +306,8 @@
             this.pbCancel.TabIndex = 98;
             this.pbCancel.TabStop = false;
             this.pbCancel.Click += new System.EventHandler(this.pbCancel_Click);
+            this.pbCancel.MouseEnter += new System.EventHandler(this.pbCancel_MouseEnter);
+            this.pbCancel.MouseLeave += new System.EventHandler(this.pbCancel_MouseLeave);
             // 
             // pbSave
             // 
@@ -280,41 +319,19 @@
             this.pbSave.TabIndex = 97;
             this.pbSave.TabStop = false;
             this.pbSave.Click += new System.EventHandler(this.pbSave_Click);
+            this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
+            this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
             // btnUseService
             // 
             this.btnUseService.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnUseService.Location = new System.Drawing.Point(981, 185);
+            this.btnUseService.Location = new System.Drawing.Point(1130, 196);
             this.btnUseService.Name = "btnUseService";
-            this.btnUseService.Size = new System.Drawing.Size(186, 41);
+            this.btnUseService.Size = new System.Drawing.Size(142, 41);
             this.btnUseService.TabIndex = 103;
             this.btnUseService.Text = "Use Service";
             this.btnUseService.UseVisualStyleBackColor = true;
             this.btnUseService.Click += new System.EventHandler(this.btnUseService_Click);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "MaDV";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            // 
-            // Name
-            // 
-            this.Name.DataPropertyName = "TenDV";
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "GiaTien";
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
-            // Unit
-            // 
-            this.Unit.DataPropertyName = "DonViTinh";
-            this.Unit.HeaderText = "Unit";
-            this.Unit.Name = "Unit";
             // 
             // FrmService
             // 
@@ -380,7 +397,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameService;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
     }

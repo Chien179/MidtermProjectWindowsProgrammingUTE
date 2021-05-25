@@ -33,6 +33,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvRoom = new System.Windows.Forms.DataGridView();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Used = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtRoomType = new System.Windows.Forms.TextBox();
@@ -43,7 +49,7 @@
             this.pnInfor = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbNote = new System.Windows.Forms.ComboBox();
+            this.txtNote = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtArea = new System.Windows.Forms.TextBox();
@@ -54,12 +60,7 @@
             this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Full = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbStatusSearch = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
@@ -102,20 +103,65 @@
             // 
             // dgvRoom
             // 
+            this.dgvRoom.AllowUserToAddRows = false;
+            this.dgvRoom.AllowUserToDeleteRows = false;
             this.dgvRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomID,
             this.RoomType,
-            this.Full,
+            this.Used,
             this.Note,
             this.Area,
             this.Price});
             this.dgvRoom.Location = new System.Drawing.Point(679, 251);
             this.dgvRoom.Name = "dgvRoom";
+            this.dgvRoom.ReadOnly = true;
             this.dgvRoom.RowHeadersWidth = 51;
             this.dgvRoom.Size = new System.Drawing.Size(593, 341);
             this.dgvRoom.TabIndex = 20;
             this.dgvRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRoom_CellClick);
+            // 
+            // RoomID
+            // 
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            // 
+            // RoomType
+            // 
+            this.RoomType.DataPropertyName = "MaLoai";
+            this.RoomType.HeaderText = "Room Type";
+            this.RoomType.Name = "RoomType";
+            this.RoomType.ReadOnly = true;
+            // 
+            // Used
+            // 
+            this.Used.DataPropertyName = "TrangThai";
+            this.Used.HeaderText = "Used";
+            this.Used.Name = "Used";
+            this.Used.ReadOnly = true;
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "GhiChu";
+            this.Note.HeaderText = "Note";
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            // 
+            // Area
+            // 
+            this.Area.DataPropertyName = "DienTich";
+            this.Area.HeaderText = "Area";
+            this.Area.Name = "Area";
+            this.Area.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "GiaThue";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             // 
             // label3
             // 
@@ -168,17 +214,17 @@
             // 
             this.cbStatus.AutoSize = true;
             this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbStatus.Location = new System.Drawing.Point(384, 59);
+            this.cbStatus.Location = new System.Drawing.Point(373, 55);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(60, 28);
+            this.cbStatus.Size = new System.Drawing.Size(73, 28);
             this.cbStatus.TabIndex = 38;
-            this.cbStatus.Text = "Full";
+            this.cbStatus.Text = "Used";
             this.cbStatus.UseVisualStyleBackColor = true;
             // 
             // btnUseRoom
             // 
             this.btnUseRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnUseRoom.Location = new System.Drawing.Point(1028, 192);
+            this.btnUseRoom.Location = new System.Drawing.Point(1149, 192);
             this.btnUseRoom.Name = "btnUseRoom";
             this.btnUseRoom.Size = new System.Drawing.Size(123, 43);
             this.btnUseRoom.TabIndex = 40;
@@ -190,7 +236,7 @@
             // 
             this.pnInfor.Controls.Add(this.label4);
             this.pnInfor.Controls.Add(this.label5);
-            this.pnInfor.Controls.Add(this.cmbNote);
+            this.pnInfor.Controls.Add(this.txtNote);
             this.pnInfor.Controls.Add(this.label6);
             this.pnInfor.Controls.Add(this.txtPrice);
             this.pnInfor.Controls.Add(this.txtArea);
@@ -224,14 +270,14 @@
             this.label5.TabIndex = 62;
             this.label5.Text = "Note:";
             // 
-            // cmbNote
+            // txtNote
             // 
-            this.cmbNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbNote.FormattingEnabled = true;
-            this.cmbNote.Location = new System.Drawing.Point(179, 147);
-            this.cmbNote.Name = "cmbNote";
-            this.cmbNote.Size = new System.Drawing.Size(121, 32);
-            this.cmbNote.TabIndex = 63;
+            this.txtNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtNote.FormattingEnabled = true;
+            this.txtNote.Location = new System.Drawing.Point(179, 147);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(121, 32);
+            this.txtNote.TabIndex = 63;
             // 
             // label6
             // 
@@ -269,6 +315,8 @@
             this.pbAdd.TabIndex = 96;
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
+            this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
+            this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
             // pbDelete
             // 
@@ -279,6 +327,9 @@
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 95;
             this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
+            this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
+            this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
             // pbEdit
             // 
@@ -290,6 +341,8 @@
             this.pbEdit.TabIndex = 94;
             this.pbEdit.TabStop = false;
             this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
+            this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
+            this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
             // btnSearch
             // 
@@ -298,9 +351,10 @@
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Location = new System.Drawing.Point(902, 198);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(42, 37);
+            this.btnSearch.Size = new System.Drawing.Size(34, 31);
             this.btnSearch.TabIndex = 100;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // pnCom
             // 
@@ -321,6 +375,8 @@
             this.pbCancel.TabIndex = 98;
             this.pbCancel.TabStop = false;
             this.pbCancel.Click += new System.EventHandler(this.pbCancel_Click);
+            this.pbCancel.MouseEnter += new System.EventHandler(this.pbCancel_MouseEnter);
+            this.pbCancel.MouseLeave += new System.EventHandler(this.pbCancel_MouseLeave);
             // 
             // pbSave
             // 
@@ -332,48 +388,30 @@
             this.pbSave.TabIndex = 97;
             this.pbSave.TabStop = false;
             this.pbSave.Click += new System.EventHandler(this.pbSave_Click);
+            this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
+            this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
-            // RoomID
+            // cbStatusSearch
             // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.Name = "RoomID";
-            // 
-            // RoomType
-            // 
-            this.RoomType.DataPropertyName = "MaLoai";
-            this.RoomType.HeaderText = "Room Type";
-            this.RoomType.Name = "RoomType";
-            // 
-            // Full
-            // 
-            this.Full.DataPropertyName = "TrangThai";
-            this.Full.HeaderText = "Full";
-            this.Full.Name = "Full";
-            // 
-            // Note
-            // 
-            this.Note.DataPropertyName = "GhiChu";
-            this.Note.HeaderText = "Note";
-            this.Note.Name = "Note";
-            // 
-            // Area
-            // 
-            this.Area.DataPropertyName = "DienTich";
-            this.Area.HeaderText = "Area";
-            this.Area.Name = "Area";
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "GiaThue";
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
+            this.cbStatusSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStatusSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatusSearch.FormattingEnabled = true;
+            this.cbStatusSearch.Items.AddRange(new object[] {
+            "None",
+            "Free",
+            "Used"});
+            this.cbStatusSearch.Location = new System.Drawing.Point(679, 167);
+            this.cbStatusSearch.Name = "cbStatusSearch";
+            this.cbStatusSearch.Size = new System.Drawing.Size(121, 24);
+            this.cbStatusSearch.TabIndex = 103;
+            this.cbStatusSearch.SelectedIndexChanged += new System.EventHandler(this.cbSex_SelectedIndexChanged);
             // 
             // FrmRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.cbStatusSearch);
             this.Controls.Add(this.pnCom);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbAdd);
@@ -429,15 +467,16 @@
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbNote;
+        private System.Windows.Forms.ComboBox txtNote;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtArea;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Full;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Used;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewTextBoxColumn Area;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.ComboBox cbStatusSearch;
     }
 }

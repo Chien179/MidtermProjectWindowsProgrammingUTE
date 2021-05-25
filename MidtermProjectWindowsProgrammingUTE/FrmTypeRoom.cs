@@ -1,10 +1,10 @@
-﻿using System;
+﻿using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using MidtermProjectWindowsProgrammingUTE.BS_Layer;
-using System.IO;
 using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmTypeRoom : Form
@@ -64,7 +64,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLTypeRoom blTypeRoom = new BLTypeRoom();
-                    blTypeRoom.AddTypeRoom(this.txtRoomType.Text, this.txtNameType.Text,  ref err);
+                    blTypeRoom.AddTypeRoom(this.txtRoomType.Text, this.txtNameType.Text, ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -79,7 +79,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLTypeRoom blTypeRoom = new BLTypeRoom();
-                blTypeRoom.UpdateTypeRoom(this.txtRoomType.Text, this.txtNameType.Text,  ref err);
+                blTypeRoom.UpdateTypeRoom(this.txtRoomType.Text, this.txtNameType.Text, ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -97,11 +97,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thứ tự dòng hiện hành
             int r = dgvRoom.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
-            this.txtRoomType.Text =
-            dgvRoom.Rows[r].Cells[0].Value.ToString();
-            this.txtNameType.Text =
-            dgvRoom.Rows[r].Cells[1].Value.ToString();
-
+            this.txtRoomType.Text = dgvRoom.Rows[r].Cells["RoomType"].Value.ToString();
+            this.txtNameType.Text = dgvRoom.Rows[r].Cells["NameType"].Value.ToString();
         }
 
         private void pbCancel_Click(object sender, EventArgs e)
@@ -144,6 +141,58 @@ namespace MidtermProjectWindowsProgrammingUTE
         }
         #endregion
 
+        #region Events Mouse
+        private void pbAdd_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add_blue.png", this.pbAdd);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add.png", this.pbAdd);
+        }
+
+        private void pbEdit_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit_blue.png", this.pbEdit);
+        }
+
+        private void pbEdit_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit.png", this.pbEdit);
+        }
+
+        private void pbDelete_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_blue.png", this.pbDelete);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete.png", this.pbDelete);
+        }
+
+        private void pbSave_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save_blue.png", this.pbSave);
+        }
+
+        private void pbSave_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save.png", this.pbSave);
+        }
+
+        private void pbCancel_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel_blue.png", this.pbCancel);
+        }
+
+        private void pbCancel_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel.png", this.pbCancel);
+        }
+        #endregion
+
         #region Functions
         void LoadData()
         {
@@ -180,6 +229,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 MessageBox.Show("Cannot get data from table 'LoaiPhong' !");
             }
+        }
+
+        private void ButtonColorChanged(string picture, PictureBox pb)
+        {
+            pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
     }

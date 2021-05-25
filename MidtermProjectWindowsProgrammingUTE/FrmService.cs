@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace MidtermProjectWindowsProgrammingUTE
 {
@@ -30,6 +32,12 @@ namespace MidtermProjectWindowsProgrammingUTE
         #endregion
 
         #region Events Click
+        private void btnUseService_Click(object sender, EventArgs e)
+        {
+            FrmUseService frmuseservice = new FrmUseService();
+            frmuseservice.ShowDialog();
+        }
+
         private void pbAdd_Click(object sender, EventArgs e)
         {
             // Kich hoạt biến Them
@@ -66,7 +74,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLService blService = new BLService();
-                    blService.AddService(this.txtServiceID.Text, this.txtServiceName.Text, float.Parse(this.txtPrice.Text),this.txtUnit.Text, ref err);
+                    blService.AddService(this.txtServiceID.Text, this.txtServiceName.Text, float.Parse(this.txtPrice.Text), this.txtUnit.Text, ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -93,20 +101,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             this.Close();
         }
-       
+
         private void dgvService_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Thứ tự dòng hiện hành
             int r = dgvService.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
-            this.txtServiceID.Text =
-            dgvService.Rows[r].Cells[0].Value.ToString();
-            this.txtServiceName.Text =
-            dgvService.Rows[r].Cells[1].Value.ToString();
-            this.txtPrice.Text =
-            dgvService.Rows[r].Cells[2].Value.ToString();
-            this.txtUnit.Text =
-            dgvService.Rows[r].Cells[3].Value.ToString();
+            this.txtServiceID.Text = dgvService.Rows[r].Cells["ID"].Value.ToString();
+            this.txtServiceName.Text = dgvService.Rows[r].Cells["NameService"].Value.ToString();
+            this.txtPrice.Text = dgvService.Rows[r].Cells["Price"].Value.ToString();
+            this.txtUnit.Text = dgvService.Rows[r].Cells["Unit"].Value.ToString();
         }
 
         private void pbEdit_Click(object sender, EventArgs e)
@@ -151,6 +155,58 @@ namespace MidtermProjectWindowsProgrammingUTE
         }
         #endregion
 
+        #region Events Mouse
+        private void pbAdd_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add_blue.png", this.pbAdd);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add.png", this.pbAdd);
+        }
+
+        private void pbEdit_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit_blue.png", this.pbEdit);
+        }
+
+        private void pbEdit_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit.png", this.pbEdit);
+        }
+
+        private void pbDelete_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_blue.png", this.pbDelete);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete.png", this.pbDelete);
+        }
+
+        private void pbSave_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save_blue.png", this.pbSave);
+        }
+
+        private void pbSave_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save.png", this.pbSave);
+        }
+
+        private void pbCancel_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel_blue.png", this.pbCancel);
+        }
+
+        private void pbCancel_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel.png", this.pbCancel);
+        }
+        #endregion
+
         #region Functions
         void LoadData()
         {
@@ -192,12 +248,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
         }
 
-        #endregion
-
-        private void btnUseService_Click(object sender, EventArgs e)
+        private void ButtonColorChanged(string picture, PictureBox pb)
         {
-            FrmUseService f = new FrmUseService();
-            f.ShowDialog();
+            pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+        #endregion
     }
 }

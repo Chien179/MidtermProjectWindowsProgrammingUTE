@@ -58,10 +58,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(285, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(214, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(417, 54);
+            this.label1.Size = new System.Drawing.Size(333, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "Hotel Management";
             // 
@@ -69,10 +68,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.lblPurchase.AutoSize = true;
             this.lblPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblPurchase.Location = new System.Drawing.Point(587, 101);
-            this.lblPurchase.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPurchase.Location = new System.Drawing.Point(440, 82);
             this.lblPurchase.Name = "lblPurchase";
-            this.lblPurchase.Size = new System.Drawing.Size(129, 31);
+            this.lblPurchase.Size = new System.Drawing.Size(103, 25);
             this.lblPurchase.TabIndex = 2;
             this.lblPurchase.Text = "Purchase";
             this.lblPurchase.Click += new System.EventHandler(this.Purchase_Click);
@@ -82,10 +80,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbPurchase
             // 
             this.pbPurchase.Image = ((System.Drawing.Image)(resources.GetObject("pbPurchase.Image")));
-            this.pbPurchase.Location = new System.Drawing.Point(584, 135);
-            this.pbPurchase.Margin = new System.Windows.Forms.Padding(4);
+            this.pbPurchase.Location = new System.Drawing.Point(438, 110);
             this.pbPurchase.Name = "pbPurchase";
-            this.pbPurchase.Size = new System.Drawing.Size(111, 97);
+            this.pbPurchase.Size = new System.Drawing.Size(83, 79);
             this.pbPurchase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPurchase.TabIndex = 6;
             this.pbPurchase.TabStop = false;
@@ -97,20 +94,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.plClient.Controls.Add(this.lblClient);
             this.plClient.Controls.Add(this.pbClient);
-            this.plClient.Location = new System.Drawing.Point(396, 193);
-            this.plClient.Margin = new System.Windows.Forms.Padding(4);
+            this.plClient.Location = new System.Drawing.Point(297, 157);
             this.plClient.Name = "plClient";
-            this.plClient.Size = new System.Drawing.Size(111, 137);
+            this.plClient.Size = new System.Drawing.Size(83, 111);
             this.plClient.TabIndex = 6;
             // 
             // lblClient
             // 
             this.lblClient.AutoSize = true;
             this.lblClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblClient.Location = new System.Drawing.Point(18, 11);
-            this.lblClient.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblClient.Location = new System.Drawing.Point(14, 9);
             this.lblClient.Name = "lblClient";
-            this.lblClient.Size = new System.Drawing.Size(84, 31);
+            this.lblClient.Size = new System.Drawing.Size(67, 25);
             this.lblClient.TabIndex = 2;
             this.lblClient.Text = "Client";
             this.lblClient.Click += new System.EventHandler(this.Client_Click);
@@ -120,10 +115,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbClient
             // 
             this.pbClient.Image = ((System.Drawing.Image)(resources.GetObject("pbClient.Image")));
-            this.pbClient.Location = new System.Drawing.Point(0, 40);
-            this.pbClient.Margin = new System.Windows.Forms.Padding(4);
+            this.pbClient.Location = new System.Drawing.Point(0, 32);
             this.pbClient.Name = "pbClient";
-            this.pbClient.Size = new System.Drawing.Size(111, 97);
+            this.pbClient.Size = new System.Drawing.Size(83, 79);
             this.pbClient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbClient.TabIndex = 6;
             this.pbClient.TabStop = false;
@@ -135,20 +129,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.plRoom.Controls.Add(this.lblRoom);
             this.plRoom.Controls.Add(this.pbRoom);
-            this.plRoom.Location = new System.Drawing.Point(193, 281);
-            this.plRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.plRoom.Location = new System.Drawing.Point(145, 228);
             this.plRoom.Name = "plRoom";
-            this.plRoom.Size = new System.Drawing.Size(111, 137);
+            this.plRoom.Size = new System.Drawing.Size(83, 111);
             this.plRoom.TabIndex = 7;
             // 
             // lblRoom
             // 
             this.lblRoom.AutoSize = true;
             this.lblRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblRoom.Location = new System.Drawing.Point(8, 5);
-            this.lblRoom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRoom.Location = new System.Drawing.Point(6, 4);
             this.lblRoom.Name = "lblRoom";
-            this.lblRoom.Size = new System.Drawing.Size(86, 31);
+            this.lblRoom.Size = new System.Drawing.Size(68, 25);
             this.lblRoom.TabIndex = 2;
             this.lblRoom.Text = "Room";
             this.lblRoom.Click += new System.EventHandler(this.Room_Click);
@@ -158,10 +150,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbRoom
             // 
             this.pbRoom.Image = ((System.Drawing.Image)(resources.GetObject("pbRoom.Image")));
-            this.pbRoom.Location = new System.Drawing.Point(0, 39);
-            this.pbRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.pbRoom.Location = new System.Drawing.Point(0, 32);
             this.pbRoom.Name = "pbRoom";
-            this.pbRoom.Size = new System.Drawing.Size(111, 97);
+            this.pbRoom.Size = new System.Drawing.Size(83, 79);
             this.pbRoom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbRoom.TabIndex = 6;
             this.pbRoom.TabStop = false;
@@ -173,10 +164,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.lblTypeRoom.AutoSize = true;
             this.lblTypeRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblTypeRoom.Location = new System.Drawing.Point(188, 101);
-            this.lblTypeRoom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTypeRoom.Location = new System.Drawing.Point(141, 82);
             this.lblTypeRoom.Name = "lblTypeRoom";
-            this.lblTypeRoom.Size = new System.Drawing.Size(154, 31);
+            this.lblTypeRoom.Size = new System.Drawing.Size(122, 25);
             this.lblTypeRoom.TabIndex = 2;
             this.lblTypeRoom.Text = "Type Room";
             this.lblTypeRoom.Click += new System.EventHandler(this.TypeRoom_Click);
@@ -186,10 +176,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbTypeRoom
             // 
             this.pbTypeRoom.Image = ((System.Drawing.Image)(resources.GetObject("pbTypeRoom.Image")));
-            this.pbTypeRoom.Location = new System.Drawing.Point(193, 135);
-            this.pbTypeRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.pbTypeRoom.Location = new System.Drawing.Point(145, 110);
             this.pbTypeRoom.Name = "pbTypeRoom";
-            this.pbTypeRoom.Size = new System.Drawing.Size(111, 97);
+            this.pbTypeRoom.Size = new System.Drawing.Size(83, 79);
             this.pbTypeRoom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbTypeRoom.TabIndex = 6;
             this.pbTypeRoom.TabStop = false;
@@ -200,10 +189,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbService
             // 
             this.pbService.Image = ((System.Drawing.Image)(resources.GetObject("pbService.Image")));
-            this.pbService.Location = new System.Drawing.Point(0, 39);
-            this.pbService.Margin = new System.Windows.Forms.Padding(4);
+            this.pbService.Location = new System.Drawing.Point(0, 32);
             this.pbService.Name = "pbService";
-            this.pbService.Size = new System.Drawing.Size(111, 97);
+            this.pbService.Size = new System.Drawing.Size(83, 79);
             this.pbService.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbService.TabIndex = 6;
             this.pbService.TabStop = false;
@@ -215,10 +203,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.lblService.AutoSize = true;
             this.lblService.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblService.Location = new System.Drawing.Point(4, 4);
-            this.lblService.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblService.Location = new System.Drawing.Point(3, 3);
             this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(105, 31);
+            this.lblService.Size = new System.Drawing.Size(84, 25);
             this.lblService.TabIndex = 2;
             this.lblService.Text = "Service";
             this.lblService.Click += new System.EventHandler(this.Service_Click);
@@ -229,18 +216,17 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.plService.Controls.Add(this.lblService);
             this.plService.Controls.Add(this.pbService);
-            this.plService.Location = new System.Drawing.Point(584, 281);
-            this.plService.Margin = new System.Windows.Forms.Padding(4);
+            this.plService.Location = new System.Drawing.Point(438, 228);
             this.plService.Name = "plService";
-            this.plService.Size = new System.Drawing.Size(111, 137);
+            this.plService.Size = new System.Drawing.Size(83, 111);
             this.plService.TabIndex = 8;
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(883, 469);
+            this.ClientSize = new System.Drawing.Size(662, 381);
             this.Controls.Add(this.pbTypeRoom);
             this.Controls.Add(this.lblTypeRoom);
             this.Controls.Add(this.pbPurchase);
@@ -250,7 +236,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.plClient);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";

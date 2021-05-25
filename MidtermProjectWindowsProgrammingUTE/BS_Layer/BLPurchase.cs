@@ -30,12 +30,11 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public decimal Bill(string MaPhong)
         {
-            decimal Bill = 0;
+            decimal Bill = 0,RoomValue=0,Total=0,Deposit=0;
 
-            DataSet SoNgay = db.ExecuteQueryDataSet("Select Max(DateDiff(Day,NgayVao,NgayRa)) From ThuePhong Where MaPhong='" + MaPhong + "'", CommandType.Text);
-            DataSet Maloai = db.ExecuteQueryDataSet("Select MaLoai From Phong Where MaPhong='" + MaPhong + "'", CommandType.Text);
+            DataSet SoNgay = db.ExecuteQueryDataSet("Select Max(DateDiff(Day,NgayVao,NgayRa)),Max(Datcoc) From ThuePhong Where MaPhong='" + MaPhong + "'", CommandType.Text);
+            DataSet GiaThue = db.ExecuteQueryDataSet("Select GiaThue From Phong Where MaPhong='" + MaPhong + "'", CommandType.Text);
             DataSet MaDV = db.ExecuteQueryDataSet("Select MaDV,SoLuong From SuDungDichVu Where MaPhong='" + MaPhong + "'", CommandType.Text);
-            DataSet GiaThue = db.ExecuteQueryDataSet("Select GiaThue From LoaiPhong Where MaLoai='" + Maloai.Tables[0].Rows[0][0].ToString() + "'", CommandType.Text);
             string[] AMaDV = new string[MaDV.Tables[0].Rows.Count];
             string[] ASoLuong = new string[MaDV.Tables[0].Rows.Count];
             string[] AGiaTien = new string[MaDV.Tables[0].Rows.Count];
@@ -61,7 +60,11 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
                 Bill += decimal.Parse(AGiaTien[i]) * decimal.Parse(ASoLuong[i]);
             }
 
-            return Bill + decimal.Parse(GiaThue.Tables[0].Rows[0][0].ToString()) * decimal.Parse(SoNgay.Tables[0].Rows[0][0].ToString());
+            RoomValue = decimal.Parse(GiaThue.Tables[0].Rows[0][0].ToString()) * decimal.Parse(SoNgay.Tables[0].Rows[0][0].ToString());
+            Deposit = decimal.Parse(SoNgay.Tables[0].Rows[0][1].ToString());
+            Total = Bill + RoomValue - Deposit;
+
+            return Total;
         }
 
         public DataSet SearchPurchase(string key)

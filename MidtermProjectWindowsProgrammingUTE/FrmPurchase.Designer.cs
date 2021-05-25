@@ -34,6 +34,10 @@
             this.txtFind = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvPurchase = new System.Windows.Forms.DataGridView();
+            this.PurchaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,10 +55,6 @@
             this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
-            this.PurchaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
@@ -107,6 +107,8 @@
             // 
             // dgvPurchase
             // 
+            this.dgvPurchase.AllowUserToAddRows = false;
+            this.dgvPurchase.AllowUserToDeleteRows = false;
             this.dgvPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPurchase.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PurchaseID,
@@ -115,10 +117,39 @@
             this.RoomID});
             this.dgvPurchase.Location = new System.Drawing.Point(679, 250);
             this.dgvPurchase.Name = "dgvPurchase";
+            this.dgvPurchase.ReadOnly = true;
             this.dgvPurchase.RowHeadersWidth = 51;
             this.dgvPurchase.Size = new System.Drawing.Size(593, 342);
             this.dgvPurchase.TabIndex = 20;
             this.dgvPurchase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPurchase_CellClick);
+            // 
+            // PurchaseID
+            // 
+            this.PurchaseID.DataPropertyName = "MaThanhToan";
+            this.PurchaseID.HeaderText = "Purchase ID";
+            this.PurchaseID.Name = "PurchaseID";
+            this.PurchaseID.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "ThanhTien";
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            // 
+            // PurchaseDate
+            // 
+            this.PurchaseDate.DataPropertyName = "NgayThanhToan";
+            this.PurchaseDate.HeaderText = "Purchase Date";
+            this.PurchaseDate.Name = "PurchaseDate";
+            this.PurchaseDate.ReadOnly = true;
+            // 
+            // RoomID
+            // 
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
             // 
             // label4
             // 
@@ -205,13 +236,14 @@
             this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 40;
             this.label6.Text = "Purchase";
+            this.label6.Click += new System.EventHandler(this.pbBill_Click);
             // 
             // cmbRoomID
             // 
             this.cmbRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRoomID.FormattingEnabled = true;
             this.cmbRoomID.Location = new System.Drawing.Point(180, 115);
-            this.cmbRoomID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbRoomID.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRoomID.Name = "cmbRoomID";
             this.cmbRoomID.Size = new System.Drawing.Size(176, 21);
             this.cmbRoomID.TabIndex = 41;
@@ -241,6 +273,8 @@
             this.pbAdd.TabIndex = 96;
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
+            this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
+            this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
             // pbEdit
             // 
@@ -252,6 +286,8 @@
             this.pbEdit.TabIndex = 94;
             this.pbEdit.TabStop = false;
             this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
+            this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
+            this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
             // btnSearch
             // 
@@ -284,6 +320,8 @@
             this.pbCancel.TabIndex = 98;
             this.pbCancel.TabStop = false;
             this.pbCancel.Click += new System.EventHandler(this.pbCancel_Click);
+            this.pbCancel.MouseEnter += new System.EventHandler(this.pbCancel_MouseEnter);
+            this.pbCancel.MouseLeave += new System.EventHandler(this.pbCancel_MouseLeave);
             // 
             // pbSave
             // 
@@ -295,30 +333,8 @@
             this.pbSave.TabIndex = 97;
             this.pbSave.TabStop = false;
             this.pbSave.Click += new System.EventHandler(this.pbSave_Click);
-            // 
-            // PurchaseID
-            // 
-            this.PurchaseID.DataPropertyName = "MaThanhToan";
-            this.PurchaseID.HeaderText = "Purchase ID";
-            this.PurchaseID.Name = "PurchaseID";
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "ThanhTien";
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            // 
-            // PurchaseDate
-            // 
-            this.PurchaseDate.DataPropertyName = "NgayThanhToan";
-            this.PurchaseDate.HeaderText = "Purchase Date";
-            this.PurchaseDate.Name = "PurchaseDate";
-            // 
-            // RoomID
-            // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.Name = "RoomID";
+            this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
+            this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
             // FrmPurchase
             // 

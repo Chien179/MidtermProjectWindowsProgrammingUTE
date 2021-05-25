@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace MidtermProjectWindowsProgrammingUTE
 {
@@ -45,13 +47,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbEdit.Enabled = true;
             this.pbEdit.Enabled = true;
             this.pbBack.Enabled = true;
+            this.pbAdd.Show();
+            this.pbEdit.Show();
+            this.pbDelete.Show();
+            this.pbBack.Show();
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Hide();
             this.pbCancel.Hide();
             this.pbSave.Enabled = false;
             this.pbCancel.Enabled = false;
             // Không cho thao tác trên các ô thông tin
-            this.pnInfor.Enabled = false;
+            this.gbInfor.Enabled = false;
+            this.gbInfor.Text = "Information";
             dgvUseService_CellClick(null, null);
         }
 
@@ -60,14 +67,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thứ tự dòng hiện hành
             int r = dgvUseService.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
-            this.cmbRoomID.Text =
-            dgvUseService.Rows[r].Cells[0].Value.ToString();
-            this.cmbCMND.Text =
-            dgvUseService.Rows[r].Cells[1].Value.ToString();
-            this.dtpDateIn.Text =
-            dgvUseService.Rows[r].Cells[2].Value.ToString();
-            this.txtAmount.Text =
-            dgvUseService.Rows[r].Cells[3].Value.ToString();
+            this.cmbRoomID.Text = dgvUseService.Rows[r].Cells["RoomID"].Value.ToString();
+            this.cmbCMND.Text = dgvUseService.Rows[r].Cells["ServiceID"].Value.ToString();
+            this.dtpDateIn.Text = dgvUseService.Rows[r].Cells["DateUse"].Value.ToString();
+            this.txtAmount.Text = dgvUseService.Rows[r].Cells["Amount"].Value.ToString();
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -89,12 +92,17 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbCancel.Show();
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
-            this.pnInfor.Enabled = true;
+            this.gbInfor.Enabled = true;
+            this.gbInfor.Text = "Adding";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbDelete.Enabled = false;
             this.pbBack.Enabled = false;
+            this.pbAdd.Hide();
+            this.pbEdit.Hide();
+            this.pbDelete.Hide();
+            this.pbBack.Hide();
 
             // Đưa con trỏ đến cmbRoomID
             this.cmbRoomID.Focus();
@@ -109,12 +117,17 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbCancel.Show();
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
-            this.pnInfor.Enabled = true;
+            this.gbInfor.Enabled = true;
+            this.gbInfor.Text = "Editing";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbDelete.Enabled = false;
             this.pbBack.Enabled = false;
+            this.pbAdd.Hide();
+            this.pbEdit.Hide();
+            this.pbDelete.Hide();
+            this.pbBack.Hide();
 
             //
             this.cmbRoomID.Enabled = false;
@@ -156,6 +169,58 @@ namespace MidtermProjectWindowsProgrammingUTE
         }
         #endregion
 
+        #region Events Mouse
+        private void pbAdd_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add_blue.png", this.pbAdd);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add.png", this.pbAdd);
+        }
+
+        private void pbEdit_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit_blue.png", this.pbEdit);
+        }
+
+        private void pbEdit_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit.png", this.pbEdit);
+        }
+
+        private void pbDelete_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_blue.png", this.pbDelete);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete.png", this.pbDelete);
+        }
+
+        private void pbSave_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save_blue.png", this.pbSave);
+        }
+
+        private void pbSave_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save.png", this.pbSave);
+        }
+
+        private void pbCancel_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel_blue.png", this.pbCancel);
+        }
+
+        private void pbCancel_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel.png", this.pbCancel);
+        }
+        #endregion
+
         #region Functions
         void LoadData()
         {
@@ -192,13 +257,18 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbSave.Hide();
                 this.pbCancel.Hide();
                 // Không cho thao tác trên các ô thông tin
-                this.pnInfor.Enabled = false;
+                this.gbInfor.Enabled = false;
+                this.gbInfor.Text = "Information";
 
                 // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
                 this.pbAdd.Enabled = true;
                 this.pbEdit.Enabled = true;
                 this.pbDelete.Enabled = true;
                 this.pbBack.Enabled = true;
+                this.pbAdd.Show();
+                this.pbEdit.Show();
+                this.pbDelete.Show();
+                this.pbBack.Show();
                 //đẩy dữ liệu lên cmb RoomID và CMND
                 this.cmbRoomID.DataSource = dtRoom;
                 this.cmbRoomID.DisplayMember = dtRoom.Columns[0].ToString();
@@ -213,6 +283,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 MessageBox.Show("Cannot get data from table 'Su Dung Phong' !");
             }
+        }
+
+        private void ButtonColorChanged(string picture, PictureBox pb)
+        {
+            pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
     }

@@ -24,5 +24,15 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             string sqlString = "Update Phong Set MaLoai='" + MaLoai + "',TrangThai=" + TrangThai + "',GhiChu='" + GhiChu + "',DienTich='" + DienTich + "',GiaThue=" + GiaThue + "Where='" + MaPhong + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
+
+        public DataSet SearchRoom(string key, int Status)
+        {
+            string sqlString = "Select * From Phong Where TrangThai =" + Status + "and (MaPhong Like'%" + key + "%'or MaLoai Like N'%" + key + "%'or GhiChu Like N'%" + key + "%'or DienTich Like '%" + key + "%' or GiaThue Like '%" + key + "%')";
+            if (Status == -1)
+            {
+                sqlString = "Select * From Phong Where MaPhong Like'%" + key + "%'or MaLoai Like N'%" + key + "%'or GhiChu Like N'%" + key + "%'or DienTich Like '%" + key + "%' or GiaThue Like '%" + key + "%'";
+            }
+            return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
+        }
     }
 }

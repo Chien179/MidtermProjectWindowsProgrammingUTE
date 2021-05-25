@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmPurchase : Form
@@ -28,7 +30,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             LoadData();
         }
         #endregion
-     
+
         #region Events Click
         private void pbAdd_Click(object sender, EventArgs e)
         {
@@ -53,7 +55,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbSave_Click(object sender, EventArgs e)
         {
-            
+
             // Mở kết nối
             // Thêm dữ liệu
             if (Them)
@@ -62,7 +64,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLPurchase blPurchase = new BLPurchase();
-                    blPurchase.AddPurchase(this.txtPurchaseID.Text,decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
+                    blPurchase.AddPurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -93,14 +95,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Thứ tự dòng hiện hành
                 int r = dgvPurchase.CurrentCell.RowIndex;
                 // Chuyển thông tin lên panel
-                this.txtPurchaseID.Text =
-                dgvPurchase.Rows[r].Cells[0].Value.ToString();
-                this.txtTotal.Text =
-                dgvPurchase.Rows[r].Cells[1].Value.ToString();
-                this.dtpPurchaseDate.Text =
-                dgvPurchase.Rows[r].Cells[2].Value.ToString();
-                this.cmbRoomID.Text =
-                dgvPurchase.Rows[r].Cells[3].Value.ToString();
+                this.txtPurchaseID.Text = dgvPurchase.Rows[r].Cells["PurchaseID"].Value.ToString();
+                this.txtTotal.Text = dgvPurchase.Rows[r].Cells["Total"].Value.ToString();
+                this.dtpPurchaseDate.Text = dgvPurchase.Rows[r].Cells["PurchaseDate"].Value.ToString();
+                this.cmbRoomID.Text = dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString();
             }
             catch (Exception)
             {
@@ -136,14 +134,14 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void pbBill_Click(object sender, EventArgs e)
         {
             // Lấy thứ tự record hiện hành 
-            int r =dgvPurchase.CurrentCell.RowIndex;
+            int r = dgvPurchase.CurrentCell.RowIndex;
             // Lấy MaPhong của record hiện hành 
             string str = dgvPurchase.Rows[r].Cells[3].Value.ToString();
             decimal Total = dbPurchase.Bill(str);
 
             //Hiển thị số tiền phải thanh toán lên màn hình
-            MessageBox.Show( Total.ToString());
-            
+            MessageBox.Show(Total.ToString());
+
             //Thực hiện lệnh
             dbPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
             // Load lại dữ liệu trên DataGridView
@@ -173,6 +171,48 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void btnSearch_Click(object sender, EventArgs e)
         {
             Search();
+        }
+        #endregion
+
+        #region Events Mouse
+        private void pbAdd_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add_blue.png", this.pbAdd);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add.png", this.pbAdd);
+        }
+
+        private void pbEdit_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit_blue.png", this.pbEdit);
+        }
+
+        private void pbEdit_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit.png", this.pbEdit);
+        }
+
+        private void pbSave_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save_blue.png", this.pbSave);
+        }
+
+        private void pbSave_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save.png", this.pbSave);
+        }
+
+        private void pbCancel_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel_blue.png", this.pbCancel);
+        }
+
+        private void pbCancel_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel.png", this.pbCancel);
         }
         #endregion
 
@@ -247,6 +287,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Thay đổi độ rộng cột
                 dgvPurchase.AutoResizeColumns();
             }
+        }
+
+        private void ButtonColorChanged(string picture, PictureBox pb)
+        {
+            pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
     }

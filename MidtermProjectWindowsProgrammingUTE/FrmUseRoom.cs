@@ -1,10 +1,10 @@
-﻿using System;
+﻿using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using MidtermProjectWindowsProgrammingUTE.BS_Layer;
-using System.IO;
 using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace MidtermProjectWindowsProgrammingUTE
 {
@@ -100,16 +100,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thứ tự dòng hiện hành
             int r = dgvRoom.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
-            this.cmbRoomID.Text =
-            dgvRoom.Rows[r].Cells[0].Value.ToString();
-            this.cmbCMND.Text =
-            dgvRoom.Rows[r].Cells[1].Value.ToString();
-            this.dtpDateIn.Text =
-            dgvRoom.Rows[r].Cells[2].Value.ToString();
-            this.dtpDateOut.Text =
-            dgvRoom.Rows[r].Cells[3].Value.ToString();
-            this.txtDeposit.Text =
-            dgvRoom.Rows[r].Cells[4].Value.ToString();
+            this.cmbRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
+            this.cmbCMND.Text = dgvRoom.Rows[r].Cells["CMND"].Value.ToString();
+            this.dtpDateIn.Text = dgvRoom.Rows[r].Cells["CheckIn"].Value.ToString();
+            this.dtpDateOut.Text = dgvRoom.Rows[r].Cells["CheckOut"].Value.ToString();
+            this.txtDeposit.Text = dgvRoom.Rows[r].Cells["Deposit"].Value.ToString();
         }
 
         private void pbEdit_Click(object sender, EventArgs e)
@@ -153,7 +148,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             dgvRoom_CellClick(null, null);
         }
 
-        
+
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -166,26 +161,44 @@ namespace MidtermProjectWindowsProgrammingUTE
         #endregion
 
         #region Events Mouse
-        
+        private void pbAdd_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add_blue.png", this.pbAdd);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add.png", this.pbAdd);
+        }
+
+        private void pbEdit_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit_blue.png", this.pbEdit);
+        }
+
+        private void pbEdit_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit.png", this.pbEdit);
+        }
 
         private void pbSave_MouseEnter(object sender, EventArgs e)
         {
-            ButtonColorChanged_Enter("save_blue.png", this.pbSave);
+            ButtonColorChanged("save_blue.png", this.pbSave);
         }
 
         private void pbSave_MouseLeave(object sender, EventArgs e)
         {
-            ButtonColorChanged_Leave("save.png", this.pbSave);
+            ButtonColorChanged("save.png", this.pbSave);
         }
 
         private void pbCancel_MouseEnter(object sender, EventArgs e)
         {
-            ButtonColorChanged_Enter("cancel_blue.png", this.pbCancel);
+            ButtonColorChanged("cancel_blue.png", this.pbCancel);
         }
 
         private void pbCancel_MouseLeave(object sender, EventArgs e)
         {
-            ButtonColorChanged_Leave("cancel.png", this.pbCancel);
+            ButtonColorChanged("cancel.png", this.pbCancel);
         }
         #endregion
 
@@ -257,12 +270,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
         }
 
-        private void ButtonColorChanged_Enter(string picture, PictureBox pb)
-        {
-            pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
-            pb.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-        private void ButtonColorChanged_Leave(string picture, PictureBox pb)
+        private void ButtonColorChanged(string picture, PictureBox pb)
         {
             pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;

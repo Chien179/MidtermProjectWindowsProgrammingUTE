@@ -38,6 +38,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvRoom = new System.Windows.Forms.DataGridView();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Deposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbRoomID = new System.Windows.Forms.ComboBox();
             this.cmbCMND = new System.Windows.Forms.ComboBox();
@@ -52,11 +57,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel3 = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Deposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
@@ -151,6 +151,36 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dgvRoom.TabIndex = 68;
             this.dgvRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRoom_CellClick);
             // 
+            // RoomID
+            // 
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.Name = "RoomID";
+            // 
+            // CMND
+            // 
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            // 
+            // CheckIn
+            // 
+            this.CheckIn.DataPropertyName = "NgayVao";
+            this.CheckIn.HeaderText = "Check In";
+            this.CheckIn.Name = "CheckIn";
+            // 
+            // CheckOut
+            // 
+            this.CheckOut.DataPropertyName = "NgayRa";
+            this.CheckOut.HeaderText = "Check Out";
+            this.CheckOut.Name = "CheckOut";
+            // 
+            // Deposit
+            // 
+            this.Deposit.DataPropertyName = "DatCoc";
+            this.Deposit.HeaderText = "Deposit";
+            this.Deposit.Name = "Deposit";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -243,6 +273,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbAdd.TabIndex = 96;
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
+            this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
+            this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
             // pbEdit
             // 
@@ -254,6 +286,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbEdit.TabIndex = 94;
             this.pbEdit.TabStop = false;
             this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
+            this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
+            this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
             // btnSearch
             // 
@@ -301,36 +335,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
             this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
-            // RoomID
-            // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.Name = "RoomID";
-            // 
-            // CMND
-            // 
-            this.CMND.DataPropertyName = "CMND";
-            this.CMND.HeaderText = "CMND";
-            this.CMND.Name = "CMND";
-            // 
-            // CheckIn
-            // 
-            this.CheckIn.DataPropertyName = "NgayVao";
-            this.CheckIn.HeaderText = "Check In";
-            this.CheckIn.Name = "CheckIn";
-            // 
-            // CheckOut
-            // 
-            this.CheckOut.DataPropertyName = "NgayRa";
-            this.CheckOut.HeaderText = "Check Out";
-            this.CheckOut.Name = "CheckOut";
-            // 
-            // Deposit
-            // 
-            this.Deposit.DataPropertyName = "DatCoc";
-            this.Deposit.HeaderText = "Deposit";
-            this.Deposit.Name = "Deposit";
-            // 
             // FrmUseRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,6 +351,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUseRoom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Use Room";
             this.Load += new System.EventHandler(this.FrmUseRoom_Load);
             this.panel1.ResumeLayout(false);

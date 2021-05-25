@@ -29,37 +29,13 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool DeleteClient(ref string err, string CMND)
+        public DataSet SearchClient(string key,int Sex)
         {
-            DataSet dsMaPhong = db.ExecuteQueryDataSet("Select MaPhong From ThuePhong Where CMND='" + CMND + "'",CommandType.Text);
-
-            string[] MaPhong = new string[dsMaPhong.Tables[0].Rows.Count];
-
-            for (int i = 0; i < dsMaPhong.Tables[0].Rows.Count; i++)
+            string sqlString = "Select * From KhachHang Where Nu =" + Sex + "and (CMND Like'%" + key + "%'or TenKH Like N'%" + key + "%'or DiaChi Like N'%" + key + "%'or SoDienThoai Like '%" + key + "%' or NgaySinh Like '%" + key + "%')";
+            if (Sex == -1)
             {
-                MaPhong[i] = dsMaPhong.Tables[0].Rows[i][0].ToString();
+                sqlString = "Select * From KhachHang Where CMND Like'%" + key + "%'or TenKH Like N'%" + key + "%'or DiaChi Like N'%" + key + "%'or SoDienThoai Like '%" + key + "%' or NgaySinh Like '%" + key + "%'";
             }
-
-            string sqlString = "Delete From ThuePhong Where CMND='" + CMND + "'";
-            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-
-            for (int i = 0; i < dsMaPhong.Tables[0].Rows.Count; i++)
-            {
-                sqlString = "Delete From ThanhToan Where MaPhong='" + MaPhong[i] + "'";
-                db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-                sqlString = "Delete From SuDungDichVu Where MaPhong='" + MaPhong[i] + "'";
-                db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-                sqlString = "Update Phong Set TrangThai=" + 0 + " Where MaPhong='" + MaPhong[i] + "'";
-                db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-            }
-            
-            sqlString = "Delete From KhachHang Where CMND='" + CMND + "'";
-            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-        }
-
-        public DataSet SearchClient(string key)
-        {
-            string sqlString = "Select * From KhachHang Where CMND Like'%" + key + "%'or TenKH Like N'%" + key+ "%'or DiaChi Like N'%" + key+ "%'or SoDienThoai Like '%" + key+"%'";
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
     }

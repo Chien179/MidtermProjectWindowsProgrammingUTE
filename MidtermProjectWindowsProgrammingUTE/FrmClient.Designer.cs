@@ -35,6 +35,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvClient = new System.Windows.Forms.DataGridView();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Female = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -52,12 +58,7 @@
             this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
-            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Female = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbSex = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
@@ -120,20 +121,67 @@
             // 
             // dgvClient
             // 
+            this.dgvClient.AllowUserToAddRows = false;
+            this.dgvClient.AllowUserToDeleteRows = false;
             this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CMND,
-            this.Name,
+            this.NameClient,
             this.Address,
             this.PhoneNumber,
             this.Female,
             this.BirthDate});
             this.dgvClient.Location = new System.Drawing.Point(679, 251);
             this.dgvClient.Name = "dgvClient";
+            this.dgvClient.ReadOnly = true;
             this.dgvClient.RowHeadersWidth = 51;
             this.dgvClient.Size = new System.Drawing.Size(593, 341);
             this.dgvClient.TabIndex = 8;
             this.dgvClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClient_CellClick);
+            // 
+            // CMND
+            // 
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            this.CMND.ReadOnly = true;
+            // 
+            // NameClient
+            // 
+            this.NameClient.DataPropertyName = "TenKH";
+            this.NameClient.HeaderText = "Name";
+            this.NameClient.Name = "NameClient";
+            this.NameClient.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "DiaChi";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.DataPropertyName = "SoDienThoai";
+            this.PhoneNumber.HeaderText = "Phone Number";
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.ReadOnly = true;
+            // 
+            // Female
+            // 
+            this.Female.DataPropertyName = "Nu";
+            this.Female.HeaderText = "Female";
+            this.Female.Name = "Female";
+            this.Female.ReadOnly = true;
+            // 
+            // BirthDate
+            // 
+            this.BirthDate.DataPropertyName = "NgaySinh";
+            this.BirthDate.HeaderText = "BirthDate";
+            this.BirthDate.Name = "BirthDate";
+            this.BirthDate.ReadOnly = true;
+            this.BirthDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.BirthDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // label5
             // 
@@ -278,7 +326,7 @@
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Location = new System.Drawing.Point(902, 198);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(42, 37);
+            this.btnSearch.Size = new System.Drawing.Size(32, 31);
             this.btnSearch.TabIndex = 100;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -318,49 +366,27 @@
             this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
             this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
-            // CMND
+            // cbSex
             // 
-            this.CMND.DataPropertyName = "CMND";
-            this.CMND.HeaderText = "CMND";
-            this.CMND.Name = "CMND";
-            // 
-            // Name
-            // 
-            this.Name.DataPropertyName = "TenKH";
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "DiaChi";
-            this.Address.HeaderText = "Address";
-            this.Address.Name = "Address";
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.DataPropertyName = "SoDienThoai";
-            this.PhoneNumber.HeaderText = "Phone Number";
-            this.PhoneNumber.Name = "PhoneNumber";
-            // 
-            // Female
-            // 
-            this.Female.DataPropertyName = "Nu";
-            this.Female.HeaderText = "Female";
-            this.Female.Name = "Female";
-            // 
-            // BirthDate
-            // 
-            this.BirthDate.DataPropertyName = "NgaySinh";
-            this.BirthDate.HeaderText = "BirthDate";
-            this.BirthDate.Name = "BirthDate";
-            this.BirthDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.BirthDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSex.FormattingEnabled = true;
+            this.cbSex.Items.AddRange(new object[] {
+            "None",
+            "Male",
+            "Female"});
+            this.cbSex.Location = new System.Drawing.Point(679, 167);
+            this.cbSex.Name = "cbSex";
+            this.cbSex.Size = new System.Drawing.Size(121, 24);
+            this.cbSex.TabIndex = 99;
+            this.cbSex.SelectedIndexChanged += new System.EventHandler(this.cbSex_SelectedIndexChanged);
             // 
             // FrmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.cbSex);
             this.Controls.Add(this.pnCom);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pnInfor);
@@ -417,10 +443,11 @@
         private System.Windows.Forms.DateTimePicker dtpBirthDate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameClient;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Female;
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
+        private System.Windows.Forms.ComboBox cbSex;
     }
 }
