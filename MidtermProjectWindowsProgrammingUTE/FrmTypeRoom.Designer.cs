@@ -47,6 +47,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pnInfor = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
@@ -108,6 +110,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // dgvRoom
             // 
             this.dgvRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RoomType,
+            this.NameType});
             this.dgvRoom.Location = new System.Drawing.Point(679, 251);
             this.dgvRoom.Name = "dgvRoom";
             this.dgvRoom.RowHeadersWidth = 51;
@@ -228,6 +233,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel3.Size = new System.Drawing.Size(148, 67);
             this.panel3.TabIndex = 101;
             // 
+            // RoomType
+            // 
+            this.RoomType.DataPropertyName = "MaLoai";
+            this.RoomType.HeaderText = "Room Type";
+            this.RoomType.Name = "RoomType";
+            // 
+            // NameType
+            // 
+            this.NameType.DataPropertyName = "TenLoai";
+            this.NameType.HeaderText = "Name Type";
+            this.NameType.Name = "NameType";
+            // 
             // FrmTypeRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,5 +300,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.Panel pnInfor;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameType;
     }
 }

@@ -42,6 +42,8 @@
             this.txtServiceID = new System.Windows.Forms.TextBox();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.pnInfor = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtUnit = new System.Windows.Forms.TextBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
@@ -49,8 +51,10 @@
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.btnUseService = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtUnit = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
@@ -104,6 +108,11 @@
             // dgvService
             // 
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Name,
+            this.Price,
+            this.Unit});
             this.dgvService.Location = new System.Drawing.Point(679, 249);
             this.dgvService.Name = "dgvService";
             this.dgvService.RowHeadersWidth = 51;
@@ -191,6 +200,24 @@
             this.pnInfor.Size = new System.Drawing.Size(431, 212);
             this.pnInfor.TabIndex = 39;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Location = new System.Drawing.Point(27, 122);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 25);
+            this.label5.TabIndex = 37;
+            this.label5.Text = "Unit:";
+            // 
+            // txtUnit
+            // 
+            this.txtUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtUnit.Location = new System.Drawing.Point(144, 120);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.Size = new System.Drawing.Size(176, 30);
+            this.txtUnit.TabIndex = 38;
+            // 
             // pbAdd
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
@@ -265,23 +292,29 @@
             this.btnUseService.UseVisualStyleBackColor = true;
             this.btnUseService.Click += new System.EventHandler(this.btnUseService_Click);
             // 
-            // label5
+            // ID
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(27, 122);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 25);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "Unit:";
+            this.ID.DataPropertyName = "MaDV";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
             // 
-            // txtUnit
+            // Name
             // 
-            this.txtUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtUnit.Location = new System.Drawing.Point(144, 120);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(176, 30);
-            this.txtUnit.TabIndex = 38;
+            this.Name.DataPropertyName = "TenDV";
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "GiaTien";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "DonViTinh";
+            this.Unit.HeaderText = "Unit";
+            this.Unit.Name = "Unit";
             // 
             // FrmService
             // 
@@ -346,5 +379,9 @@
         private System.Windows.Forms.Button btnUseService;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
     }
 }

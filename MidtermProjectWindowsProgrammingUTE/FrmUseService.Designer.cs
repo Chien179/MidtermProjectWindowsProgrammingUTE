@@ -51,6 +51,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUseService)).BeginInit();
@@ -126,9 +130,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label5.Location = new System.Drawing.Point(14, 123);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 25);
+            this.label5.Size = new System.Drawing.Size(107, 25);
             this.label5.TabIndex = 77;
-            this.label5.Text = "Date In:";
+            this.label5.Text = "Date Use:";
             // 
             // label4
             // 
@@ -136,9 +140,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label4.Location = new System.Drawing.Point(14, 71);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 25);
+            this.label4.Size = new System.Drawing.Size(116, 25);
             this.label4.TabIndex = 76;
-            this.label4.Text = "CMND:";
+            this.label4.Text = "Service ID:";
             // 
             // pbBack
             // 
@@ -180,6 +184,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             // dgvUseService
             // 
             this.dgvUseService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUseService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RoomID,
+            this.ServiceID,
+            this.DateUse,
+            this.Amount});
             this.dgvUseService.Location = new System.Drawing.Point(679, 251);
             this.dgvUseService.Name = "dgvUseService";
             this.dgvUseService.RowHeadersWidth = 51;
@@ -276,6 +285,34 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.TabStop = false;
             this.pbSave.Click += new System.EventHandler(this.pbSave_Click);
             // 
+            // RoomID
+            // 
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            // 
+            // ServiceID
+            // 
+            this.ServiceID.DataPropertyName = "MaDV";
+            this.ServiceID.HeaderText = "Service ID";
+            this.ServiceID.Name = "ServiceID";
+            this.ServiceID.ReadOnly = true;
+            // 
+            // DateUse
+            // 
+            this.DateUse.DataPropertyName = "NgaySuDung";
+            this.DateUse.HeaderText = "Date Use";
+            this.DateUse.Name = "DateUse";
+            this.DateUse.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "SoLuong";
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
             // FrmUseService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,5 +372,9 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.Panel pnCom;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateUse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
     }
 }

@@ -52,6 +52,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel3 = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Deposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
@@ -98,9 +103,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label5.Location = new System.Drawing.Point(30, 135);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 25);
+            this.label5.Size = new System.Drawing.Size(102, 25);
             this.label5.TabIndex = 62;
-            this.label5.Text = "Date In:";
+            this.label5.Text = "Check In:";
             // 
             // label4
             // 
@@ -133,6 +138,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             // dgvRoom
             // 
             this.dgvRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RoomID,
+            this.CMND,
+            this.CheckIn,
+            this.CheckOut,
+            this.Deposit});
             this.dgvRoom.Location = new System.Drawing.Point(679, 251);
             this.dgvRoom.Name = "dgvRoom";
             this.dgvRoom.RowHeadersWidth = 51;
@@ -146,9 +157,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.Location = new System.Drawing.Point(30, 189);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 25);
+            this.label3.Size = new System.Drawing.Size(119, 25);
             this.label3.TabIndex = 71;
-            this.label3.Text = "Date Out:";
+            this.label3.Text = "Check Out:";
             // 
             // cmbRoomID
             // 
@@ -290,6 +301,36 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
             this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
+            // RoomID
+            // 
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.Name = "RoomID";
+            // 
+            // CMND
+            // 
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            // 
+            // CheckIn
+            // 
+            this.CheckIn.DataPropertyName = "NgayVao";
+            this.CheckIn.HeaderText = "Check In";
+            this.CheckIn.Name = "CheckIn";
+            // 
+            // CheckOut
+            // 
+            this.CheckOut.DataPropertyName = "NgayRa";
+            this.CheckOut.HeaderText = "Check Out";
+            this.CheckOut.Name = "CheckOut";
+            // 
+            // Deposit
+            // 
+            this.Deposit.DataPropertyName = "DatCoc";
+            this.Deposit.HeaderText = "Deposit";
+            this.Deposit.Name = "Deposit";
+            // 
             // FrmUseRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,5 +389,10 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CheckIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CheckOut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Deposit;
     }
 }

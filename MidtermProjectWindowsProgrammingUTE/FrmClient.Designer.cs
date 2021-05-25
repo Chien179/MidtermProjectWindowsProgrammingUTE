@@ -52,6 +52,12 @@
             this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Female = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
@@ -115,6 +121,13 @@
             // dgvClient
             // 
             this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CMND,
+            this.Name,
+            this.Address,
+            this.PhoneNumber,
+            this.Female,
+            this.BirthDate});
             this.dgvClient.Location = new System.Drawing.Point(679, 251);
             this.dgvClient.Name = "dgvClient";
             this.dgvClient.RowHeadersWidth = 51;
@@ -305,6 +318,44 @@
             this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
             this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
+            // CMND
+            // 
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "TenKH";
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "DiaChi";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.DataPropertyName = "SoDienThoai";
+            this.PhoneNumber.HeaderText = "Phone Number";
+            this.PhoneNumber.Name = "PhoneNumber";
+            // 
+            // Female
+            // 
+            this.Female.DataPropertyName = "Nu";
+            this.Female.HeaderText = "Female";
+            this.Female.Name = "Female";
+            // 
+            // BirthDate
+            // 
+            this.BirthDate.DataPropertyName = "NgaySinh";
+            this.BirthDate.HeaderText = "BirthDate";
+            this.BirthDate.Name = "BirthDate";
+            this.BirthDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.BirthDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // FrmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,5 +416,11 @@
         private System.Windows.Forms.CheckBox cbFemale;
         private System.Windows.Forms.DateTimePicker dtpBirthDate;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Female;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
     }
 }

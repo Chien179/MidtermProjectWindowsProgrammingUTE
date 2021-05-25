@@ -41,6 +41,12 @@
             this.cbStatus = new System.Windows.Forms.CheckBox();
             this.btnUseRoom = new System.Windows.Forms.Button();
             this.pnInfor = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbNote = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtArea = new System.Windows.Forms.TextBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
@@ -48,12 +54,12 @@
             this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbNote = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.txtArea = new System.Windows.Forms.TextBox();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Full = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
@@ -97,6 +103,13 @@
             // dgvRoom
             // 
             this.dgvRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RoomID,
+            this.RoomType,
+            this.Full,
+            this.Note,
+            this.Area,
+            this.Price});
             this.dgvRoom.Location = new System.Drawing.Point(679, 251);
             this.dgvRoom.Name = "dgvRoom";
             this.dgvRoom.RowHeadersWidth = 51;
@@ -191,6 +204,61 @@
             this.pnInfor.Size = new System.Drawing.Size(460, 233);
             this.pnInfor.TabIndex = 41;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Location = new System.Drawing.Point(14, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 25);
+            this.label4.TabIndex = 61;
+            this.label4.Text = "Area:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Location = new System.Drawing.Point(14, 154);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 25);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Note:";
+            // 
+            // cmbNote
+            // 
+            this.cmbNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbNote.FormattingEnabled = true;
+            this.cmbNote.Location = new System.Drawing.Point(179, 147);
+            this.cmbNote.Name = "cmbNote";
+            this.cmbNote.Size = new System.Drawing.Size(121, 32);
+            this.cmbNote.TabIndex = 63;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label6.Location = new System.Drawing.Point(14, 197);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 25);
+            this.label6.TabIndex = 64;
+            this.label6.Text = "Price:";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtPrice.Location = new System.Drawing.Point(179, 192);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(176, 30);
+            this.txtPrice.TabIndex = 65;
+            // 
+            // txtArea
+            // 
+            this.txtArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtArea.Location = new System.Drawing.Point(179, 99);
+            this.txtArea.Name = "txtArea";
+            this.txtArea.Size = new System.Drawing.Size(176, 30);
+            this.txtArea.TabIndex = 66;
+            // 
             // pbAdd
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
@@ -265,60 +333,41 @@
             this.pbSave.TabStop = false;
             this.pbSave.Click += new System.EventHandler(this.pbSave_Click);
             // 
-            // label4
+            // RoomID
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(14, 104);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 25);
-            this.label4.TabIndex = 61;
-            this.label4.Text = "Area:";
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.Name = "RoomID";
             // 
-            // label5
+            // RoomType
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(14, 154);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 25);
-            this.label5.TabIndex = 62;
-            this.label5.Text = "Note:";
+            this.RoomType.DataPropertyName = "MaLoai";
+            this.RoomType.HeaderText = "Room Type";
+            this.RoomType.Name = "RoomType";
             // 
-            // cmbNote
+            // Full
             // 
-            this.cmbNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbNote.FormattingEnabled = true;
-            this.cmbNote.Location = new System.Drawing.Point(179, 147);
-            this.cmbNote.Name = "cmbNote";
-            this.cmbNote.Size = new System.Drawing.Size(121, 32);
-            this.cmbNote.TabIndex = 63;
+            this.Full.DataPropertyName = "TrangThai";
+            this.Full.HeaderText = "Full";
+            this.Full.Name = "Full";
             // 
-            // label6
+            // Note
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(14, 197);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 25);
-            this.label6.TabIndex = 64;
-            this.label6.Text = "Price:";
+            this.Note.DataPropertyName = "GhiChu";
+            this.Note.HeaderText = "Note";
+            this.Note.Name = "Note";
             // 
-            // txtPrice
+            // Area
             // 
-            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtPrice.Location = new System.Drawing.Point(179, 192);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(176, 30);
-            this.txtPrice.TabIndex = 65;
+            this.Area.DataPropertyName = "DienTich";
+            this.Area.HeaderText = "Area";
+            this.Area.Name = "Area";
             // 
-            // txtArea
+            // Price
             // 
-            this.txtArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtArea.Location = new System.Drawing.Point(179, 99);
-            this.txtArea.Name = "txtArea";
-            this.txtArea.Size = new System.Drawing.Size(176, 30);
-            this.txtArea.TabIndex = 66;
+            this.Price.DataPropertyName = "GiaThue";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
             // 
             // FrmRoom
             // 
@@ -384,5 +433,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtArea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Full;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Area;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
     }
 }
