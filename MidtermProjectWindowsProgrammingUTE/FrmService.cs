@@ -238,7 +238,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
         }
 
-        private void pbSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             Search();
         }

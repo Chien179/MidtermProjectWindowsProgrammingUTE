@@ -316,6 +316,7 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 32);
             this.btnSearch.TabIndex = 106;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // FrmService
             // 
