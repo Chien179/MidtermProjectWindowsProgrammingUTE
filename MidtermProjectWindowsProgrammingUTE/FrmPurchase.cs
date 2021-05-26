@@ -196,13 +196,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             try
             {
-                int r = dgvPurchase.CurrentCell.RowIndex;
-                // Lấy MaTT và MaPhong của record hiện hành 
-                string strPurchase = dgvPurchase.Rows[r].Cells[0].Value.ToString();
-                string strRoomID = dgvPurchase.Rows[r].Cells[3].Value.ToString();
-                dbPurchase.Puchase(ref err, strPurchase, strRoomID);
-                MessageBox.Show("Deleted all selected Clients' informations", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                if (dgvPurchase.Rows.Count > 0)
+                {
+                    int r = dgvPurchase.CurrentCell.RowIndex;
+                    // Lấy MaTT và MaPhong của record hiện hành 
+                    string strPurchase = dgvPurchase.Rows[r].Cells[0].Value.ToString();
+                    string strRoomID = dgvPurchase.Rows[r].Cells[3].Value.ToString();
+                    dbPurchase.Puchase(ref err, strPurchase, strRoomID);
+                    MessageBox.Show("Deleted all selected Clients' informations", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
             }
             catch (SqlException)
             {

@@ -182,42 +182,45 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             try
             {
-                this.gbInfor.Text = "Deleting.....";
-                // Thực hiện lệnh 
-                // Lấy thứ tự record hiện hành 
-                int r = dgvClient.CurrentCell.RowIndex;
-                // Lấy MaKH của record hiện hành 
-                string strCMND = dgvClient.Rows[r].Cells[0].Value.ToString();
-                // Viết câu lệnh SQL 
-                // Hiện thông báo xác nhận việc xóa mẫu tin 
-                // Khai báo biến traloi 
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp 
-                traloi = MessageBox.Show("Are you sure?", "Delete row",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không? 
-                if (traloi == DialogResult.Yes)
+                if (dgvClient.Rows.Count > 0)
                 {
-                    dbClient.DeleteClient(ref err, strCMND);
-                    if (err == "")
+                    this.gbInfor.Text = "Deleting.....";
+                    // Thực hiện lệnh 
+                    // Lấy thứ tự record hiện hành 
+                    int r = dgvClient.CurrentCell.RowIndex;
+                    // Lấy MaKH của record hiện hành 
+                    string strCMND = dgvClient.Rows[r].Cells[0].Value.ToString();
+                    // Viết câu lệnh SQL 
+                    // Hiện thông báo xác nhận việc xóa mẫu tin 
+                    // Khai báo biến traloi 
+                    DialogResult traloi;
+                    // Hiện hộp thoại hỏi đáp 
+                    traloi = MessageBox.Show("Are you sure?", "Delete row",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    // Kiểm tra có nhắp chọn nút Ok không? 
+                    if (traloi == DialogResult.Yes)
                     {
-                        // Cập nhật lại DataGridView 
-                        LoadData();
-                        // Thông báo 
-                        MessageBox.Show("Deleted successfully!");
+                        dbClient.DeleteClient(ref err, strCMND);
+                        if (err == "")
+                        {
+                            // Cập nhật lại DataGridView 
+                            LoadData();
+                            // Thông báo 
+                            MessageBox.Show("Deleted successfully!");
+                        }
+                        else
+                        {
+                            this.gbInfor.Text = "Information";
+                            // Thông báo 
+                            MessageBox.Show("Client is still using room !", "Delete failed!");
+                        }
                     }
                     else
                     {
                         this.gbInfor.Text = "Information";
                         // Thông báo 
-                        MessageBox.Show("Client is still using room !", "Delete failed!");
+                        MessageBox.Show("Delete failed!");
                     }
-                }
-                else
-                {
-                    this.gbInfor.Text = "Information";
-                    // Thông báo 
-                    MessageBox.Show("Delete failed!");
                 }
             }
             catch (SqlException)
@@ -225,6 +228,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.gbInfor.Text = "Information";
                 MessageBox.Show("Delete failed!");
             }
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

@@ -172,41 +172,44 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             try
             {
-                this.gbInfor.Text = "Deleting.....";
-                // Thực hiện lệnh 
-                // Lấy thứ tự record hiện hành 
-                int r = dgvTypeRoom.CurrentCell.RowIndex;
-                // Lấy MaKH của record hiện hành 
-                string strTypeRoom = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
-                // Viết câu lệnh SQL 
-                // Hiện thông báo xác nhận việc xóa mẫu tin 
-                // Khai báo biến traloi 
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp 
-                traloi = MessageBox.Show("Are you sure?", "Delete row", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không?
-                if (traloi == DialogResult.Yes)
+                if (dgvTypeRoom.Rows.Count > 0)
                 {
-                    dbTypeRoom.DeleteTypeRoom(ref err, strTypeRoom);
-                    if (dgvTypeRoom.Rows.Count > 0)
+                    this.gbInfor.Text = "Deleting.....";
+                    // Thực hiện lệnh 
+                    // Lấy thứ tự record hiện hành 
+                    int r = dgvTypeRoom.CurrentCell.RowIndex;
+                    // Lấy MaKH của record hiện hành 
+                    string strTypeRoom = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
+                    // Viết câu lệnh SQL 
+                    // Hiện thông báo xác nhận việc xóa mẫu tin 
+                    // Khai báo biến traloi 
+                    DialogResult traloi;
+                    // Hiện hộp thoại hỏi đáp 
+                    traloi = MessageBox.Show("Are you sure?", "Delete row", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    // Kiểm tra có nhắp chọn nút Ok không?
+                    if (traloi == DialogResult.Yes)
                     {
-                        // Cập nhật lại DataGridView 
-                        LoadData();
-                        // Thông báo 
-                        MessageBox.Show("Deleted successfully!");
+                        dbTypeRoom.DeleteTypeRoom(ref err, strTypeRoom);
+                        if (dgvTypeRoom.Rows.Count > 0)
+                        {
+                            // Cập nhật lại DataGridView 
+                            LoadData();
+                            // Thông báo 
+                            MessageBox.Show("Deleted successfully!");
+                        }
+                        else
+                        {
+                            this.gbInfor.Text = "Information";
+                            // Thông báo 
+                            MessageBox.Show("There are rooms with this type room !", "Deleted failed!");
+                        }
                     }
                     else
                     {
                         this.gbInfor.Text = "Information";
                         // Thông báo 
-                        MessageBox.Show("There are rooms with this type room !", "Deleted failed!");
+                        MessageBox.Show("Deleted failed!");
                     }
-                }
-                else
-                {
-                    this.gbInfor.Text = "Information";
-                    // Thông báo 
-                    MessageBox.Show("Deleted failed!");
                 }
             }
             catch (SqlException)

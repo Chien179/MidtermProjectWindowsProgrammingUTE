@@ -186,41 +186,44 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             try
             {
-                // Thực hiện lệnh 
-                // Lấy thứ tự record hiện hành 
-                int r = dgvRoom.CurrentCell.RowIndex;
-                // Lấy MaKH của record hiện hành 
-                string strRoomID = dgvRoom.Rows[r].Cells[0].Value.ToString();
-                // Viết câu lệnh SQL 
-                // Hiện thông báo xác nhận việc xóa mẫu tin 
-                // Khai báo biến traloi 
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp 
-                traloi = MessageBox.Show("Are you sure?", "Delete row",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không? 
-                if (traloi == DialogResult.Yes)
+                if (dgvRoom.Rows.Count > 0)
                 {
-                    dbRoom.DeleteRoom(ref err, strRoomID);
-                    if (err == "")
+                    // Thực hiện lệnh 
+                    // Lấy thứ tự record hiện hành 
+                    int r = dgvRoom.CurrentCell.RowIndex;
+                    // Lấy MaKH của record hiện hành 
+                    string strRoomID = dgvRoom.Rows[r].Cells[0].Value.ToString();
+                    // Viết câu lệnh SQL 
+                    // Hiện thông báo xác nhận việc xóa mẫu tin 
+                    // Khai báo biến traloi 
+                    DialogResult traloi;
+                    // Hiện hộp thoại hỏi đáp 
+                    traloi = MessageBox.Show("Are you sure?", "Delete row",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    // Kiểm tra có nhắp chọn nút Ok không? 
+                    if (traloi == DialogResult.Yes)
                     {
-                        // Cập nhật lại DataGridView 
-                        LoadData();
-                        // Thông báo 
-                        MessageBox.Show("Deleted successfully!");
+                        dbRoom.DeleteRoom(ref err, strRoomID);
+                        if (err == "")
+                        {
+                            // Cập nhật lại DataGridView 
+                            LoadData();
+                            // Thông báo 
+                            MessageBox.Show("Deleted successfully!");
+                        }
+                        else
+                        {
+                            this.gbInfor.Text = "Information";
+                            // Thông báo 
+                            MessageBox.Show("Room currently in use !", "Delete failed!");
+                        }
                     }
                     else
                     {
                         this.gbInfor.Text = "Information";
                         // Thông báo 
-                        MessageBox.Show("Room currently in use !", "Delete failed!");
+                        MessageBox.Show("Delete failed!");
                     }
-                }
-                else
-                {
-                    this.gbInfor.Text = "Information";
-                    // Thông báo 
-                    MessageBox.Show("Delete failed!");
                 }
             }
             catch (SqlException)
