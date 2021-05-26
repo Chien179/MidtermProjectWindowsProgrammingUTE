@@ -41,7 +41,6 @@
             this.txtFind = new System.Windows.Forms.TextBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
-            this.pbBack = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
@@ -59,15 +58,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pbDelete = new System.Windows.Forms.PictureBox();
+            this.pbBack = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             this.gbInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -187,17 +187,6 @@
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
             this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
-            // 
-            // pbBack
-            // 
-            this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
-            this.pbBack.Location = new System.Drawing.Point(12, 152);
-            this.pbBack.Name = "pbBack";
-            this.pbBack.Size = new System.Drawing.Size(48, 39);
-            this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbBack.TabIndex = 15;
-            this.pbBack.TabStop = false;
-            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
             // btnSearch
             // 
@@ -388,6 +377,19 @@
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
             this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
+            // pbBack
+            // 
+            this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
+            this.pbBack.Location = new System.Drawing.Point(12, 152);
+            this.pbBack.Name = "pbBack";
+            this.pbBack.Size = new System.Drawing.Size(55, 52);
+            this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBack.TabIndex = 15;
+            this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
+            this.pbBack.MouseEnter += new System.EventHandler(this.pbBack_MouseEnter);
+            this.pbBack.MouseLeave += new System.EventHandler(this.pbBack_MouseLeave);
+            // 
             // FrmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,12 +417,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             this.gbInfor.ResumeLayout(false);
             this.gbInfor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,7 +434,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvClient;
         private System.Windows.Forms.TextBox txtFind;
-        private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.Button btnSearch;
@@ -458,5 +459,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pbDelete;
+        private System.Windows.Forms.PictureBox pbBack;
     }
 }

@@ -146,11 +146,13 @@
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
             this.pbBack.Location = new System.Drawing.Point(12, 151);
             this.pbBack.Name = "pbBack";
-            this.pbBack.Size = new System.Drawing.Size(48, 39);
+            this.pbBack.Size = new System.Drawing.Size(55, 52);
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 38;
             this.pbBack.TabStop = false;
             this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
+            this.pbBack.MouseEnter += new System.EventHandler(this.pbBack_MouseEnter);
+            this.pbBack.MouseLeave += new System.EventHandler(this.pbBack_MouseLeave);
             // 
             // pbBill
             // 
