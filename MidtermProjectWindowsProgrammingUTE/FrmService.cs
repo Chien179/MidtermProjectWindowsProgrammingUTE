@@ -188,41 +188,44 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             try
             {
-                this.gbInfor.Text = "Deleting.....";
-                // Thực hiện lệnh 
-                // Lấy thứ tự record hiện hành 
-                int r = dgvService.CurrentCell.RowIndex;
-                // Lấy MaKH của record hiện hành 
-                string strService = dgvService.Rows[r].Cells[0].Value.ToString();
-                // Viết câu lệnh SQL 
-                // Hiện thông báo xác nhận việc xóa mẫu tin 
-                // Khai báo biến traloi 
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp 
-                traloi = MessageBox.Show("Are you sure?", "Delete row", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không?
-                if (traloi == DialogResult.Yes)
+                if (dgvService.Rows.Count > 0)
                 {
-                    dbService.DeleteService(ref err, strService);
-                    if (err == "")
+                    this.gbInfor.Text = "Deleting.....";
+                    // Thực hiện lệnh 
+                    // Lấy thứ tự record hiện hành 
+                    int r = dgvService.CurrentCell.RowIndex;
+                    // Lấy MaKH của record hiện hành 
+                    string strService = dgvService.Rows[r].Cells[0].Value.ToString();
+                    // Viết câu lệnh SQL 
+                    // Hiện thông báo xác nhận việc xóa mẫu tin 
+                    // Khai báo biến traloi 
+                    DialogResult traloi;
+                    // Hiện hộp thoại hỏi đáp 
+                    traloi = MessageBox.Show("Are you sure?", "Delete row", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    // Kiểm tra có nhắp chọn nút Ok không?
+                    if (traloi == DialogResult.Yes)
                     {
-                        // Cập nhật lại DataGridView 
-                        LoadData();
-                        // Thông báo 
-                        MessageBox.Show("Deleted successfuly!");
+                        dbService.DeleteService(ref err, strService);
+                        if (err == "")
+                        {
+                            // Cập nhật lại DataGridView 
+                            LoadData();
+                            // Thông báo 
+                            MessageBox.Show("Deleted successfuly!");
+                        }
+                        else
+                        {
+                            this.gbInfor.Text = "Information";
+                            // Thông báo 
+                            MessageBox.Show("Serive is in use", "Deleted failed!");
+                        }
                     }
                     else
                     {
                         this.gbInfor.Text = "Information";
                         // Thông báo 
-                        MessageBox.Show("Serive is in use", "Deleted failed!");
+                        MessageBox.Show("Deleted failed!");
                     }
-                }
-                else
-                {
-                    this.gbInfor.Text = "Information";
-                    // Thông báo 
-                    MessageBox.Show("Deleted failed!");
                 }
             }
             catch (SqlException)
