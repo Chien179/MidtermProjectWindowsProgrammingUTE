@@ -14,7 +14,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         DataTable dtRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
-        string err;
+        string err = "";
         BLPurchase dbPurchase = new BLPurchase();
         BLRoom dbRoom = new BLRoom();
         #endregion
@@ -70,15 +70,20 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLPurchase blPurchase = new BLPurchase();
-                    if (this.txtTotal.Text == "")
+                    decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.txtPurchaseID.Text);
+                    if (Total != 0)
                     {
-                        this.txtTotal.Text = "0";
+                        blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
+                        // Load lại dữ liệu trên DataGridView
+                        LoadData();
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
                     }
-                    blPurchase.AddPurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
-                    // Thông báo
-                    MessageBox.Show("Added successfully!");
+                    else
+                    {
+                        this.gbInfor.Text = "Information";
+                        MessageBox.Show("There are no datas in table 'ThuePhong'!");
+                    }
                 }
                 catch (SqlException)
                 {
@@ -107,13 +112,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             try
             {
-                // Thứ tự dòng hiện hành
-                int r = dgvPurchase.CurrentCell.RowIndex;
-                // Chuyển thông tin lên panel
-                this.txtPurchaseID.Text = dgvPurchase.Rows[r].Cells["PurchaseID"].Value.ToString();
-                this.txtTotal.Text = dgvPurchase.Rows[r].Cells["Total"].Value.ToString();
-                this.dtpPurchaseDate.Text = dgvPurchase.Rows[r].Cells["PurchaseDate"].Value.ToString();
-                this.cmbRoomID.Text = dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString();
+                if (dgvPurchase.Rows.Count > 0)
+                {
+                    // Thứ tự dòng hiện hành
+                    int r = dgvPurchase.CurrentCell.RowIndex;
+                    // Chuyển thông tin lên panel
+                    this.txtPurchaseID.Text = dgvPurchase.Rows[r].Cells["PurchaseID"].Value.ToString();
+                    this.txtTotal.Text = dgvPurchase.Rows[r].Cells["Total"].Value.ToString();
+                    this.dtpPurchaseDate.Text = dgvPurchase.Rows[r].Cells["PurchaseDate"].Value.ToString();
+                    this.cmbRoomID.Text = dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString();
+                }
             }
             catch (Exception)
             {
@@ -153,24 +161,6 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         }
 
-        private void pbBill_Click(object sender, EventArgs e)
-        {
-            // Lấy thứ tự record hiện hành 
-            int r = dgvPurchase.CurrentCell.RowIndex;
-            // Lấy MaPhong của record hiện hành 
-            string str = dgvPurchase.Rows[r].Cells[3].Value.ToString();
-            string strPurchase = dgvPurchase.Rows[r].Cells[0].Value.ToString();
-            decimal Total = dbPurchase.Bill(ref err, str, strPurchase);
-
-            //Hiển thị số tiền phải thanh toán lên màn hình
-            MessageBox.Show(Total.ToString());
-
-            //Thực hiện lệnh
-            dbPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
-            // Load lại dữ liệu trên DataGridView
-            LoadData();
-        }
-
         private void pbCancel_Click(object sender, EventArgs e)
         {
             // Xóa trống các đối tượng trong Panel 
@@ -206,33 +196,13 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             try
             {
-                this.gbInfor.Text = "Deleting.....";
-                // Thực hiện lệnh 
-                // Lấy thứ tự record hiện hành 
                 int r = dgvPurchase.CurrentCell.RowIndex;
-                // Lấy MaKH của record hiện hành 
+                // Lấy MaTT và MaPhong của record hiện hành 
                 string strPurchase = dgvPurchase.Rows[r].Cells[0].Value.ToString();
-                // Viết câu lệnh SQL 
-                // Hiện thông báo xác nhận việc xóa mẫu tin 
-                // Khai báo biến traloi 
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp 
-                traloi = MessageBox.Show("Are you sure?", "Delete row", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không?
-                if (traloi == DialogResult.Yes)
-                {
-                    dbPurchase.DeletePuchase(ref err, strPurchase);
-                    // Cập nhật lại DataGridView 
-                    LoadData();
-                    // Thông báo 
-                    MessageBox.Show("Deleted successfully!");
-                }
-                else
-                {
-                    this.gbInfor.Text = "Information";
-                    // Thông báo 
-                    MessageBox.Show("Delete failed!");
-                }
+                string strRoomID = dgvPurchase.Rows[r].Cells[3].Value.ToString();
+                dbPurchase.Puchase(ref err, strPurchase, strRoomID);
+                MessageBox.Show("Deleted all selected Clients' informations", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
             }
             catch (SqlException)
             {

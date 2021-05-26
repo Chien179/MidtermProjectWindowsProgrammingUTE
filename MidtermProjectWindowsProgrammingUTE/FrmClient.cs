@@ -14,7 +14,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         DataTable dtClient = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
-        string err;
+        string err = "";
         BLClient dbClient = new BLClient();
         #endregion
 
@@ -72,7 +72,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLClient blClient = new BLClient();
-                    blClient.AddClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text,this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
+                    blClient.AddClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -99,15 +99,25 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Thứ tự dòng hiện hành
-            int r = dgvClient.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
-            this.txtID.Text = dgvClient.Rows[r].Cells["CMND"].Value.ToString();
-            this.txtName.Text = dgvClient.Rows[r].Cells["NameClient"].Value.ToString();
-            this.txtAddress.Text = dgvClient.Rows[r].Cells["Address"].Value.ToString();
-            this.txtPhoneNumber.Text = dgvClient.Rows[r].Cells["PhoneNumber"].Value.ToString();
-            this.cbFemale.Checked = Convert.ToBoolean(dgvClient.Rows[r].Cells["Female"].Value);
-            this.dtpBirthDate.Text = dgvClient.Rows[r].Cells["BirthDate"].Value.ToString();
+            try
+            {
+                if (dgvClient.Rows.Count > 0)
+                {
+                    // Thứ tự dòng hiện hành
+                    int r = dgvClient.CurrentCell.RowIndex;
+                    // Chuyển thông tin lên panel
+                    this.txtID.Text = dgvClient.Rows[r].Cells["CMND"].Value.ToString();
+                    this.txtName.Text = dgvClient.Rows[r].Cells["NameClient"].Value.ToString();
+                    this.txtAddress.Text = dgvClient.Rows[r].Cells["Address"].Value.ToString();
+                    this.txtPhoneNumber.Text = dgvClient.Rows[r].Cells["PhoneNumber"].Value.ToString();
+                    this.cbFemale.Checked = Convert.ToBoolean(dgvClient.Rows[r].Cells["Female"].Value);
+                    this.dtpBirthDate.Text = dgvClient.Rows[r].Cells["BirthDate"].Value.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot load data into DataGridView !");
+            }
         }
 
         private void pbEdit_Click(object sender, EventArgs e)
@@ -189,10 +199,19 @@ namespace MidtermProjectWindowsProgrammingUTE
                 if (traloi == DialogResult.Yes)
                 {
                     dbClient.DeleteClient(ref err, strCMND);
-                    // Cập nhật lại DataGridView 
-                    LoadData();
-                    // Thông báo 
-                    MessageBox.Show("Deleted successfully!");
+                    if (err == "")
+                    {
+                        // Cập nhật lại DataGridView 
+                        LoadData();
+                        // Thông báo 
+                        MessageBox.Show("Deleted successfully!");
+                    }
+                    else
+                    {
+                        this.gbInfor.Text = "Information";
+                        // Thông báo 
+                        MessageBox.Show("Client is still using room !", "Delete failed!");
+                    }
                 }
                 else
                 {

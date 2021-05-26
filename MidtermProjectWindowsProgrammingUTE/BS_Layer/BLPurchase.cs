@@ -34,11 +34,6 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
 
-        public bool DeletePuchase(ref string err,string MaTT)
-        {
-            string sqlString = "Delete From ThanhToan Where MaThanhToan='" + MaTT + "'";
-            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-        }
         public bool Puchase(ref string err, string MaTT, string MaPhong)
         {
             //Xoá tất cả thông tin về khách hàng trong database
@@ -61,7 +56,6 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
 
         }
-
 
         public decimal Bill(ref string err,string MaPhong,string MaTT)
         {

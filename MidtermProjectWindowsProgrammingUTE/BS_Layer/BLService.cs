@@ -16,7 +16,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
         }
         public bool AddService(string MaDV, string TenDV, float GiaTien,string DonViTinh, ref string err)
         {
-            string sqlString = "Insert Into DichVu Values('" + MaDV + "','" + TenDV + "'," + GiaTien + ",'" + DonViTinh + "')";
+            string sqlString = "Insert Into DichVu Values('" + MaDV + "',N'" + TenDV + "'," + GiaTien + ",N'" + DonViTinh + "')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
         public bool UpdateService(string MaDV, string TenDV, float GiaTien, string DonViTinh, ref string err)
@@ -27,7 +27,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public DataSet SearchService(string key)
         {
-            string sqlString = "Select * From DichVu Where MaDV Like'%" + key + "%'or TenDV Like '%" + key + "%' or GiaTien Like '%" + key + "%'or DonViTinh Like '%" + key + "%'";
+            string sqlString = "Select * From DichVu Where MaDV Like'%" + key + "%'or TenDV Like N'%" + key + "%' or GiaTien Like '%" + key + "%'or DonViTinh Like N'%" + key + "%'";
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
 

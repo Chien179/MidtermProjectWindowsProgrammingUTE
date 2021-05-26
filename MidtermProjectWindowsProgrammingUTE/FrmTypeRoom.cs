@@ -13,7 +13,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         DataTable dtTypeRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
-        string err;
+        string err = "";
         BLTypeRoom dbTypeRoom = new BLTypeRoom();
         #endregion
 
@@ -100,11 +100,21 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvTypeRoom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Thứ tự dòng hiện hành
-            int r = dgvTypeRoom.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
-            this.txtRoomType.Text = dgvTypeRoom.Rows[r].Cells["RoomType"].Value.ToString();
-            this.txtNameType.Text = dgvTypeRoom.Rows[r].Cells["NameType"].Value.ToString();
+            try
+            {
+                if (dgvTypeRoom.Rows.Count > 0)
+                {
+                    // Thứ tự dòng hiện hành
+                    int r = dgvTypeRoom.CurrentCell.RowIndex;
+                    // Chuyển thông tin lên panel
+                    this.txtRoomType.Text = dgvTypeRoom.Rows[r].Cells["RoomType"].Value.ToString();
+                    this.txtNameType.Text = dgvTypeRoom.Rows[r].Cells["NameType"].Value.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot load data into DataGridView !");
+            }
         }
 
         private void pbCancel_Click(object sender, EventArgs e)
@@ -178,10 +188,19 @@ namespace MidtermProjectWindowsProgrammingUTE
                 if (traloi == DialogResult.Yes)
                 {
                     dbTypeRoom.DeleteTypeRoom(ref err, strTypeRoom);
-                    // Cập nhật lại DataGridView 
-                    LoadData();
-                    // Thông báo 
-                    MessageBox.Show("Deleted successfully!");
+                    if (dgvTypeRoom.Rows.Count > 0)
+                    {
+                        // Cập nhật lại DataGridView 
+                        LoadData();
+                        // Thông báo 
+                        MessageBox.Show("Deleted successfully!");
+                    }
+                    else
+                    {
+                        this.gbInfor.Text = "Information";
+                        // Thông báo 
+                        MessageBox.Show("There are rooms with this type room !", "Deleted failed!");
+                    }
                 }
                 else
                 {

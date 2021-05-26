@@ -14,7 +14,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         DataTable dtService = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
-        string err;
+        string err = "";
         BLService dbService = new BLService();
         #endregion
 
@@ -110,13 +110,23 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvService_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Thứ tự dòng hiện hành
-            int r = dgvService.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
-            this.txtServiceID.Text = dgvService.Rows[r].Cells["ID"].Value.ToString();
-            this.txtServiceName.Text = dgvService.Rows[r].Cells["NameService"].Value.ToString();
-            this.txtPrice.Text = dgvService.Rows[r].Cells["Price"].Value.ToString();
-            this.txtUnit.Text = dgvService.Rows[r].Cells["Unit"].Value.ToString();
+            try
+            {
+                if (dgvService.Rows.Count > 0)
+                {
+                    // Thứ tự dòng hiện hành
+                    int r = dgvService.CurrentCell.RowIndex;
+                    // Chuyển thông tin lên panel
+                    this.txtServiceID.Text = dgvService.Rows[r].Cells["ID"].Value.ToString();
+                    this.txtServiceName.Text = dgvService.Rows[r].Cells["NameService"].Value.ToString();
+                    this.txtPrice.Text = dgvService.Rows[r].Cells["Price"].Value.ToString();
+                    this.txtUnit.Text = dgvService.Rows[r].Cells["Unit"].Value.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot load data into DataGridView !");
+            }
         }
 
         private void pbEdit_Click(object sender, EventArgs e)
@@ -194,10 +204,19 @@ namespace MidtermProjectWindowsProgrammingUTE
                 if (traloi == DialogResult.Yes)
                 {
                     dbService.DeleteService(ref err, strService);
-                    // Cập nhật lại DataGridView 
-                    LoadData();
-                    // Thông báo 
-                    MessageBox.Show("Deleted successfuly!");
+                    if (err == "")
+                    {
+                        // Cập nhật lại DataGridView 
+                        LoadData();
+                        // Thông báo 
+                        MessageBox.Show("Deleted successfuly!");
+                    }
+                    else
+                    {
+                        this.gbInfor.Text = "Information";
+                        // Thông báo 
+                        MessageBox.Show("Serive is in use", "Deleted failed!");
+                    }
                 }
                 else
                 {
@@ -211,6 +230,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.gbInfor.Text = "Information";
                 MessageBox.Show("Deleted failed!");
             }
+        }
+
+        private void pbSearch_Click(object sender, EventArgs e)
+        {
+            Search();
         }
         #endregion
 
@@ -273,6 +297,13 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void pbCancel_MouseLeave(object sender, EventArgs e)
         {
             ButtonColorChanged("cancel.png", this.pbCancel);
+        }
+        #endregion
+
+        #region Others Events
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+            Search();
         }
         #endregion
 
@@ -349,15 +380,5 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
-
-        private void txtFind_TextChanged(object sender, EventArgs e)
-        {
-            Search();
-        }
-
-        private void pbSearch_Click(object sender, EventArgs e)
-        {
-            Search();
-        }
     }
 }

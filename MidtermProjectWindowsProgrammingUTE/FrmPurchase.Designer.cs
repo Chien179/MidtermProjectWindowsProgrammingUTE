@@ -38,8 +38,6 @@
             this.PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbBack = new System.Windows.Forms.PictureBox();
-            this.pbBill = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -58,7 +56,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
@@ -153,27 +150,6 @@
             this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             this.pbBack.MouseEnter += new System.EventHandler(this.pbBack_MouseEnter);
             this.pbBack.MouseLeave += new System.EventHandler(this.pbBack_MouseLeave);
-            // 
-            // pbBill
-            // 
-            this.pbBill.Image = ((System.Drawing.Image)(resources.GetObject("pbBill.Image")));
-            this.pbBill.Location = new System.Drawing.Point(1224, 184);
-            this.pbBill.Name = "pbBill";
-            this.pbBill.Size = new System.Drawing.Size(48, 44);
-            this.pbBill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbBill.TabIndex = 39;
-            this.pbBill.TabStop = false;
-            this.pbBill.Click += new System.EventHandler(this.pbBill_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1221, 215);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "Purchase";
-            this.label6.Click += new System.EventHandler(this.pbBill_Click);
             // 
             // pbAdd
             // 
@@ -358,8 +334,6 @@
             this.Controls.Add(this.pbSave);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbAdd);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.pbBill);
             this.Controls.Add(this.pbEdit);
             this.Controls.Add(this.pbBack);
             this.Controls.Add(this.txtFind);
@@ -374,7 +348,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
@@ -394,8 +367,6 @@
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvPurchase;
         private System.Windows.Forms.PictureBox pbBack;
-        private System.Windows.Forms.PictureBox pbBill;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.Button btnSearch;

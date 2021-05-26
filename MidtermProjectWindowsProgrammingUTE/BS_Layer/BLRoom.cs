@@ -16,12 +16,12 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
         }
         public bool AddRoom(string MaPhong, string MaLoai, string TrangThai, string GhiChu, string DienTich, float GiaThue, ref string err)
         {
-            string sqlString = "Insert Into Phong Values('" + MaPhong + "','" + MaLoai + "','" + TrangThai + "','" + GhiChu + "','" + DienTich + "'," + GiaThue + ")" ;
+            string sqlString = "Insert Into Phong Values('" + MaPhong + "','" + MaLoai + "','" + TrangThai + "',N'" + GhiChu + "','" + DienTich + "'," + GiaThue + ")" ;
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
         public bool UpdateRoom(string MaPhong, string MaLoai, string TrangThai, string GhiChu, string DienTich, float GiaThue, ref string err)
         {
-            string sqlString = "Update Phong Set MaLoai='" + MaLoai + "',TrangThai='" + TrangThai + "',GhiChu='" + GhiChu + "',DienTich='" + DienTich + "',GiaThue=" + GiaThue + "Where MaPhong='" + MaPhong + "'";
+            string sqlString = "Update Phong Set MaLoai='" + MaLoai + "',TrangThai='" + TrangThai + "',GhiChu=N'" + GhiChu + "',DienTich='" + DienTich + "',GiaThue=" + GiaThue + "Where MaPhong='" + MaPhong + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 

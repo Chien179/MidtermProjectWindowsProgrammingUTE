@@ -15,7 +15,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         DataTable dtTypeRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
-        string err;
+        string err = "";
         BLRoom dbRoom = new BLRoom();
         BLTypeRoom dbTypeRoom = new BLTypeRoom();
         #endregion
@@ -101,15 +101,18 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvRoom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Thứ tự dòng hiện hành
-            int r = dgvRoom.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
-            this.txtRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
-            this.cmbRoomType.Text = dgvRoom.Rows[r].Cells["RoomType"].Value.ToString();
-            this.cbStatus.Checked = Convert.ToBoolean(dgvRoom.Rows[r].Cells["Used"].Value);
-            this.txtNote.Text = dgvRoom.Rows[r].Cells["Note"].Value.ToString();
-            this.txtArea.Text = dgvRoom.Rows[r].Cells["Area"].Value.ToString();
-            this.txtPrice.Text = dgvRoom.Rows[r].Cells["Price"].Value.ToString();
+            if (dgvRoom.Rows.Count > 0)
+            {
+                // Thứ tự dòng hiện hành
+                int r = dgvRoom.CurrentCell.RowIndex;
+                // Chuyển thông tin lên panel
+                this.txtRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
+                this.cmbRoomType.Text = dgvRoom.Rows[r].Cells["RoomType"].Value.ToString();
+                this.cbStatus.Checked = Convert.ToBoolean(dgvRoom.Rows[r].Cells["Used"].Value);
+                this.txtNote.Text = dgvRoom.Rows[r].Cells["Note"].Value.ToString();
+                this.txtArea.Text = dgvRoom.Rows[r].Cells["Area"].Value.ToString();
+                this.txtPrice.Text = dgvRoom.Rows[r].Cells["Price"].Value.ToString();
+            }
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -199,10 +202,19 @@ namespace MidtermProjectWindowsProgrammingUTE
                 if (traloi == DialogResult.Yes)
                 {
                     dbRoom.DeleteRoom(ref err, strRoomID);
-                    // Cập nhật lại DataGridView 
-                    LoadData();
-                    // Thông báo 
-                    MessageBox.Show("Deleted successfully!");
+                    if (err == "")
+                    {
+                        // Cập nhật lại DataGridView 
+                        LoadData();
+                        // Thông báo 
+                        MessageBox.Show("Deleted successfully!");
+                    }
+                    else
+                    {
+                        this.gbInfor.Text = "Information";
+                        // Thông báo 
+                        MessageBox.Show("Room currently in use !", "Delete failed!");
+                    }
                 }
                 else
                 {

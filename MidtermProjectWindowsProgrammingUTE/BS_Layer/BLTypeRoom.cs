@@ -19,19 +19,19 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public bool AddTypeRoom(string MaLoai, string TenLoai,  ref string err)
         {
-            string sqlString = "Insert Into LoaiPhong Values('" + MaLoai + "','" + TenLoai + "')";
+            string sqlString = "Insert Into LoaiPhong Values('" + MaLoai + "',N'" + TenLoai + "')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
         public bool UpdateTypeRoom(string MaLoai, string TenLoai,  ref string err)
         {
-            string sqlString = "Update LoaiPhong Set TenLoai = '" + TenLoai +   "'Where MaLoai='" + MaLoai + "'";
+            string sqlString = "Update LoaiPhong Set TenLoai = N'" + TenLoai +   "'Where MaLoai='" + MaLoai + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
         public DataSet SearchTypeRoom(string key)
         {
-            string sqlString = "Select * From LoaiPhong Where MaLoai Like'%" + key + "%'or TenLoai Like '%" + key + "%'";
+            string sqlString = "Select * From LoaiPhong Where MaLoai Like'%" + key + "%'or TenLoai Like N'%" + key + "%'";
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
 
