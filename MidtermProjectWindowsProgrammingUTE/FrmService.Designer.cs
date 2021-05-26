@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmService));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pbSearch = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvService = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,8 +52,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtServiceID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
@@ -83,17 +82,6 @@
             this.label1.Size = new System.Drawing.Size(413, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Service Information";
-            // 
-            // pbSearch
-            // 
-            this.pbSearch.Image = ((System.Drawing.Image)(resources.GetObject("pbSearch.Image")));
-            this.pbSearch.Location = new System.Drawing.Point(912, 196);
-            this.pbSearch.Name = "pbSearch";
-            this.pbSearch.Size = new System.Drawing.Size(34, 31);
-            this.pbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbSearch.TabIndex = 26;
-            this.pbSearch.TabStop = false;
-            this.pbSearch.Click += new System.EventHandler(this.pbSearch_Click);
             // 
             // txtFind
             // 
@@ -318,18 +306,29 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "Price:";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Location = new System.Drawing.Point(902, 195);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnSearch.Size = new System.Drawing.Size(35, 32);
+            this.btnSearch.TabIndex = 106;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // FrmService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
             this.Controls.Add(this.pbSave);
             this.Controls.Add(this.pbBack);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.pbDelete);
-            this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.pbEdit);
             this.Controls.Add(this.txtFind);
             this.Controls.Add(this.dgvService);
@@ -341,7 +340,6 @@
             this.Load += new System.EventHandler(this.FrmService_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
@@ -360,7 +358,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pbSearch;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvService;
         private System.Windows.Forms.PictureBox pbBack;
@@ -382,5 +379,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtServiceID;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
