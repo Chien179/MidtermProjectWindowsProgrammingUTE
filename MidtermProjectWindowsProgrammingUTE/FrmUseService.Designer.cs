@@ -291,6 +291,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             // cmbRoomID
             // 
+            this.cmbRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbRoomID.FormattingEnabled = true;
             this.cmbRoomID.Location = new System.Drawing.Point(156, 50);
@@ -310,6 +311,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             // cmbCMND
             // 
+            this.cmbCMND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbCMND.FormattingEnabled = true;
             this.cmbCMND.Location = new System.Drawing.Point(156, 107);

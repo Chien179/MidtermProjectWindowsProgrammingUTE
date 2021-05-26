@@ -19,7 +19,9 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public bool AddUseRoom(string MaPhong, string CMND, string NgayVao, string NgayRa, float DatCoc, ref string err)
         {
-            string sqlString = "Insert Into ThuePhong Values('" + MaPhong + "','" + CMND + "','" + NgayVao + "','" + NgayRa + "'," + DatCoc + ")";
+            string sqlString = "Update Phong Set  TrangThai=" + 1 + "Where MaPhong ='" + MaPhong + "'";
+            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+            sqlString = "Insert Into ThuePhong Values('" + MaPhong + "','" + CMND + "','" + NgayVao + "','" + NgayRa + "'," + DatCoc + ")";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 

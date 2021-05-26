@@ -327,6 +327,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             // cmbRoomID
             // 
+            this.cmbRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbRoomID.FormattingEnabled = true;
             this.cmbRoomID.Location = new System.Drawing.Point(166, 57);
@@ -336,6 +337,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             // cmbCMND
             // 
+            this.cmbCMND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbCMND.FormattingEnabled = true;
             this.cmbCMND.Location = new System.Drawing.Point(166, 114);
@@ -354,7 +356,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // btnRooms
             // 
             this.btnRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnRooms.Location = new System.Drawing.Point(1051, 188);
+            this.btnRooms.Location = new System.Drawing.Point(1176, 192);
             this.btnRooms.Name = "btnRooms";
             this.btnRooms.Size = new System.Drawing.Size(96, 43);
             this.btnRooms.TabIndex = 106;
