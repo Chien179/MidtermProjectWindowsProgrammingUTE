@@ -67,7 +67,8 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLClient blClient = new BLClient();
-                    blClient.AddClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.dtpBirthDate.Text, ref err);
+                    blClient.AddClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text,this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
+                   
                     // Thông báo
                     MessageBox.Show("Đã thêm xong!");
                     // Load lại dữ liệu trên DataGridView
@@ -82,7 +83,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLClient blClient = new BLClient();
-                blClient.UpdateClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.dtpBirthDate.Text, ref err);
+                blClient.UpdateClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
                 // Thông báo
                 MessageBox.Show("Đã sửa xong!");
                 // Load lại dữ liệu trên DataGridView

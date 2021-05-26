@@ -16,7 +16,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
         }
         public bool AddTypeRoom(string MaLoai, string TenLoai,  ref string err)
         {
-            string sqlString = "Insert Into Phong Values('" + MaLoai + "','" + TenLoai + ")";
+            string sqlString = "Insert Into Phong Values('" + MaLoai + "','" + TenLoai + "')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
         public bool UpdateTypeRoom(string MaLoai, string TenLoai,  ref string err)

@@ -67,7 +67,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLRoom blRoom = new BLRoom();
-                    blRoom.AddRoom(this.txtRoomID.Text, this.txtRoomType.Text, true, this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
+                    blRoom.AddRoom(this.txtRoomID.Text, this.txtRoomType.Text, this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -82,7 +82,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLRoom blRoom = new BLRoom();
-                blRoom.UpdateRoom(this.txtRoomID.Text, this.txtRoomType.Text, true, this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
+                blRoom.UpdateRoom(this.txtRoomID.Text, this.txtRoomType.Text, this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo

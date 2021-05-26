@@ -12,13 +12,13 @@ namespace MidtermProjectWindowsProgrammingUTE
     {
         #region Properties
         DataTable dtUseService = null;
-        DataTable dtClient = null;
+        DataTable dtService = null;
         DataTable dtRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         string err;
         BLUseService dbUseService = new BLUseService();
-        BLClient dbCLient = new BLClient();
+        BLService dbService = new BLService();
         BLRoom dbRoom = new BLRoom();
         #endregion
 
@@ -159,7 +159,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLUseService blUseService = new BLUseService();
-                blUseService.AddUseService(this.cmbRoomID.Text, this.cmbCMND.Text, this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
+                blUseService.UpdateUseService(this.cmbRoomID.Text, this.cmbCMND.Text, this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
                 // Thông báo
                 MessageBox.Show("Đã sửa xong!");
                 // Load lại dữ liệu trên DataGridView
@@ -228,11 +228,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 dtUseService = new DataTable();
                 dtRoom = new DataTable();
-                dtClient = new DataTable();
+                dtService = new DataTable();
 
                 dtUseService.Clear();
                 dtRoom.Clear();
-                dtClient.Clear();
+                dtService.Clear();
 
                 DataSet ds = dbUseService.GetUseService();
                 dtUseService = ds.Tables[0];
@@ -240,8 +240,8 @@ namespace MidtermProjectWindowsProgrammingUTE
                 DataSet dsRoom = dbRoom.GetRoom();
                 dtRoom = dsRoom.Tables[0];
 
-                DataSet dsClient = dbCLient.GetClient();
-                dtClient = dsClient.Tables[0];
+                DataSet dsService = dbService.GetService();
+                dtService = dsService.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvUseService.DataSource = dtUseService;
                 // Thay đổi độ rộng cột
@@ -274,9 +274,9 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbRoomID.DisplayMember = dtRoom.Columns[0].ToString();
                 this.cmbRoomID.ValueMember = dtRoom.Columns[0].ToString();
 
-                this.cmbCMND.DataSource = dtClient;
-                this.cmbCMND.DisplayMember = dtClient.Columns[0].ToString();
-                this.cmbCMND.ValueMember = dtClient.Columns[0].ToString();
+                this.cmbCMND.DataSource = dtService;
+                this.cmbCMND.DisplayMember = dtService.Columns[0].ToString();
+                this.cmbCMND.ValueMember = dtService.Columns[0].ToString();
                 dgvUseService_CellClick(null, null);
             }
             catch (SqlException)

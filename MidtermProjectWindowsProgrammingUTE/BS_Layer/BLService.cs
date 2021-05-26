@@ -16,7 +16,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
         }
         public bool AddService(string MaDV, string TenDV, float GiaTien,string DonViTinh, ref string err)
         {
-            string sqlString = "Insert Into DichVu Values('" + MaDV + "','" + TenDV + "'," + GiaTien + "','" + DonViTinh + ")";
+            string sqlString = "Insert Into DichVu Values('" + MaDV + "','" + TenDV + "'," + GiaTien + ",'" + DonViTinh + "')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
         public bool UpdateService(string MaDV, string TenDV, float GiaTien, string DonViTinh, ref string err)
