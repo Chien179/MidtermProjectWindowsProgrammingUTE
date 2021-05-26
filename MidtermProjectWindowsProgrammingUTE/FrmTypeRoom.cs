@@ -190,7 +190,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (traloi == DialogResult.Yes)
                     {
                         dbTypeRoom.DeleteTypeRoom(ref err, strTypeRoom);
-                        if (dgvTypeRoom.Rows.Count > 0)
+                        if (err == "")
                         {
                             // Cập nhật lại DataGridView 
                             LoadData();
