@@ -71,12 +71,20 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLPurchase blPurchase = new BLPurchase();
-                    decimal Total = dbPurchase.Bill(ref err, this.txtPurchaseID.Text, this.cmbRoomID.SelectedValue.ToString());
-                    blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
-                    // Thông báo
-                    MessageBox.Show("Đã thêm xong!");
+                    decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.txtPurchaseID.Text);
+                    if (Total != 0)
+                    {
+                        blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
+                        // Load lại dữ liệu trên DataGridView
+                        LoadData();
+                        // Thông báo
+                        MessageBox.Show("Đã thêm xong!");
+                    }
+                    else
+                    {
+                        this.gbInfor.Text = "Information";
+                        MessageBox.Show("Chưa có dữ liệu trong bảng thuê phòng!");
+                    }
                 }
                 catch (SqlException)
                 {
@@ -105,13 +113,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             try
             {
-                // Thứ tự dòng hiện hành
-                int r = dgvPurchase.CurrentCell.RowIndex;
-                // Chuyển thông tin lên panel
-                this.txtPurchaseID.Text = dgvPurchase.Rows[r].Cells["PurchaseID"].Value.ToString();
-                this.txtTotal.Text = dgvPurchase.Rows[r].Cells["Total"].Value.ToString();
-                this.dtpPurchaseDate.Text = dgvPurchase.Rows[r].Cells["PurchaseDate"].Value.ToString();
-                this.cmbRoomID.Text = dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString();
+                if (dgvPurchase.Rows.Count > 0)
+                {
+                    // Thứ tự dòng hiện hành
+                    int r = dgvPurchase.CurrentCell.RowIndex;
+                    // Chuyển thông tin lên panel
+                    this.txtPurchaseID.Text = dgvPurchase.Rows[r].Cells["PurchaseID"].Value.ToString();
+                    this.txtTotal.Text = dgvPurchase.Rows[r].Cells["Total"].Value.ToString();
+                    this.dtpPurchaseDate.Text = dgvPurchase.Rows[r].Cells["PurchaseDate"].Value.ToString();
+                    this.cmbRoomID.Text = dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString();
+                }
             }
             catch (Exception)
             {
@@ -153,7 +164,13 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbBill_Click(object sender, EventArgs e)
         {
+            int r = dgvPurchase.CurrentCell.RowIndex;
+            string strPurchase = dgvPurchase.Rows[r].Cells[0].Value.ToString();
+            string strRoomID = dgvPurchase.Rows[r].Cells[3].Value.ToString();
+            dbPurchase.Puchase(ref err, strPurchase, strRoomID);
+
             MessageBox.Show("Da xoa het thong tin khach hang","Thong bao",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            LoadData();
         }
 
         private void pbCancel_Click(object sender, EventArgs e)
@@ -338,9 +355,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
                 this.pbAdd.Enabled = true;
                 this.pbEdit.Enabled = true;
+                this.pbDelete.Enabled = true;
                 this.pbBack.Enabled = true;
                 this.pbAdd.Show();
                 this.pbEdit.Show();
+                this.pbDelete.Show();
                 this.pbBack.Show();
                 //Đưa dữ liệu mã phòng lên combobox
                 this.cmbRoomID.DataSource = dtRoom;

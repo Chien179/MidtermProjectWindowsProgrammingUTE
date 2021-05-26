@@ -208,7 +208,7 @@
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Location = new System.Drawing.Point(902, 197);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(42, 37);
+            this.btnSearch.Size = new System.Drawing.Size(32, 31);
             this.btnSearch.TabIndex = 99;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
