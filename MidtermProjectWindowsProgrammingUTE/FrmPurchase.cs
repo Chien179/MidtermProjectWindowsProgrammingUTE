@@ -57,6 +57,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbEdit.Hide();
             this.pbBack.Hide();
             this.pbDelete.Hide();
+
+            this.txtTotal.Enabled = false;
         }
 
         private void pbSave_Click(object sender, EventArgs e)

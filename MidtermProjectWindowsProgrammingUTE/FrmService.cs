@@ -217,7 +217,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         {
                             this.gbInfor.Text = "Information";
                             // Thông báo 
-                            MessageBox.Show("Serive is in use", "Deleted failed!");
+                            MessageBox.Show("Service is in use", "Deleted failed!");
                         }
                     }
                     else
