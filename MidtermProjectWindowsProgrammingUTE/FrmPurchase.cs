@@ -148,7 +148,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbDelete.Hide();
             // Đưa con trỏ đến TextField txtPurchase
             this.txtPurchaseID.Enabled = false;
+            this.cmbRoomID.Enabled = false;
             this.cmbRoomID.Focus();
+
         }
 
         private void pbBill_Click(object sender, EventArgs e)
@@ -176,6 +178,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtTotal.ResetText();
             this.cmbRoomID.ResetText();
             this.dtpPurchaseDate.ResetText();
+            this.txtPurchaseID.Enabled = true;
+            this.cmbRoomID.Enabled = true;
+            this.txtTotal.Enabled = true;
+            this.dtpPurchaseDate.Enabled = true;
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
@@ -262,6 +268,16 @@ namespace MidtermProjectWindowsProgrammingUTE
             ButtonColorChanged("edit.png", this.pbEdit);
         }
 
+        private void pbDelete_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_blue.png", this.pbDelete);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete.png", this.pbDelete);
+        }
+
         private void pbSave_MouseEnter(object sender, EventArgs e)
         {
             ButtonColorChanged("save_blue.png", this.pbSave);
@@ -312,6 +328,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbRoomID.ResetText();
                 this.txtTotal.ResetText();
                 this.dtpPurchaseDate.ResetText();
+                this.txtPurchaseID.Enabled = true;
+                this.cmbRoomID.Enabled = true;
+                this.txtTotal.Enabled = true;
+                this.dtpPurchaseDate.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
                 this.pbCancel.Enabled = false;

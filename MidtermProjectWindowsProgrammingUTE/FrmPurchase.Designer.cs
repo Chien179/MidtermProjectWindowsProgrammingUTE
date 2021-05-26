@@ -268,11 +268,12 @@
             // cmbRoomID
             // 
             this.cmbRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbRoomID.FormattingEnabled = true;
-            this.cmbRoomID.Location = new System.Drawing.Point(183, 160);
+            this.cmbRoomID.Location = new System.Drawing.Point(183, 162);
             this.cmbRoomID.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRoomID.Name = "cmbRoomID";
-            this.cmbRoomID.Size = new System.Drawing.Size(176, 39);
+            this.cmbRoomID.Size = new System.Drawing.Size(176, 32);
             this.cmbRoomID.TabIndex = 41;
             // 
             // dtpPurchaseDate
@@ -341,6 +342,8 @@
             this.pbDelete.TabIndex = 105;
             this.pbDelete.TabStop = false;
             this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
+            this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
+            this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
             // FrmPurchase
             // 

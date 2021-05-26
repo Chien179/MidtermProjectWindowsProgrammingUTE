@@ -120,7 +120,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Editing.......";
+            this.gbInfor.Text = "Editing......";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
@@ -143,6 +143,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtAddress.ResetText();
             this.txtPhoneNumber.ResetText();
             this.dtpBirthDate.ResetText();
+            this.txtID.Enabled = true;
+            this.txtName.Enabled = true;
+            this.txtAddress.Enabled = true;
+            this.txtPhoneNumber.Enabled = true;
+            this.dtpBirthDate.Enabled = true;
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
@@ -298,6 +303,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.txtAddress.ResetText();
                 this.txtPhoneNumber.ResetText();
                 this.dtpBirthDate.ResetText();
+                this.txtID.Enabled = true;
+                this.txtName.Enabled = true;
+                this.txtAddress.Enabled = true;
+                this.txtPhoneNumber.Enabled = true;
+                this.dtpBirthDate.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
                 this.pbCancel.Enabled = false;
@@ -310,9 +320,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbAdd.Enabled = true;
                 this.pbEdit.Enabled = true;
                 this.pbBack.Enabled = true;
+                this.pbDelete.Enabled = true;
                 this.pbAdd.Show();
                 this.pbEdit.Show();
                 this.pbBack.Show();
+                this.pbDelete.Show();
                 //
                 dgvClient_CellClick(null, null);
             }

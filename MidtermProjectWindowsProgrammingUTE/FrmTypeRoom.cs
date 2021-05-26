@@ -112,6 +112,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Xóa trống các đối tượng trong Panel 
             this.txtRoomType.ResetText();
             this.txtNameType.ResetText();
+            this.txtRoomType.Enabled = true;
+            this.txtNameType.Enabled = true;
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
@@ -276,6 +278,8 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Xóa trống các đối tượng trong Panel
                 this.txtRoomType.ResetText();
                 this.txtNameType.ResetText();
+                this.txtRoomType.Enabled = true;
+                this.txtNameType.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
                 this.pbCancel.Enabled = false;

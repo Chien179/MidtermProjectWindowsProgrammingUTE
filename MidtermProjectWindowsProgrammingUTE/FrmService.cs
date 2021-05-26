@@ -150,6 +150,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtServiceName.ResetText();
             this.txtUnit.ResetText();
             this.txtPrice.ResetText();
+            this.txtServiceID.Enabled = true;
+            this.txtServiceName.Enabled = true;
+            this.txtPrice.Enabled = true;
+            this.txtUnit.Enabled = true;
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
@@ -279,8 +283,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.txtServiceID.ResetText();
                 this.txtServiceName.ResetText();
                 this.txtPrice.ResetText();
-
-
+                this.txtUnit.ResetText();
+                this.txtServiceID.Enabled = true;
+                this.txtServiceName.Enabled = true;
+                this.txtPrice.Enabled = true;
+                this.txtUnit.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
                 this.pbCancel.Enabled = false;
@@ -335,12 +342,12 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void txtFind_TextChanged(object sender, EventArgs e)
         {
-
+            Search();
         }
 
         private void pbSearch_Click(object sender, EventArgs e)
         {
-
+            Search();
         }
     }
 }

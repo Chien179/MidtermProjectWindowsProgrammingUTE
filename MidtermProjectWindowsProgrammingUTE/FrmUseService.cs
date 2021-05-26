@@ -86,13 +86,17 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbCMND.ResetText();
             this.dtpDateIn.ResetText();
             this.txtAmount.ResetText();
+            this.cmbRoomID.Enabled = true;
+            this.cmbCMND.Enabled = true;
+            this.dtpDateIn.Enabled = true;
+            this.txtAmount.Enabled = true;
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
             this.pbCancel.Show();
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Adding";
+            this.gbInfor.Text = "Adding.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
@@ -115,7 +119,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Editing";
+            this.gbInfor.Text = "Editing.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
@@ -254,6 +258,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbCMND.ResetText();
                 this.dtpDateIn.ResetText();
                 this.txtAmount.ResetText();
+                this.cmbRoomID.Enabled = true;
+                this.cmbCMND.Enabled = true;
+                this.dtpDateIn.Enabled = true;
+                this.txtAmount.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
                 this.pbCancel.Enabled = false;

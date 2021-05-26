@@ -123,6 +123,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtArea.ResetText();
             this.txtPrice.ResetText();
             this.txtNote.ResetText();
+            this.txtRoomID.Enabled = true;
+            this.txtRoomType.Enabled = true;
+            this.txtArea.Enabled = true;
+            this.txtNote.Enabled = true;
+            this.txtPrice.Enabled = true;
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
@@ -297,7 +302,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.txtArea.ResetText();
                 this.txtNote.ResetText();
                 this.txtPrice.ResetText();
-
+                this.txtRoomID.Enabled = true;
+                this.txtRoomType.Enabled = true;
+                this.txtArea.Enabled = true;
+                this.txtNote.Enabled = true;
+                this.txtPrice.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
                 this.pbCancel.Enabled = false;

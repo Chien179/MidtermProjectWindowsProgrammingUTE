@@ -141,6 +141,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbCMND.ResetText();
             this.dtpDateIn.ResetText();
             this.dtpDateOut.ResetText();
+            this.txtDeposit.ResetText();
+            this.cmbRoomID.Enabled = true;
+            this.cmbCMND.Enabled = true;
+            this.dtpDateIn.Enabled = true;
+            this.dtpDateOut.Enabled = true;
+            this.txtDeposit.Enabled = true;
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
@@ -256,6 +262,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.dtpDateIn.ResetText();
                 this.dtpDateOut.ResetText();
                 this.txtDeposit.ResetText();
+                this.cmbRoomID.Enabled = true;
+                this.cmbCMND.Enabled = true;
+                this.dtpDateIn.Enabled = true;
+                this.dtpDateOut.Enabled = true;
+                this.txtDeposit.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
                 this.pbCancel.Enabled = false;

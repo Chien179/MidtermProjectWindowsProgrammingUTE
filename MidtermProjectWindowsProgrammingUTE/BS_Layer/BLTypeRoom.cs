@@ -25,7 +25,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public bool UpdateTypeRoom(string MaLoai, string TenLoai,  ref string err)
         {
-            string sqlString = "Update LoaiPhong Set TenLoai = '" + TenLoai +  "Where MaLoai='" + MaLoai + "'";
+            string sqlString = "Update LoaiPhong Set TenLoai = '" + TenLoai +   "'Where MaLoai='" + MaLoai + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
