@@ -72,11 +72,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLClient blClient = new BLClient();
-                    blClient.AddClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
-                    // Thông báo
-                    MessageBox.Show("Added successfully!");
+                    if (this.txtID.Text != "")
+                    {
+                        blClient.AddClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
+                        // Load lại dữ liệu trên DataGridView
+                        LoadData();
+                    }
                 }
                 catch (SqlException)
                 {
@@ -89,10 +92,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Thực hiện lệnh
                 BLClient blClient = new BLClient();
                 blClient.UpdateClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
-                // Load lại dữ liệu trên DataGridView
-                LoadData();
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
+                // Load lại dữ liệu trên DataGridView
+                LoadData();
             }
             // Đóng kết nối
         }
@@ -206,10 +209,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                         dbClient.DeleteClient(ref err, strCMND);
                         if (err == "")
                         {
-                            // Cập nhật lại DataGridView 
-                            LoadData();
                             // Thông báo 
                             MessageBox.Show("Deleted successfully!");
+                            // Cập nhật lại DataGridView 
+                            LoadData();
                         }
                         else
                         {

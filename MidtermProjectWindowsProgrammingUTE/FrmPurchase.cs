@@ -72,19 +72,22 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLPurchase blPurchase = new BLPurchase();
-                    decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.txtPurchaseID.Text);
-                    if (Total != 0)
+                    if (this.txtPurchaseID.Text != "" && this.cmbRoomID.Text != "")
                     {
-                        blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
-                        // Load lại dữ liệu trên DataGridView
-                        LoadData();
-                        // Thông báo
-                        MessageBox.Show("Added successfully!");
-                    }
-                    else
-                    {
-                        this.gbInfor.Text = "Information";
-                        MessageBox.Show("There are no datas in table 'ThuePhong'!");
+                        decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.txtPurchaseID.Text);
+                        if (Total != 0)
+                        {
+                            blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
+                            // Thông báo
+                            MessageBox.Show("Added successfully!");
+                            // Load lại dữ liệu trên DataGridView
+                            LoadData();
+                        }
+                        else
+                        {
+                            this.gbInfor.Text = "Information";
+                            MessageBox.Show("There are no datas in table 'ThuePhong'!");
+                        }
                     }
                 }
                 catch (SqlException)
@@ -102,10 +105,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                     this.txtTotal.Text = "0";
                 }
                 blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
-                // Load lại dữ liệu trên DataGridView
-                LoadData();
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
+                // Load lại dữ liệu trên DataGridView
+                LoadData();
             }
             // Đóng kết nối
         }

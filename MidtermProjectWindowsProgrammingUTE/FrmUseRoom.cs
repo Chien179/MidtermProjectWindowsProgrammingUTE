@@ -74,11 +74,19 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLUseRoom blUseRoom = new BLUseRoom();
-                    blUseRoom.AddUseRoom(this.cmbRoomID.Text, this.cmbCMND.Text, this.dtpDateIn.Text, this.dtpDateOut.Text, float.Parse(this.txtDeposit.Text), ref err);
-                    // Thông báo
-                    MessageBox.Show("Added successfully!");
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
+                    if (this.cmbRoomID.Text != "" && this.cmbCMND.Text != "")
+                    {
+                        float Deposit = 0;
+                        if (this.txtDeposit.Text != "")
+                        {
+                            Deposit = float.Parse(this.txtDeposit.Text);
+                        }
+                        blUseRoom.AddUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, this.dtpDateOut.Text, Deposit, ref err);
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
+                        // Load lại dữ liệu trên DataGridView
+                        LoadData();
+                    }
                 }
                 catch (SqlException)
                 {

@@ -74,11 +74,19 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLRoom blRoom = new BLRoom();
-                    blRoom.AddRoom(this.txtRoomID.Text, this.cmbRoomType.Text, this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
-                    // Thông báo
-                    MessageBox.Show("Added successfully!");
+                    if (this.txtRoomID.Text != "" && this.cmbRoomType.Text != "")
+                    {
+                        float Price = 0;
+                        if (this.txtPrice.Text != "")
+                        {
+                            Price = float.Parse(this.txtPrice.Text);
+                        }
+                        blRoom.AddRoom(this.txtRoomID.Text, this.cmbRoomType.SelectedValue.ToString(), this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, Price, ref err);
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
+                        // Load lại dữ liệu trên DataGridView
+                        LoadData();
+                    }
                 }
                 catch (SqlException)
                 {
@@ -90,11 +98,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLRoom blRoom = new BLRoom();
-                blRoom.UpdateRoom(this.txtRoomID.Text, this.cmbRoomType.Text, this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
-                // Load lại dữ liệu trên DataGridView
-                LoadData();
+                blRoom.UpdateRoom(this.txtRoomID.Text, this.cmbRoomType.SelectedValue.ToString(), this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
+                // Load lại dữ liệu trên DataGridView
+                LoadData();
             }
             // Đóng kết nối
         }
@@ -209,10 +217,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                         dbRoom.DeleteRoom(ref err, strRoomID);
                         if (err == "")
                         {
-                            // Cập nhật lại DataGridView 
-                            LoadData();
                             // Thông báo 
                             MessageBox.Show("Deleted successfully!");
+                            // Cập nhật lại DataGridView 
+                            LoadData();
                         }
                         else
                         {

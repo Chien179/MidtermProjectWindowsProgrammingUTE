@@ -149,11 +149,19 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLUseService blUseService = new BLUseService();
-                    blUseService.AddUseService(this.cmbRoomID.Text, this.cmbCMND.Text, this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
-                    // Thông báo
-                    MessageBox.Show("Added successfully!");
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
+                    if (this.cmbRoomID.Text != "" && this.cmbCMND.Text != "")
+                    {
+                        int Amount = 0;
+                        if (this.txtAmount.Text != "")
+                        {
+                            Amount = int.Parse(this.txtAmount.Text);
+                        }
+                        blUseService.AddUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, Amount, ref err);
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
+                        // Load lại dữ liệu trên DataGridView
+                        LoadData();
+                    }
                 }
                 catch (SqlException)
                 {
@@ -164,7 +172,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLUseService blUseService = new BLUseService();
-                blUseService.UpdateUseService(this.cmbRoomID.Text, this.cmbCMND.Text, this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
+                blUseService.UpdateUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
                 // Load lại dữ liệu trên DataGridView

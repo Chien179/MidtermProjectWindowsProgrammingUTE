@@ -69,11 +69,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLTypeRoom blTypeRoom = new BLTypeRoom();
-                    blTypeRoom.AddTypeRoom(this.txtRoomType.Text, this.txtNameType.Text, ref err);
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
-                    // Thông báo
-                    MessageBox.Show("Added successfully!");
+                    if (this.txtRoomType.Text != "")
+                    {
+                        blTypeRoom.AddTypeRoom(this.txtRoomType.Text, this.txtNameType.Text, ref err);
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
+                        // Load lại dữ liệu trên DataGridView
+                        LoadData();
+                    }
                 }
                 catch (SqlException)
                 {
@@ -86,10 +89,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Thực hiện lệnh
                 BLTypeRoom blTypeRoom = new BLTypeRoom();
                 blTypeRoom.UpdateTypeRoom(this.txtRoomType.Text, this.txtNameType.Text, ref err);
-                // Load lại dữ liệu trên DataGridView
-                LoadData();
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
+                // Load lại dữ liệu trên DataGridView
+                LoadData();
             }
             // Đóng kết nối
         }
@@ -195,10 +198,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                         dbTypeRoom.DeleteTypeRoom(ref err, strTypeRoom);
                         if (err == "")
                         {
-                            // Cập nhật lại DataGridView 
-                            LoadData();
                             // Thông báo 
                             MessageBox.Show("Deleted successfully!");
+                            // Cập nhật lại DataGridView 
+                            LoadData();
                         }
                         else
                         {
