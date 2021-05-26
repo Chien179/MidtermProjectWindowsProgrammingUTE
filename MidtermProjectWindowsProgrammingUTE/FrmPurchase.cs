@@ -41,6 +41,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtTotal.ResetText();
             this.cmbRoomID.ResetText();
             this.dtpPurchaseDate.ResetText();
+            this.txtTotal.Enabled = false;
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
             this.pbCancel.Show();
@@ -70,11 +71,8 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLPurchase blPurchase = new BLPurchase();
-                    if (this.txtTotal.Text == "")
-                    {
-                        this.txtTotal.Text = "0";
-                    }
-                    blPurchase.AddPurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
+                    decimal Total = dbPurchase.Bill(ref err, this.txtPurchaseID.Text, this.cmbRoomID.SelectedValue.ToString());
+                    blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -155,20 +153,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbBill_Click(object sender, EventArgs e)
         {
-            // Lấy thứ tự record hiện hành 
-            int r = dgvPurchase.CurrentCell.RowIndex;
-            // Lấy MaPhong của record hiện hành 
-            string str = dgvPurchase.Rows[r].Cells[3].Value.ToString();
-            string strPurchase = dgvPurchase.Rows[r].Cells[0].Value.ToString();
-            decimal Total = dbPurchase.Bill(ref err, str, strPurchase);
-
-            //Hiển thị số tiền phải thanh toán lên màn hình
-            MessageBox.Show(Total.ToString());
-
-            //Thực hiện lệnh
-            dbPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
-            // Load lại dữ liệu trên DataGridView
-            LoadData();
+            MessageBox.Show("Da xoa het thong tin khach hang","Thong bao",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void pbCancel_Click(object sender, EventArgs e)
