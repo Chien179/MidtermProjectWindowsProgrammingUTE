@@ -145,13 +145,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                     BLUseService blUseService = new BLUseService();
                     blUseService.AddUseService(this.cmbRoomID.Text, this.cmbCMND.Text, this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
                     // Thông báo
-                    MessageBox.Show("Đã thêm xong!");
+                    MessageBox.Show("Added successfully!");
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                 }
                 catch (SqlException)
                 {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
+                    MessageBox.Show("Added failed!");
                 }
             }
             else
@@ -160,7 +160,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 BLUseService blUseService = new BLUseService();
                 blUseService.UpdateUseService(this.cmbRoomID.Text, this.cmbCMND.Text, this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
                 // Thông báo
-                MessageBox.Show("Đã sửa xong!");
+                MessageBox.Show("Edited successfully!");
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
             }

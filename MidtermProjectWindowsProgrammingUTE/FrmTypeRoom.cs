@@ -73,12 +73,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
-                    MessageBox.Show("Đã thêm xong!");
+                    MessageBox.Show("Added successfully!");
                 }
                 catch (SqlException)
                 {
                     this.gbInfor.Text = "Information";
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
+                    MessageBox.Show("Add failed!");
                 }
             }
             else
@@ -89,7 +89,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
-                MessageBox.Show("Đã sửa xong!");
+                MessageBox.Show("Edited successfully!");
             }
             // Đóng kết nối
         }
@@ -173,7 +173,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Khai báo biến traloi 
                 DialogResult traloi;
                 // Hiện hộp thoại hỏi đáp 
-                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                traloi = MessageBox.Show("Are you sure?", "Delete row", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 // Kiểm tra có nhắp chọn nút Ok không?
                 if (traloi == DialogResult.Yes)
                 {
@@ -181,19 +181,19 @@ namespace MidtermProjectWindowsProgrammingUTE
                     // Cập nhật lại DataGridView 
                     LoadData();
                     // Thông báo 
-                    MessageBox.Show("Đã xóa xong!");
+                    MessageBox.Show("Deleted successfully!");
                 }
                 else
                 {
                     this.gbInfor.Text = "Information";
                     // Thông báo 
-                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
+                    MessageBox.Show("Deleted failed!");
                 }
             }
             catch (SqlException)
             {
                 this.gbInfor.Text = "Information";
-                MessageBox.Show("Không xóa được. Lỗi rồi!");
+                MessageBox.Show("Deleted failed!");
             }
         }
 

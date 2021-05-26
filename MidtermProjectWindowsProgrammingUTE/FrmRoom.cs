@@ -12,10 +12,12 @@ namespace MidtermProjectWindowsProgrammingUTE
     {
         #region Properties
         DataTable dtRoom = null;
+        DataTable dtTypeRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         string err;
         BLRoom dbRoom = new BLRoom();
+        BLTypeRoom dbTypeRoom = new BLTypeRoom();
         #endregion
 
         #region Constructors
@@ -37,7 +39,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             Them = true;
             // Xóa trống các đối tượng trong Panel
             this.txtRoomID.ResetText();
-            this.txtRoomType.ResetText();
+            this.cmbRoomType.ResetText();
             this.txtArea.ResetText();
             this.txtNote.ResetText();
             this.txtPrice.ResetText();
@@ -72,27 +74,27 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLRoom blRoom = new BLRoom();
-                    blRoom.AddRoom(this.txtRoomID.Text, this.txtRoomType.Text, this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
+                    blRoom.AddRoom(this.txtRoomID.Text, this.cmbRoomType.Text, this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
-                    MessageBox.Show("Đã thêm xong!");
+                    MessageBox.Show("Added successfully!");
                 }
                 catch (SqlException)
                 {
                     this.gbInfor.Text = "Information";
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
+                    MessageBox.Show("Cannot add data !");
                 }
             }
             else
             {
                 // Thực hiện lệnh
                 BLRoom blRoom = new BLRoom();
-                blRoom.UpdateRoom(this.txtRoomID.Text, this.txtRoomType.Text, this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
+                blRoom.UpdateRoom(this.txtRoomID.Text, this.cmbRoomType.Text, this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
-                MessageBox.Show("Đã sửa xong!");
+                MessageBox.Show("Edited successfully!");
             }
             // Đóng kết nối
         }
@@ -103,7 +105,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             int r = dgvRoom.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
             this.txtRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
-            this.txtRoomType.Text = dgvRoom.Rows[r].Cells["RoomType"].Value.ToString();
+            this.cmbRoomType.Text = dgvRoom.Rows[r].Cells["RoomType"].Value.ToString();
             this.cbStatus.Checked = Convert.ToBoolean(dgvRoom.Rows[r].Cells["Used"].Value);
             this.txtNote.Text = dgvRoom.Rows[r].Cells["Note"].Value.ToString();
             this.txtArea.Text = dgvRoom.Rows[r].Cells["Area"].Value.ToString();
@@ -119,12 +121,12 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             // Xóa trống các đối tượng trong Panel 
             this.txtRoomID.ResetText();
-            this.txtRoomType.ResetText();
+            this.cmbRoomType.ResetText();
             this.txtArea.ResetText();
             this.txtPrice.ResetText();
             this.txtNote.ResetText();
             this.txtRoomID.Enabled = true;
-            this.txtRoomType.Enabled = true;
+            this.cmbRoomType.Enabled = true;
             this.txtArea.Enabled = true;
             this.txtNote.Enabled = true;
             this.txtPrice.Enabled = true;
@@ -191,7 +193,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Khai báo biến traloi 
                 DialogResult traloi;
                 // Hiện hộp thoại hỏi đáp 
-                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời",
+                traloi = MessageBox.Show("Are you sure?", "Delete row",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 // Kiểm tra có nhắp chọn nút Ok không? 
                 if (traloi == DialogResult.Yes)
@@ -200,19 +202,19 @@ namespace MidtermProjectWindowsProgrammingUTE
                     // Cập nhật lại DataGridView 
                     LoadData();
                     // Thông báo 
-                    MessageBox.Show("Đã xóa xong!");
+                    MessageBox.Show("Deleted successfully!");
                 }
                 else
                 {
                     this.gbInfor.Text = "Information";
                     // Thông báo 
-                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
+                    MessageBox.Show("Delete failed!");
                 }
             }
             catch (SqlException)
             {
                 this.gbInfor.Text = "Information";
-                MessageBox.Show("Không xóa được. Lỗi rồi!");
+                MessageBox.Show("Delete failed!");
             }
         }
 
@@ -300,7 +302,14 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 dtRoom = new DataTable();
                 dtRoom.Clear();
+
+                dtTypeRoom = new DataTable();
+                dtTypeRoom.Clear();
+
+                DataSet dsTypeRoom = dbTypeRoom.GetTypeRoom();
                 DataSet ds = dbRoom.GetRoom();
+
+                dtTypeRoom = dsTypeRoom.Tables[0];
                 dtRoom = ds.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvRoom.DataSource = dtRoom;
@@ -308,12 +317,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                 dgvRoom.AutoResizeColumns();
                 // Xóa trống các đối tượng trong Panel
                 this.txtRoomID.ResetText();
-                this.txtRoomType.ResetText();
+                this.cmbRoomType.ResetText();
                 this.txtArea.ResetText();
                 this.txtNote.ResetText();
                 this.txtPrice.ResetText();
                 this.txtRoomID.Enabled = true;
-                this.txtRoomType.Enabled = true;
+                this.cmbRoomType.Enabled = true;
                 this.txtArea.Enabled = true;
                 this.txtNote.Enabled = true;
                 this.txtPrice.Enabled = true;
@@ -334,7 +343,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbEdit.Show();
                 this.pbDelete.Show();
                 this.pbBack.Show();
-                //
+                //đẩy dữ liệu lên cmbTypeRoom
+                this.cmbRoomType.DataSource = dtTypeRoom;
+                this.cmbRoomType.DisplayMember = dtTypeRoom.Columns[0].ToString();
+                this.cmbRoomType.ValueMember = dtTypeRoom.Columns[0].ToString();
                 dgvRoom_CellClick(null, null);
             }
             catch (SqlException)
