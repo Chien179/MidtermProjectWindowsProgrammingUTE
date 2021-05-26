@@ -138,29 +138,31 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbEdit_Click(object sender, EventArgs e)
         {
-            // Kich hoạt biến Them
-            Them = false;
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
-            this.pbSave.Show();
-            this.pbCancel.Show();
-            this.pbSave.Enabled = true;
-            this.pbCancel.Enabled = true;
-            this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Editing.....";
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
-            this.pbAdd.Enabled = false;
-            this.pbEdit.Enabled = false;
-            this.pbBack.Enabled = false;
-            this.pbDelete.Enabled = false;
-            this.pbAdd.Hide();
-            this.pbEdit.Hide();
-            this.pbBack.Hide();
-            this.pbDelete.Hide();
-            // Đưa con trỏ đến TextField txtPurchase
-            this.txtPurchaseID.Enabled = false;
-            this.cmbRoomID.Enabled = false;
-            this.cmbRoomID.Focus();
-
+            if (dgvPurchase.Rows.Count > 0)
+            {
+                // Kich hoạt biến Them
+                Them = false;
+                // Cho thao tác trên các nút Lưu / Hủy / Panel
+                this.pbSave.Show();
+                this.pbCancel.Show();
+                this.pbSave.Enabled = true;
+                this.pbCancel.Enabled = true;
+                this.gbInfor.Enabled = true;
+                this.gbInfor.Text = "Editing.....";
+                // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+                this.pbAdd.Enabled = false;
+                this.pbEdit.Enabled = false;
+                this.pbBack.Enabled = false;
+                this.pbDelete.Enabled = false;
+                this.pbAdd.Hide();
+                this.pbEdit.Hide();
+                this.pbBack.Hide();
+                this.pbDelete.Hide();
+                // Đưa con trỏ đến TextField txtPurchase
+                this.txtPurchaseID.Enabled = false;
+                this.cmbRoomID.Enabled = false;
+                this.cmbRoomID.Focus();
+            }
         }
 
         private void pbCancel_Click(object sender, EventArgs e)
