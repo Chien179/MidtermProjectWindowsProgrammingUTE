@@ -323,9 +323,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
                 this.pbAdd.Enabled = true;
                 this.pbEdit.Enabled = true;
+                this.pbDelete.Enabled = true;
                 this.pbBack.Enabled = true;
                 this.pbAdd.Show();
                 this.pbEdit.Show();
+                this.pbDelete.Show();
                 this.pbBack.Show();
                 //Đưa dữ liệu mã phòng lên combobox
                 this.cmbRoomID.DataSource = dtUseRoom;
