@@ -11,12 +11,12 @@ namespace MidtermProjectWindowsProgrammingUTE
     {
         #region properties
         DataTable dtPurchase = null;
-        DataTable dtRoom = null;
+        DataTable dtUseRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         string err = "";
         BLPurchase dbPurchase = new BLPurchase();
-        BLRoom dbRoom = new BLRoom();
+        BLUseRoom dbUseRoom = new BLUseRoom();
         #endregion
 
         #region constructor
@@ -292,13 +292,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             try
             {
                 dtPurchase = new DataTable();
-                dtRoom = new DataTable();
+                dtUseRoom = new DataTable();
                 dtPurchase.Clear();
-                dtRoom.Clear();
+                dtUseRoom.Clear();
                 DataSet ds = dbPurchase.GetPurchase();
-                DataSet dsroom = dbRoom.GetRoom();
+                DataSet dsroom = dbUseRoom.GetUseRoom();
                 dtPurchase = ds.Tables[0];
-                dtRoom = dsroom.Tables[0];
+                dtUseRoom = dsroom.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvPurchase.DataSource = dtPurchase;
                 // Thay đổi độ rộng cột
@@ -328,9 +328,9 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbEdit.Show();
                 this.pbBack.Show();
                 //Đưa dữ liệu mã phòng lên combobox
-                this.cmbRoomID.DataSource = dtRoom;
-                this.cmbRoomID.DisplayMember = dtRoom.Columns[0].ToString();
-                this.cmbRoomID.ValueMember = dtRoom.Columns[0].ToString();
+                this.cmbRoomID.DataSource = dtUseRoom;
+                this.cmbRoomID.DisplayMember = dtUseRoom.Columns[0].ToString();
+                this.cmbRoomID.ValueMember = dtUseRoom.Columns[0].ToString();
 
                 dgvPurchase_CellClick(null, null);
             }

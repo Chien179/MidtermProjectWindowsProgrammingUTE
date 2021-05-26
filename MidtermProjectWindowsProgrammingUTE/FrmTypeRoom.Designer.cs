@@ -102,12 +102,15 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             // dgvTypeRoom
             // 
+            this.dgvTypeRoom.AllowUserToAddRows = false;
+            this.dgvTypeRoom.AllowUserToDeleteRows = false;
             this.dgvTypeRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTypeRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomType,
             this.NameType});
             this.dgvTypeRoom.Location = new System.Drawing.Point(679, 251);
             this.dgvTypeRoom.Name = "dgvTypeRoom";
+            this.dgvTypeRoom.ReadOnly = true;
             this.dgvTypeRoom.RowHeadersWidth = 51;
             this.dgvTypeRoom.Size = new System.Drawing.Size(593, 341);
             this.dgvTypeRoom.TabIndex = 52;
@@ -118,12 +121,14 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.RoomType.DataPropertyName = "MaLoai";
             this.RoomType.HeaderText = "Room Type";
             this.RoomType.Name = "RoomType";
+            this.RoomType.ReadOnly = true;
             // 
             // NameType
             // 
             this.NameType.DataPropertyName = "TenLoai";
             this.NameType.HeaderText = "Name Type";
             this.NameType.Name = "NameType";
+            this.NameType.ReadOnly = true;
             // 
             // pbCancel
             // 
