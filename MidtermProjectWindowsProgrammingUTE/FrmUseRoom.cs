@@ -52,7 +52,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Adding";
+            this.gbInfor.Text = "Adding.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
@@ -82,6 +82,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 }
                 catch (SqlException)
                 {
+                    this.gbInfor.Text = "Information";
                     MessageBox.Show("Không thêm được. Lỗi rồi!");
                 }
             }
@@ -120,7 +121,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Editing";
+            this.gbInfor.Text = "Editing.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
@@ -158,10 +159,15 @@ namespace MidtermProjectWindowsProgrammingUTE
             dgvRoom_CellClick(null, null);
         }
 
-
+        private void btnRooms_Click(object sender, EventArgs e)
+        {
+            FrmRoom f = new FrmRoom();
+            f.ShowDialog();
+        }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            Search();
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -215,6 +221,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         #region Other Events
         private void txtFind_TextChanged(object sender, EventArgs e)
         {
+            Search();
         }
         #endregion
 
@@ -281,6 +288,26 @@ namespace MidtermProjectWindowsProgrammingUTE
             catch (SqlException)
             {
                 MessageBox.Show("Cannot get data from table 'Su Dung Phong' !");
+            }
+        }
+
+        private void Search()
+        {
+            if (this.txtFind.Text == "")
+            {
+                LoadData();
+            }
+            else
+            {
+                dtUseRoom = new DataTable();
+                dtUseRoom.Clear();
+                string key = this.txtFind.Text;
+                DataSet dsPurchase = dbUseRoom.SearchUseRoom(key);
+                dtUseRoom = dsPurchase.Tables[0];
+                // Đưa dữ liệu lên DataGridView
+                dgvRoom.DataSource = dtUseRoom;
+                // Thay đổi độ rộng cột
+                dgvRoom.AutoResizeColumns();
             }
         }
 

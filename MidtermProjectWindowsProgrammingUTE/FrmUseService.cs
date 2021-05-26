@@ -49,7 +49,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbBack.Enabled = true;
             this.pbAdd.Show();
             this.pbEdit.Show();
-            this.pbDelete.Show();
             this.pbBack.Show();
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Hide();
@@ -97,11 +96,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
-            this.pbDelete.Enabled = false;
             this.pbBack.Enabled = false;
             this.pbAdd.Hide();
             this.pbEdit.Hide();
-            this.pbDelete.Hide();
             this.pbBack.Hide();
 
             // Đưa con trỏ đến cmbRoomID
@@ -122,11 +119,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
-            this.pbDelete.Enabled = false;
             this.pbBack.Enabled = false;
             this.pbAdd.Hide();
             this.pbEdit.Hide();
-            this.pbDelete.Hide();
             this.pbBack.Hide();
 
             //
@@ -167,6 +162,17 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
             // Đóng kết nối
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void btnServices_Click(object sender, EventArgs e)
+        {
+            FrmService frmservice = new FrmService();
+            frmservice.ShowDialog();
+        }
         #endregion
 
         #region Events Mouse
@@ -190,16 +196,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             ButtonColorChanged("edit.png", this.pbEdit);
         }
 
-        private void pbDelete_MouseEnter(object sender, EventArgs e)
-        {
-            ButtonColorChanged("delete_blue.png", this.pbDelete);
-        }
-
-        private void pbDelete_MouseLeave(object sender, EventArgs e)
-        {
-            ButtonColorChanged("delete.png", this.pbDelete);
-        }
-
         private void pbSave_MouseEnter(object sender, EventArgs e)
         {
             ButtonColorChanged("save_blue.png", this.pbSave);
@@ -218,6 +214,13 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void pbCancel_MouseLeave(object sender, EventArgs e)
         {
             ButtonColorChanged("cancel.png", this.pbCancel);
+        }
+        #endregion
+
+        #region Other Events
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+            Search();
         }
         #endregion
 
@@ -263,11 +266,9 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
                 this.pbAdd.Enabled = true;
                 this.pbEdit.Enabled = true;
-                this.pbDelete.Enabled = true;
                 this.pbBack.Enabled = true;
                 this.pbAdd.Show();
                 this.pbEdit.Show();
-                this.pbDelete.Show();
                 this.pbBack.Show();
                 //đẩy dữ liệu lên cmb RoomID và CMND
                 this.cmbRoomID.DataSource = dtRoom;
@@ -282,6 +283,26 @@ namespace MidtermProjectWindowsProgrammingUTE
             catch (SqlException)
             {
                 MessageBox.Show("Cannot get data from table 'Su Dung Phong' !");
+            }
+        }
+
+        private void Search()
+        {
+            if (this.txtFind.Text == "")
+            {
+                LoadData();
+            }
+            else
+            {
+                dtUseService = new DataTable();
+                dtUseService.Clear();
+                string key = this.txtFind.Text;
+                DataSet dsPurchase = dbUseService.SearchUseService(key);
+                dtUseService = dsPurchase.Tables[0];
+                // Đưa dữ liệu lên DataGridView
+                dgvUseService.DataSource = dtUseService;
+                // Thay đổi độ rộng cột
+                dgvUseService.AutoResizeColumns();
             }
         }
 

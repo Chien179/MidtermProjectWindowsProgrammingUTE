@@ -53,7 +53,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Adding";
+            this.gbInfor.Text = "Adding.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
@@ -87,6 +87,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 }
                 catch (SqlException)
                 {
+                    this.gbInfor.Text = "Information";
                     MessageBox.Show("Không thêm được. Lỗi rồi!");
                 }
             }
@@ -128,7 +129,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Editing";
+            this.gbInfor.Text = "Editing.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
@@ -167,6 +168,45 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Enabled = false;
             this.gbInfor.Text = "Information";
             dgvService_CellClick(null, null);
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.gbInfor.Text = "Deleting.....";
+                // Thực hiện lệnh 
+                // Lấy thứ tự record hiện hành 
+                int r = dgvService.CurrentCell.RowIndex;
+                // Lấy MaKH của record hiện hành 
+                string strService = dgvService.Rows[r].Cells[0].Value.ToString();
+                // Viết câu lệnh SQL 
+                // Hiện thông báo xác nhận việc xóa mẫu tin 
+                // Khai báo biến traloi 
+                DialogResult traloi;
+                // Hiện hộp thoại hỏi đáp 
+                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // Kiểm tra có nhắp chọn nút Ok không?
+                if (traloi == DialogResult.Yes)
+                {
+                    dbService.DeleteService(ref err, strService);
+                    // Cập nhật lại DataGridView 
+                    LoadData();
+                    // Thông báo 
+                    MessageBox.Show("Đã xóa xong!");
+                }
+                else
+                {
+                    this.gbInfor.Text = "Information";
+                    // Thông báo 
+                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
+                }
+            }
+            catch (SqlException)
+            {
+                this.gbInfor.Text = "Information";
+                MessageBox.Show("Không xóa được. Lỗi rồi!");
+            }
         }
         #endregion
 
@@ -267,11 +307,40 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
         }
 
+        private void Search()
+        {
+            if (this.txtFind.Text == "")
+            {
+                LoadData();
+            }
+            else
+            {
+                dtService = new DataTable();
+                dtService.Clear();
+                string key = this.txtFind.Text;
+                DataSet dsPurchase = dbService.SearchService(key);
+                dtService = dsPurchase.Tables[0];
+                // Đưa dữ liệu lên DataGridView
+                dgvService.DataSource = dtService;
+                // Thay đổi độ rộng cột
+                dgvService.AutoResizeColumns();
+            }
+        }
         private void ButtonColorChanged(string picture, PictureBox pb)
         {
             pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
+
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

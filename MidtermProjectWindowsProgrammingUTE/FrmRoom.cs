@@ -80,6 +80,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 }
                 catch (SqlException)
                 {
+                    this.gbInfor.Text = "Information";
                     MessageBox.Show("Không thêm được. Lỗi rồi!");
                 }
             }
@@ -112,12 +113,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void pbBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnUseRoom_Click(object sender, EventArgs e)
-        {
-            FrmUseRoom f = new FrmUseRoom();
-            f.ShowDialog();
         }
 
         private void pbCancel_Click(object sender, EventArgs e)
@@ -179,7 +174,41 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbDelete_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                // Thực hiện lệnh 
+                // Lấy thứ tự record hiện hành 
+                int r = dgvRoom.CurrentCell.RowIndex;
+                // Lấy MaKH của record hiện hành 
+                string strRoomID = dgvRoom.Rows[r].Cells[0].Value.ToString();
+                // Viết câu lệnh SQL 
+                // Hiện thông báo xác nhận việc xóa mẫu tin 
+                // Khai báo biến traloi 
+                DialogResult traloi;
+                // Hiện hộp thoại hỏi đáp 
+                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // Kiểm tra có nhắp chọn nút Ok không? 
+                if (traloi == DialogResult.Yes)
+                {
+                    dbRoom.DeleteRoom(ref err, strRoomID);
+                    // Cập nhật lại DataGridView 
+                    LoadData();
+                    // Thông báo 
+                    MessageBox.Show("Đã xóa xong!");
+                }
+                else
+                {
+                    this.gbInfor.Text = "Information";
+                    // Thông báo 
+                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
+                }
+            }
+            catch (SqlException)
+            {
+                this.gbInfor.Text = "Information";
+                MessageBox.Show("Không xóa được. Lỗi rồi!");
+            }
         }
 
         #endregion

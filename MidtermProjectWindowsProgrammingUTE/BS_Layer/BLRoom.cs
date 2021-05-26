@@ -34,5 +34,11 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             }
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
+
+        public bool DeleteRoom(ref string err, string MaPhong)
+        {
+            string sqlString = "Delete From Phong Where MaPhong='" + MaPhong + "'";
+            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+        }
     }
 }

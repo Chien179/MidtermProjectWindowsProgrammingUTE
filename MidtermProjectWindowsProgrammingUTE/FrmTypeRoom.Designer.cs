@@ -34,7 +34,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label1 = new System.Windows.Forms.Label();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
-            this.dgvRoom = new System.Windows.Forms.DataGridView();
+            this.dgvTypeRoom = new System.Windows.Forms.DataGridView();
             this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbCancel = new System.Windows.Forms.PictureBox();
@@ -43,7 +43,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.gbInfor = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNameType = new System.Windows.Forms.TextBox();
@@ -51,13 +50,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtRoomType = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTypeRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
-            this.panel3.SuspendLayout();
             this.gbInfor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,19 +96,20 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(217, 31);
             this.txtFind.TabIndex = 53;
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
-            // dgvRoom
+            // dgvTypeRoom
             // 
-            this.dgvRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTypeRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTypeRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomType,
             this.NameType});
-            this.dgvRoom.Location = new System.Drawing.Point(679, 251);
-            this.dgvRoom.Name = "dgvRoom";
-            this.dgvRoom.RowHeadersWidth = 51;
-            this.dgvRoom.Size = new System.Drawing.Size(593, 341);
-            this.dgvRoom.TabIndex = 52;
-            this.dgvRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRoom_CellClick);
+            this.dgvTypeRoom.Location = new System.Drawing.Point(679, 251);
+            this.dgvTypeRoom.Name = "dgvTypeRoom";
+            this.dgvTypeRoom.RowHeadersWidth = 51;
+            this.dgvTypeRoom.Size = new System.Drawing.Size(593, 341);
+            this.dgvTypeRoom.TabIndex = 52;
+            this.dgvTypeRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTypeRoom_CellClick);
             // 
             // RoomType
             // 
@@ -127,7 +126,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbCancel
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
-            this.pbCancel.Location = new System.Drawing.Point(85, 3);
+            this.pbCancel.Location = new System.Drawing.Point(510, 489);
             this.pbCancel.Name = "pbCancel";
             this.pbCancel.Size = new System.Drawing.Size(60, 58);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -140,7 +139,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(3, 3);
+            this.pbSave.Location = new System.Drawing.Point(433, 489);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(60, 58);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -172,6 +171,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 95;
             this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
             this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
@@ -195,18 +195,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Location = new System.Drawing.Point(902, 198);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(42, 37);
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 100;
             this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pbCancel);
-            this.panel3.Controls.Add(this.pbSave);
-            this.panel3.Location = new System.Drawing.Point(432, 489);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(148, 67);
-            this.panel3.TabIndex = 101;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // gbInfor
             // 
@@ -263,14 +255,15 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pbSave);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.pbEdit);
             this.Controls.Add(this.txtFind);
-            this.Controls.Add(this.dgvRoom);
+            this.Controls.Add(this.dgvTypeRoom);
             this.Controls.Add(this.pbBack);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -281,13 +274,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTypeRoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.gbInfor.ResumeLayout(false);
             this.gbInfor.PerformLayout();
             this.ResumeLayout(false);
@@ -301,14 +293,13 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.TextBox txtFind;
-        private System.Windows.Forms.DataGridView dgvRoom;
+        private System.Windows.Forms.DataGridView dgvTypeRoom;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbDelete;
         private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameType;
         private System.Windows.Forms.GroupBox gbInfor;

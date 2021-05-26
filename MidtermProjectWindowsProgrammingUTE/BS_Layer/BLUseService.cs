@@ -6,23 +6,33 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
     class BLUseService
     {
         DBMain db = null;
+
         public BLUseService()
         {
             db = new DBMain();
         }
+
         public DataSet GetUseService()
         {
             return db.ExecuteQueryDataSet("select * from SuDungDichVu", CommandType.Text);
         }
+
         public bool AddUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)
         {
             string sqlString = "Insert Into SuDungDichVu Values('" + MaPhong + "','" + MaDV + "','" + NgaySuDung + "'," + SoLuong + ")";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
+
         public bool UpdateUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)
         {
             string sqlString = "Update SuDungDichVu Set NgaySuDung = '" + NgaySuDung + "',SoLuong=" + SoLuong + "Where MaPhong='" + MaPhong + "' and MaDV='" + MaDV + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+        }
+
+        public DataSet SearchUseService(string key)
+        {
+            string sqlString = "Select * From SuDungDichVu Where MaPhong Like'%" + key + "%'or MaDV Like '%" + key + "%' or NgaySuDung Like '%" + key + "%'or SoLuong Like '%" + key + "%'";
+            return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
     }
 }

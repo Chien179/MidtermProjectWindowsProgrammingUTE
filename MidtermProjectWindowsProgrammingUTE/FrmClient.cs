@@ -48,14 +48,16 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Adding";
+            this.gbInfor.Text = "Adding.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbBack.Enabled = false;
+            this.pbDelete.Enabled = false;
             this.pbAdd.Hide();
             this.pbEdit.Hide();
             this.pbBack.Hide();
+            this.pbDelete.Hide();
             // 
             this.txtID.Focus();
         }
@@ -71,14 +73,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     // Thực hiện lệnh
                     BLClient blClient = new BLClient();
                     blClient.AddClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text,this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
-                   
-                    // Thông báo
-                    MessageBox.Show("Đã thêm xong!");
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
+                    // Thông báo
+                    MessageBox.Show("Đã thêm xong!");
                 }
                 catch (SqlException)
                 {
+                    this.gbInfor.Text = "Information";
                     MessageBox.Show("Không thêm được. Lỗi rồi!");
                 }
             }
@@ -87,10 +89,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Thực hiện lệnh
                 BLClient blClient = new BLClient();
                 blClient.UpdateClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
-                // Thông báo
-                MessageBox.Show("Đã sửa xong!");
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
+                // Thông báo
+                MessageBox.Show("Đã sửa xong!");
             }
             // Đóng kết nối
         }
@@ -118,14 +120,16 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Editing";
+            this.gbInfor.Text = "Editing.......";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbBack.Enabled = false;
+            this.pbDelete.Enabled = false;
             this.pbAdd.Hide();
             this.pbEdit.Hide();
             this.pbBack.Hide();
+            this.pbDelete.Hide();
             // Đưa con trỏ đến TextField txtThanhPho
             this.txtID.Enabled = false;
             this.txtName.Focus();
@@ -143,9 +147,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
             this.pbBack.Enabled = true;
+            this.pbDelete.Enabled = true;
             this.pbAdd.Show();
             this.pbEdit.Show();
             this.pbBack.Show();
+            this.pbDelete.Show();
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Hide();
             this.pbCancel.Hide();
@@ -153,7 +159,48 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbCancel.Enabled = false;
             // Không cho thao tác trên các ô thông tin
             this.gbInfor.Enabled = false;
+            this.gbInfor.Text = "Information";
             dgvClient_CellClick(null, null);
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.gbInfor.Text = "Deleting.....";
+                // Thực hiện lệnh 
+                // Lấy thứ tự record hiện hành 
+                int r = dgvClient.CurrentCell.RowIndex;
+                // Lấy MaKH của record hiện hành 
+                string strCMND = dgvClient.Rows[r].Cells[0].Value.ToString();
+                // Viết câu lệnh SQL 
+                // Hiện thông báo xác nhận việc xóa mẫu tin 
+                // Khai báo biến traloi 
+                DialogResult traloi;
+                // Hiện hộp thoại hỏi đáp 
+                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // Kiểm tra có nhắp chọn nút Ok không? 
+                if (traloi == DialogResult.Yes)
+                {
+                    dbClient.DeleteClient(ref err, strCMND);
+                    // Cập nhật lại DataGridView 
+                    LoadData();
+                    // Thông báo 
+                    MessageBox.Show("Đã xóa xong!");
+                }
+                else
+                {
+                    this.gbInfor.Text = "Information";
+                    // Thông báo 
+                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
+                }
+            }
+            catch (SqlException)
+            {
+                this.gbInfor.Text = "Information";
+                MessageBox.Show("Không xóa được. Lỗi rồi!");
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -186,6 +233,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void pbEdit_MouseLeave(object sender, EventArgs e)
         {
             ButtonColorChanged("edit_Client.png", this.pbEdit);
+        }
+
+        private void pbDelete_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_Client_blue.png", this.pbDelete);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_Client.png", this.pbDelete);
         }
 
         private void pbSave_MouseEnter(object sender, EventArgs e)

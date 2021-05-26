@@ -43,7 +43,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Adding";
+            this.gbInfor.Text = "Adding.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
@@ -77,6 +77,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 }
                 catch (SqlException)
                 {
+                    this.gbInfor.Text = "Information";
                     MessageBox.Show("Không thêm được. Lỗi rồi!");
                 }
             }
@@ -97,13 +98,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Close();
         }
 
-        private void dgvRoom_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvTypeRoom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Thứ tự dòng hiện hành
-            int r = dgvRoom.CurrentCell.RowIndex;
+            int r = dgvTypeRoom.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
-            this.txtRoomType.Text = dgvRoom.Rows[r].Cells["RoomType"].Value.ToString();
-            this.txtNameType.Text = dgvRoom.Rows[r].Cells["NameType"].Value.ToString();
+            this.txtRoomType.Text = dgvTypeRoom.Rows[r].Cells["RoomType"].Value.ToString();
+            this.txtNameType.Text = dgvTypeRoom.Rows[r].Cells["NameType"].Value.ToString();
         }
 
         private void pbCancel_Click(object sender, EventArgs e)
@@ -128,7 +129,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Không cho thao tác trên các ô thông tin
             this.gbInfor.Enabled = false;
             this.gbInfor.Text = "Information";
-            dgvRoom_CellClick(null, null);
+            dgvTypeRoom_CellClick(null, null);
         }
 
         private void pbEdit_Click(object sender, EventArgs e)
@@ -141,7 +142,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
             this.gbInfor.Enabled = true;
-            this.gbInfor.Text = "Editing";
+            this.gbInfor.Text = "Editing.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
@@ -153,6 +154,50 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbBack.Hide();
             // 
             this.txtRoomType.Enabled = false;
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.gbInfor.Text = "Deleting.....";
+                // Thực hiện lệnh 
+                // Lấy thứ tự record hiện hành 
+                int r = dgvTypeRoom.CurrentCell.RowIndex;
+                // Lấy MaKH của record hiện hành 
+                string strTypeRoom = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
+                // Viết câu lệnh SQL 
+                // Hiện thông báo xác nhận việc xóa mẫu tin 
+                // Khai báo biến traloi 
+                DialogResult traloi;
+                // Hiện hộp thoại hỏi đáp 
+                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // Kiểm tra có nhắp chọn nút Ok không?
+                if (traloi == DialogResult.Yes)
+                {
+                    dbTypeRoom.DeleteTypeRoom(ref err, strTypeRoom);
+                    // Cập nhật lại DataGridView 
+                    LoadData();
+                    // Thông báo 
+                    MessageBox.Show("Đã xóa xong!");
+                }
+                else
+                {
+                    this.gbInfor.Text = "Information";
+                    // Thông báo 
+                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
+                }
+            }
+            catch (SqlException)
+            {
+                this.gbInfor.Text = "Information";
+                MessageBox.Show("Không xóa được. Lỗi rồi!");
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Search();
         }
         #endregion
 
@@ -208,6 +253,13 @@ namespace MidtermProjectWindowsProgrammingUTE
         }
         #endregion
 
+        #region Other Events
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+            Search();
+        }
+        #endregion
+
         #region Functions
         void LoadData()
         {
@@ -218,9 +270,9 @@ namespace MidtermProjectWindowsProgrammingUTE
                 DataSet ds = dbTypeRoom.GetTypeRoom();
                 dtTypeRoom = ds.Tables[0];
                 // Đưa dữ liệu lên DataGridView
-                dgvRoom.DataSource = dtTypeRoom;
+                dgvTypeRoom.DataSource = dtTypeRoom;
                 // Thay đổi độ rộng cột
-                dgvRoom.AutoResizeColumns();
+                dgvTypeRoom.AutoResizeColumns();
                 // Xóa trống các đối tượng trong Panel
                 this.txtRoomType.ResetText();
                 this.txtNameType.ResetText();
@@ -242,11 +294,31 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbDelete.Show();
                 this.pbBack.Show();
                 //
-                dgvRoom_CellClick(null, null);
+                dgvTypeRoom_CellClick(null, null);
             }
             catch (SqlException)
             {
                 MessageBox.Show("Cannot get data from table 'LoaiPhong' !");
+            }
+        }
+
+        private void Search()
+        {
+            if (this.txtFind.Text == "")
+            {
+                LoadData();
+            }
+            else
+            {
+                dtTypeRoom = new DataTable();
+                dtTypeRoom.Clear();
+                string key = this.txtFind.Text;
+                DataSet dsPurchase = dbTypeRoom.SearchTypeRoom(key);
+                dtTypeRoom = dsPurchase.Tables[0];
+                // Đưa dữ liệu lên DataGridView
+                dgvTypeRoom.DataSource = dtTypeRoom;
+                // Thay đổi độ rộng cột
+                dgvTypeRoom.AutoResizeColumns();
             }
         }
 

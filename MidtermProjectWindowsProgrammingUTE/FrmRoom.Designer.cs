@@ -40,12 +40,10 @@
             this.Area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbBack = new System.Windows.Forms.PictureBox();
-            this.btnUseRoom = new System.Windows.Forms.Button();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.cbStatusSearch = new System.Windows.Forms.ComboBox();
@@ -67,7 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
-            this.pnCom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             this.gbInfor.SuspendLayout();
@@ -174,17 +171,6 @@
             this.pbBack.TabStop = false;
             this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
-            // btnUseRoom
-            // 
-            this.btnUseRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnUseRoom.Location = new System.Drawing.Point(1149, 192);
-            this.btnUseRoom.Name = "btnUseRoom";
-            this.btnUseRoom.Size = new System.Drawing.Size(123, 43);
-            this.btnUseRoom.TabIndex = 40;
-            this.btnUseRoom.Text = "Use Room";
-            this.btnUseRoom.UseVisualStyleBackColor = true;
-            this.btnUseRoom.Click += new System.EventHandler(this.btnUseRoom_Click);
-            // 
             // pbAdd
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
@@ -236,19 +222,10 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // pnCom
-            // 
-            this.pnCom.Controls.Add(this.pbCancel);
-            this.pnCom.Controls.Add(this.pbSave);
-            this.pnCom.Location = new System.Drawing.Point(442, 480);
-            this.pnCom.Name = "pnCom";
-            this.pnCom.Size = new System.Drawing.Size(148, 67);
-            this.pnCom.TabIndex = 102;
-            // 
             // pbCancel
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
-            this.pbCancel.Location = new System.Drawing.Point(85, 3);
+            this.pbCancel.Location = new System.Drawing.Point(552, 480);
             this.pbCancel.Name = "pbCancel";
             this.pbCancel.Size = new System.Drawing.Size(60, 58);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -261,7 +238,7 @@
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(3, 3);
+            this.pbSave.Location = new System.Drawing.Point(471, 480);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(60, 58);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -413,14 +390,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
+            this.Controls.Add(this.pbSave);
             this.Controls.Add(this.cbStatusSearch);
-            this.Controls.Add(this.pnCom);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.pbEdit);
-            this.Controls.Add(this.btnUseRoom);
             this.Controls.Add(this.pbBack);
             this.Controls.Add(this.txtFind);
             this.Controls.Add(this.dgvRoom);
@@ -437,7 +414,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
-            this.pnCom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             this.gbInfor.ResumeLayout(false);
@@ -453,12 +429,10 @@
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvRoom;
         private System.Windows.Forms.PictureBox pbBack;
-        private System.Windows.Forms.Button btnUseRoom;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbDelete;
         private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel pnCom;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;

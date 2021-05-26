@@ -43,7 +43,6 @@
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.cbSex = new System.Windows.Forms.ComboBox();
@@ -59,15 +58,16 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pbDelete = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
-            this.pnCom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             this.gbInfor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -211,19 +211,10 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // pnCom
-            // 
-            this.pnCom.Controls.Add(this.pbCancel);
-            this.pnCom.Controls.Add(this.pbSave);
-            this.pnCom.Location = new System.Drawing.Point(446, 489);
-            this.pnCom.Name = "pnCom";
-            this.pnCom.Size = new System.Drawing.Size(148, 67);
-            this.pnCom.TabIndex = 102;
-            // 
             // pbCancel
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
-            this.pbCancel.Location = new System.Drawing.Point(85, 3);
+            this.pbCancel.Location = new System.Drawing.Point(513, 489);
             this.pbCancel.Name = "pbCancel";
             this.pbCancel.Size = new System.Drawing.Size(60, 58);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -236,7 +227,7 @@
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(3, 3);
+            this.pbSave.Location = new System.Drawing.Point(434, 489);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(60, 58);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -384,14 +375,29 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Address:";
             // 
+            // pbDelete
+            // 
+            this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
+            this.pbDelete.Location = new System.Drawing.Point(287, 489);
+            this.pbDelete.Name = "pbDelete";
+            this.pbDelete.Size = new System.Drawing.Size(60, 58);
+            this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDelete.TabIndex = 105;
+            this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
+            this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
+            this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
+            // 
             // FrmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.pbDelete);
+            this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
+            this.Controls.Add(this.pbSave);
             this.Controls.Add(this.cbSex);
-            this.Controls.Add(this.pnCom);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbEdit);
             this.Controls.Add(this.pbAdd);
@@ -410,11 +416,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
-            this.pnCom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             this.gbInfor.ResumeLayout(false);
             this.gbInfor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -430,7 +436,6 @@
         private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel pnCom;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
@@ -452,5 +457,6 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pbDelete;
     }
 }

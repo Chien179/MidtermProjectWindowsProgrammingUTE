@@ -42,10 +42,8 @@
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
-            this.pnCom = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
-            this.btnUseService = new System.Windows.Forms.Button();
             this.gbInfor = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,7 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
-            this.pnCom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             this.gbInfor.SuspendLayout();
@@ -96,6 +93,7 @@
             this.pbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSearch.TabIndex = 26;
             this.pbSearch.TabStop = false;
+            this.pbSearch.Click += new System.EventHandler(this.pbSearch_Click);
             // 
             // txtFind
             // 
@@ -104,6 +102,7 @@
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(217, 31);
             this.txtFind.TabIndex = 22;
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
             // dgvService
             // 
@@ -184,6 +183,7 @@
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 95;
             this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
             this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
@@ -200,19 +200,10 @@
             this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
             this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
-            // pnCom
-            // 
-            this.pnCom.Controls.Add(this.pbCancel);
-            this.pnCom.Controls.Add(this.pbSave);
-            this.pnCom.Location = new System.Drawing.Point(432, 487);
-            this.pnCom.Name = "pnCom";
-            this.pnCom.Size = new System.Drawing.Size(148, 67);
-            this.pnCom.TabIndex = 102;
-            // 
             // pbCancel
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
-            this.pbCancel.Location = new System.Drawing.Point(85, 3);
+            this.pbCancel.Location = new System.Drawing.Point(515, 487);
             this.pbCancel.Name = "pbCancel";
             this.pbCancel.Size = new System.Drawing.Size(60, 58);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -225,7 +216,7 @@
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(3, 3);
+            this.pbSave.Location = new System.Drawing.Point(436, 487);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(60, 58);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -234,17 +225,6 @@
             this.pbSave.Click += new System.EventHandler(this.pbSave_Click);
             this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
             this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
-            // 
-            // btnUseService
-            // 
-            this.btnUseService.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnUseService.Location = new System.Drawing.Point(1130, 196);
-            this.btnUseService.Name = "btnUseService";
-            this.btnUseService.Size = new System.Drawing.Size(142, 41);
-            this.btnUseService.TabIndex = 103;
-            this.btnUseService.Text = "Use Service";
-            this.btnUseService.UseVisualStyleBackColor = true;
-            this.btnUseService.Click += new System.EventHandler(this.btnUseService_Click);
             // 
             // gbInfor
             // 
@@ -341,9 +321,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
-            this.Controls.Add(this.btnUseService);
-            this.Controls.Add(this.pnCom);
+            this.Controls.Add(this.pbSave);
             this.Controls.Add(this.pbBack);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.pbDelete);
@@ -365,7 +345,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
-            this.pnCom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             this.gbInfor.ResumeLayout(false);
@@ -386,10 +365,8 @@
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbDelete;
         private System.Windows.Forms.PictureBox pbEdit;
-        private System.Windows.Forms.Panel pnCom;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
-        private System.Windows.Forms.Button btnUseService;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameService;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;

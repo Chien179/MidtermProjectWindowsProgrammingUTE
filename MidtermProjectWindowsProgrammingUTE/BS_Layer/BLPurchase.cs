@@ -28,9 +28,21 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public decimal Bill(string MaPhong)
+        public DataSet SearchPurchase(string key)
         {
-            decimal Bill = 0,RoomValue=0,Total=0,Deposit=0;
+            string sqlString = "Select * From ThanhToan Where MaThanhToan Like'%" + key + "%'or ThanhTien Like '%" + key + "%' or NgayThanhToan Like '%" + key + "%'or MaPhong Like '%" + key + "%'";
+            return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
+        }
+
+        public bool DeletePuchase(ref string err,string MaTT)
+        {
+            string sqlString = "Delete From ThanhToan Where MaThanhToan='" + MaTT + "'";
+            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+        }
+
+        public decimal Bill(ref string err,string MaPhong,string MaTT)
+        {
+            decimal Bill = 0, RoomValue = 0, Total = 0, Deposit = 0;
 
             DataSet SoNgay = db.ExecuteQueryDataSet("Select Max(DateDiff(Day,NgayVao,NgayRa)),Max(Datcoc) From ThuePhong Where MaPhong='" + MaPhong + "'", CommandType.Text);
             DataSet GiaThue = db.ExecuteQueryDataSet("Select GiaThue From Phong Where MaPhong='" + MaPhong + "'", CommandType.Text);
@@ -64,13 +76,26 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             Deposit = decimal.Parse(SoNgay.Tables[0].Rows[0][1].ToString());
             Total = Bill + RoomValue - Deposit;
 
-            return Total;
-        }
+            //Xoá tất cả thông tin về khách hàng trong database
+            string sqlString = "Select CMND From ThuePhong Where MaPhong='" + MaPhong + "'";
+            DataSet CMND = db.ExecuteQueryDataSet(sqlString, CommandType.Text);
+            sqlString = "Delete From ThuePhong Where MaPhong='" + MaPhong + "'";
+            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+            sqlString = "Delete From SuDungDichVu Where MaPhong='" + MaPhong + "'";
+            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+            for (int i = 0; i < CMND.Tables[0].Rows.Count; i++)
+            {
+                sqlString = "Delete From KhachHang Where CMND='" + CMND.Tables[0].Rows[i][0].ToString() + "'";
+                db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+            }
+            sqlString = "Update Phong Set TrangThai=" + 0 + "Where MaPhong='" + MaPhong + "'";
+            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+            sqlString = "Delete From KHACHHANG Where MaThanhToan='" + MaTT + "'";
+            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+            sqlString = "Delete From ThanhToan Where MaThanhToan='" + MaTT + "'";
+            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
 
-        public DataSet SearchPurchase(string key)
-        {
-            string sqlString = "Select * From ThanhToan Where MaThanhToan Like'%" + key + "%'or ThanhTien Like '%" + key + "%' or NgayThanhToan Like '%" + key + "%'or MaPhong Like '%" + key + "%'";
-            return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
+            return Total;
         }
     }
 }

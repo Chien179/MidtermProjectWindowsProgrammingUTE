@@ -43,7 +43,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.gbInfor = new System.Windows.Forms.GroupBox();
@@ -57,12 +56,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID = new System.Windows.Forms.ComboBox();
             this.cmbCMND = new System.Windows.Forms.ComboBox();
             this.txtDeposit = new System.Windows.Forms.TextBox();
+            this.btnRooms = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             this.gbInfor.SuspendLayout();
@@ -105,6 +104,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(217, 31);
             this.txtFind.TabIndex = 69;
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
             // dgvRoom
             // 
@@ -185,23 +185,15 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Location = new System.Drawing.Point(902, 198);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(42, 37);
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 100;
             this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pbCancel);
-            this.panel3.Controls.Add(this.pbSave);
-            this.panel3.Location = new System.Drawing.Point(401, 509);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(148, 67);
-            this.panel3.TabIndex = 102;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // pbCancel
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
-            this.pbCancel.Location = new System.Drawing.Point(85, 3);
+            this.pbCancel.Location = new System.Drawing.Point(500, 509);
             this.pbCancel.Name = "pbCancel";
             this.pbCancel.Size = new System.Drawing.Size(60, 58);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -214,7 +206,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(3, 3);
+            this.pbSave.Location = new System.Drawing.Point(417, 509);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(60, 58);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -339,13 +331,26 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtDeposit.Size = new System.Drawing.Size(200, 30);
             this.txtDeposit.TabIndex = 78;
             // 
+            // btnRooms
+            // 
+            this.btnRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnRooms.Location = new System.Drawing.Point(1176, 192);
+            this.btnRooms.Name = "btnRooms";
+            this.btnRooms.Size = new System.Drawing.Size(96, 43);
+            this.btnRooms.TabIndex = 106;
+            this.btnRooms.Text = "Rooms";
+            this.btnRooms.UseVisualStyleBackColor = true;
+            this.btnRooms.Click += new System.EventHandler(this.btnRooms_Click);
+            // 
             // FrmUseRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.btnRooms);
+            this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pbSave);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.pbEdit);
@@ -364,7 +369,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             this.gbInfor.ResumeLayout(false);
@@ -384,7 +388,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
@@ -403,5 +406,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.ComboBox cmbRoomID;
         private System.Windows.Forms.ComboBox cmbCMND;
         private System.Windows.Forms.TextBox txtDeposit;
+        private System.Windows.Forms.Button btnRooms;
     }
 }

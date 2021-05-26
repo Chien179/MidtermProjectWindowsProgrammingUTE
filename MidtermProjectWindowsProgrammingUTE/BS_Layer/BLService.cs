@@ -24,5 +24,17 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             string sqlString = "Update DichVu Set TenDV=N'" + TenDV + "',GiaTien=" + GiaTien + ",DonViTinh=N'" + DonViTinh + "'Where MaDV='" + MaDV + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
+
+        public DataSet SearchService(string key)
+        {
+            string sqlString = "Select * From DichVu Where MaDV Like'%" + key + "%'or TenDV Like '%" + key + "%' or GiaTien Like '%" + key + "%'or DonViTinh Like '%" + key + "%'";
+            return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
+        }
+
+        public bool DeleteService(ref string err, string MaDV)
+        {
+            string sqlString = "Delete From DichVu Where MaDV='" + MaDV + "'";
+            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+        }
     }
 }
