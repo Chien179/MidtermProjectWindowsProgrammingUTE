@@ -63,13 +63,16 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvUseService_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Thứ tự dòng hiện hành
-            int r = dgvUseService.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
-            this.cmbRoomID.Text = dgvUseService.Rows[r].Cells["RoomID"].Value.ToString();
-            this.cmbCMND.Text = dgvUseService.Rows[r].Cells["ServiceID"].Value.ToString();
-            this.dtpDateIn.Text = dgvUseService.Rows[r].Cells["DateUse"].Value.ToString();
-            this.txtAmount.Text = dgvUseService.Rows[r].Cells["Amount"].Value.ToString();
+            if (dgvUseService.Rows.Count > 0)
+            {
+                // Thứ tự dòng hiện hành
+                int r = dgvUseService.CurrentCell.RowIndex;
+                // Chuyển thông tin lên panel
+                this.cmbRoomID.Text = dgvUseService.Rows[r].Cells["RoomID"].Value.ToString();
+                this.cmbCMND.Text = dgvUseService.Rows[r].Cells["ServiceID"].Value.ToString();
+                this.dtpDateIn.Text = dgvUseService.Rows[r].Cells["DateUse"].Value.ToString();
+                this.txtAmount.Text = dgvUseService.Rows[r].Cells["Amount"].Value.ToString();
+            }
         }
 
         private void pbBack_Click(object sender, EventArgs e)

@@ -101,14 +101,17 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvRoom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Thứ tự dòng hiện hành
-            int r = dgvRoom.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
-            this.cmbRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
-            this.cmbCMND.Text = dgvRoom.Rows[r].Cells["CMND"].Value.ToString();
-            this.dtpDateIn.Text = dgvRoom.Rows[r].Cells["CheckIn"].Value.ToString();
-            this.dtpDateOut.Text = dgvRoom.Rows[r].Cells["CheckOut"].Value.ToString();
-            this.txtDeposit.Text = dgvRoom.Rows[r].Cells["Deposit"].Value.ToString();
+            if (dgvRoom.Rows.Count > 0)
+            {
+                // Thứ tự dòng hiện hành
+                int r = dgvRoom.CurrentCell.RowIndex;
+                // Chuyển thông tin lên panel
+                this.cmbRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
+                this.cmbCMND.Text = dgvRoom.Rows[r].Cells["CMND"].Value.ToString();
+                this.dtpDateIn.Text = dgvRoom.Rows[r].Cells["CheckIn"].Value.ToString();
+                this.dtpDateOut.Text = dgvRoom.Rows[r].Cells["CheckOut"].Value.ToString();
+                this.txtDeposit.Text = dgvRoom.Rows[r].Cells["Deposit"].Value.ToString();
+            }
         }
 
         private void pbEdit_Click(object sender, EventArgs e)
