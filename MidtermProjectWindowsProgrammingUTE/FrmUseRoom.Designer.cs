@@ -32,9 +32,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUseRoom));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvRoom = new System.Windows.Forms.DataGridView();
@@ -43,29 +40,32 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Deposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbRoomID = new System.Windows.Forms.ComboBox();
-            this.cmbCMND = new System.Windows.Forms.ComboBox();
-            this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
-            this.dtpDateOut = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDeposit = new System.Windows.Forms.TextBox();
-            this.pnInfor = new System.Windows.Forms.Panel();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
+            this.gbInfor = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpDateOut = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbRoomID = new System.Windows.Forms.ComboBox();
+            this.cmbCMND = new System.Windows.Forms.ComboBox();
+            this.txtDeposit = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
-            this.pnInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
+            this.gbInfor.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,36 +87,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label1.TabIndex = 0;
             this.label1.Text = "Use Room";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(30, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 25);
-            this.label2.TabIndex = 65;
-            this.label2.Text = "Room ID:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(30, 135);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 25);
-            this.label5.TabIndex = 62;
-            this.label5.Text = "Check In:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(30, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 25);
-            this.label4.TabIndex = 61;
-            this.label4.Text = "CMND:";
-            // 
             // pbBack
             // 
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
@@ -126,6 +96,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 67;
             this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
             // txtFind
             // 
@@ -180,88 +151,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Deposit.DataPropertyName = "DatCoc";
             this.Deposit.HeaderText = "Deposit";
             this.Deposit.Name = "Deposit";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(30, 189);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 25);
-            this.label3.TabIndex = 71;
-            this.label3.Text = "Check Out:";
-            // 
-            // cmbRoomID
-            // 
-            this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbRoomID.FormattingEnabled = true;
-            this.cmbRoomID.Location = new System.Drawing.Point(190, 18);
-            this.cmbRoomID.Name = "cmbRoomID";
-            this.cmbRoomID.Size = new System.Drawing.Size(161, 33);
-            this.cmbRoomID.TabIndex = 72;
-            // 
-            // cmbCMND
-            // 
-            this.cmbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbCMND.FormattingEnabled = true;
-            this.cmbCMND.Location = new System.Drawing.Point(190, 75);
-            this.cmbCMND.Name = "cmbCMND";
-            this.cmbCMND.Size = new System.Drawing.Size(200, 33);
-            this.cmbCMND.TabIndex = 74;
-            // 
-            // dtpDateIn
-            // 
-            this.dtpDateIn.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateIn.Location = new System.Drawing.Point(190, 130);
-            this.dtpDateIn.Name = "dtpDateIn";
-            this.dtpDateIn.Size = new System.Drawing.Size(200, 30);
-            this.dtpDateIn.TabIndex = 75;
-            // 
-            // dtpDateOut
-            // 
-            this.dtpDateOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtpDateOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateOut.Location = new System.Drawing.Point(190, 184);
-            this.dtpDateOut.Name = "dtpDateOut";
-            this.dtpDateOut.Size = new System.Drawing.Size(200, 30);
-            this.dtpDateOut.TabIndex = 76;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(30, 239);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 25);
-            this.label6.TabIndex = 77;
-            this.label6.Text = "Deposit:";
-            // 
-            // txtDeposit
-            // 
-            this.txtDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtDeposit.Location = new System.Drawing.Point(190, 234);
-            this.txtDeposit.Name = "txtDeposit";
-            this.txtDeposit.Size = new System.Drawing.Size(200, 30);
-            this.txtDeposit.TabIndex = 78;
-            // 
-            // pnInfor
-            // 
-            this.pnInfor.Controls.Add(this.label2);
-            this.pnInfor.Controls.Add(this.label4);
-            this.pnInfor.Controls.Add(this.label5);
-            this.pnInfor.Controls.Add(this.label3);
-            this.pnInfor.Controls.Add(this.cmbRoomID);
-            this.pnInfor.Controls.Add(this.txtDeposit);
-            this.pnInfor.Controls.Add(this.cmbCMND);
-            this.pnInfor.Controls.Add(this.label6);
-            this.pnInfor.Controls.Add(this.dtpDateIn);
-            this.pnInfor.Controls.Add(this.dtpDateOut);
-            this.pnInfor.Location = new System.Drawing.Point(91, 190);
-            this.pnInfor.Name = "pnInfor";
-            this.pnInfor.Size = new System.Drawing.Size(422, 284);
-            this.pnInfor.TabIndex = 83;
             // 
             // pbAdd
             // 
@@ -335,16 +224,131 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
             this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
+            // gbInfor
+            // 
+            this.gbInfor.Controls.Add(this.label2);
+            this.gbInfor.Controls.Add(this.label4);
+            this.gbInfor.Controls.Add(this.dtpDateOut);
+            this.gbInfor.Controls.Add(this.label5);
+            this.gbInfor.Controls.Add(this.dtpDateIn);
+            this.gbInfor.Controls.Add(this.label3);
+            this.gbInfor.Controls.Add(this.label6);
+            this.gbInfor.Controls.Add(this.cmbRoomID);
+            this.gbInfor.Controls.Add(this.cmbCMND);
+            this.gbInfor.Controls.Add(this.txtDeposit);
+            this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gbInfor.Location = new System.Drawing.Point(124, 187);
+            this.gbInfor.Name = "gbInfor";
+            this.gbInfor.Size = new System.Drawing.Size(422, 306);
+            this.gbInfor.TabIndex = 104;
+            this.gbInfor.TabStop = false;
+            this.gbInfor.Text = "Information";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(6, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 25);
+            this.label2.TabIndex = 65;
+            this.label2.Text = "Room ID:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Location = new System.Drawing.Point(6, 122);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 25);
+            this.label4.TabIndex = 61;
+            this.label4.Text = "CMND:";
+            // 
+            // dtpDateOut
+            // 
+            this.dtpDateOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dtpDateOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateOut.Location = new System.Drawing.Point(166, 223);
+            this.dtpDateOut.Name = "dtpDateOut";
+            this.dtpDateOut.Size = new System.Drawing.Size(200, 30);
+            this.dtpDateOut.TabIndex = 76;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Location = new System.Drawing.Point(6, 174);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 25);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Check In:";
+            // 
+            // dtpDateIn
+            // 
+            this.dtpDateIn.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateIn.Location = new System.Drawing.Point(166, 169);
+            this.dtpDateIn.Name = "dtpDateIn";
+            this.dtpDateIn.Size = new System.Drawing.Size(200, 30);
+            this.dtpDateIn.TabIndex = 75;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Location = new System.Drawing.Point(6, 228);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 25);
+            this.label3.TabIndex = 71;
+            this.label3.Text = "Check Out:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label6.Location = new System.Drawing.Point(6, 278);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 25);
+            this.label6.TabIndex = 77;
+            this.label6.Text = "Deposit:";
+            // 
+            // cmbRoomID
+            // 
+            this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbRoomID.FormattingEnabled = true;
+            this.cmbRoomID.Location = new System.Drawing.Point(166, 57);
+            this.cmbRoomID.Name = "cmbRoomID";
+            this.cmbRoomID.Size = new System.Drawing.Size(161, 33);
+            this.cmbRoomID.TabIndex = 72;
+            // 
+            // cmbCMND
+            // 
+            this.cmbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbCMND.FormattingEnabled = true;
+            this.cmbCMND.Location = new System.Drawing.Point(166, 114);
+            this.cmbCMND.Name = "cmbCMND";
+            this.cmbCMND.Size = new System.Drawing.Size(200, 33);
+            this.cmbCMND.TabIndex = 74;
+            // 
+            // txtDeposit
+            // 
+            this.txtDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtDeposit.Location = new System.Drawing.Point(166, 273);
+            this.txtDeposit.Name = "txtDeposit";
+            this.txtDeposit.Size = new System.Drawing.Size(200, 30);
+            this.txtDeposit.TabIndex = 78;
+            // 
             // FrmUseRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.gbInfor);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.pbEdit);
-            this.Controls.Add(this.pnInfor);
             this.Controls.Add(this.txtFind);
             this.Controls.Add(this.dgvRoom);
             this.Controls.Add(this.pbBack);
@@ -358,13 +362,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).EndInit();
-            this.pnInfor.ResumeLayout(false);
-            this.pnInfor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
+            this.gbInfor.ResumeLayout(false);
+            this.gbInfor.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,20 +378,9 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvRoom;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbRoomID;
-        private System.Windows.Forms.ComboBox cmbCMND;
-        private System.Windows.Forms.DateTimePicker dtpDateIn;
-        private System.Windows.Forms.DateTimePicker dtpDateOut;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtDeposit;
-        private System.Windows.Forms.Panel pnInfor;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.Button btnSearch;
@@ -399,5 +392,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckOut;
         private System.Windows.Forms.DataGridViewTextBoxColumn Deposit;
+        private System.Windows.Forms.GroupBox gbInfor;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dtpDateOut;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpDateIn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbRoomID;
+        private System.Windows.Forms.ComboBox cmbCMND;
+        private System.Windows.Forms.TextBox txtDeposit;
     }
 }

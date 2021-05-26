@@ -42,12 +42,17 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbCancel.Show();
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
-            this.pnInfor.Enabled = true;
+            this.gbInfor.Enabled = true;
+            this.gbInfor.Text = "Adding";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbBack.Enabled = false;
             this.pbDelete.Enabled = false;
+            this.pbAdd.Hide();
+            this.pbEdit.Hide();
+            this.pbDelete.Hide();
+            this.pbBack.Hide();
             // Đưa con trỏ đến TextField txtRoomType
             this.txtRoomType.Focus();
         }
@@ -111,13 +116,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbEdit.Enabled = true;
             this.pbBack.Enabled = true;
             this.pbDelete.Enabled = true;
+            this.pbAdd.Show();
+            this.pbEdit.Show();
+            this.pbDelete.Show();
+            this.pbBack.Show();
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Hide();
             this.pbCancel.Hide();
             this.pbSave.Enabled = false;
             this.pbCancel.Enabled = false;
             // Không cho thao tác trên các ô thông tin
-            this.pnInfor.Enabled = false;
+            this.gbInfor.Enabled = false;
+            this.gbInfor.Text = "Information";
             dgvRoom_CellClick(null, null);
         }
 
@@ -130,12 +140,17 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbCancel.Show();
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
-            this.pnInfor.Enabled = true;
+            this.gbInfor.Enabled = true;
+            this.gbInfor.Text = "Editing";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbBack.Enabled = false;
             this.pbDelete.Enabled = false;
+            this.pbAdd.Hide();
+            this.pbEdit.Hide();
+            this.pbDelete.Hide();
+            this.pbBack.Hide();
             // 
             this.txtRoomType.Enabled = false;
         }
@@ -215,13 +230,17 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbSave.Hide();
                 this.pbCancel.Hide();
                 // Không cho thao tác trên các ô thông tin
-                this.pnInfor.Enabled = false;
-
+                this.gbInfor.Enabled = false;
+                this.gbInfor.Text = "Information";
                 // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
                 this.pbAdd.Enabled = true;
                 this.pbEdit.Enabled = true;
                 this.pbDelete.Enabled = true;
                 this.pbBack.Enabled = true;
+                this.pbAdd.Show();
+                this.pbEdit.Show();
+                this.pbDelete.Show();
+                this.pbBack.Show();
                 //
                 dgvRoom_CellClick(null, null);
             }

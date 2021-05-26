@@ -32,23 +32,23 @@ namespace MidtermProjectWindowsProgrammingUTE
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTypeRoom));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNameType = new System.Windows.Forms.TextBox();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvRoom = new System.Windows.Forms.DataGridView();
             this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtRoomType = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
-            this.pnInfor = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.gbInfor = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNameType = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtRoomType = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
@@ -57,8 +57,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
-            this.pnInfor.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.gbInfor.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,14 +79,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label1.Size = new System.Drawing.Size(253, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Type Room";
-            // 
-            // txtNameType
-            // 
-            this.txtNameType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtNameType.Location = new System.Drawing.Point(161, 63);
-            this.txtNameType.Name = "txtNameType";
-            this.txtNameType.Size = new System.Drawing.Size(176, 30);
-            this.txtNameType.TabIndex = 48;
             // 
             // pbBack
             // 
@@ -131,34 +123,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.NameType.DataPropertyName = "TenLoai";
             this.NameType.HeaderText = "Name Type";
             this.NameType.Name = "NameType";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(21, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 25);
-            this.label2.TabIndex = 59;
-            this.label2.Text = "Name Type:";
-            // 
-            // txtRoomType
-            // 
-            this.txtRoomType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtRoomType.Location = new System.Drawing.Point(161, 16);
-            this.txtRoomType.Name = "txtRoomType";
-            this.txtRoomType.Size = new System.Drawing.Size(176, 30);
-            this.txtRoomType.TabIndex = 62;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(21, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 25);
-            this.label3.TabIndex = 61;
-            this.label3.Text = "Room Type:";
             // 
             // pbCancel
             // 
@@ -224,17 +188,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
             this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
-            // pnInfor
-            // 
-            this.pnInfor.Controls.Add(this.label3);
-            this.pnInfor.Controls.Add(this.txtNameType);
-            this.pnInfor.Controls.Add(this.txtRoomType);
-            this.pnInfor.Controls.Add(this.label2);
-            this.pnInfor.Location = new System.Drawing.Point(117, 231);
-            this.pnInfor.Name = "pnInfor";
-            this.pnInfor.Size = new System.Drawing.Size(463, 123);
-            this.pnInfor.TabIndex = 99;
-            // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.Transparent;
@@ -255,14 +208,64 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel3.Size = new System.Drawing.Size(148, 67);
             this.panel3.TabIndex = 101;
             // 
+            // gbInfor
+            // 
+            this.gbInfor.Controls.Add(this.label3);
+            this.gbInfor.Controls.Add(this.txtNameType);
+            this.gbInfor.Controls.Add(this.label2);
+            this.gbInfor.Controls.Add(this.txtRoomType);
+            this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gbInfor.Location = new System.Drawing.Point(117, 240);
+            this.gbInfor.Name = "gbInfor";
+            this.gbInfor.Size = new System.Drawing.Size(463, 147);
+            this.gbInfor.TabIndex = 103;
+            this.gbInfor.TabStop = false;
+            this.gbInfor.Text = "Information";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Location = new System.Drawing.Point(9, 64);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 25);
+            this.label3.TabIndex = 61;
+            this.label3.Text = "Room Type:";
+            // 
+            // txtNameType
+            // 
+            this.txtNameType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtNameType.Location = new System.Drawing.Point(149, 106);
+            this.txtNameType.Name = "txtNameType";
+            this.txtNameType.Size = new System.Drawing.Size(176, 30);
+            this.txtNameType.TabIndex = 48;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(9, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 25);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Name Type:";
+            // 
+            // txtRoomType
+            // 
+            this.txtRoomType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtRoomType.Location = new System.Drawing.Point(149, 59);
+            this.txtRoomType.Name = "txtRoomType";
+            this.txtRoomType.Size = new System.Drawing.Size(176, 30);
+            this.txtRoomType.TabIndex = 62;
+            // 
             // FrmTypeRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.gbInfor);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.pnInfor);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.pbEdit);
@@ -284,9 +287,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
-            this.pnInfor.ResumeLayout(false);
-            this.pnInfor.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.gbInfor.ResumeLayout(false);
+            this.gbInfor.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,22 +299,22 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNameType;
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvRoom;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtRoomType;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbDelete;
         private System.Windows.Forms.PictureBox pbEdit;
-        private System.Windows.Forms.Panel pnInfor;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameType;
+        private System.Windows.Forms.GroupBox gbInfor;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtNameType;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtRoomType;
     }
 }

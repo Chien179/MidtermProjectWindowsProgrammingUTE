@@ -51,12 +51,15 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbCancel.Show();
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
-            this.pnInfor.Enabled = true;
+            this.gbInfor.Enabled = true;
+            this.gbInfor.Text = "Adding";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbBack.Enabled = false;
-
+            this.pbAdd.Hide();
+            this.pbEdit.Hide();
+            this.pbBack.Hide();
             // Đưa con trỏ đến TextField txtThanhPho
             this.cmbCMND.Focus();
         }
@@ -116,12 +119,15 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbCancel.Show();
             this.pbSave.Enabled = true;
             this.pbCancel.Enabled = true;
-            this.pnInfor.Enabled = true;
+            this.gbInfor.Enabled = true;
+            this.gbInfor.Text = "Editing";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbBack.Enabled = false;
-
+            this.pbAdd.Hide();
+            this.pbEdit.Hide();
+            this.pbBack.Hide();
             //
             this.cmbRoomID.Enabled = false;
             this.cmbCMND.Enabled = false;
@@ -138,13 +144,17 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
             this.pbBack.Enabled = true;
+            this.pbAdd.Show();
+            this.pbEdit.Show();
+            this.pbBack.Show();
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Hide();
             this.pbCancel.Hide();
             this.pbSave.Enabled = false;
             this.pbCancel.Enabled = false;
             // Không cho thao tác trên các ô thông tin
-            this.pnInfor.Enabled = false;
+            this.gbInfor.Enabled = false;
+            this.gbInfor.Text = "Information";
             dgvRoom_CellClick(null, null);
         }
 
@@ -245,12 +255,16 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbSave.Hide();
                 this.pbCancel.Hide();
                 // Không cho thao tác trên các ô thông tin
-                this.pnInfor.Enabled = false;
+                this.gbInfor.Enabled = false;
+                this.gbInfor.Text = "Information";
 
                 // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
                 this.pbAdd.Enabled = true;
                 this.pbEdit.Enabled = true;
                 this.pbBack.Enabled = true;
+                this.pbAdd.Show();
+                this.pbEdit.Show();
+                this.pbBack.Show();
                 //đẩy dữ liệu lên cmb RoomID và CMND
                 this.cmbRoomID.DataSource = dtRoom;
                 this.cmbRoomID.DisplayMember = dtRoom.Columns[0].ToString();
