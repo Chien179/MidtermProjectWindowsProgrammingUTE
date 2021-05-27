@@ -109,16 +109,23 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvRoom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvRoom.Rows.Count > 0)
+            try
             {
-                // Thứ tự dòng hiện hành
-                int r = dgvRoom.CurrentCell.RowIndex;
-                // Chuyển thông tin lên panel
-                this.cmbRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
-                this.cmbCMND.Text = dgvRoom.Rows[r].Cells["CMND"].Value.ToString();
-                this.dtpDateIn.Text = dgvRoom.Rows[r].Cells["CheckIn"].Value.ToString();
-                this.dtpDateOut.Text = dgvRoom.Rows[r].Cells["CheckOut"].Value.ToString();
-                this.txtDeposit.Text = dgvRoom.Rows[r].Cells["Deposit"].Value.ToString();
+                if (dgvRoom.Rows.Count > 0)
+                {
+                    // Thứ tự dòng hiện hành
+                    int r = dgvRoom.CurrentCell.RowIndex;
+                    // Chuyển thông tin lên panel
+                    this.cmbRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
+                    this.cmbCMND.Text = dgvRoom.Rows[r].Cells["CMND"].Value.ToString();
+                    this.dtpDateIn.Text = dgvRoom.Rows[r].Cells["CheckIn"].Value.ToString();
+                    this.dtpDateOut.Text = dgvRoom.Rows[r].Cells["CheckOut"].Value.ToString();
+                    this.txtDeposit.Text = dgvRoom.Rows[r].Cells["Deposit"].Value.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot load data into DataGridView !");
             }
         }
 
@@ -328,22 +335,27 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void Search()
         {
-            if (this.txtFind.Text == "")
+            try
             {
-                LoadData();
+
+                if (this.txtFind.Text == "")
+                {
+                    LoadData();
+                }
+                else
+                {
+                    dtUseRoom = new DataTable();
+                    dtUseRoom.Clear();
+                    string key = this.txtFind.Text;
+                    DataSet dsPurchase = dbUseRoom.SearchUseRoom(key);
+                    dtUseRoom = dsPurchase.Tables[0];
+                    // Đưa dữ liệu lên DataGridView
+                    dgvRoom.DataSource = dtUseRoom;
+                    // Thay đổi độ rộng cột
+                    dgvRoom.AutoResizeColumns();
+                }
             }
-            else
-            {
-                dtUseRoom = new DataTable();
-                dtUseRoom.Clear();
-                string key = this.txtFind.Text;
-                DataSet dsPurchase = dbUseRoom.SearchUseRoom(key);
-                dtUseRoom = dsPurchase.Tables[0];
-                // Đưa dữ liệu lên DataGridView
-                dgvRoom.DataSource = dtUseRoom;
-                // Thay đổi độ rộng cột
-                dgvRoom.AutoResizeColumns();
-            }
+            catch { }
         }
 
         private void ButtonColorChanged(string picture, PictureBox pb)

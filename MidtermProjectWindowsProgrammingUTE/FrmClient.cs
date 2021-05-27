@@ -376,24 +376,28 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void Search()
         {
-            int Sex = this.cbSex.SelectedIndex - 1;
+            try
+            {
+                int Sex = this.cbSex.SelectedIndex - 1;
 
-            if (this.txtFind.Text == "" && Sex == -1)
-            {
-                LoadData();
+                if (this.txtFind.Text == "" && Sex == -1)
+                {
+                    LoadData();
+                }
+                else
+                {
+                    dtClient = new DataTable();
+                    dtClient.Clear();
+                    string key = this.txtFind.Text;
+                    DataSet dsclient = dbClient.SearchClient(key, Sex);
+                    dtClient = dsclient.Tables[0];
+                    // Đưa dữ liệu lên DataGridView
+                    dgvClient.DataSource = dtClient;
+                    // Thay đổi độ rộng cột
+                    dgvClient.AutoResizeColumns();
+                }
             }
-            else
-            {
-                dtClient = new DataTable();
-                dtClient.Clear();
-                string key = this.txtFind.Text;
-                DataSet dsclient = dbClient.SearchClient(key, Sex);
-                dtClient = dsclient.Tables[0];
-                // Đưa dữ liệu lên DataGridView
-                dgvClient.DataSource = dtClient;
-                // Thay đổi độ rộng cột
-                dgvClient.AutoResizeColumns();
-            }
+            catch { }
         }
 
         private void ButtonColorChanged(string picture, PictureBox pb)

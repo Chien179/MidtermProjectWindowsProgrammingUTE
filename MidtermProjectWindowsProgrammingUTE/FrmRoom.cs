@@ -109,17 +109,24 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvRoom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvRoom.Rows.Count > 0)
+            try
             {
-                // Thứ tự dòng hiện hành
-                int r = dgvRoom.CurrentCell.RowIndex;
-                // Chuyển thông tin lên panel
-                this.txtRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
-                this.cmbRoomType.Text = dgvRoom.Rows[r].Cells["RoomType"].Value.ToString();
-                this.cbStatus.Checked = Convert.ToBoolean(dgvRoom.Rows[r].Cells["Used"].Value);
-                this.txtNote.Text = dgvRoom.Rows[r].Cells["Note"].Value.ToString();
-                this.txtArea.Text = dgvRoom.Rows[r].Cells["Area"].Value.ToString();
-                this.txtPrice.Text = dgvRoom.Rows[r].Cells["Price"].Value.ToString();
+                if (dgvRoom.Rows.Count > 0)
+                {
+                    // Thứ tự dòng hiện hành
+                    int r = dgvRoom.CurrentCell.RowIndex;
+                    // Chuyển thông tin lên panel
+                    this.txtRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
+                    this.cmbRoomType.Text = dgvRoom.Rows[r].Cells["RoomType"].Value.ToString();
+                    this.cbStatus.Checked = Convert.ToBoolean(dgvRoom.Rows[r].Cells["Used"].Value);
+                    this.txtNote.Text = dgvRoom.Rows[r].Cells["Note"].Value.ToString();
+                    this.txtArea.Text = dgvRoom.Rows[r].Cells["Area"].Value.ToString();
+                    this.txtPrice.Text = dgvRoom.Rows[r].Cells["Price"].Value.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot load data into DataGridView !");
             }
         }
 

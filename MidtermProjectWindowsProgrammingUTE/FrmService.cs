@@ -371,22 +371,26 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void Search()
         {
-            if (this.txtFind.Text == "")
+            try
             {
-                LoadData();
+                if (this.txtFind.Text == "")
+                {
+                    LoadData();
+                }
+                else
+                {
+                    dtService = new DataTable();
+                    dtService.Clear();
+                    string key = this.txtFind.Text;
+                    DataSet dsPurchase = dbService.SearchService(key);
+                    dtService = dsPurchase.Tables[0];
+                    // Đưa dữ liệu lên DataGridView
+                    dgvService.DataSource = dtService;
+                    // Thay đổi độ rộng cột
+                    dgvService.AutoResizeColumns();
+                }
             }
-            else
-            {
-                dtService = new DataTable();
-                dtService.Clear();
-                string key = this.txtFind.Text;
-                DataSet dsPurchase = dbService.SearchService(key);
-                dtService = dsPurchase.Tables[0];
-                // Đưa dữ liệu lên DataGridView
-                dgvService.DataSource = dtService;
-                // Thay đổi độ rộng cột
-                dgvService.AutoResizeColumns();
-            }
+            catch { }
         }
         private void ButtonColorChanged(string picture, PictureBox pb)
         {

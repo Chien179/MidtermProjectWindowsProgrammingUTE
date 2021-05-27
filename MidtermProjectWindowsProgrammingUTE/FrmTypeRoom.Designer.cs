@@ -63,27 +63,30 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 3);
+            this.panel1.Location = new System.Drawing.Point(0, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1285, 144);
+            this.panel1.Size = new System.Drawing.Size(1713, 177);
             this.panel1.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(515, 39);
+            this.label1.Location = new System.Drawing.Point(687, 48);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 51);
+            this.label1.Size = new System.Drawing.Size(314, 63);
             this.label1.TabIndex = 0;
             this.label1.Text = "Type Room";
             // 
             // pbBack
             // 
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
-            this.pbBack.Location = new System.Drawing.Point(12, 153);
+            this.pbBack.Location = new System.Drawing.Point(16, 188);
+            this.pbBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbBack.Name = "pbBack";
-            this.pbBack.Size = new System.Drawing.Size(55, 52);
+            this.pbBack.Size = new System.Drawing.Size(73, 64);
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 51;
             this.pbBack.TabStop = false;
@@ -94,9 +97,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // txtFind
             // 
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtFind.Location = new System.Drawing.Point(679, 198);
+            this.txtFind.Location = new System.Drawing.Point(905, 244);
+            this.txtFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(217, 31);
+            this.txtFind.Size = new System.Drawing.Size(288, 37);
             this.txtFind.TabIndex = 53;
             this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
@@ -108,11 +112,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dgvTypeRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomType,
             this.NameType});
-            this.dgvTypeRoom.Location = new System.Drawing.Point(679, 251);
+            this.dgvTypeRoom.Location = new System.Drawing.Point(905, 309);
+            this.dgvTypeRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvTypeRoom.Name = "dgvTypeRoom";
             this.dgvTypeRoom.ReadOnly = true;
             this.dgvTypeRoom.RowHeadersWidth = 51;
-            this.dgvTypeRoom.Size = new System.Drawing.Size(593, 341);
+            this.dgvTypeRoom.Size = new System.Drawing.Size(791, 420);
             this.dgvTypeRoom.TabIndex = 52;
             this.dgvTypeRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTypeRoom_CellClick);
             // 
@@ -120,22 +125,27 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.RoomType.DataPropertyName = "MaLoai";
             this.RoomType.HeaderText = "Room Type";
+            this.RoomType.MinimumWidth = 6;
             this.RoomType.Name = "RoomType";
             this.RoomType.ReadOnly = true;
+            this.RoomType.Width = 125;
             // 
             // NameType
             // 
             this.NameType.DataPropertyName = "TenLoai";
             this.NameType.HeaderText = "Name Type";
+            this.NameType.MinimumWidth = 6;
             this.NameType.Name = "NameType";
             this.NameType.ReadOnly = true;
+            this.NameType.Width = 125;
             // 
             // pbCancel
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
-            this.pbCancel.Location = new System.Drawing.Point(510, 489);
+            this.pbCancel.Location = new System.Drawing.Point(680, 602);
+            this.pbCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCancel.Name = "pbCancel";
-            this.pbCancel.Size = new System.Drawing.Size(60, 58);
+            this.pbCancel.Size = new System.Drawing.Size(80, 71);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCancel.TabIndex = 98;
             this.pbCancel.TabStop = false;
@@ -146,9 +156,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(433, 489);
+            this.pbSave.Location = new System.Drawing.Point(577, 602);
+            this.pbSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbSave.Name = "pbSave";
-            this.pbSave.Size = new System.Drawing.Size(60, 58);
+            this.pbSave.Size = new System.Drawing.Size(80, 71);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSave.TabIndex = 97;
             this.pbSave.TabStop = false;
@@ -159,9 +170,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbAdd
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
-            this.pbAdd.Location = new System.Drawing.Point(117, 489);
+            this.pbAdd.Location = new System.Drawing.Point(156, 602);
+            this.pbAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAdd.Name = "pbAdd";
-            this.pbAdd.Size = new System.Drawing.Size(60, 58);
+            this.pbAdd.Size = new System.Drawing.Size(80, 71);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAdd.TabIndex = 96;
             this.pbAdd.TabStop = false;
@@ -172,9 +184,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbDelete
             // 
             this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
-            this.pbDelete.Location = new System.Drawing.Point(281, 489);
+            this.pbDelete.Location = new System.Drawing.Point(375, 602);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbDelete.Name = "pbDelete";
-            this.pbDelete.Size = new System.Drawing.Size(60, 58);
+            this.pbDelete.Size = new System.Drawing.Size(80, 71);
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 95;
             this.pbDelete.TabStop = false;
@@ -185,9 +198,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbEdit
             // 
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
-            this.pbEdit.Location = new System.Drawing.Point(199, 489);
+            this.pbEdit.Location = new System.Drawing.Point(265, 602);
+            this.pbEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbEdit.Name = "pbEdit";
-            this.pbEdit.Size = new System.Drawing.Size(60, 58);
+            this.pbEdit.Size = new System.Drawing.Size(80, 71);
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEdit.TabIndex = 94;
             this.pbEdit.TabStop = false;
@@ -200,9 +214,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnSearch.BackColor = System.Drawing.Color.Transparent;
             this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(902, 198);
+            this.btnSearch.Location = new System.Drawing.Point(1203, 244);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(35, 31);
+            this.btnSearch.Size = new System.Drawing.Size(47, 38);
             this.btnSearch.TabIndex = 100;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -214,9 +229,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Controls.Add(this.label2);
             this.gbInfor.Controls.Add(this.txtRoomType);
             this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gbInfor.Location = new System.Drawing.Point(117, 240);
+            this.gbInfor.Location = new System.Drawing.Point(156, 295);
+            this.gbInfor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbInfor.Name = "gbInfor";
-            this.gbInfor.Size = new System.Drawing.Size(463, 147);
+            this.gbInfor.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInfor.Size = new System.Drawing.Size(617, 181);
             this.gbInfor.TabIndex = 103;
             this.gbInfor.TabStop = false;
             this.gbInfor.Text = "Information";
@@ -225,43 +242,47 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(9, 64);
+            this.label3.Location = new System.Drawing.Point(12, 79);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 25);
+            this.label3.Size = new System.Drawing.Size(162, 31);
             this.label3.TabIndex = 61;
             this.label3.Text = "Room Type:";
             // 
             // txtNameType
             // 
             this.txtNameType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtNameType.Location = new System.Drawing.Point(149, 106);
+            this.txtNameType.Location = new System.Drawing.Point(199, 130);
+            this.txtNameType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNameType.Name = "txtNameType";
-            this.txtNameType.Size = new System.Drawing.Size(176, 30);
+            this.txtNameType.Size = new System.Drawing.Size(233, 36);
             this.txtNameType.TabIndex = 48;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(9, 111);
+            this.label2.Location = new System.Drawing.Point(12, 137);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 25);
+            this.label2.Size = new System.Drawing.Size(162, 31);
             this.label2.TabIndex = 59;
             this.label2.Text = "Name Type:";
             // 
             // txtRoomType
             // 
             this.txtRoomType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtRoomType.Location = new System.Drawing.Point(149, 59);
+            this.txtRoomType.Location = new System.Drawing.Point(199, 73);
+            this.txtRoomType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRoomType.Name = "txtRoomType";
-            this.txtRoomType.Size = new System.Drawing.Size(176, 30);
+            this.txtRoomType.Size = new System.Drawing.Size(233, 36);
             this.txtRoomType.TabIndex = 62;
             // 
             // FrmTypeRoom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.ClientSize = new System.Drawing.Size(1712, 743);
             this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
             this.Controls.Add(this.pbSave);
@@ -273,7 +294,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.dgvTypeRoom);
             this.Controls.Add(this.pbBack);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmTypeRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Type Room";

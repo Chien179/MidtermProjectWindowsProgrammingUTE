@@ -346,22 +346,26 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void Search()
         {
-            if (this.txtFind.Text == "")
+            try
             {
-                LoadData();
+                if (this.txtFind.Text == "")
+                {
+                    LoadData();
+                }
+                else
+                {
+                    dtTypeRoom = new DataTable();
+                    dtTypeRoom.Clear();
+                    string key = this.txtFind.Text;
+                    DataSet dsPurchase = dbTypeRoom.SearchTypeRoom(key);
+                    dtTypeRoom = dsPurchase.Tables[0];
+                    // Đưa dữ liệu lên DataGridView
+                    dgvTypeRoom.DataSource = dtTypeRoom;
+                    // Thay đổi độ rộng cột
+                    dgvTypeRoom.AutoResizeColumns();
+                }
             }
-            else
-            {
-                dtTypeRoom = new DataTable();
-                dtTypeRoom.Clear();
-                string key = this.txtFind.Text;
-                DataSet dsPurchase = dbTypeRoom.SearchTypeRoom(key);
-                dtTypeRoom = dsPurchase.Tables[0];
-                // Đưa dữ liệu lên DataGridView
-                dgvTypeRoom.DataSource = dtTypeRoom;
-                // Thay đổi độ rộng cột
-                dgvTypeRoom.AutoResizeColumns();
-            }
+            catch { }
         }
 
         private void ButtonColorChanged(string picture, PictureBox pb)

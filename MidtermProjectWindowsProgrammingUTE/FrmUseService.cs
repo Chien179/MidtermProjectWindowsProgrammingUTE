@@ -63,15 +63,22 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvUseService_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvUseService.Rows.Count > 0)
+            try
             {
-                // Thứ tự dòng hiện hành
-                int r = dgvUseService.CurrentCell.RowIndex;
-                // Chuyển thông tin lên panel
-                this.cmbRoomID.Text = dgvUseService.Rows[r].Cells["RoomID"].Value.ToString();
-                this.cmbCMND.Text = dgvUseService.Rows[r].Cells["ServiceID"].Value.ToString();
-                this.dtpDateIn.Text = dgvUseService.Rows[r].Cells["DateUse"].Value.ToString();
-                this.txtAmount.Text = dgvUseService.Rows[r].Cells["Amount"].Value.ToString();
+                if (dgvUseService.Rows.Count > 0)
+                {
+                    // Thứ tự dòng hiện hành
+                    int r = dgvUseService.CurrentCell.RowIndex;
+                    // Chuyển thông tin lên panel
+                    this.cmbRoomID.Text = dgvUseService.Rows[r].Cells["RoomID"].Value.ToString();
+                    this.cmbCMND.Text = dgvUseService.Rows[r].Cells["ServiceID"].Value.ToString();
+                    this.dtpDateIn.Text = dgvUseService.Rows[r].Cells["DateUse"].Value.ToString();
+                    this.txtAmount.Text = dgvUseService.Rows[r].Cells["Amount"].Value.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot load data into DataGridView !");
             }
         }
 
@@ -141,44 +148,48 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbSave_Click(object sender, EventArgs e)
         {
-            // Mở kết nối
-            // Thêm dữ liệu
-            if (Them)
+            try
             {
-                try
+                // Mở kết nối
+                // Thêm dữ liệu
+                if (Them)
+                {
+                    try
+                    {
+                        // Thực hiện lệnh
+                        BLUseService blUseService = new BLUseService();
+                        if (this.cmbRoomID.Text != "" && this.cmbCMND.Text != "")
+                        {
+                            int Amount = 0;
+                            if (this.txtAmount.Text != "")
+                            {
+                                Amount = int.Parse(this.txtAmount.Text);
+                            }
+                            blUseService.AddUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, Amount, ref err);
+                            // Thông báo
+                            MessageBox.Show("Added successfully!");
+                            // Load lại dữ liệu trên DataGridView
+                            LoadData();
+                        }
+                    }
+                    catch (SqlException)
+                    {
+                        MessageBox.Show("Added failed!");
+                    }
+                }
+                else
                 {
                     // Thực hiện lệnh
                     BLUseService blUseService = new BLUseService();
-                    if (this.cmbRoomID.Text != "" && this.cmbCMND.Text != "")
-                    {
-                        int Amount = 0;
-                        if (this.txtAmount.Text != "")
-                        {
-                            Amount = int.Parse(this.txtAmount.Text);
-                        }
-                        blUseService.AddUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, Amount, ref err);
-                        // Thông báo
-                        MessageBox.Show("Added successfully!");
-                        // Load lại dữ liệu trên DataGridView
-                        LoadData();
-                    }
+                    blUseService.UpdateUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
+                    // Thông báo
+                    MessageBox.Show("Edited successfully!");
+                    // Load lại dữ liệu trên DataGridView
+                    LoadData();
                 }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Added failed!");
-                }
+                // Đóng kết nối
             }
-            else
-            {
-                // Thực hiện lệnh
-                BLUseService blUseService = new BLUseService();
-                blUseService.UpdateUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
-                // Thông báo
-                MessageBox.Show("Edited successfully!");
-                // Load lại dữ liệu trên DataGridView
-                LoadData();
-            }
-            // Đóng kết nối
+            catch { }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -320,22 +331,26 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void Search()
         {
-            if (this.txtFind.Text == "")
+            try
             {
-                LoadData();
+                if (this.txtFind.Text == "")
+                {
+                    LoadData();
+                }
+                else
+                {
+                    dtUseService = new DataTable();
+                    dtUseService.Clear();
+                    string key = this.txtFind.Text;
+                    DataSet dsPurchase = dbUseService.SearchUseService(key);
+                    dtUseService = dsPurchase.Tables[0];
+                    // Đưa dữ liệu lên DataGridView
+                    dgvUseService.DataSource = dtUseService;
+                    // Thay đổi độ rộng cột
+                    dgvUseService.AutoResizeColumns();
+                }
             }
-            else
-            {
-                dtUseService = new DataTable();
-                dtUseService.Clear();
-                string key = this.txtFind.Text;
-                DataSet dsPurchase = dbUseService.SearchUseService(key);
-                dtUseService = dsPurchase.Tables[0];
-                // Đưa dữ liệu lên DataGridView
-                dgvUseService.DataSource = dtUseService;
-                // Thay đổi độ rộng cột
-                dgvUseService.AutoResizeColumns();
-            }
+            catch { }
         }
 
         private void ButtonColorChanged(string picture, PictureBox pb)
