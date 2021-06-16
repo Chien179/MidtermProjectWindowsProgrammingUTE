@@ -5,7 +5,7 @@ namespace MidtermProjectWindowsProgrammingUTE.DB_Layer
 {
     class DBMain
     {
-        string ConnStr = "Data Source=PHIANH; Initial Catalog=QuanLyKhachSan;Integrated Security=True";
+        string ConnStr = "Data Source=DESKTOP-EVVAGFN; Initial Catalog=QuanLyKhachSan;Integrated Security=True";
         SqlConnection conn = null;
         SqlCommand comm = null;
         SqlDataAdapter da = null;

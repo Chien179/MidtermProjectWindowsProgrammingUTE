@@ -50,6 +50,7 @@
     <Compile Include="BS_Layer\BLRoom.cs" />
     <Compile Include="BS_Layer\BLService.cs" />
     <Compile Include="BS_Layer\BLPurchase.cs" />
+    <Compile Include="BS_Layer\BLStaff.cs" />
     <Compile Include="BS_Layer\BLTypeRoom.cs" />
     <Compile Include="BS_Layer\BLUseRoom.cs" />
     <Compile Include="BS_Layer\BLUseService.cs" />
@@ -65,6 +66,12 @@
     </Compile>
     <Compile Include="FrmClient.Designer.cs">
       <DependentUpon>FrmClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRoom.cs">
       <SubType>Form</SubType>
@@ -83,6 +90,12 @@
     </Compile>
     <Compile Include="FrmPurchase.Designer.cs">
       <DependentUpon>FrmPurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaff.Designer.cs">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTypeRoom.cs">
       <SubType>Form</SubType>
@@ -110,6 +123,9 @@
     <EmbeddedResource Include="FrmClient.resx">
       <DependentUpon>FrmClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRoom.resx">
       <DependentUpon>FrmRoom.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPurchase.resx">
       <DependentUpon>FrmPurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaff.resx">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTypeRoom.resx">
       <DependentUpon>FrmTypeRoom.cs</DependentUpon>

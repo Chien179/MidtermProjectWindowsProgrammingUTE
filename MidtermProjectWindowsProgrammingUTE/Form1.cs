@@ -20,7 +20,21 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmClient frmclient = new FrmClient();
             frmclient.ShowDialog();
         }
-
+        private void Staff_Click(object sender, EventArgs e)
+        {
+            FrmStaff frmstaff = new FrmStaff();
+            frmstaff.ShowDialog();
+        }
+        private void ServiceUsing_Click(object sender, EventArgs e)
+        {
+            FrmUseService frmuseService = new FrmUseService();
+            frmuseService.ShowDialog();
+        }
+        private void RoomUsing_Click(object sender, EventArgs e)
+        {
+            FrmUseRoom frmuseRoom = new FrmUseRoom();
+            frmuseRoom.ShowDialog();
+        }
         private void Purchase_Click(object sender, EventArgs e)
         {
             FrmPurchase frmPurchase = new FrmPurchase();
@@ -93,6 +107,33 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void TypeRoom_MouseLeave(object sender, EventArgs e)
         {
             ButtonColorChanged_Leave("typeroom.png", this.lblTypeRoom, this.pbTypeRoom);
+        }
+        private void ServiceUsing_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged_Enter("serviceUsing_yellow.png", this.lblServiceUsing, this.pbServiceUsing);
+        }
+
+        private void ServiceUsing_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged_Leave("serviceUsing.png", this.lblServiceUsing, this.pbServiceUsing);
+        }
+        private void RoomUsing_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged_Enter("roomUsing_yellow.png", this.lblRoomUsing, this.pbRoomUsing);
+        }
+
+        private void RoomUsing_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged_Leave("roomUsing.png", this.lblRoomUsing, this.pbRoomUsing);
+        }
+        private void Staff_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged_Enter("staff_yellow.png", this.lblStaff, this.pbStaff);
+        }
+
+        private void Staff_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged_Leave("staff.png", this.lblStaff, this.pbStaff);
         }
         #endregion
 
