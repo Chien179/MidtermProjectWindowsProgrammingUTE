@@ -269,6 +269,7 @@
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(176, 30);
             this.txtServiceName.TabIndex = 35;
+            this.txtServiceName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtServiceName_KeyPress);
             // 
             // txtPrice
             // 
@@ -277,6 +278,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(176, 30);
             this.txtPrice.TabIndex = 36;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // label3
             // 

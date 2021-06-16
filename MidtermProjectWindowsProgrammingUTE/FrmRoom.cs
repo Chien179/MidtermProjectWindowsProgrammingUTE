@@ -319,6 +319,14 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cbStatusSearch.Focus();
             Search();
         }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         #endregion
 
         #region Functions

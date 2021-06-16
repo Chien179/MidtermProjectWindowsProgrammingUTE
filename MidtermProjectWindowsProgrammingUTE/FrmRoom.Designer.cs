@@ -291,7 +291,7 @@
             this.cmbRoomType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbRoomType.FormattingEnabled = true;
             this.cmbRoomType.Location = new System.Drawing.Point(171, 102);
-            this.cmbRoomType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbRoomType.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRoomType.Name = "cmbRoomType";
             this.cmbRoomType.Size = new System.Drawing.Size(176, 33);
             this.cmbRoomType.TabIndex = 68;
@@ -370,6 +370,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(176, 30);
             this.txtPrice.TabIndex = 65;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // label3
             // 

@@ -294,6 +294,14 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             Search();
         }
+
+        private void txtTotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         #endregion
 
         #region Functions

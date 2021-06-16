@@ -268,6 +268,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(200, 30);
             this.txtAmount.TabIndex = 84;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // label5
             // 

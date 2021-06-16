@@ -311,6 +311,7 @@
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(176, 30);
             this.txtPhoneNumber.TabIndex = 19;
+            this.txtPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneNumber_KeyPress);
             // 
             // cbFemale
             // 
@@ -330,6 +331,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(176, 30);
             this.txtName.TabIndex = 18;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // txtAddress
             // 
@@ -356,6 +358,7 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(176, 30);
             this.txtID.TabIndex = 17;
+            this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
             // 
             // label4
             // 
