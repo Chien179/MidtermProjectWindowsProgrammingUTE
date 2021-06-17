@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BS_Layer\BLClient.cs" />
+    <Compile Include="BS_Layer\BLLogin.cs" />
     <Compile Include="BS_Layer\BLRoom.cs" />
     <Compile Include="BS_Layer\BLService.cs" />
     <Compile Include="BS_Layer\BLPurchase.cs" />

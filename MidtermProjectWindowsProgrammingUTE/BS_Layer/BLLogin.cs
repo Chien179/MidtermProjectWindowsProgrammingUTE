@@ -1,46 +1,46 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using MidtermProjectWindowsProgrammingUTE.DB_Layer;
 
 namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 {
-    class BLStaff
+    class BLLogin
     {
         DBMain db = null;
 
-        public BLStaff()
+        public BLLogin()
         {
             db = new DBMain();
         }
 
-        public DataSet GetPositionStaff(string IDStaff)
+        public DataSet GetIDStaff(string namelogin, string password)
         {
-            return db.ExecuteQueryDataSet("select ChucVu from NhanVien where MaNV='"+ IDStaff +"'", CommandType.Text);
+            return db.ExecuteQueryDataSet("select MaNV from TaiKhoan where TenDangNhap='" + namelogin + "' and MatKhau ='" + password + "'", CommandType.Text);
         }
 
-        public DataSet GetStaff()
+        public bool CheckAccount(string namelogin, string password, ref string err)
         {
-            return db.ExecuteQueryDataSet("select * from NhanVien", CommandType.Text);
-        }
-
-        public bool AddStaff(string CMND, string TenKhachHang, string DiaChi, string GioiTinh, string NgaySinh, ref string err)
-        {
-            string sqlString = "Insert Into KhachHang Values(" + "'" + CMND + "',N'" + TenKhachHang + "',N'" + DiaChi + "','" + GioiTinh + "','" + NgaySinh + "')";
+            string sqlString = "select * from TaiKhoan Where TenDangNhap='" + namelogin + "' and MatKhau ='" + password + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool UpdateStaff(string CMND, string TenKhachHang, string DiaChi, string GioiTinh, string NgaySinh, ref string err)
+        public bool UpdateClient(string CMND, string TenKhachHang, string DiaChi, string SoDienThoai, string GioiTinh, string NgaySinh, ref string err)
         {
-            string sqlString = "Update KhachHang Set TenKH=N'" + TenKhachHang + "',DiaChi=N'" + DiaChi  + "',NgaySinh='" + NgaySinh + "',Nu='" + GioiTinh + "'Where CMND='" + CMND + "'";
+            string sqlString = "Update KhachHang Set TenKH=N'" + TenKhachHang + "',DiaChi=N'" + DiaChi + "',SoDienThoai='" + SoDienThoai + "',NgaySinh='" + NgaySinh + "',Nu='" + GioiTinh + "'Where CMND='" + CMND + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool DeleteStaff(ref string err, string CMND)
+        public bool DeleteClient(ref string err, string CMND)
         {
             string sqlString = "Delete From KhachHang Where CMND='" + CMND + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public DataSet SearchStaff(string key, int Sex)
+        public DataSet SearchClient(string key, int Sex)
         {
             string sqlString = "Select * From KhachHang Where Nu =" + Sex + "and (CMND Like'%" + key + "%'or TenKH Like N'%" + key + "%'or DiaChi Like N'%" + key + "%'or SoDienThoai Like '%" + key + "%' or NgaySinh Like '%" + key + "%')";
             if (Sex == -1)
@@ -48,6 +48,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
                 sqlString = "Select * From KhachHang Where CMND Like'%" + key + "%'or TenKH Like N'%" + key + "%'or DiaChi Like N'%" + key + "%'or SoDienThoai Like '%" + key + "%' or NgaySinh Like '%" + key + "%'";
             }
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
+
         }
     }
 }
