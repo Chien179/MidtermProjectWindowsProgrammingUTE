@@ -44,7 +44,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID.ResetText();
             this.cmbCMND.ResetText();
             this.dtpDateIn.ResetText();
-            this.dtpDateOut.ResetText();
+            this.txtStaffID.ResetText();
             this.txtDeposit.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
@@ -81,7 +81,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         {
                             Deposit = float.Parse(this.txtDeposit.Text);
                         }
-                        blUseRoom.AddUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, this.dtpDateOut.Text, Deposit, ref err);
+                        blUseRoom.AddUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, this.dtpDateIn.Text, Deposit, ref err);
                         // Thông báo
                         MessageBox.Show("Added successfully!");
                         // Load lại dữ liệu trên DataGridView
@@ -98,7 +98,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLUseRoom blUseRoom = new BLUseRoom();
-                blUseRoom.UpdateUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, this.dtpDateOut.Text, float.Parse(this.txtDeposit.Text), ref err);
+                blUseRoom.UpdateUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, this.dtpDateIn.Text, float.Parse(this.txtDeposit.Text), ref err);
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
                 // Load lại dữ liệu trên DataGridView
@@ -119,7 +119,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     this.cmbRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
                     this.cmbCMND.Text = dgvRoom.Rows[r].Cells["CMND"].Value.ToString();
                     this.dtpDateIn.Text = dgvRoom.Rows[r].Cells["CheckIn"].Value.ToString();
-                    this.dtpDateOut.Text = dgvRoom.Rows[r].Cells["CheckOut"].Value.ToString();
+                    this.txtStaffID.Text = dgvRoom.Rows[r].Cells["StaffID"].Value.ToString();
                     this.txtDeposit.Text = dgvRoom.Rows[r].Cells["Deposit"].Value.ToString();
                 }
             }
@@ -161,12 +161,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID.ResetText();
             this.cmbCMND.ResetText();
             this.dtpDateIn.ResetText();
-            this.dtpDateOut.ResetText();
+            this.txtStaffID.ResetText();
             this.txtDeposit.ResetText();
             this.cmbRoomID.Enabled = true;
             this.cmbCMND.Enabled = true;
             this.dtpDateIn.Enabled = true;
-            this.dtpDateOut.Enabled = true;
+            this.txtStaffID.Enabled = true;
             this.txtDeposit.Enabled = true;
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
@@ -291,12 +291,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbRoomID.ResetText();
                 this.cmbCMND.ResetText();
                 this.dtpDateIn.ResetText();
-                this.dtpDateOut.ResetText();
+                this.txtStaffID.ResetText();
                 this.txtDeposit.ResetText();
                 this.cmbRoomID.Enabled = true;
                 this.cmbCMND.Enabled = true;
                 this.dtpDateIn.Enabled = true;
-                this.dtpDateOut.Enabled = true;
+                this.txtStaffID.Enabled = true;
                 this.txtDeposit.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
