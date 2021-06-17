@@ -27,7 +27,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void FrmService_Load(object sender, EventArgs e)
         {
             LoadData();
-
         }
         #endregion
 
@@ -69,12 +68,25 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbSave_Click(object sender, EventArgs e)
         {
-
             // Mở kết nối
             // Thêm dữ liệu
             if (Them)
             {
+                for(int i = 0;i < dgvService.Rows.Count; i++)
+                {
+                    string t = txtServiceID.Text.Trim();
+                    if(t == dgvService.Rows[i].Cells["ID"].Value.ToString().Trim())
+                    {
+                        MessageBox.Show("Existed '" + t + "', please type another one !");
+                        txtServiceID.ResetText();
+                        txtPrice.ResetText();
+                        txtServiceName.ResetText();
+                        txtUnit.ResetText();
 
+                        txtServiceID.Focus();
+                        return;
+                    }
+                }
                 try
                 {
                     // Thực hiện lệnh

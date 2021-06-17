@@ -17,30 +17,30 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select * from NhanVien", CommandType.Text);
         }
 
-        public bool AddStaff(string CMND, string TenKhachHang, string DiaChi, string GioiTinh, string NgaySinh, ref string err)
+        public bool AddStaff(string MaNV, string TenNV, string ChucVu, string NamSinh, string GioiTinh, ref string err)
         {
-            string sqlString = "Insert Into KhachHang Values(" + "'" + CMND + "',N'" + TenKhachHang + "',N'" + DiaChi + "','" + GioiTinh + "','" + NgaySinh + "')";
+            string sqlString = "Insert Into NhanVien Values(" + "'" + MaNV + "',N'" + TenNV + "',N'" + ChucVu + "','" + NamSinh + "', '" + GioiTinh + "')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool UpdateStaff(string CMND, string TenKhachHang, string DiaChi, string GioiTinh, string NgaySinh, ref string err)
+        public bool UpdateStaff(string MaNV, string TenNV, string ChucVu, string NamSinh, string GioiTinh, ref string err)
         {
-            string sqlString = "Update KhachHang Set TenKH=N'" + TenKhachHang + "',DiaChi=N'" + DiaChi  + "',NgaySinh='" + NgaySinh + "',Nu='" + GioiTinh + "'Where CMND='" + CMND + "'";
+            string sqlString = "Update NhanVien Set TenNV=N'" + TenNV + "',ChucVu=N'" + ChucVu + "',NamSinh='" + NamSinh + "',Nu='" + GioiTinh + "'Where MaNV='" + MaNV + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool DeleteStaff(ref string err, string CMND)
+        public bool DeleteStaff(ref string err, string MaNV)
         {
-            string sqlString = "Delete From KhachHang Where CMND='" + CMND + "'";
+            string sqlString = "Delete From NhanVien Where MaNV='" + MaNV + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
         public DataSet SearchStaff(string key, int Sex)
         {
-            string sqlString = "Select * From KhachHang Where Nu =" + Sex + "and (CMND Like'%" + key + "%'or TenKH Like N'%" + key + "%'or DiaChi Like N'%" + key + "%'or SoDienThoai Like '%" + key + "%' or NgaySinh Like '%" + key + "%')";
+            string sqlString = "Select * From NhanVien Where Nu =" + Sex + "and (MaNV Like'%" + key + "%'or TenNV Like N'%" + key + "%'or ChucVu Like N'%" + key + "%'or NamSinh Like '%" + key +"%')";
             if (Sex == -1)
             {
-                sqlString = "Select * From KhachHang Where CMND Like'%" + key + "%'or TenKH Like N'%" + key + "%'or DiaChi Like N'%" + key + "%'or SoDienThoai Like '%" + key + "%' or NgaySinh Like '%" + key + "%'";
+                sqlString = "Select * From NhanVien Where MaNV Like'%" + key + "%'or TenNV Like N'%" + key + "%'or ChucVu Like N'%" + key + "%'or NamSinh Like '%" + key + "%'";
             }
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
