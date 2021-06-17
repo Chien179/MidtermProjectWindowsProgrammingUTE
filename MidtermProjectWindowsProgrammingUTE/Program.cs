@@ -16,7 +16,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPurchase());
+            Application.Run(new FrmLogin());
         }
     }
 }
