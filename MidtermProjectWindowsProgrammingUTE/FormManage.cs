@@ -42,13 +42,13 @@ namespace MidtermProjectWindowsProgrammingUTE
         }
         private void Room_Click(object sender, EventArgs e)
         {
-            FrmUseRoom frmroom = new FrmUseRoom();
+            FrmRoom frmroom = new FrmRoom();
             frmroom.ShowDialog();
         }
 
         private void Service_Click(object sender, EventArgs e)
         {
-            FrmUseService frmservice = new FrmUseService();
+            FrmService frmservice = new FrmService();
             frmservice.ShowDialog();
         }
 

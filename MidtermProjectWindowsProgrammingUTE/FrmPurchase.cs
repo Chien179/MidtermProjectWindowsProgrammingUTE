@@ -41,6 +41,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtTotal.ResetText();
             this.cmbRoomID.ResetText();
             this.dtpPurchaseDate.ResetText();
+            this.txtStaffID.ResetText();
+            this.dtpDateIn.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
             this.pbCancel.Show();
@@ -138,6 +140,8 @@ namespace MidtermProjectWindowsProgrammingUTE
                     this.txtTotal.Text = dgvPurchase.Rows[r].Cells["Total"].Value.ToString();
                     this.dtpPurchaseDate.Text = dgvPurchase.Rows[r].Cells["PurchaseDate"].Value.ToString();
                     this.cmbRoomID.Text = dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString();
+                    this.txtStaffID.Text = dgvPurchase.Rows[r].Cells["StaffID"].Value.ToString();
+                    this.dtpDateIn.Text = dgvPurchase.Rows[r].Cells["CheckIn"].Value.ToString();
                 }
             }
             catch (Exception)
@@ -187,10 +191,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtTotal.ResetText();
             this.cmbRoomID.ResetText();
             this.dtpPurchaseDate.ResetText();
+            this.txtStaffID.ResetText();
+            this.dtpDateIn.ResetText();
             this.txtPurchaseID.Enabled = true;
             this.cmbRoomID.Enabled = true;
             this.txtTotal.Enabled = true;
             this.dtpPurchaseDate.Enabled = true;
+            this.dtpDateIn.Enabled = true;
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
@@ -338,10 +345,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbRoomID.ResetText();
                 this.txtTotal.ResetText();
                 this.dtpPurchaseDate.ResetText();
+                this.txtStaffID.ResetText();
+                this.dtpDateIn.ResetText();
                 this.txtPurchaseID.Enabled = true;
                 this.cmbRoomID.Enabled = true;
                 this.txtTotal.Enabled = true;
                 this.dtpPurchaseDate.Enabled = true;
+                this.txtStaffID.Enabled = true;
+                this.dtpDateIn.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
                 this.pbCancel.Enabled = false;
