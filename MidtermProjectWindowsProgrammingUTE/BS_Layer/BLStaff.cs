@@ -35,7 +35,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public DataSet SearchClient(string key, int Sex)
+        public DataSet SearchStaff(string key, int Sex)
         {
             string sqlString = "Select * From KhachHang Where Nu =" + Sex + "and (CMND Like'%" + key + "%'or TenKH Like N'%" + key + "%'or DiaChi Like N'%" + key + "%'or SoDienThoai Like '%" + key + "%' or NgaySinh Like '%" + key + "%')";
             if (Sex == -1)

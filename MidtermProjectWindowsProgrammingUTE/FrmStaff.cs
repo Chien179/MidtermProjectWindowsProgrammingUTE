@@ -17,6 +17,8 @@ namespace MidtermProjectWindowsProgrammingUTE
         string err = "";
         BLStaff dbStaff = new BLStaff();
         #endregion
+
+        #region Constructor
         public FrmStaff()
         {
             InitializeComponent();
@@ -27,55 +29,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cbSex.SelectedIndex = 0;
             LoadData();
         }
-        #region Functions
-        void LoadData()
-        {
-            try
-            {
-                dtStaff = new DataTable();
-                dtStaff.Clear();
-                DataSet ds = dbStaff.GetStaff();
-                dtStaff = ds.Tables[0];
-                // Đưa dữ liệu lên DataGridView
-                dgvStaff.DataSource = dtStaff;
-                // Thay đổi độ rộng cột
-                dgvStaff.AutoResizeColumns();
-                // Xóa trống các đối tượng trong Panel
-                this.txtID.ResetText();
-                this.txtName.ResetText();
-                this.txtChucVu.ResetText();
-                this.dtpBirthDate.ResetText();
-                this.txtID.Enabled = true;
-                this.txtName.Enabled = true;
-                this.txtChucVu.Enabled = true;
-                this.dtpBirthDate.Enabled = true;
-                // Không cho thao tác trên các nút Lưu / Hủy
-                this.pbSave.Enabled = false;
-                this.pbCancel.Enabled = false;
-                this.pbSave.Hide();
-                this.pbCancel.Hide();
-                // Không cho thao tác trên các ô thông tin
-                this.gbInfor.Enabled = false;
-                this.gbInfor.Text = "Information";
-                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
-                this.pbAdd.Enabled = true;
-                this.pbEdit.Enabled = true;
-                this.pbBack.Enabled = true;
-                this.pbDelete.Enabled = true;
-                this.pbAdd.Show();
-                this.pbEdit.Show();
-                this.pbBack.Show();
-                this.pbDelete.Show();
-                //
-                dgvStaff_CellClick(null, null);
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Cannot get data from table 'KhachHang' !");
-            }
-        }
         #endregion
 
+        #region Event_Click
         private void pbAdd_Click(object sender, EventArgs e)
         {
             // Kich hoạt biến Them
@@ -197,7 +153,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     BLStaff blStaff = new BLStaff();
                     if (this.txtID.Text != "")
                     {
-                        blStaff.AddStaff(this.txtID.Text, this.txtName.Text, this.txtChucVu.Text,this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
+                        blStaff.AddStaff(this.txtID.Text, this.txtName.Text, this.txtChucVu.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
                         // Thông báo
                         MessageBox.Show("Added successfully!");
                         // Load lại dữ liệu trên DataGridView
@@ -214,7 +170,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLStaff blStaff = new BLStaff();
-                blStaff.UpdateStaff(this.txtID.Text, this.txtName.Text, this.txtChucVu.Text,this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
+                blStaff.UpdateStaff(this.txtID.Text, this.txtName.Text, this.txtChucVu.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
                 // Load lại dữ liệu trên DataGridView
@@ -275,5 +231,156 @@ namespace MidtermProjectWindowsProgrammingUTE
                 MessageBox.Show("Cannot load data into DataGridView !");
             }
         }
+        #endregion
+
+        #region Events Mouse
+        private void pbAdd_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add_Client_blue.png", this.pbAdd);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("add_Client.png", this.pbAdd);
+        }
+
+        private void pbBack_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("back_Client_blue.png", this.pbBack);
+        }
+
+        private void pbBack_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("back_Client.png", this.pbBack);
+        }
+
+        private void pbEdit_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit_Client_blue.png", this.pbEdit);
+        }
+
+        private void pbEdit_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("edit_Client.png", this.pbEdit);
+        }
+
+        private void pbDelete_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_Client_blue.png", this.pbDelete);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_Client.png", this.pbDelete);
+        }
+
+        private void pbSave_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save_blue.png", this.pbSave);
+        }
+
+        private void pbSave_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("save.png", this.pbSave);
+        }
+
+        private void pbCancel_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel_blue.png", this.pbCancel);
+        }
+
+        private void pbCancel_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("cancel.png", this.pbCancel);
+        }
+        #endregion
+
+        #region Others Events
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+            Search();
+        }
+        #endregion
+
+        #region Functions
+        void LoadData()
+        {
+            try
+            {
+                dtStaff = new DataTable();
+                dtStaff.Clear();
+                DataSet ds = dbStaff.GetStaff();
+                dtStaff = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView
+                dgvStaff.DataSource = dtStaff;
+                // Thay đổi độ rộng cột
+                dgvStaff.AutoResizeColumns();
+                // Xóa trống các đối tượng trong Panel
+                this.txtID.ResetText();
+                this.txtName.ResetText();
+                this.txtChucVu.ResetText();
+                this.dtpBirthDate.ResetText();
+                this.txtID.Enabled = true;
+                this.txtName.Enabled = true;
+                this.txtChucVu.Enabled = true;
+                this.dtpBirthDate.Enabled = true;
+                // Không cho thao tác trên các nút Lưu / Hủy
+                this.pbSave.Enabled = false;
+                this.pbCancel.Enabled = false;
+                this.pbSave.Hide();
+                this.pbCancel.Hide();
+                // Không cho thao tác trên các ô thông tin
+                this.gbInfor.Enabled = false;
+                this.gbInfor.Text = "Information";
+                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
+                this.pbAdd.Enabled = true;
+                this.pbEdit.Enabled = true;
+                this.pbBack.Enabled = true;
+                this.pbDelete.Enabled = true;
+                this.pbAdd.Show();
+                this.pbEdit.Show();
+                this.pbBack.Show();
+                this.pbDelete.Show();
+                //
+                dgvStaff_CellClick(null, null);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Cannot get data from table 'NhanVien' !");
+            }
+        }
+
+        private void Search()
+        {
+            try
+            {
+                int Sex = this.cbSex.SelectedIndex - 1;
+
+                if (this.txtFind.Text == "" && Sex == -1)
+                {
+                    LoadData();
+                }
+                else
+                {
+                    dtStaff = new DataTable();
+                    dtStaff.Clear();
+                    string key = this.txtFind.Text;
+                    DataSet dsStaff = dbStaff.SearchStaff(key, Sex);
+                    dtStaff = dsStaff.Tables[0];
+                    // Đưa dữ liệu lên DataGridView
+                    dgvStaff.DataSource = dtStaff;
+                    // Thay đổi độ rộng cột
+                    dgvStaff.AutoResizeColumns();
+                }
+            }
+            catch { }
+        }
+
+        private void ButtonColorChanged(string picture, PictureBox pb)
+        {
+            pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+        #endregion
     }
 }

@@ -325,7 +325,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != 8)
             {
                 e.Handled = true;
             }
@@ -341,7 +341,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != 8)
             {
                 e.Handled = true;
             }
@@ -429,6 +429,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        #endregion     
+        #endregion
     }
 }

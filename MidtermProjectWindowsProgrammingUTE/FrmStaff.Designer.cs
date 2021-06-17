@@ -97,6 +97,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbDelete.TabIndex = 116;
             this.pbDelete.TabStop = false;
             this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
+            this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
+            this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
             // pbCancel
             // 
@@ -108,6 +110,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbCancel.TabIndex = 112;
             this.pbCancel.TabStop = false;
             this.pbCancel.Click += new System.EventHandler(this.pbCancel_Click);
+            this.pbCancel.MouseEnter += new System.EventHandler(this.pbCancel_MouseEnter);
+            this.pbCancel.MouseLeave += new System.EventHandler(this.pbCancel_MouseLeave);
             // 
             // gbInfor
             // 
@@ -223,6 +227,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbSave.TabIndex = 111;
             this.pbSave.TabStop = false;
             this.pbSave.Click += new System.EventHandler(this.pbSave_Click);
+            this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
+            this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
             // cbSex
             // 
@@ -259,6 +265,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbEdit.TabIndex = 110;
             this.pbEdit.TabStop = false;
             this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
+            this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
+            this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
             // pbAdd
             // 
@@ -270,6 +278,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbAdd.TabIndex = 109;
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
+            this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
+            this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
             // pbBack
             // 
@@ -280,6 +290,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 108;
             this.pbBack.TabStop = false;
+            this.pbBack.MouseEnter += new System.EventHandler(this.pbBack_MouseEnter);
+            this.pbBack.MouseLeave += new System.EventHandler(this.pbBack_MouseLeave);
             // 
             // txtFind
             // 
@@ -288,6 +300,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(217, 31);
             this.txtFind.TabIndex = 107;
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
             // dgvStaff
             // 
