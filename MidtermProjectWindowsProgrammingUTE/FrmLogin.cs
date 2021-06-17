@@ -13,7 +13,6 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmLogin : Form
     {
-        DataTable dtLogin = null;
         BLLogin dbLogin = new BLLogin();
         BLStaff dbStaff = new BLStaff();
         string err = "";
@@ -23,6 +22,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         public FrmLogin()
         {
             InitializeComponent();
+            this.txtPassword.UseSystemPasswordChar = true;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -38,21 +38,29 @@ namespace MidtermProjectWindowsProgrammingUTE
                     this.Hide();
                     frmmain.ShowDialog();
                 }
-                else
+                
+                if(posstaff=="Nhân Viên")
                 {
-
+                    FormStaff formstaff = new FormStaff();
+                    this.Hide();
+                    formstaff.ShowDialog();
                 }
             }
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-            this.namelogin = txtUsername.Text;
+            this.namelogin = this.txtUsername.Text;
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            this.password = txtPassword.Text;
+            this.password = this.txtPassword.Text;
+        }
+
+        private void cbShow_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtPassword.UseSystemPasswordChar = false;
         }
     }
 }

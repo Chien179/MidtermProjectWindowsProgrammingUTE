@@ -31,16 +31,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbShow = new System.Windows.Forms.CheckBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbShow = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,6 +65,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Please Login First";
             // 
+            // cbShow
+            // 
+            this.cbShow.AutoSize = true;
+            this.cbShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbShow.Location = new System.Drawing.Point(73, 229);
+            this.cbShow.Name = "cbShow";
+            this.cbShow.Size = new System.Drawing.Size(101, 17);
+            this.cbShow.TabIndex = 7;
+            this.cbShow.Text = "Show password";
+            this.cbShow.UseVisualStyleBackColor = true;
+            this.cbShow.CheckedChanged += new System.EventHandler(this.cbShow_CheckedChanged);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -76,16 +88,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(73, 64);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(27, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // txtUsername
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(73, 64);
@@ -142,16 +144,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(106, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Username:";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
@@ -170,17 +162,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label3.Size = new System.Drawing.Size(392, 51);
             this.label3.TabIndex = 0;
             this.label3.Text = "Welcome To Hotel";
-            // 
-            // cbShow
-            // 
-            this.cbShow.AutoSize = true;
-            this.cbShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbShow.Location = new System.Drawing.Point(73, 229);
-            this.cbShow.Name = "cbShow";
-            this.cbShow.Size = new System.Drawing.Size(101, 17);
-            this.cbShow.TabIndex = 7;
-            this.cbShow.Text = "Show password";
-            this.cbShow.UseVisualStyleBackColor = true;
             // 
             // FrmLogin
             // 
