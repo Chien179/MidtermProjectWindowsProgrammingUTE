@@ -75,7 +75,7 @@
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1713, 177);
             this.panel1.TabIndex = 10;
@@ -95,7 +95,7 @@
             // 
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtFind.Location = new System.Drawing.Point(905, 244);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(288, 37);
             this.txtFind.TabIndex = 22;
@@ -114,7 +114,7 @@
             this.Area,
             this.Price});
             this.dgvRoom.Location = new System.Drawing.Point(905, 309);
-            this.dgvRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvRoom.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRoom.Name = "dgvRoom";
             this.dgvRoom.ReadOnly = true;
             this.dgvRoom.RowHeadersWidth = 51;
@@ -180,7 +180,7 @@
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
             this.pbAdd.Location = new System.Drawing.Point(159, 591);
-            this.pbAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pbAdd.Name = "pbAdd";
             this.pbAdd.Size = new System.Drawing.Size(80, 71);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -194,7 +194,7 @@
             // 
             this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
             this.pbDelete.Location = new System.Drawing.Point(377, 591);
-            this.pbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(4);
             this.pbDelete.Name = "pbDelete";
             this.pbDelete.Size = new System.Drawing.Size(80, 71);
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,7 +208,7 @@
             // 
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
             this.pbEdit.Location = new System.Drawing.Point(268, 591);
-            this.pbEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbEdit.Margin = new System.Windows.Forms.Padding(4);
             this.pbEdit.Name = "pbEdit";
             this.pbEdit.Size = new System.Drawing.Size(80, 71);
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -224,7 +224,7 @@
             this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Location = new System.Drawing.Point(1203, 244);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(45, 38);
             this.btnSearch.TabIndex = 100;
@@ -235,7 +235,7 @@
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
             this.pbCancel.Location = new System.Drawing.Point(736, 591);
-            this.pbCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCancel.Margin = new System.Windows.Forms.Padding(4);
             this.pbCancel.Name = "pbCancel";
             this.pbCancel.Size = new System.Drawing.Size(80, 71);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -249,7 +249,7 @@
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
             this.pbSave.Location = new System.Drawing.Point(628, 591);
-            this.pbSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbSave.Margin = new System.Windows.Forms.Padding(4);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(80, 71);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -269,7 +269,7 @@
             "Free",
             "Used"});
             this.cbStatusSearch.Location = new System.Drawing.Point(905, 206);
-            this.cbStatusSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbStatusSearch.Margin = new System.Windows.Forms.Padding(4);
             this.cbStatusSearch.Name = "cbStatusSearch";
             this.cbStatusSearch.Size = new System.Drawing.Size(160, 28);
             this.cbStatusSearch.TabIndex = 103;
@@ -290,9 +290,9 @@
             this.gbInfor.Controls.Add(this.txtArea);
             this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gbInfor.Location = new System.Drawing.Point(159, 220);
-            this.gbInfor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInfor.Margin = new System.Windows.Forms.Padding(4);
             this.gbInfor.Name = "gbInfor";
-            this.gbInfor.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInfor.Padding = new System.Windows.Forms.Padding(4);
             this.gbInfor.Size = new System.Drawing.Size(613, 346);
             this.gbInfor.TabIndex = 105;
             this.gbInfor.TabStop = false;
@@ -303,8 +303,8 @@
             this.cmbRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRoomType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbRoomType.FormattingEnabled = true;
-            this.cmbRoomType.Location = new System.Drawing.Point(171, 102);
-            this.cmbRoomType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbRoomType.Location = new System.Drawing.Point(218, 126);
+            this.cmbRoomType.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRoomType.Name = "cmbRoomType";
             this.cmbRoomType.Size = new System.Drawing.Size(233, 37);
             this.cmbRoomType.TabIndex = 68;
@@ -313,7 +313,7 @@
             // 
             this.txtNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtNote.Location = new System.Drawing.Point(228, 240);
-            this.txtNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(4);
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(233, 36);
             this.txtNote.TabIndex = 67;
@@ -355,7 +355,7 @@
             // 
             this.txtRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtRoomID.Location = new System.Drawing.Point(228, 73);
-            this.txtRoomID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRoomID.Margin = new System.Windows.Forms.Padding(4);
             this.txtRoomID.Name = "txtRoomID";
             this.txtRoomID.Size = new System.Drawing.Size(132, 36);
             this.txtRoomID.TabIndex = 31;
@@ -376,7 +376,7 @@
             this.cbStatus.AutoSize = true;
             this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbStatus.Location = new System.Drawing.Point(487, 124);
-            this.cbStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(4);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(92, 33);
             this.cbStatus.TabIndex = 38;
@@ -387,7 +387,7 @@
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtPrice.Location = new System.Drawing.Point(228, 293);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(233, 36);
             this.txtPrice.TabIndex = 65;
@@ -408,7 +408,7 @@
             // 
             this.txtArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtArea.Location = new System.Drawing.Point(228, 178);
-            this.txtArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtArea.Margin = new System.Windows.Forms.Padding(4);
             this.txtArea.Name = "txtArea";
             this.txtArea.Size = new System.Drawing.Size(233, 36);
             this.txtArea.TabIndex = 66;
@@ -417,7 +417,7 @@
             // 
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
             this.pbBack.Location = new System.Drawing.Point(16, 187);
-            this.pbBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbBack.Margin = new System.Windows.Forms.Padding(4);
             this.pbBack.Name = "pbBack";
             this.pbBack.Size = new System.Drawing.Size(73, 64);
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -446,7 +446,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Room";

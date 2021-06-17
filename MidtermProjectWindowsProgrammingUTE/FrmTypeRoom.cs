@@ -64,7 +64,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
-
+                for(int i = 0; i < dgvTypeRoom.Rows.Count; i++)
+                {
+                    string t = txtRoomType.Text.Trim();
+                    if (t == dgvTypeRoom.Rows[i].Cells["RoomType"].Value.ToString())
+                    {
+                        MessageBox.Show("Existed '" + t + "', please type another one !");
+                        txtRoomType.ResetText();
+                        txtNameType.ResetText();
+                        txtRoomType.Focus();
+                        return;
+                    }
+                }
                 try
                 {
                     // Thực hiện lệnh

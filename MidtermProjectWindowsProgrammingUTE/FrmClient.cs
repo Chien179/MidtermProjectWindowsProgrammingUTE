@@ -68,6 +68,21 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
+                for(int i = 0;i < dgvClient.Rows.Count; i++)
+                {
+                    string t = txtID.Text.Trim();
+                    if(t == dgvClient.Rows[i].Cells["CMND"].Value.ToString())
+                    {
+                        MessageBox.Show("Existed '" + t + "', please type another one !");
+                        txtID.ResetText();
+                        txtAddress.ResetText();
+                        txtName.ResetText();
+                        txtPhoneNumber.ResetText();
+                        cbFemale.ResetText();
+                        txtID.Focus();
+                        return;
+                    }
+                }
                 try
                 {
                     // Thực hiện lệnh

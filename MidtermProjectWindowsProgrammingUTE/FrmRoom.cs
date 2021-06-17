@@ -69,7 +69,19 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
-
+                for (int i = 0; i < dgvRoom.Rows.Count; i++)
+                {
+                    if (txtRoomID.Text == dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim())
+                    {
+                        MessageBox.Show("Existed '" + txtRoomID.Text + "', please type another one !");
+                        txtRoomID.ResetText();
+                        txtArea.ResetText();
+                        txtNote.ResetText();
+                        txtPrice.ResetText();
+                        txtRoomID.Focus();
+                        return;
+                    }
+                }
                 try
                 {
                     // Thực hiện lệnh

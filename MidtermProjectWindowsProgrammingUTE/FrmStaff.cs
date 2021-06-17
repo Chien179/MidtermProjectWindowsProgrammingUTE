@@ -147,13 +147,26 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
+                for (int i = 0; i < dgvStaff.Rows.Count; i++)
+                {
+                    string t = txtID.Text.Trim();
+                    if (t == dgvStaff.Rows[i].Cells["ID"].Value.ToString())
+                    {
+                        MessageBox.Show("Existed '" + t + "', please type another one !");
+                        txtID.ResetText();
+                        txtChucVu.ResetText();
+                        txtName.ResetText();
+                        txtID.Focus();
+                        return;
+                    }
+                }
                 try
                 {
                     // Thực hiện lệnh
                     BLStaff blStaff = new BLStaff();
                     if (this.txtID.Text != "")
                     {
-                        blStaff.AddStaff(this.txtID.Text, this.txtName.Text, this.txtChucVu.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
+                        blStaff.AddStaff(this.txtID.Text, this.txtName.Text, this.txtChucVu.Text, this.dtpBirthDate.Text, this.cbFemale.Checked.ToString(), ref err);
                         // Thông báo
                         MessageBox.Show("Added successfully!");
                         // Load lại dữ liệu trên DataGridView
@@ -170,7 +183,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLStaff blStaff = new BLStaff();
-                blStaff.UpdateStaff(this.txtID.Text, this.txtName.Text, this.txtChucVu.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
+                blStaff.UpdateStaff(this.txtID.Text, this.txtName.Text, this.txtChucVu.Text, this.dtpBirthDate.Text, this.cbFemale.Checked.ToString(), ref err);                
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
                 // Load lại dữ liệu trên DataGridView

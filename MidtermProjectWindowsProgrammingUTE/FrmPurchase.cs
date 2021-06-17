@@ -68,6 +68,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
+                for (int i = 0; i < dgvPurchase.Rows.Count; i++)
+                {
+                    string t = txtPurchaseID.Text.Trim();
+                    if (t == dgvPurchase.Rows[i].Cells["PurchaseID"].Value.ToString().Trim())
+                    {
+                        MessageBox.Show("Existed '" + t + "', please type another one !");
+                        txtPurchaseID.ResetText();
+                        txtTotal.ResetText();
+                        txtPurchaseID.Focus();
+                        return;
+                    }
+                }
                 try
                 {
                     // Thực hiện lệnh
