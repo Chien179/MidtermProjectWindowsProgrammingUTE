@@ -260,6 +260,14 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             Search();
         }
+
+        private void txtDeposit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         #endregion
 
         #region Functions

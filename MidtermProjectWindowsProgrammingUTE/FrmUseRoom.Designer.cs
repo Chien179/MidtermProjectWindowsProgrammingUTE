@@ -374,6 +374,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtDeposit.Name = "txtDeposit";
             this.txtDeposit.Size = new System.Drawing.Size(265, 36);
             this.txtDeposit.TabIndex = 78;
+            this.txtDeposit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeposit_KeyPress);
             // 
             // btnRooms
             // 
