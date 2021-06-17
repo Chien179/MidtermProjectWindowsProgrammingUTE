@@ -40,6 +40,10 @@
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.gbInfor = new System.Windows.Forms.GroupBox();
+            this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtStaffID = new System.Windows.Forms.TextBox();
+            this.lblStaffID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbRoomID = new System.Windows.Forms.ComboBox();
             this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker();
@@ -49,17 +53,13 @@
             this.txtPurchaseID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pbDelete = new System.Windows.Forms.PictureBox();
-            this.lblStaffID = new System.Windows.Forms.Label();
-            this.txtStaffID = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
+            this.btnReceipt = new System.Windows.Forms.Button();
             this.PurchaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReceipt = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
@@ -218,6 +218,43 @@
             this.gbInfor.TabStop = false;
             this.gbInfor.Text = "Information";
             // 
+            // dtpDateIn
+            // 
+            this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateIn.Location = new System.Drawing.Point(183, 259);
+            this.dtpDateIn.Name = "dtpDateIn";
+            this.dtpDateIn.Size = new System.Drawing.Size(176, 30);
+            this.dtpDateIn.TabIndex = 106;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label6.Location = new System.Drawing.Point(6, 264);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 25);
+            this.label6.TabIndex = 106;
+            this.label6.Text = "Check In:";
+            // 
+            // txtStaffID
+            // 
+            this.txtStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtStaffID.Location = new System.Drawing.Point(183, 210);
+            this.txtStaffID.Name = "txtStaffID";
+            this.txtStaffID.Size = new System.Drawing.Size(100, 30);
+            this.txtStaffID.TabIndex = 107;
+            // 
+            // lblStaffID
+            // 
+            this.lblStaffID.AutoSize = true;
+            this.lblStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblStaffID.Location = new System.Drawing.Point(6, 215);
+            this.lblStaffID.Name = "lblStaffID";
+            this.lblStaffID.Size = new System.Drawing.Size(88, 25);
+            this.lblStaffID.TabIndex = 106;
+            this.lblStaffID.Text = "Staff ID:";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -234,7 +271,7 @@
             this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbRoomID.FormattingEnabled = true;
             this.cmbRoomID.Location = new System.Drawing.Point(183, 162);
-            this.cmbRoomID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbRoomID.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRoomID.Name = "cmbRoomID";
             this.cmbRoomID.Size = new System.Drawing.Size(176, 32);
             this.cmbRoomID.TabIndex = 41;
@@ -309,42 +346,14 @@
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
             this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
-            // lblStaffID
+            // btnReceipt
             // 
-            this.lblStaffID.AutoSize = true;
-            this.lblStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblStaffID.Location = new System.Drawing.Point(6, 215);
-            this.lblStaffID.Name = "lblStaffID";
-            this.lblStaffID.Size = new System.Drawing.Size(88, 25);
-            this.lblStaffID.TabIndex = 106;
-            this.lblStaffID.Text = "Staff ID:";
-            // 
-            // txtStaffID
-            // 
-            this.txtStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtStaffID.Location = new System.Drawing.Point(183, 210);
-            this.txtStaffID.Name = "txtStaffID";
-            this.txtStaffID.Size = new System.Drawing.Size(100, 30);
-            this.txtStaffID.TabIndex = 107;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(6, 264);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 25);
-            this.label6.TabIndex = 106;
-            this.label6.Text = "Check In:";
-            // 
-            // dtpDateIn
-            // 
-            this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateIn.Location = new System.Drawing.Point(183, 259);
-            this.dtpDateIn.Name = "dtpDateIn";
-            this.dtpDateIn.Size = new System.Drawing.Size(176, 30);
-            this.dtpDateIn.TabIndex = 106;
+            this.btnReceipt.Location = new System.Drawing.Point(1163, 197);
+            this.btnReceipt.Name = "btnReceipt";
+            this.btnReceipt.Size = new System.Drawing.Size(109, 40);
+            this.btnReceipt.TabIndex = 106;
+            this.btnReceipt.Text = "Receipt";
+            this.btnReceipt.UseVisualStyleBackColor = true;
             // 
             // PurchaseID
             // 
@@ -386,6 +395,7 @@
             this.CheckIn.HeaderText = "Check In";
             this.CheckIn.Name = "CheckIn";
             this.CheckIn.ReadOnly = true;
+            this.CheckIn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // PurchaseDate
             // 
@@ -395,15 +405,6 @@
             this.PurchaseDate.Name = "PurchaseDate";
             this.PurchaseDate.ReadOnly = true;
             this.PurchaseDate.Width = 125;
-            // 
-            // btnReceipt
-            // 
-            this.btnReceipt.Location = new System.Drawing.Point(1163, 197);
-            this.btnReceipt.Name = "btnReceipt";
-            this.btnReceipt.Size = new System.Drawing.Size(109, 40);
-            this.btnReceipt.TabIndex = 106;
-            this.btnReceipt.Text = "Receipt";
-            this.btnReceipt.UseVisualStyleBackColor = true;
             // 
             // FrmPurchase
             // 
@@ -470,12 +471,12 @@
         private System.Windows.Forms.TextBox txtStaffID;
         private System.Windows.Forms.DateTimePicker dtpDateIn;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnReceipt;
         private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseDate;
-        private System.Windows.Forms.Button btnReceipt;
     }
 }

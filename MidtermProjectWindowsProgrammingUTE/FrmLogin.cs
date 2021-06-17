@@ -13,22 +13,32 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmLogin : Form
     {
+        #region Properties
         BLLogin dbLogin = new BLLogin();
         BLStaff dbStaff = new BLStaff();
         string err = "";
         string namelogin = "";
         string password = "";
+        string posstaff = "";
+        #endregion
 
+        #region Construction
         public FrmLogin()
         {
             InitializeComponent();
             this.txtPassword.UseSystemPasswordChar = true;
         }
+        #endregion
 
+        #region Events_Click
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string idstaff = dbLogin.GetIDStaff(namelogin, password).Tables[0].Rows[0][0].ToString();
-            string posstaff=dbStaff.GetPositionStaff(idstaff).Tables[0].Rows[0][0].ToString();
+            DataSet staff = dbLogin.GetIDStaff(namelogin, password);
+            if (staff.Tables[0].Rows.Count > 0)
+            {
+                string idstaff = staff.Tables[0].Rows[0][0].ToString();
+                posstaff = dbStaff.GetPositionStaff(idstaff).Tables[0].Rows[0][0].ToString();
+            }
 
             if (dbLogin.CheckAccount(namelogin,password,ref err) == true)
             {
@@ -37,17 +47,31 @@ namespace MidtermProjectWindowsProgrammingUTE
                     FrmMain frmmain = new FrmMain();
                     this.Hide();
                     frmmain.ShowDialog();
+                    this.Show();
                 }
-                
-                if(posstaff=="Nhân Viên")
+                else
                 {
-                    FormStaff formstaff = new FormStaff();
-                    this.Hide();
-                    formstaff.ShowDialog();
+                    if (posstaff == "Nhân Viên")
+                    {
+                        FormStaff formstaff = new FormStaff();
+                        this.Hide();
+                        formstaff.ShowDialog();
+                        this.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("UserName or Password incorrected");
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("UserName or Password incorrected");
+            }
         }
+        #endregion
 
+        #region Events_Changed
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             this.namelogin = this.txtUsername.Text;
@@ -62,5 +86,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             this.txtPassword.UseSystemPasswordChar = false;
         }
+        #endregion
     }
 }

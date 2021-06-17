@@ -93,18 +93,5 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
-        private void FormStaff_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult exit = MessageBox.Show("Do you want to exit ?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (exit == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-        }
-        private void FormStaff_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

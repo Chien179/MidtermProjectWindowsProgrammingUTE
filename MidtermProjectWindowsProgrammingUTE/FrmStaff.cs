@@ -259,12 +259,12 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbBack_MouseLeave(object sender, EventArgs e)
         {
-            ButtonColorChanged("back_Client_blue.png", this.pbBack);
+            ButtonColorChanged("back_blue.png", this.pbBack);
         }
 
         private void pbBack_MouseEnter(object sender, EventArgs e)
         {
-            ButtonColorChanged("back_Client.png", this.pbBack);
+            ButtonColorChanged("back.png", this.pbBack);
         }
 
         private void pbEdit_MouseEnter(object sender, EventArgs e)

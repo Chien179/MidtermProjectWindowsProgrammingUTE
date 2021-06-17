@@ -338,6 +338,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 dtUseRoom = dsroom.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvPurchase.DataSource = dtPurchase;
+                for(int i = 0; i < dgvPurchase.Rows.Count; i++)
+                {
+                    DataSet roomusing= dbUseRoom.GetUseRoomCheckIn(dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString());                    
+                    dgvPurchase.Rows[i].Cells["CheckIn"].Value = roomusing.Tables[0].Rows[0][0].ToString();
+                }
                 // Thay đổi độ rộng cột
                 dgvPurchase.AutoResizeColumns();
                 // Xóa trống các đối tượng trong Panel

@@ -68,6 +68,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbRoomUsing.TabIndex = 28;
             this.pbRoomUsing.TabStop = false;
             this.pbRoomUsing.Click += new System.EventHandler(this.RoomUsing_Click);
+            this.pbRoomUsing.MouseEnter += new System.EventHandler(this.RoomUsing_MouseEnter);
+            this.pbRoomUsing.MouseLeave += new System.EventHandler(this.RoomUsing_MouseLeave);
             // 
             // lblServiceUsing
             // 
@@ -80,7 +82,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.lblServiceUsing.Text = "Service Using";
             this.lblServiceUsing.Click += new System.EventHandler(this.ServiceUsing_Click);
             this.lblServiceUsing.MouseEnter += new System.EventHandler(this.ServiceUsing_MouseEnter);
-            this.lblServiceUsing.MouseLeave += new System.EventHandler(this.RoomUsing_MouseLeave);
+            this.lblServiceUsing.MouseLeave += new System.EventHandler(this.ServiceUsing_MouseLeave);
             // 
             // lblRoomUsing
             // 
@@ -174,8 +176,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.label1);
             this.Name = "FormStaff";
             this.Text = "FormStaff";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormStaff_FormClosing);
-            this.Load += new System.EventHandler(this.FormStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbServiceUsing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomUsing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbClient)).EndInit();
