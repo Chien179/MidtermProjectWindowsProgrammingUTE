@@ -53,7 +53,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID = new System.Windows.Forms.ComboBox();
             this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
             this.cmbCMND = new System.Windows.Forms.ComboBox();
-            this.btnServices = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUseService)).BeginInit();
@@ -69,29 +68,26 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1713, 177);
+            this.panel1.Size = new System.Drawing.Size(1285, 144);
             this.panel1.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(648, 50);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(486, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 63);
+            this.label1.Size = new System.Drawing.Size(302, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Service Using";
             // 
             // pbBack
             // 
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
-            this.pbBack.Location = new System.Drawing.Point(16, 186);
-            this.pbBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbBack.Location = new System.Drawing.Point(12, 151);
             this.pbBack.Name = "pbBack";
-            this.pbBack.Size = new System.Drawing.Size(73, 64);
+            this.pbBack.Size = new System.Drawing.Size(55, 52);
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 82;
             this.pbBack.TabStop = false;
@@ -102,10 +98,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // txtFind
             // 
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtFind.Location = new System.Drawing.Point(905, 244);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFind.Location = new System.Drawing.Point(679, 198);
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(288, 37);
+            this.txtFind.Size = new System.Drawing.Size(217, 31);
             this.txtFind.TabIndex = 86;
             this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
@@ -119,12 +114,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.ServiceID,
             this.DateUse,
             this.Amount});
-            this.dgvUseService.Location = new System.Drawing.Point(905, 309);
-            this.dgvUseService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvUseService.Location = new System.Drawing.Point(679, 251);
             this.dgvUseService.Name = "dgvUseService";
             this.dgvUseService.ReadOnly = true;
             this.dgvUseService.RowHeadersWidth = 51;
-            this.dgvUseService.Size = new System.Drawing.Size(791, 420);
+            this.dgvUseService.Size = new System.Drawing.Size(593, 341);
             this.dgvUseService.TabIndex = 85;
             this.dgvUseService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUseService_CellClick);
             // 
@@ -167,10 +161,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbAdd
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
-            this.pbAdd.Location = new System.Drawing.Point(159, 615);
-            this.pbAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbAdd.Location = new System.Drawing.Point(119, 500);
             this.pbAdd.Name = "pbAdd";
-            this.pbAdd.Size = new System.Drawing.Size(80, 71);
+            this.pbAdd.Size = new System.Drawing.Size(60, 58);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAdd.TabIndex = 90;
             this.pbAdd.TabStop = false;
@@ -181,10 +174,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbEdit
             // 
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
-            this.pbEdit.Location = new System.Drawing.Point(268, 615);
-            this.pbEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbEdit.Location = new System.Drawing.Point(201, 500);
             this.pbEdit.Name = "pbEdit";
-            this.pbEdit.Size = new System.Drawing.Size(80, 71);
+            this.pbEdit.Size = new System.Drawing.Size(60, 58);
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEdit.TabIndex = 88;
             this.pbEdit.TabStop = false;
@@ -197,10 +189,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnSearch.BackColor = System.Drawing.Color.Transparent;
             this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(1203, 244);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Location = new System.Drawing.Point(902, 198);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(47, 38);
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 100;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -208,10 +199,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbCancel
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
-            this.pbCancel.Location = new System.Drawing.Point(691, 615);
-            this.pbCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCancel.Location = new System.Drawing.Point(518, 500);
             this.pbCancel.Name = "pbCancel";
-            this.pbCancel.Size = new System.Drawing.Size(80, 71);
+            this.pbCancel.Size = new System.Drawing.Size(60, 58);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCancel.TabIndex = 98;
             this.pbCancel.TabStop = false;
@@ -222,10 +212,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(585, 615);
-            this.pbSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbSave.Location = new System.Drawing.Point(439, 500);
             this.pbSave.Name = "pbSave";
-            this.pbSave.Size = new System.Drawing.Size(80, 71);
+            this.pbSave.Size = new System.Drawing.Size(60, 58);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSave.TabIndex = 97;
             this.pbSave.TabStop = false;
@@ -244,11 +233,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Controls.Add(this.dtpDateIn);
             this.gbInfor.Controls.Add(this.cmbCMND);
             this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbInfor.Location = new System.Drawing.Point(157, 244);
-            this.gbInfor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInfor.Location = new System.Drawing.Point(118, 198);
             this.gbInfor.Name = "gbInfor";
-            this.gbInfor.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbInfor.Size = new System.Drawing.Size(533, 320);
+            this.gbInfor.Size = new System.Drawing.Size(400, 260);
             this.gbInfor.TabIndex = 85;
             this.gbInfor.TabStop = false;
             this.gbInfor.Text = "Information";
@@ -257,10 +244,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(8, 71);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(6, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 31);
+            this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 78;
             this.label2.Text = "Room ID:";
             // 
@@ -268,30 +254,27 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(8, 139);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(6, 113);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 31);
+            this.label4.Size = new System.Drawing.Size(116, 25);
             this.label4.TabIndex = 76;
             this.label4.Text = "Service ID:";
             // 
             // txtAmount
             // 
             this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtAmount.Location = new System.Drawing.Point(208, 266);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAmount.Location = new System.Drawing.Point(156, 216);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(265, 36);
+            this.txtAmount.Size = new System.Drawing.Size(200, 30);
             this.txtAmount.TabIndex = 84;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(8, 203);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(6, 165);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 31);
+            this.label5.Size = new System.Drawing.Size(63, 25);
             this.label5.TabIndex = 77;
             this.label5.Text = "Date:";
             // 
@@ -299,10 +282,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(8, 270);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(6, 219);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 31);
+            this.label6.Size = new System.Drawing.Size(91, 25);
             this.label6.TabIndex = 83;
             this.label6.Text = "Amount:";
             // 
@@ -311,10 +293,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbRoomID.FormattingEnabled = true;
-            this.cmbRoomID.Location = new System.Drawing.Point(208, 62);
-            this.cmbRoomID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbRoomID.Location = new System.Drawing.Point(156, 50);
             this.cmbRoomID.Name = "cmbRoomID";
-            this.cmbRoomID.Size = new System.Drawing.Size(213, 37);
+            this.cmbRoomID.Size = new System.Drawing.Size(161, 33);
             this.cmbRoomID.TabIndex = 79;
             // 
             // dtpDateIn
@@ -322,10 +303,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dtpDateIn.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateIn.Location = new System.Drawing.Point(208, 199);
-            this.dtpDateIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDateIn.Location = new System.Drawing.Point(156, 162);
             this.dtpDateIn.Name = "dtpDateIn";
-            this.dtpDateIn.Size = new System.Drawing.Size(265, 36);
+            this.dtpDateIn.Size = new System.Drawing.Size(200, 30);
             this.dtpDateIn.TabIndex = 81;
             // 
             // cmbCMND
@@ -333,30 +313,16 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbCMND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbCMND.FormattingEnabled = true;
-            this.cmbCMND.Location = new System.Drawing.Point(208, 132);
-            this.cmbCMND.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCMND.Location = new System.Drawing.Point(156, 107);
             this.cmbCMND.Name = "cmbCMND";
-            this.cmbCMND.Size = new System.Drawing.Size(265, 37);
+            this.cmbCMND.Size = new System.Drawing.Size(200, 33);
             this.cmbCMND.TabIndex = 80;
-            // 
-            // btnServices
-            // 
-            this.btnServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnServices.Location = new System.Drawing.Point(1319, 237);
-            this.btnServices.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnServices.Name = "btnServices";
-            this.btnServices.Size = new System.Drawing.Size(152, 50);
-            this.btnServices.TabIndex = 104;
-            this.btnServices.Text = "Services";
-            this.btnServices.UseVisualStyleBackColor = true;
-            this.btnServices.Click += new System.EventHandler(this.btnServices_Click);
             // 
             // FrmUseService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1712, 743);
-            this.Controls.Add(this.btnServices);
+            this.ClientSize = new System.Drawing.Size(1284, 604);
             this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
             this.Controls.Add(this.pbSave);
@@ -369,7 +335,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmUseService";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Use Service";
@@ -414,6 +379,5 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.ComboBox cmbRoomID;
         private System.Windows.Forms.DateTimePicker dtpDateIn;
         private System.Windows.Forms.ComboBox cmbCMND;
-        private System.Windows.Forms.Button btnServices;
     }
 }
