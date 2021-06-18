@@ -59,6 +59,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pbDelete = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
@@ -67,6 +69,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             this.gbInfor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -120,7 +123,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.CMND,
             this.CheckIn,
             this.StaffID,
-            this.Deposit});
+            this.Deposit,
+            this.TrangThai});
             this.dgvRoom.Location = new System.Drawing.Point(679, 251);
             this.dgvRoom.Name = "dgvRoom";
             this.dgvRoom.ReadOnly = true;
@@ -384,11 +388,28 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
             // 
+            // TrangThai
+            // 
+            this.TrangThai.HeaderText = "Full";
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            // 
+            // pbDelete
+            // 
+            this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
+            this.pbDelete.Location = new System.Drawing.Point(254, 509);
+            this.pbDelete.Name = "pbDelete";
+            this.pbDelete.Size = new System.Drawing.Size(60, 58);
+            this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDelete.TabIndex = 126;
+            this.pbDelete.TabStop = false;
+            // 
             // FrmUseRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnLogout);
@@ -418,6 +439,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             this.gbInfor.ResumeLayout(false);
             this.gbInfor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,5 +476,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn TrangThai;
+        private System.Windows.Forms.PictureBox pbDelete;
     }
 }
