@@ -58,11 +58,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Text = "Adding.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
+            this.pbDelete.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbBack.Enabled = false;
             this.pbAdd.Hide();
             this.pbEdit.Hide();
             this.pbBack.Hide();
+            this.pbDelete.Hide();
             // Đưa con trỏ đến TextField txtThanhPho
             this.cmbCMND.Focus();
         }
@@ -147,6 +149,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Không cho thao tác trên các nút Thêm / Xóa / Thoát
                 this.pbAdd.Enabled = false;
                 this.pbEdit.Enabled = false;
+                this.pbDelete.Enabled = false;
                 this.pbBack.Enabled = false;
                 this.pbAdd.Hide();
                 this.pbEdit.Hide();
@@ -174,9 +177,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
             this.pbBack.Enabled = true;
+            this.pbDelete.Enabled = true;
             this.pbAdd.Show();
             this.pbEdit.Show();
             this.pbBack.Show();
+            this.pbDelete.Show();
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Hide();
             this.pbCancel.Hide();
@@ -187,7 +192,56 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Text = "Information";
             dgvRoom_CellClick(null, null);
         }
-
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvRoom.Rows.Count > 0)
+                {
+                    this.gbInfor.Text = "Deleting.....";
+                    
+                    // Lấy MaKH của record hiện hành 
+                    string strRoomID = cmbRoomID.Text.Trim();
+                    string strCMND = cmbCMND.Text.Trim();
+                    // Viết câu lệnh SQL
+                    // Hiện thông báo xác nhận việc xóa mẫu tin
+                    // Khai báo biến traloi
+                    DialogResult traloi;
+                    // Hiện hộp thoại hỏi đáp 
+                    traloi = MessageBox.Show("Are you sure?", "Delete row",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    // Kiểm tra có nhắp chọn nút Ok không? 
+                    if (traloi == DialogResult.Yes)
+                    {
+                        dbUseRoom.DeleteUseRoom(strRoomID, strCMND, ref err);
+                        if (err == null)
+                        {
+                            // Cập nhật lại DataGridView 
+                            LoadData();
+                            // Thông báo 
+                            MessageBox.Show("Deleted successfully!");
+                        }
+                        else
+                        {
+                            this.gbInfor.Text = "Information";
+                            // Thông báo 
+                            MessageBox.Show("Cannot delete this !", "Delete failed!");
+                        }
+                    }
+                    else
+                    {
+                        this.gbInfor.Text = "Information";
+                        // Thông báo 
+                        MessageBox.Show("Delete failed!");
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                this.gbInfor.Text = "Information";
+                MessageBox.Show("Delete failed!");
+            }
+        }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             Search();
@@ -248,6 +302,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void pbCancel_MouseLeave(object sender, EventArgs e)
         {
             ButtonColorChanged("cancel.png", this.pbCancel);
+        }
+
+        private void pbDelete_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_blue.png", this.pbDelete);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete.png", this.pbDelete);
         }
         #endregion
 
@@ -375,6 +439,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+
+
         #endregion
     }
 }
