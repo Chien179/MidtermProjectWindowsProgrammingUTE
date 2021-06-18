@@ -391,16 +391,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtDeposit.TabIndex = 78;
             this.txtDeposit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeposit_KeyPress);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1460, 214);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 17);
-            this.label7.TabIndex = 125;
-            this.label7.Text = "label7";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;

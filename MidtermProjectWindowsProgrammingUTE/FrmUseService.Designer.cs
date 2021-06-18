@@ -484,7 +484,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pbDelete;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
