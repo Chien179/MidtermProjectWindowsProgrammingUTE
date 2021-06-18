@@ -30,6 +30,11 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
+        public bool DeleteUseRoom(string CMND, string MaPhong, ref string err)
+        {
+            string sqlString = "Delete From ThuePhong Where MaPhong ='" + MaPhong + "' and CMND ='" + CMND + "'";
+            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+        }
         public DataSet SearchUseRoom(string key)
         {
             string sqlString = "Select * From ThuePhong Where MaPhong Like'%" + key + "%'or CMND Like '%" + key + "%'or NgayRa Like '%" + key + "%'or DatCoc Like '%" + key + "'";
