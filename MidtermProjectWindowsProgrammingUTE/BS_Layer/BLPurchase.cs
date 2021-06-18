@@ -1,4 +1,5 @@
 ﻿using MidtermProjectWindowsProgrammingUTE.DB_Layer;
+using System;
 using System.Data;
 
 namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
@@ -17,14 +18,14 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select * from ThanhToan", CommandType.Text);
         }
 
-        public bool AddPurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, string MaNV, string NgayVao, ref string err)
+        public bool AddPurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, string MaNV, ref string err)
         {
-            string sqlString = "Insert Into ThanhToan Values('" + MaTT + "'," + ThanhTien + ",'" + NgayThanhToan + "','" + MaPhong + "','" + MaNV + "','" + NgayVao +"')";
+            string sqlString = "Insert Into ThanhToan Values('" + MaTT + "'," + ThanhTien + ",'" + NgayThanhToan + "','" + MaPhong + "','" + MaNV + "')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
-        public bool UpdatePurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, string MaNV, string NgayVao, ref string err)
+        public bool UpdatePurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, string MaNV, ref string err)
         {
-            string sqlString = "Update ThanhToan Set ThanhTien=" + ThanhTien + ",NgayThanhToan='" + NgayThanhToan + "',MaPhong='" + MaPhong + "', MaNV='" + MaNV + "',NgayVao='"+ NgayVao +"'Where MaThanhToan='" + MaTT + "'";
+            string sqlString = "Update ThanhToan Set ThanhTien=" + ThanhTien + ",NgayThanhToan='" + NgayThanhToan + "',MaPhong='" + MaPhong + "', MaNV='" + MaNV + "' Where MaThanhToan='" + MaTT + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
@@ -57,14 +58,16 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         }
 
-        public decimal Bill(ref string err,string MaPhong,string MaTT)
+        public decimal Bill(ref string err, string MaPhong, string NgayThanhToan)
         {
             try
             {
-                decimal Bill = 0, RoomValue = 0, Total = 0, Deposit = 0;
+                decimal Bill = 0, RoomValue = 0, Total = 0, Deposit = 0, DateStay = 0;
 
-                DataSet SoNgay = db.ExecuteQueryDataSet("Select Max(DateDiff(Day,NgayVao,NgayRa)),Max(Datcoc) From ThuePhong Where MaPhong='" + MaPhong + "'", CommandType.Text);
-                DataSet GiaThue = db.ExecuteQueryDataSet("Select GiaThue From Phong Where MaPhong='" + MaPhong + "'", CommandType.Text);
+                DataSet thongtinthanhtoan = db.ExecuteQueryDataSet("select Min(ThuePhong.NgayVao),MAX(ThuePhong.DatCoc),Phong.GiaThue "
+                    + "from ThuePhong, Phong "
+                    + "where ThuePhong.MaPhong = Phong.MaPhong and ThuePhong.MaPhong='" + MaPhong + "'"
+                    + "group by ThuePhong.DatCoc,Phong.GiaThue", CommandType.Text);
                 DataSet MaDV = db.ExecuteQueryDataSet("Select MaDV,SoLuong From SuDungDichVu Where MaPhong='" + MaPhong + "'", CommandType.Text);
                 string[] AMaDV = new string[MaDV.Tables[0].Rows.Count];
                 string[] ASoLuong = new string[MaDV.Tables[0].Rows.Count];
@@ -91,13 +94,19 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
                     Bill += decimal.Parse(AGiaTien[i]) * decimal.Parse(ASoLuong[i]);
                 }
 
-                RoomValue = decimal.Parse(GiaThue.Tables[0].Rows[0][0].ToString()) * decimal.Parse(SoNgay.Tables[0].Rows[0][0].ToString());
-                Deposit = decimal.Parse(SoNgay.Tables[0].Rows[0][1].ToString());
-                Total = Bill + RoomValue - Deposit;
+                if (thongtinthanhtoan.Tables[0].Rows.Count > 0)
+                {
+                    TimeSpan day = Convert.ToDateTime(NgayThanhToan) - Convert.ToDateTime((thongtinthanhtoan.Tables[0].Rows[0][0]));
+                    DateStay = day.Days;
+
+                    RoomValue = decimal.Parse(thongtinthanhtoan.Tables[0].Rows[0][2].ToString()) * DateStay;
+                    Deposit = decimal.Parse(thongtinthanhtoan.Tables[0].Rows[0][1].ToString());
+                    Total = Bill + RoomValue - Deposit;
+                }
 
                 return Total;
             }
-            catch 
+            catch
             {
                 return 0;
             }

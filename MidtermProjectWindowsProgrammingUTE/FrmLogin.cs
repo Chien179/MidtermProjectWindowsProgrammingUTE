@@ -47,6 +47,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     FrmMain frmmain = new FrmMain();
                     this.Hide();
                     frmmain.ShowDialog();
+                    txtPassword.ResetText();
                     this.Show();
                 }
                 else
@@ -56,6 +57,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         FormStaff formstaff = new FormStaff();
                         this.Hide();
                         formstaff.ShowDialog();
+                        txtPassword.ResetText();
                         this.Show();
                     }
                     else
@@ -94,10 +96,5 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
         }
         #endregion
-
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
