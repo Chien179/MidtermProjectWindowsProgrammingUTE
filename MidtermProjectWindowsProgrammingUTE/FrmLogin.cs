@@ -44,7 +44,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 if (posstaff == "Giám Đốc")
                 {
-                    FrmMain frmmain = new FrmMain();
+                    FrmManage frmmain = new FrmManage();
                     this.Hide();
                     frmmain.ShowDialog();
                     txtPassword.ResetText();

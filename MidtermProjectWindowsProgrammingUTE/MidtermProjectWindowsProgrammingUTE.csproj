@@ -56,11 +56,17 @@
     <Compile Include="BS_Layer\BLUseRoom.cs" />
     <Compile Include="BS_Layer\BLUseService.cs" />
     <Compile Include="DB_Layer\DBMain.cs" />
-    <Compile Include="FormManage.cs">
+    <Compile Include="FmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormManage.Designer.cs">
-      <DependentUpon>FormManage.cs</DependentUpon>
+    <Compile Include="FmMenu.Designer.cs">
+      <DependentUpon>FmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManage.Designer.cs">
+      <DependentUpon>FrmManage.cs</DependentUpon>
     </Compile>
     <Compile Include="FormStaff.cs">
       <SubType>Form</SubType>
@@ -79,6 +85,12 @@
     </Compile>
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReport.Designer.cs">
+      <DependentUpon>FrmReport.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRoom.cs">
       <SubType>Form</SubType>
@@ -124,8 +136,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormManage.resx">
-      <DependentUpon>FormManage.cs</DependentUpon>
+    <EmbeddedResource Include="FmMenu.resx">
+      <DependentUpon>FmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManage.resx">
+      <DependentUpon>FrmManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStaff.resx">
       <DependentUpon>FormStaff.cs</DependentUpon>
@@ -135,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReport.resx">
+      <DependentUpon>FrmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRoom.resx">
       <DependentUpon>FrmRoom.cs</DependentUpon>

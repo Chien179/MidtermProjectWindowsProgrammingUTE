@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace MidtermProjectWindowsProgrammingUTE
 {
-    public partial class FrmMain : Form
+    public partial class FrmManage : Form
     {
         #region Constructors
-        public FrmMain()
+        public FrmManage()
         {
             InitializeComponent();
         }
@@ -151,5 +151,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

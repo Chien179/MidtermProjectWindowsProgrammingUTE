@@ -39,7 +39,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             // Xóa trống các đối tượng trong Panel 
             this.cmbRoomID.ResetText();
-            this.cmbCMND.ResetText();
+            this.cmbServiceID.ResetText();
             this.dtpDateIn.ResetText();
             this.txtAmount.ResetText();
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
@@ -71,7 +71,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     int r = dgvUseService.CurrentCell.RowIndex;
                     // Chuyển thông tin lên panel
                     this.cmbRoomID.Text = dgvUseService.Rows[r].Cells["RoomID"].Value.ToString();
-                    this.cmbCMND.Text = dgvUseService.Rows[r].Cells["ServiceID"].Value.ToString();
+                    this.cmbServiceID.Text = dgvUseService.Rows[r].Cells["ServiceID"].Value.ToString();
                     this.dtpDateIn.Text = dgvUseService.Rows[r].Cells["DateUse"].Value.ToString();
                     this.txtAmount.Text = dgvUseService.Rows[r].Cells["Amount"].Value.ToString();
                 }
@@ -93,11 +93,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             Them = true;
             // Xóa trống các đối tượng trong Panel
             this.cmbRoomID.ResetText();
-            this.cmbCMND.ResetText();
+            this.cmbServiceID.ResetText();
             this.dtpDateIn.ResetText();
             this.txtAmount.ResetText();
             this.cmbRoomID.Enabled = true;
-            this.cmbCMND.Enabled = true;
+            this.cmbServiceID.Enabled = true;
             this.dtpDateIn.Enabled = true;
             this.txtAmount.Enabled = true;
             // Cho thao tác trên các nút Lưu / Hủy / Panel
@@ -142,7 +142,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
                 //
                 this.cmbRoomID.Enabled = false;
-                this.cmbCMND.Enabled = false;
+                this.cmbServiceID.Enabled = false;
             }
         }
 
@@ -158,14 +158,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     {
                         // Thực hiện lệnh
                         BLUseService blUseService = new BLUseService();
-                        if (this.cmbRoomID.Text != "" && this.cmbCMND.Text != "")
+                        if (this.cmbRoomID.Text != "" && this.cmbServiceID.Text != "")
                         {
                             int Amount = 0;
                             if (this.txtAmount.Text != "")
                             {
                                 Amount = int.Parse(this.txtAmount.Text);
                             }
-                            blUseService.AddUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, Amount, ref err);
+                            blUseService.AddUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbServiceID.SelectedValue.ToString(), this.dtpDateIn.Text, Amount, ref err);
                             // Thông báo
                             MessageBox.Show("Added successfully!");
                             // Load lại dữ liệu trên DataGridView
@@ -181,7 +181,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     // Thực hiện lệnh
                     BLUseService blUseService = new BLUseService();
-                    blUseService.UpdateUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
+                    blUseService.UpdateUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbServiceID.SelectedValue.ToString(), this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
                     // Thông báo
                     MessageBox.Show("Edited successfully!");
                     // Load lại dữ liệu trên DataGridView
@@ -298,11 +298,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 dgvUseService.AutoResizeColumns();
                 // Xóa trống các đối tượng trong Panel
                 this.cmbRoomID.ResetText();
-                this.cmbCMND.ResetText();
+                this.cmbServiceID.ResetText();
                 this.dtpDateIn.ResetText();
                 this.txtAmount.ResetText();
                 this.cmbRoomID.Enabled = true;
-                this.cmbCMND.Enabled = true;
+                this.cmbServiceID.Enabled = true;
                 this.dtpDateIn.Enabled = true;
                 this.txtAmount.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
@@ -326,9 +326,9 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbRoomID.DisplayMember = dtRoom.Columns[0].ToString();
                 this.cmbRoomID.ValueMember = dtRoom.Columns[0].ToString();
 
-                this.cmbCMND.DataSource = dtService;
-                this.cmbCMND.DisplayMember = dtService.Columns[0].ToString();
-                this.cmbCMND.ValueMember = dtService.Columns[0].ToString();
+                this.cmbServiceID.DataSource = dtService;
+                this.cmbServiceID.DisplayMember = dtService.Columns[0].ToString();
+                this.cmbServiceID.ValueMember = dtService.Columns[0].ToString();
                 dgvUseService_CellClick(null, null);
             }
             catch (SqlException)

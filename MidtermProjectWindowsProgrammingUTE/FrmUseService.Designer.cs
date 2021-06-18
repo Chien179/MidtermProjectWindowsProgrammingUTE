@@ -52,7 +52,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label6 = new System.Windows.Forms.Label();
             this.cmbRoomID = new System.Windows.Forms.ComboBox();
             this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
-            this.cmbCMND = new System.Windows.Forms.ComboBox();
+            this.cmbServiceID = new System.Windows.Forms.ComboBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -236,7 +236,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Controls.Add(this.label6);
             this.gbInfor.Controls.Add(this.cmbRoomID);
             this.gbInfor.Controls.Add(this.dtpDateIn);
-            this.gbInfor.Controls.Add(this.cmbCMND);
+            this.gbInfor.Controls.Add(this.cmbServiceID);
             this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbInfor.Location = new System.Drawing.Point(118, 198);
             this.gbInfor.Name = "gbInfor";
@@ -314,15 +314,15 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dtpDateIn.Size = new System.Drawing.Size(161, 30);
             this.dtpDateIn.TabIndex = 81;
             // 
-            // cmbCMND
+            // cmbServiceID
             // 
-            this.cmbCMND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbCMND.FormattingEnabled = true;
-            this.cmbCMND.Location = new System.Drawing.Point(156, 102);
-            this.cmbCMND.Name = "cmbCMND";
-            this.cmbCMND.Size = new System.Drawing.Size(161, 33);
-            this.cmbCMND.TabIndex = 80;
+            this.cmbServiceID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbServiceID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbServiceID.FormattingEnabled = true;
+            this.cmbServiceID.Location = new System.Drawing.Point(156, 102);
+            this.cmbServiceID.Name = "cmbServiceID";
+            this.cmbServiceID.Size = new System.Drawing.Size(161, 33);
+            this.cmbServiceID.TabIndex = 80;
             // 
             // btnLogout
             // 
@@ -428,7 +428,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbRoomID;
         private System.Windows.Forms.DateTimePicker dtpDateIn;
-        private System.Windows.Forms.ComboBox cmbCMND;
+        private System.Windows.Forms.ComboBox cmbServiceID;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pbDelete;
         private System.Windows.Forms.Label label7;
