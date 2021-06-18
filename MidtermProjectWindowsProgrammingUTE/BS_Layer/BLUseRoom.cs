@@ -41,7 +41,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool DeleteUseRoom(string CMND, string MaPhong, ref string err)
+        public bool DeleteUseRoom(string MaPhong, string CMND, ref string err)
         {
             string sqlString = "Delete From ThuePhong Where MaPhong ='" + MaPhong + "' and CMND ='" + CMND + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);

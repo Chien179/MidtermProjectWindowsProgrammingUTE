@@ -60,11 +60,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Text = "Adding.....";
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.pbAdd.Enabled = false;
+            this.pbDelete.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbBack.Enabled = false;
             this.pbAdd.Hide();
             this.pbEdit.Hide();
             this.pbBack.Hide();
+            this.pbDelete.Hide();
             // Đưa con trỏ đến TextField txtThanhPho
             this.cmbCMND.Focus();
         }
@@ -149,6 +151,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Không cho thao tác trên các nút Thêm / Xóa / Thoát
                 this.pbAdd.Enabled = false;
                 this.pbEdit.Enabled = false;
+                this.pbDelete.Enabled = false;
                 this.pbBack.Enabled = false;
                 this.pbAdd.Hide();
                 this.pbEdit.Hide();
@@ -176,9 +179,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbAdd.Enabled = true;
             this.pbEdit.Enabled = true;
             this.pbBack.Enabled = true;
+            this.pbDelete.Enabled = true;
             this.pbAdd.Show();
             this.pbEdit.Show();
             this.pbBack.Show();
+            this.pbDelete.Show();
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Hide();
             this.pbCancel.Hide();
@@ -300,6 +305,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void pbCancel_MouseLeave(object sender, EventArgs e)
         {
             ButtonColorChanged("cancel.png", this.pbCancel);
+        }
+
+        private void pbDelete_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete_blue.png", this.pbDelete);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged("delete.png", this.pbDelete);
         }
         #endregion
 
@@ -427,6 +442,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+
+
         #endregion
 
         private void btnLogout_Click(object sender, EventArgs e)
