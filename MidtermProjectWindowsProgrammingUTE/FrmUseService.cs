@@ -166,10 +166,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                                 Amount = int.Parse(this.txtAmount.Text);
                             }
                             blUseService.AddUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, Amount, ref err);
-                            // Thông báo
-                            MessageBox.Show("Added successfully!");
+                            
                             // Load lại dữ liệu trên DataGridView
                             LoadData();
+
+                            // Thông báo
+                            MessageBox.Show("Added successfully!");
                         }
                     }
                     catch (SqlException)

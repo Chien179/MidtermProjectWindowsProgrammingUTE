@@ -99,10 +99,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                             Price = float.Parse(this.txtPrice.Text);
                         }
                         blService.AddService(this.txtServiceID.Text, this.txtServiceName.Text, Price, this.txtUnit.Text, ref err);
-                        // Thông báo
-                        MessageBox.Show("Added successfully!");
+                        
                         // Load lại dữ liệu trên DataGridView
                         LoadData();
+
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
                     }
                 }
                 catch (SqlException)

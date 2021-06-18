@@ -29,6 +29,12 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
+        public bool DeleteUseService(string MaPhong, string MaDV, ref string err)
+        {
+            string sqlString = "Delete From SuDungDichVu Where MaPhong ='" + MaPhong + "' and MaDV ='" + MaDV + "'";
+            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+        }
+
         public DataSet SearchUseService(string key)
         {
             string sqlString = "Select * From SuDungDichVu Where MaPhong Like'%" + key + "%'or MaDV Like '%" + key + "%' or NgaySuDung Like '%" + key + "%'or SoLuong Like '%" + key + "%'";

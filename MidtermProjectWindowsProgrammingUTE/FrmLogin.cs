@@ -71,6 +71,15 @@ namespace MidtermProjectWindowsProgrammingUTE
                 MessageBox.Show("UserName or Password incorrected");
             }
         }
+        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dr;
+            dr = MessageBox.Show("Do you want to exit ?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
         #endregion
 
         #region Events_Changed
@@ -96,5 +105,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
         }
         #endregion
+
+        
     }
 }
