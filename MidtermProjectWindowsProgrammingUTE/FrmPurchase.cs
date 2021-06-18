@@ -12,11 +12,13 @@ namespace MidtermProjectWindowsProgrammingUTE
         #region properties
         DataTable dtPurchase = null;
         DataTable dtUseRoom = null;
+        DataTable dtStaff = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         string err = "";
         BLPurchase dbPurchase = new BLPurchase();
         BLUseRoom dbUseRoom = new BLUseRoom();
+        BLStaff dbStaff = new BLStaff();
         #endregion
 
         #region constructor
@@ -41,7 +43,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtTotal.ResetText();
             this.cmbRoomID.ResetText();
             this.dtpPurchaseDate.ResetText();
-            this.txtStaffID.ResetText();
+            this.cmbStaffID.ResetText();
             this.dtpDateIn.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
@@ -70,7 +72,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
-                for (int i = 0; i < dgvPurchase.Rows.Count; i++)
+                for (int i = 0; i < dgvPurchase.Rows.Count; i++) //kiểm tra id vừa nhập đã tồn tại
                 {
                     string t = txtPurchaseID.Text.Trim();
                     if (t == dgvPurchase.Rows[i].Cells["PurchaseID"].Value.ToString().Trim())
@@ -91,7 +93,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.txtPurchaseID.Text);
                         if (Total != 0)
                         {
-                            blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
+                            blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, this.dtpDateIn.Text, ref err);
                             // Thông báo
                             MessageBox.Show("Added successfully!");
                             // Load lại dữ liệu trên DataGridView
@@ -118,7 +120,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     this.txtTotal.Text = "0";
                 }
-                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), ref err);
+                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, this.dtpDateIn.Text, ref err);
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
                 // Load lại dữ liệu trên DataGridView
@@ -140,7 +142,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     this.txtTotal.Text = dgvPurchase.Rows[r].Cells["Total"].Value.ToString();
                     this.dtpPurchaseDate.Text = dgvPurchase.Rows[r].Cells["PurchaseDate"].Value.ToString();
                     this.cmbRoomID.Text = dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString();
-                    this.txtStaffID.Text = dgvPurchase.Rows[r].Cells["StaffID"].Value.ToString();
+                    this.cmbStaffID.Text = dgvPurchase.Rows[r].Cells["StaffID"].Value.ToString();
                     this.dtpDateIn.Text = dgvPurchase.Rows[r].Cells["CheckIn"].Value.ToString();
                 }
             }
@@ -191,7 +193,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtTotal.ResetText();
             this.cmbRoomID.ResetText();
             this.dtpPurchaseDate.ResetText();
-            this.txtStaffID.ResetText();
+            this.cmbStaffID.ResetText();
             this.dtpDateIn.ResetText();
             this.txtPurchaseID.Enabled = true;
             this.cmbRoomID.Enabled = true;
@@ -330,12 +332,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 dtPurchase = new DataTable();
                 dtUseRoom = new DataTable();
+                dtStaff = new DataTable();
+
                 dtPurchase.Clear();
                 dtUseRoom.Clear();
+                dtStaff.Clear();
+
+                DataSet dsstaff = dbStaff.GetStaff();
                 DataSet ds = dbPurchase.GetPurchase();
                 DataSet dsroom = dbUseRoom.GetUseRoom();
                 dtPurchase = ds.Tables[0];
                 dtUseRoom = dsroom.Tables[0];
+                dtStaff = dsstaff.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvPurchase.DataSource = dtPurchase;
                 for(int i = 0; i < dgvPurchase.Rows.Count; i++)
@@ -350,13 +358,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbRoomID.ResetText();
                 this.txtTotal.ResetText();
                 this.dtpPurchaseDate.ResetText();
-                this.txtStaffID.ResetText();
+                this.cmbStaffID.ResetText();
                 this.dtpDateIn.ResetText();
                 this.txtPurchaseID.Enabled = true;
                 this.cmbRoomID.Enabled = true;
                 this.txtTotal.Enabled = true;
                 this.dtpPurchaseDate.Enabled = true;
-                this.txtStaffID.Enabled = true;
+                this.cmbStaffID.Enabled = true;
                 this.dtpDateIn.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
@@ -379,6 +387,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbRoomID.DataSource = dtUseRoom;
                 this.cmbRoomID.DisplayMember = dtUseRoom.Columns[0].ToString();
                 this.cmbRoomID.ValueMember = dtUseRoom.Columns[0].ToString();
+
+                //Đưa mã nv lên cmb
+                this.cmbStaffID.DataSource = dtStaff;
+                this.cmbStaffID.DisplayMember = dtStaff.Columns[0].ToString();
+                this.cmbStaffID.ValueMember = dtStaff.Columns[0].ToString();
 
                 dgvPurchase_CellClick(null, null);
             }

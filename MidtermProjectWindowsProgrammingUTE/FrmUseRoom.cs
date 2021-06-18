@@ -14,12 +14,15 @@ namespace MidtermProjectWindowsProgrammingUTE
         DataTable dtUseRoom = null;
         DataTable dtClient = null;
         DataTable dtRoom = null;
+        DataTable dtStaff = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         string err;
         BLUseRoom dbUseRoom = new BLUseRoom();
         BLClient dbCLient = new BLClient();
         BLRoom dbRoom = new BLRoom();
+        BLStaff dbStaff = new BLStaff();
+
         #endregion
 
         #region Constructors
@@ -44,7 +47,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID.ResetText();
             this.cmbCMND.ResetText();
             this.dtpDateIn.ResetText();
-            this.txtStaffID.ResetText();
+            this.cmbStaffID.ResetText();
             this.txtDeposit.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
@@ -161,12 +164,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID.ResetText();
             this.cmbCMND.ResetText();
             this.dtpDateIn.ResetText();
-            this.txtStaffID.ResetText();
+            this.cmbStaffID.ResetText();
             this.txtDeposit.ResetText();
             this.cmbRoomID.Enabled = true;
             this.cmbCMND.Enabled = true;
             this.dtpDateIn.Enabled = true;
-            this.txtStaffID.Enabled = true;
+            this.cmbStaffID.Enabled = true;
             this.txtDeposit.Enabled = true;
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
@@ -278,10 +281,15 @@ namespace MidtermProjectWindowsProgrammingUTE
                 dtUseRoom = new DataTable();
                 dtRoom = new DataTable();
                 dtClient = new DataTable();
+                dtStaff = new DataTable();
 
                 dtUseRoom.Clear();
                 dtRoom.Clear();
                 dtClient.Clear();
+                dtStaff.Clear();
+
+                DataSet dsstaff = dbStaff.GetStaff();
+                dtStaff = dsstaff.Tables[0];
 
                 DataSet ds = dbUseRoom.GetUseRoom();
                 dtUseRoom = ds.Tables[0];
@@ -299,12 +307,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbRoomID.ResetText();
                 this.cmbCMND.ResetText();
                 this.dtpDateIn.ResetText();
-                this.txtStaffID.ResetText();
+                this.cmbStaffID.ResetText();
                 this.txtDeposit.ResetText();
                 this.cmbRoomID.Enabled = true;
                 this.cmbCMND.Enabled = true;
                 this.dtpDateIn.Enabled = true;
-                this.txtStaffID.Enabled = true;
+                this.cmbStaffID.Enabled = true;
                 this.txtDeposit.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
@@ -331,6 +339,9 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbCMND.DisplayMember = dtClient.Columns[0].ToString();
                 this.cmbCMND.ValueMember = dtClient.Columns[0].ToString();
 
+                this.cmbStaffID.DataSource = dtStaff;
+                this.cmbStaffID.DisplayMember = dtStaff.Columns[0].ToString();
+                this.cmbStaffID.ValueMember = dtStaff.Columns[0].ToString();
 
 
                 dgvRoom_CellClick(null, null);

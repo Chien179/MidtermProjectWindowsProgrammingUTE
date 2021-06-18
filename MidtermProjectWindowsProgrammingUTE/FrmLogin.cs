@@ -87,5 +87,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtPassword.UseSystemPasswordChar = false;
         }
         #endregion
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

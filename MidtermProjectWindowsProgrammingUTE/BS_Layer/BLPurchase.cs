@@ -17,14 +17,14 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select * from ThanhToan", CommandType.Text);
         }
 
-        public bool AddPurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, ref string err)
+        public bool AddPurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, string MaNV, string NgayVao, ref string err)
         {
-            string sqlString = "Insert Into ThanhToan Values('" + MaTT + "'," + ThanhTien + ",'" + NgayThanhToan + "','" + MaPhong + "')";
+            string sqlString = "Insert Into ThanhToan Values('" + MaTT + "'," + ThanhTien + ",'" + NgayThanhToan + "','" + MaPhong + "','" + MaNV + "','" + NgayVao +"')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
-        public bool UpdatePurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, ref string err)
+        public bool UpdatePurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, string MaNV, string NgayVao, ref string err)
         {
-            string sqlString = "Update ThanhToan Set ThanhTien=" + ThanhTien + ",NgayThanhToan='" + NgayThanhToan + "',MaPhong='" + MaPhong + "'Where MaThanhToan='" + MaTT + "'";
+            string sqlString = "Update ThanhToan Set ThanhTien=" + ThanhTien + ",NgayThanhToan='" + NgayThanhToan + "',MaPhong='" + MaPhong + "', MaNV='" + MaNV + "',NgayVao='"+ NgayVao +"'Where MaThanhToan='" + MaTT + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
