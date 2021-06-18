@@ -121,7 +121,6 @@ namespace MidtermProjectWindowsProgrammingUTE
                     // Chuyển thông tin lên panel
                     this.cmbRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
                     this.cmbCMND.Text = dgvRoom.Rows[r].Cells["CMND"].Value.ToString();
-
                     this.dtpDateIn.Text = dgvRoom.Rows[r].Cells["CheckIn"].Value.ToString();
                     this.txtDeposit.Text = dgvRoom.Rows[r].Cells["Deposit"].Value.ToString();
                 }

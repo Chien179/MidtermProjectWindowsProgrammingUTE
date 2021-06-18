@@ -368,6 +368,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                     string[] NgayVao = roomusing.Tables[0].Rows[0][0].ToString().Split(' ');
                     dgvPurchase.Rows[i].Cells["CheckIn"].Value = NgayVao[0];
                 }
+
+                for (int i = 0; i < this.dgvPurchase.Rows.Count; i++)
+                {
+                    dgvPurchase.Rows[i].Cells["Receipt"].Value = "receipt";
+                }
+
                 //Đưa dữ liệu mã phòng lên combobox
                 this.cmbRoomID.DataSource = dtUseRoom;
                 this.cmbRoomID.DisplayMember = dtUseRoom.Columns[0].ToString();
@@ -375,20 +381,8 @@ namespace MidtermProjectWindowsProgrammingUTE
 
                 //Đưa mã nv lên cmb
                 this.cmbStaffID.DataSource = dtStaff;
-                this.cmbStaffID.DisplayMember = dtStaff.Columns[1].ToString();
+                this.cmbStaffID.DisplayMember = dtStaff.Columns[0].ToString();
                 this.cmbStaffID.ValueMember = dtStaff.Columns[0].ToString();
-
-                //Tránh trùng dữ liệu trong cmbUseRoom
-                //for(int i = 0; i < this.cmbRoomID.Items.Count; i++)
-                //{
-                //    if()
-                //}
-
-                for (int i = 0; i < this.dgvPurchase.Rows.Count; i++)
-                {
-                    dgvPurchase.Rows[i].Cells["Receipt"].Value = "receipt";
-                }
-
 
                 // Thay đổi độ rộng cột
                 dgvPurchase.AutoResizeColumns();
