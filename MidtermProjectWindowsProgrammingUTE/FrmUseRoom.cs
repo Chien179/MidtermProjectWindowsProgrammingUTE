@@ -190,6 +190,56 @@ namespace MidtermProjectWindowsProgrammingUTE
             dgvRoom_CellClick(null, null);
         }
 
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvRoom.Rows.Count > 0)
+                {
+                    this.gbInfor.Text = "Deleting.....";
+                    
+                    // Lấy MaKH của record hiện hành 
+                    string strRoomID = cmbRoomID.Text.Trim();
+                    string strCMND = cmbCMND.Text.Trim();
+                    // Viết câu lệnh SQL
+                    // Hiện thông báo xác nhận việc xóa mẫu tin
+                    // Khai báo biến traloi
+                    DialogResult traloi;
+                    // Hiện hộp thoại hỏi đáp 
+                    traloi = MessageBox.Show("Are you sure?", "Delete row",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    // Kiểm tra có nhắp chọn nút Ok không? 
+                    if (traloi == DialogResult.Yes)
+                    {
+                        dbUseRoom.DeleteUseRoom(strRoomID, strCMND, ref err);
+                        if (err == null)
+                        {
+                            // Cập nhật lại DataGridView 
+                            LoadData();
+                            // Thông báo 
+                            MessageBox.Show("Deleted successfully!");
+                        }
+                        else
+                        {
+                            this.gbInfor.Text = "Information";
+                            // Thông báo 
+                            MessageBox.Show("Cannot delete this !", "Delete failed!");
+                        }
+                    }
+                    else
+                    {
+                        this.gbInfor.Text = "Information";
+                        // Thông báo 
+                        MessageBox.Show("Delete failed!");
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                this.gbInfor.Text = "Information";
+                MessageBox.Show("Delete failed!");
+            }
+        }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             Search();
