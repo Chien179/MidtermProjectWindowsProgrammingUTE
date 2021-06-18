@@ -74,35 +74,58 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
-                for (int i = 0; i < dgvPurchase.Rows.Count; i++) //kiểm tra id vừa nhập đã tồn tại
-                {
-                    string t = txtPurchaseID.Text.Trim();
-                    if (t == dgvPurchase.Rows[i].Cells["PurchaseID"].Value.ToString().Trim())
-                    {
-                        MessageBox.Show("Existed '" + t + "', please type another one !");
-                        txtPurchaseID.ResetText();
-                        txtTotal.ResetText();
-                        txtPurchaseID.Focus();
-                        return;
-                    }
-
-                    string id = cmbRoomID.Text.Trim();
-
-                    if (id == dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString().Trim() && dbUseRoom.CheckUseRoomStatus(id, ref err) == false)
-                    {
-                        MessageBox.Show("hoa don phong " + i + "truoc do chua duoc thanh toan");//PHI ANH phiên dịch nha
-                        txtTotal.ResetText();
-                        txtPurchaseID.Focus();
-                        return;
-                    }
-                }
-
                 try
                 {
-                    // Thực hiện lệnh
-                    BLPurchase blPurchase = new BLPurchase();
-                    if (this.txtPurchaseID.Text != "" && this.cmbRoomID.Text != "")
+                    if (this.cmbRoomID.Text == "" || this.txtPurchaseID.Text == "" || this.cmbStaffID.Text == "")
                     {
+                        if (this.cmbRoomID.Text == "")
+                        {
+                            MessageBox.Show("chua co phong nao duoc thue");
+                        }
+                        else
+                        {
+                            if (this.cmbStaffID.Text == "")
+                            {
+                                MessageBox.Show("Thieu nhan vien");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Khong the de trong 1 o thong tin nao");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < dgvPurchase.Rows.Count; i++) //kiểm tra id vừa nhập đã tồn tại
+                        {
+                            string t = txtPurchaseID.Text.Trim();
+                            if (t == dgvPurchase.Rows[i].Cells["PurchaseID"].Value.ToString().Trim())
+                            {
+                                MessageBox.Show("Existed '" + t + "', please type another one !");
+                                txtPurchaseID.ResetText();
+                                txtTotal.ResetText();
+                                txtPurchaseID.Focus();
+                                return;
+                            }
+
+                            string id = cmbRoomID.SelectedValue.ToString();
+
+                            MessageBox.Show(id, dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString());
+
+                            if (id == dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString())
+                            {
+                                if (Convert.ToBoolean(dgvPurchase.Rows[i].Cells["Paid"].Value) == false)
+                                {
+                                    MessageBox.Show("hoa don phong này truoc do chua duoc thanh toan");//PHI ANH phiên dịch nha
+                                    txtTotal.ResetText();
+                                    txtPurchaseID.Focus();
+                                    return;
+                                }
+                            }
+                        }
+
+                        // Thực hiện lệnh
+                        BLPurchase blPurchase = new BLPurchase();
                         decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
                         if (Total != 0)
                         {
@@ -117,6 +140,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                             this.gbInfor.Text = "Information";
                             MessageBox.Show("There are no datas in table 'ThuePhong'!");
                         }
+
                     }
                 }
                 catch (SqlException)
@@ -133,13 +157,35 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     this.txtTotal.Text = "0";
                 }
-                dbUseRoom.UpdateCheckInDay(this.cmbRoomID.SelectedValue.ToString(), this.dtpDateIn.Text, ref err);
-                decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
-                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, this.cbStatus.Checked.ToString(), ref err);
-                // Load lại dữ liệu trên DataGridView
-                LoadData();
-                // Thông báo
-                MessageBox.Show("Edited successfully!");
+
+                if (this.cmbRoomID.Text == "" || this.txtPurchaseID.Text == "" || this.cmbStaffID.Text == "")//PA lam tung form theo cai nayf nha voi dich ra TA nha, đối vói cái nào combobox đi mượn ở mấy bảng khác á thì thêm if nhỏ r thông báo như t làm vs cmbRoomID á
+                {
+                    if (this.cmbRoomID.Text == "")
+                    {
+                        MessageBox.Show("chua co phong nao duoc thue");
+                    }
+                    else
+                    {
+                        if (this.cmbStaffID.Text == "")
+                        {
+                            MessageBox.Show("Thieu nhan vien");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Khong the de trong 1 o thong tin nao");
+                        }
+                    }
+                }
+                else
+                {
+                    dbUseRoom.UpdateCheckInDay(this.cmbRoomID.SelectedValue.ToString(), this.dtpDateIn.Text, ref err);
+                    decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
+                    blPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, this.cbStatus.Checked.ToString(), ref err);
+                    // Load lại dữ liệu trên DataGridView
+                    LoadData();
+                    // Thông báo
+                    MessageBox.Show("Edited successfully!");
+                }
             }
             // Đóng kết nối
         }
@@ -263,7 +309,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     int r = dgvPurchase.CurrentCell.RowIndex;
                     dbPurchase.DeletePurchase(ref err, this.txtPurchaseID.Text);
-                    MessageBox.Show("Deleted all selected Clients' informations", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Deleted all selected Clients' informations", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);//ne lam cho n giong may cai delete kia luon
                     LoadData();
                 }
             }
@@ -485,9 +531,25 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Close();
         }
 
-        public bool Logout 
+        public bool Logout
         {
             get { return logout; }
+        }
+
+        private void btnPaid_Click(object sender, EventArgs e)
+        {
+            int r = dgvPurchase.CurrentCell.RowIndex;
+
+            if (Convert.ToBoolean(this.dgvPurchase.Rows[r].Cells["Paid"].Value) == false)
+            {
+                BLPurchase blPurchase = new BLPurchase();
+                BLUseService blUseService = new BLUseService();
+                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, "1", ref err);
+                dbUseRoom.UpdateUseRoomStatus(this.cmbRoomID.SelectedValue.ToString(), ref err);
+                blUseService.UpdateStatusUseService(this.cmbRoomID.SelectedValue.ToString(), ref err);
+                LoadData();
+                MessageBox.Show("Paid", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

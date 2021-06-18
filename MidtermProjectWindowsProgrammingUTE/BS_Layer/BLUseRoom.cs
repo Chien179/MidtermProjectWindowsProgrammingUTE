@@ -27,13 +27,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select * from ThuePhong Where TrangThai=" + 0, CommandType.Text);
         }
 
-        public bool CheckUseRoomStatus(string idroom,ref string err)
-        {
-            string sqlString = "select * from ThuePhong Where MaPhong='" + idroom + "'and ThanhToan='"+0+"'";
-            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-        }
-
-        public bool AddUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, string MaNV, ref string err)
+        public bool AddUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, string MaNV, ref string err)//sửa hàm này nè
         {
             string sqlString = "Update Phong Set  TrangThai=" + 1 + "Where MaPhong ='" + MaPhong + "'";
             db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
@@ -53,7 +47,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
 
-        public bool UpdateUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, string MaNV, ref string err)
+        public bool UpdateUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, string MaNV, ref string err)//với hàm này
         {
             string sqlString = "Update ThuePhong Set NgayVao = '" + NgayVao + "',DatCoc=" + DatCoc + "MaNV='" + MaNV + "' Where MaPhong='" + MaPhong + "' and CMND='" + CMND + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
@@ -62,6 +56,12 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
         public bool UpdateCheckInDay(string MaPhong, string NgayVao, ref string err)
         {
             string sqlString = "Update ThuePhong Set NgayVao = '" + NgayVao + "' Where MaPhong='" + MaPhong + "'";
+            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+        }
+
+        public bool UpdateUseRoomStatus(string MaPhong, ref string err)
+        {
+            string sqlString = "Update ThuePhong Set TrangThai = 1 Where MaPhong='" + MaPhong + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
     }

@@ -53,7 +53,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
                     + "from ThuePhong, Phong "
                     + "where ThuePhong.MaPhong = Phong.MaPhong and ThuePhong.MaPhong='" + MaPhong + "'"
                     + "group by ThuePhong.DatCoc,Phong.GiaThue", CommandType.Text);
-                DataSet MaDV = db.ExecuteQueryDataSet("Select MaDV,SoLuong From SuDungDichVu Where MaPhong='" + MaPhong + "'", CommandType.Text);
+                DataSet MaDV = db.ExecuteQueryDataSet("Select MaDV,SoLuong From SuDungDichVu Where MaPhong='" + MaPhong + "'and TrangThai='" + 0 + "'", CommandType.Text);
                 string[] AMaDV = new string[MaDV.Tables[0].Rows.Count];
                 string[] ASoLuong = new string[MaDV.Tables[0].Rows.Count];
                 string[] AGiaTien = new string[MaDV.Tables[0].Rows.Count];

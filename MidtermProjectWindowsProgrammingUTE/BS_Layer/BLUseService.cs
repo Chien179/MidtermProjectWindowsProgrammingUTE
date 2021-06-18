@@ -17,15 +17,21 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select * from SuDungDichVu", CommandType.Text);
         }
 
-        public bool AddUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)
+        public bool AddUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)//hàm này
         {
             string sqlString = "Insert Into SuDungDichVu Values('" + MaPhong + "','" + MaDV + "','" + NgaySuDung + "'," + SoLuong + ")";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool UpdateUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)
+        public bool UpdateUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)//với hàm này sửa xong nhớ xoã cmt hết nha
         {
             string sqlString = "Update SuDungDichVu Set NgaySuDung = '" + NgaySuDung + "',SoLuong=" + SoLuong + "Where MaPhong='" + MaPhong + "' and MaDV='" + MaDV + "'";
+            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+        }
+
+        public bool UpdateStatusUseService(string MaPhong, ref string err)
+        {
+            string sqlString = "Update SuDungDichVu Set TrangThai = 1 Where MaPhong='" + MaPhong + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
