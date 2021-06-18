@@ -53,10 +53,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID = new System.Windows.Forms.ComboBox();
             this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
             this.cmbCMND = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pbDelete = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUseService)).BeginInit();
@@ -259,7 +259,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(6, 113);
+            this.label4.Location = new System.Drawing.Point(6, 110);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 25);
             this.label4.TabIndex = 76;
@@ -268,9 +268,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // txtAmount
             // 
             this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtAmount.Location = new System.Drawing.Point(156, 221);
+            this.txtAmount.Location = new System.Drawing.Point(156, 211);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(200, 30);
+            this.txtAmount.Size = new System.Drawing.Size(161, 30);
             this.txtAmount.TabIndex = 84;
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
@@ -278,7 +278,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(6, 168);
+            this.label5.Location = new System.Drawing.Point(6, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 25);
             this.label5.TabIndex = 77;
@@ -288,7 +288,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(6, 223);
+            this.label6.Location = new System.Drawing.Point(6, 214);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 25);
             this.label6.TabIndex = 83;
@@ -309,9 +309,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dtpDateIn.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateIn.Location = new System.Drawing.Point(156, 164);
+            this.dtpDateIn.Location = new System.Drawing.Point(156, 157);
             this.dtpDateIn.Name = "dtpDateIn";
-            this.dtpDateIn.Size = new System.Drawing.Size(200, 30);
+            this.dtpDateIn.Size = new System.Drawing.Size(161, 30);
             this.dtpDateIn.TabIndex = 81;
             // 
             // cmbCMND
@@ -319,28 +319,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbCMND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbCMND.FormattingEnabled = true;
-            this.cmbCMND.Location = new System.Drawing.Point(156, 107);
+            this.cmbCMND.Location = new System.Drawing.Point(156, 102);
             this.cmbCMND.Name = "cmbCMND";
-            this.cmbCMND.Size = new System.Drawing.Size(200, 33);
+            this.cmbCMND.Size = new System.Drawing.Size(161, 33);
             this.cmbCMND.TabIndex = 80;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1095, 172);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 125;
-            this.label7.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1095, 151);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 124;
-            this.label8.Text = "label8";
             // 
             // btnLogout
             // 
@@ -361,14 +343,34 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbDelete.TabIndex = 126;
             this.pbDelete.TabStop = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label7.Location = new System.Drawing.Point(1090, 161);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 18);
+            this.label7.TabIndex = 128;
+            this.label7.Text = "label8";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label8.Location = new System.Drawing.Point(980, 161);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 18);
+            this.label8.TabIndex = 127;
+            this.label8.Text = "Nhân viên:";
+            // 
             // FrmUseService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
-            this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
@@ -427,9 +429,9 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.ComboBox cmbRoomID;
         private System.Windows.Forms.DateTimePicker dtpDateIn;
         private System.Windows.Forms.ComboBox cmbCMND;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pbDelete;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

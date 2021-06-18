@@ -40,6 +40,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Deposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
@@ -179,6 +179,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Deposit.ReadOnly = true;
             this.Deposit.Width = 125;
             // 
+            // TrangThai
+            // 
+            this.TrangThai.HeaderText = "Full";
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            // 
             // pbAdd
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
@@ -266,18 +272,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             // cmbStaffID
             // 
             this.cmbStaffID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbStaffID.FormattingEnabled = true;
-            this.cmbStaffID.Location = new System.Drawing.Point(166, 169);
+            this.cmbStaffID.Location = new System.Drawing.Point(166, 166);
             this.cmbStaffID.Name = "cmbStaffID";
-            this.cmbStaffID.Size = new System.Drawing.Size(200, 33);
+            this.cmbStaffID.Size = new System.Drawing.Size(173, 32);
             this.cmbStaffID.TabIndex = 80;
             // 
             // lblStaffID
             // 
             this.lblStaffID.AutoSize = true;
             this.lblStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblStaffID.Location = new System.Drawing.Point(6, 174);
+            this.lblStaffID.Location = new System.Drawing.Point(6, 169);
             this.lblStaffID.Name = "lblStaffID";
             this.lblStaffID.Size = new System.Drawing.Size(88, 25);
             this.lblStaffID.TabIndex = 79;
@@ -297,7 +303,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(6, 122);
+            this.label4.Location = new System.Drawing.Point(6, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 25);
             this.label4.TabIndex = 61;
@@ -307,16 +313,16 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateIn.Location = new System.Drawing.Point(166, 223);
+            this.dtpDateIn.Location = new System.Drawing.Point(166, 216);
             this.dtpDateIn.Name = "dtpDateIn";
-            this.dtpDateIn.Size = new System.Drawing.Size(200, 30);
+            this.dtpDateIn.Size = new System.Drawing.Size(173, 30);
             this.dtpDateIn.TabIndex = 76;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(6, 228);
+            this.label3.Location = new System.Drawing.Point(6, 221);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 25);
             this.label3.TabIndex = 71;
@@ -326,7 +332,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(6, 278);
+            this.label6.Location = new System.Drawing.Point(6, 273);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 25);
             this.label6.TabIndex = 77;
@@ -335,49 +341,51 @@ namespace MidtermProjectWindowsProgrammingUTE
             // cmbRoomID
             // 
             this.cmbRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbRoomID.FormattingEnabled = true;
-            this.cmbRoomID.Location = new System.Drawing.Point(166, 57);
+            this.cmbRoomID.Location = new System.Drawing.Point(166, 62);
             this.cmbRoomID.Name = "cmbRoomID";
-            this.cmbRoomID.Size = new System.Drawing.Size(161, 33);
+            this.cmbRoomID.Size = new System.Drawing.Size(173, 32);
             this.cmbRoomID.TabIndex = 72;
             // 
             // cmbCMND
             // 
             this.cmbCMND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbCMND.FormattingEnabled = true;
             this.cmbCMND.Location = new System.Drawing.Point(166, 114);
             this.cmbCMND.Name = "cmbCMND";
-            this.cmbCMND.Size = new System.Drawing.Size(200, 33);
+            this.cmbCMND.Size = new System.Drawing.Size(173, 32);
             this.cmbCMND.TabIndex = 74;
             // 
             // txtDeposit
             // 
-            this.txtDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtDeposit.Location = new System.Drawing.Point(166, 273);
+            this.txtDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtDeposit.Location = new System.Drawing.Point(166, 270);
             this.txtDeposit.Name = "txtDeposit";
-            this.txtDeposit.Size = new System.Drawing.Size(200, 30);
+            this.txtDeposit.Size = new System.Drawing.Size(173, 29);
             this.txtDeposit.TabIndex = 78;
             this.txtDeposit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeposit_KeyPress);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1095, 174);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label7.Location = new System.Drawing.Point(1085, 161);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(46, 18);
             this.label7.TabIndex = 125;
-            this.label7.Text = "label7";
+            this.label7.Text = "label8";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1095, 153);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label8.Location = new System.Drawing.Point(980, 161);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(77, 18);
             this.label8.TabIndex = 124;
-            this.label8.Text = "label8";
+            this.label8.Text = "Nhân viên:";
             // 
             // btnLogout
             // 
@@ -387,12 +395,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnLogout.TabIndex = 123;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.HeaderText = "Full";
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
             // 
             // pbDelete
             // 
