@@ -84,7 +84,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         {
                             Deposit = float.Parse(this.txtDeposit.Text);
                         }
-                        blUseRoom.AddUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, this.dtpDateIn.Text, Deposit, ref err);
+                        blUseRoom.AddUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, Deposit, this.cmbStaffID.Text, ref err);
                         // Thông báo
                         MessageBox.Show("Added successfully!");
                         // Load lại dữ liệu trên DataGridView
@@ -101,7 +101,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLUseRoom blUseRoom = new BLUseRoom();
-                blUseRoom.UpdateUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, this.dtpDateIn.Text, float.Parse(this.txtDeposit.Text), ref err);
+                blUseRoom.UpdateUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, float.Parse(this.txtDeposit.Text), this.cmbStaffID.Text, ref err);
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
                 // Load lại dữ liệu trên DataGridView
