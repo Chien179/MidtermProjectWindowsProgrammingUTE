@@ -49,8 +49,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label2 = new System.Windows.Forms.Label();
             this.txtRoomType = new System.Windows.Forms.TextBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblStaff = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTypeRoom)).BeginInit();
@@ -273,33 +273,33 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(1087, 161);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 18);
-            this.label7.TabIndex = 127;
-            this.label7.Text = "label8";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(980, 161);
+            this.label8.Location = new System.Drawing.Point(984, 163);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 18);
-            this.label8.TabIndex = 126;
-            this.label8.Text = "Nhân viên:";
+            this.label8.Size = new System.Drawing.Size(46, 18);
+            this.label8.TabIndex = 129;
+            this.label8.Text = "label8";
+            // 
+            // lblStaff
+            // 
+            this.lblStaff.AutoSize = true;
+            this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblStaff.Location = new System.Drawing.Point(936, 163);
+            this.lblStaff.Name = "lblStaff";
+            this.lblStaff.Size = new System.Drawing.Size(42, 18);
+            this.lblStaff.TabIndex = 128;
+            this.lblStaff.Text = "Staff:";
             // 
             // FrmTypeRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblStaff);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
@@ -355,7 +355,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtRoomType;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblStaff;
     }
 }
