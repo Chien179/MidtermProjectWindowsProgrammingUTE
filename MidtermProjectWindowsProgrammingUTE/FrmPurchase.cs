@@ -84,6 +84,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         return;
                     }
                 }
+
                 try
                 {
                     // Thực hiện lệnh
@@ -94,10 +95,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                         if (Total != 0)
                         {
                             blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.SelectedValue.ToString(), ref err);
-                            // Thông báo
-                            MessageBox.Show("Added successfully!");
                             // Load lại dữ liệu trên DataGridView
                             LoadData();
+                            // Thông báo
+                            MessageBox.Show("Added successfully!");
                         }
                         else
                         {
@@ -120,11 +121,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     this.txtTotal.Text = "0";
                 }
-                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, ref err);
-                // Thông báo
-                MessageBox.Show("Edited successfully!");
+                dbUseRoom.UpdateCheckInDay(this.cmbRoomID.SelectedValue.ToString(), this.dtpDateIn.Text, ref err);
+                decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
+                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
+                // Thông báo
+                MessageBox.Show("Edited successfully!");
             }
             // Đóng kết nối
         }
@@ -155,17 +158,20 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvPurchase_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            //try
+            //{
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
                 if (dgvPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "receipt")
                 {
                     MessageBox.Show("oki");
                 }
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Cannot load data into DataGridView !");
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Cannot load data into DataGridView !");
+            //}
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -243,10 +249,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 if (dgvPurchase.Rows.Count > 0)
                 {
                     int r = dgvPurchase.CurrentCell.RowIndex;
-                    // Lấy MaTT và MaPhong của record hiện hành 
-                    string strPurchase = dgvPurchase.Rows[r].Cells[0].Value.ToString();
-                    string strRoomID = dgvPurchase.Rows[r].Cells[3].Value.ToString();
-                    dbPurchase.Puchase(ref err, strPurchase, strRoomID);
+                    dbPurchase.DeletePurchase(ref err, this.txtPurchaseID.Text);
                     MessageBox.Show("Deleted all selected Clients' informations", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadData();
                 }
@@ -339,6 +342,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 e.Handled = true;
             }
         }
+
+        private void dgvPurchase_Sorted(object sender, EventArgs e)
+        {
+            LoadData();
+        }
         #endregion
 
         #region Functions
@@ -362,6 +370,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 dtStaff = dsstaff.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvPurchase.DataSource = dtPurchase;
+
                 for (int i = 0; i < dgvPurchase.Rows.Count; i++)
                 {
                     DataSet roomusing = dbUseRoom.GetUseRoomCheckIn(dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString());

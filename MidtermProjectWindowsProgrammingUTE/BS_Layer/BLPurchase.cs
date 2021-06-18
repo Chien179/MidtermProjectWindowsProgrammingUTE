@@ -35,25 +35,10 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
 
-        public bool Puchase(ref string err, string MaTT, string MaPhong)
+        public bool DeletePurchase(ref string err, string MaTT)
         {
-            //Xoá tất cả thông tin về khách hàng trong database
-            string sqlString = "Select CMND From ThuePhong Where MaPhong='" + MaPhong + "'";
-            DataSet CMND = db.ExecuteQueryDataSet(sqlString, CommandType.Text);
-            sqlString = "Delete From ThuePhong Where MaPhong='" + MaPhong + "'";
-            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-            sqlString = "Delete From SuDungDichVu Where MaPhong='" + MaPhong + "'";
-            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-            for (int i = 0; i < CMND.Tables[0].Rows.Count; i++)
-            {
-                sqlString = "Delete From KhachHang Where CMND='" + CMND.Tables[0].Rows[i][0].ToString() + "'";
-                db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-            }
-            sqlString = "Update Phong Set TrangThai=" + 0 + "Where MaPhong='" + MaPhong + "'";
-            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-            sqlString = "Delete From KHACHHANG Where MaThanhToan='" + MaTT + "'";
-            db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-            sqlString = "Delete From ThanhToan Where MaThanhToan='" + MaTT + "'";
+            
+            string sqlString = "Delete From ThanhToan Where MaThanhToan='" + MaTT + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
 
         }

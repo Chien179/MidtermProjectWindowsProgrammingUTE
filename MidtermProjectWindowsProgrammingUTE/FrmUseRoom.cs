@@ -84,11 +84,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                         {
                             Deposit = float.Parse(this.txtDeposit.Text);
                         }
-                        blUseRoom.AddUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, this.dtpDateIn.Text, Deposit, ref err);
-                        // Thông báo
-                        MessageBox.Show("Added successfully!");
+                        blUseRoom.AddUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, Deposit, this.cmbStaffID.SelectedValue.ToString(), ref err);
                         // Load lại dữ liệu trên DataGridView
                         LoadData();
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
                     }
                 }
                 catch (SqlException)
@@ -101,7 +101,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLUseRoom blUseRoom = new BLUseRoom();
-                blUseRoom.UpdateUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, this.dtpDateIn.Text, float.Parse(this.txtDeposit.Text), ref err);
+                blUseRoom.UpdateUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, float.Parse(this.txtDeposit.Text), this.cmbStaffID.SelectedValue.ToString(), ref err);
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
                 // Load lại dữ liệu trên DataGridView
@@ -186,12 +186,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Enabled = false;
             this.gbInfor.Text = "Information";
             dgvRoom_CellClick(null, null);
-        }
-
-        private void btnRooms_Click(object sender, EventArgs e)
-        {
-            FrmRoom f = new FrmRoom();
-            f.ShowDialog();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

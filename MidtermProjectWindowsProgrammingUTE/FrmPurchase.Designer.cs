@@ -33,6 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvPurchase = new System.Windows.Forms.DataGridView();
+            this.PurchaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Receipt = new System.Windows.Forms.DataGridViewLinkColumn();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
@@ -54,13 +61,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.btnReceipt = new System.Windows.Forms.Button();
-            this.PurchaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Receipt = new System.Windows.Forms.DataGridViewLinkColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
@@ -121,6 +121,69 @@
             this.dgvPurchase.TabIndex = 20;
             this.dgvPurchase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPurchase_CellClick);
             this.dgvPurchase.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPurchase_CellContentClick);
+            this.dgvPurchase.Sorted += new System.EventHandler(this.dgvPurchase_Sorted);
+            // 
+            // PurchaseID
+            // 
+            this.PurchaseID.DataPropertyName = "MaThanhToan";
+            this.PurchaseID.HeaderText = "Purchase ID";
+            this.PurchaseID.MinimumWidth = 6;
+            this.PurchaseID.Name = "PurchaseID";
+            this.PurchaseID.ReadOnly = true;
+            this.PurchaseID.Width = 125;
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "ThanhTien";
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 125;
+            // 
+            // RoomID
+            // 
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.MinimumWidth = 6;
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            this.RoomID.Width = 125;
+            // 
+            // StaffID
+            // 
+            this.StaffID.DataPropertyName = "MaNV";
+            this.StaffID.HeaderText = "Staff ID";
+            this.StaffID.MinimumWidth = 6;
+            this.StaffID.Name = "StaffID";
+            this.StaffID.ReadOnly = true;
+            this.StaffID.Width = 125;
+            // 
+            // CheckIn
+            // 
+            this.CheckIn.HeaderText = "Check In";
+            this.CheckIn.MinimumWidth = 6;
+            this.CheckIn.Name = "CheckIn";
+            this.CheckIn.ReadOnly = true;
+            this.CheckIn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CheckIn.Width = 125;
+            // 
+            // PurchaseDate
+            // 
+            this.PurchaseDate.DataPropertyName = "NgayThanhToan";
+            this.PurchaseDate.HeaderText = "Purchase Date";
+            this.PurchaseDate.MinimumWidth = 6;
+            this.PurchaseDate.Name = "PurchaseDate";
+            this.PurchaseDate.ReadOnly = true;
+            this.PurchaseDate.Width = 125;
+            // 
+            // Receipt
+            // 
+            this.Receipt.HeaderText = "Receipt";
+            this.Receipt.Name = "Receipt";
+            this.Receipt.ReadOnly = true;
+            this.Receipt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Receipt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // pbBack
             // 
@@ -362,68 +425,6 @@
             this.btnReceipt.Text = "Receipt";
             this.btnReceipt.UseVisualStyleBackColor = true;
             this.btnReceipt.Click += new System.EventHandler(this.btnReceipt_Click);
-            // 
-            // PurchaseID
-            // 
-            this.PurchaseID.DataPropertyName = "MaThanhToan";
-            this.PurchaseID.HeaderText = "Purchase ID";
-            this.PurchaseID.MinimumWidth = 6;
-            this.PurchaseID.Name = "PurchaseID";
-            this.PurchaseID.ReadOnly = true;
-            this.PurchaseID.Width = 125;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "ThanhTien";
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 125;
-            // 
-            // RoomID
-            // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.MinimumWidth = 6;
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            this.RoomID.Width = 125;
-            // 
-            // StaffID
-            // 
-            this.StaffID.DataPropertyName = "MaNV";
-            this.StaffID.HeaderText = "Staff ID";
-            this.StaffID.MinimumWidth = 6;
-            this.StaffID.Name = "StaffID";
-            this.StaffID.ReadOnly = true;
-            this.StaffID.Width = 125;
-            // 
-            // CheckIn
-            // 
-            this.CheckIn.HeaderText = "Check In";
-            this.CheckIn.MinimumWidth = 6;
-            this.CheckIn.Name = "CheckIn";
-            this.CheckIn.ReadOnly = true;
-            this.CheckIn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CheckIn.Width = 125;
-            // 
-            // PurchaseDate
-            // 
-            this.PurchaseDate.DataPropertyName = "NgayThanhToan";
-            this.PurchaseDate.HeaderText = "Purchase Date";
-            this.PurchaseDate.MinimumWidth = 6;
-            this.PurchaseDate.Name = "PurchaseDate";
-            this.PurchaseDate.ReadOnly = true;
-            this.PurchaseDate.Width = 125;
-            // 
-            // Receipt
-            // 
-            this.Receipt.HeaderText = "Receipt";
-            this.Receipt.Name = "Receipt";
-            this.Receipt.ReadOnly = true;
-            this.Receipt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Receipt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FrmPurchase
             // 
