@@ -84,7 +84,14 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void cbShow_CheckedChanged(object sender, EventArgs e)
         {
-            this.txtPassword.UseSystemPasswordChar = false;
+            if (cbShow.Checked == true)
+            {
+                this.txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                this.txtPassword.UseSystemPasswordChar = true;
+            }
         }
         #endregion
 

@@ -22,11 +22,11 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select min(NgayVao) from ThuePhong Where MaPhong='" + idroom + "'", CommandType.Text);
         }
 
-        public bool AddUseRoom(string MaPhong, string CMND, string NgayVao, string NgayRa, float DatCoc, ref string err)
+        public bool AddUseRoom(string MaPhong, string CMND, string NgayVao, string MaNV, float DatCoc, ref string err)
         {
             string sqlString = "Update Phong Set  TrangThai=" + 1 + "Where MaPhong ='" + MaPhong + "'";
             db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-            sqlString = "Insert Into ThuePhong Values('" + MaPhong + "','" + CMND + "','" + NgayVao + "','" + NgayRa + "'," + DatCoc + ")";
+            sqlString = "Insert Into ThuePhong Values('" + MaPhong + "','" + CMND + "','" + NgayVao + "'," + DatCoc + ",'" + MaNV + "')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
@@ -38,7 +38,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public bool UpdateUseRoom(string MaPhong, string CMND, string NgayVao, string NgayRa, float DatCoc, ref string err)
         {
-            string sqlString = "Update ThuePhong Set NgayVao = '" + NgayVao + "',NgayRa='" + NgayRa + "',DatCoc=" + DatCoc + "Where MaPhong='" + MaPhong + "' and CMND='" + CMND + "'";
+            string sqlString = "Update ThuePhong Set NgayVao = '" + NgayVao + "',DatCoc=" + DatCoc + "Where MaPhong='" + MaPhong + "' and CMND='" + CMND + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
     }
