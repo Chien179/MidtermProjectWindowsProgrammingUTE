@@ -17,9 +17,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         BLLogin dbLogin = new BLLogin();
         BLStaff dbStaff = new BLStaff();
         string err = "";
-        string namelogin = "";
-        string password = "";
-        string posstaff = "";
         #endregion
 
         #region Construction
@@ -33,22 +30,27 @@ namespace MidtermProjectWindowsProgrammingUTE
         #region Events_Click
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            DataSet staff = dbLogin.GetIDStaff(namelogin, password);
-            if (staff.Tables[0].Rows.Count > 0)
+            if (dbLogin.CheckAccount(this.txtUsername.Text, this.txtPassword.Text, ref err) == true)
             {
-                string idstaff = staff.Tables[0].Rows[0][0].ToString();
-                posstaff = dbStaff.GetPositionStaff(idstaff).Tables[0].Rows[0][0].ToString();
-            }
+                string posstaff = "";
 
-            if (dbLogin.CheckAccount(namelogin,password,ref err) == true)
-            {
+                DataSet staff = dbLogin.GetIDStaff(this.txtUsername.Text, this.txtPassword.Text);
+                if (staff.Tables[0].Rows.Count > 0)
+                {
+                    string idstaff = staff.Tables[0].Rows[0][0].ToString();
+                    posstaff = dbStaff.GetPositionStaff(idstaff).Tables[0].Rows[0][0].ToString();
+                }
+
                 if (posstaff == "Giám Đốc")
                 {
                     FrmMain frmmain = new FrmMain();
                     this.Hide();
                     frmmain.ShowDialog();
                     txtPassword.ResetText();
+                    this.cbShow.Checked = false;
+                    this.txtPassword.UseSystemPasswordChar = true;
                     this.Show();
+                    this.txtPassword.Focus();
                 }
                 else
                 {
@@ -58,7 +60,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                         this.Hide();
                         formstaff.ShowDialog();
                         txtPassword.ResetText();
+                        this.cbShow.Checked = false;
+                        this.txtPassword.UseSystemPasswordChar = true;
                         this.Show();
+                        this.txtPassword.Focus();
                     }
                     else
                     {
@@ -71,6 +76,9 @@ namespace MidtermProjectWindowsProgrammingUTE
                 MessageBox.Show("UserName or Password incorrected");
             }
         }
+        #endregion
+
+        #region Form_Closing
         private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult dr;
@@ -83,16 +91,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         #endregion
 
         #region Events_Changed
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-            this.namelogin = this.txtUsername.Text;
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-            this.password = this.txtPassword.Text;
-        }
-
         private void cbShow_CheckedChanged(object sender, EventArgs e)
         {
             if (cbShow.Checked == true)
@@ -103,9 +101,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 this.txtPassword.UseSystemPasswordChar = true;
             }
+
+            this.txtPassword.Focus();
         }
         #endregion
-
-        
     }
 }
