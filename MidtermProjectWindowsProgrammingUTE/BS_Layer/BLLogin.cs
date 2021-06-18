@@ -48,7 +48,6 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
                 sqlString = "Select * From KhachHang Where CMND Like'%" + key + "%'or TenKH Like N'%" + key + "%'or DiaChi Like N'%" + key + "%'or SoDienThoai Like '%" + key + "%' or NgaySinh Like '%" + key + "%'";
             }
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
-
         }
     }
 }

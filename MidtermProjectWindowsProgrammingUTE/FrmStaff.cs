@@ -167,10 +167,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.txtID.Text != "")
                     {
                         blStaff.AddStaff(this.txtID.Text, this.txtName.Text, this.txtChucVu.Text, this.dtpBirthDate.Text, this.cbFemale.Checked.ToString(), ref err);
-                        // Thông báo
-                        MessageBox.Show("Added successfully!");
+                        
                         // Load lại dữ liệu trên DataGridView
                         LoadData();
+
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
                     }
                 }
                 catch (SqlException)

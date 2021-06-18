@@ -90,10 +90,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.txtID.Text != "")
                     {
                         blClient.AddClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);
-                        // Thông báo
-                        MessageBox.Show("Added successfully!");
+                       
                         // Load lại dữ liệu trên DataGridView
                         LoadData();
+
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
                     }
                 }
                 catch (SqlException)

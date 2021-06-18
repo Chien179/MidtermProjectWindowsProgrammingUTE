@@ -94,10 +94,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                             Price = float.Parse(this.txtPrice.Text);
                         }
                         blRoom.AddRoom(this.txtRoomID.Text, this.cmbRoomType.SelectedValue.ToString(), this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, Price, ref err);
-                        // Thông báo
-                        MessageBox.Show("Added successfully!");
+                        
                         // Load lại dữ liệu trên DataGridView
                         LoadData();
+
+                        // Thông báo
+                        MessageBox.Show("Added successfully!");
                     }
                 }
                 catch (SqlException)

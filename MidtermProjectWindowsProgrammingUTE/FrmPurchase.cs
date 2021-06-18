@@ -94,10 +94,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                         if (Total != 0)
                         {
                             blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.SelectedValue.ToString(), ref err);
-                            // Thông báo
-                            MessageBox.Show("Added successfully!");
+                            
                             // Load lại dữ liệu trên DataGridView
                             LoadData();
+
+                            // Thông báo
+                            MessageBox.Show("Added successfully!");
                         }
                         else
                         {
