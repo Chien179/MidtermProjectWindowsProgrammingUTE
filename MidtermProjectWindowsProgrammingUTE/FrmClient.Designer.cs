@@ -60,8 +60,8 @@
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblNhanVien = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
@@ -417,34 +417,35 @@
             this.btnLogout.TabIndex = 123;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(1089, 161);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 18);
-            this.label7.TabIndex = 127;
-            this.label7.Text = "label8";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(980, 161);
+            this.label8.Location = new System.Drawing.Point(1023, 161);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 18);
-            this.label8.TabIndex = 126;
-            this.label8.Text = "Nhân viên:";
+            this.label8.Size = new System.Drawing.Size(46, 18);
+            this.label8.TabIndex = 127;
+            this.label8.Text = "label8";
+            // 
+            // lblNhanVien
+            // 
+            this.lblNhanVien.AutoSize = true;
+            this.lblNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblNhanVien.Location = new System.Drawing.Point(940, 161);
+            this.lblNhanVien.Name = "lblNhanVien";
+            this.lblNhanVien.Size = new System.Drawing.Size(77, 18);
+            this.lblNhanVien.TabIndex = 126;
+            this.lblNhanVien.Text = "Nhân viên:";
             // 
             // FrmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblNhanVien);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.pbCancel);
@@ -513,7 +514,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Female;
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblNhanVien;
     }
 }

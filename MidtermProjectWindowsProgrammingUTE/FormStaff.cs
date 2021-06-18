@@ -7,33 +7,52 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FormStaff : Form
     {
+        string Name = "";
+
         #region Constructors
-        public FormStaff()
+        public FormStaff(string TenNV)
         {
             InitializeComponent();
+            this.Name = TenNV;
         }
         #endregion
 
         #region Events Click
         private void Client_Click(object sender, EventArgs e)
         {
-            FrmClient frmclient = new FrmClient();
+            FrmClient frmclient = new FrmClient(this.Name);
             frmclient.ShowDialog();
+            if (frmclient.Logout == true)
+            {
+                this.Close();
+            }
         }
         private void ServiceUsing_Click(object sender, EventArgs e)
         {
-            FrmUseService frmuseService = new FrmUseService();
+            FrmUseService frmuseService = new FrmUseService(this.Name);
             frmuseService.ShowDialog();
+            if (frmuseService.Logout == true)
+            {
+                this.Close();
+            }
         }
         private void RoomUsing_Click(object sender, EventArgs e)
         {
-            FrmUseRoom frmuseRoom = new FrmUseRoom();
+            FrmUseRoom frmuseRoom = new FrmUseRoom(this.Name);
             frmuseRoom.ShowDialog();
+            if (frmuseRoom.Logout == true)
+            {
+                this.Close();
+            }
         }
         private void Purchase_Click(object sender, EventArgs e)
         {
-            FrmPurchase frmPurchase = new FrmPurchase();
+            FrmPurchase frmPurchase = new FrmPurchase(this.Name);
             frmPurchase.ShowDialog();
+            if (frmPurchase.Logout == true)
+            {
+                this.Close();
+            }
         }
 
         #endregion

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MidtermProjectWindowsProgrammingUTE.BS_Layer;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MidtermProjectWindowsProgrammingUTE.BS_Layer;
 
 namespace MidtermProjectWindowsProgrammingUTE
 {
@@ -30,20 +24,20 @@ namespace MidtermProjectWindowsProgrammingUTE
         #region Events_Click
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string posstaff = "", idstaff = "";
+
+            DataSet staff = dbLogin.GetIDStaff(this.txtUsername.Text, this.txtPassword.Text);
+            if (staff.Tables[0].Rows.Count > 0)
+            {
+                idstaff = staff.Tables[0].Rows[0][0].ToString();
+                posstaff = dbStaff.GetPosAndNameStaff(idstaff).Tables[0].Rows[0][1].ToString();
+            }
+
             if (dbLogin.CheckAccount(this.txtUsername.Text, this.txtPassword.Text, ref err) == true)
             {
-                string posstaff = "";
-
-                DataSet staff = dbLogin.GetIDStaff(this.txtUsername.Text, this.txtPassword.Text);
-                if (staff.Tables[0].Rows.Count > 0)
-                {
-                    string idstaff = staff.Tables[0].Rows[0][0].ToString();
-                    posstaff = dbStaff.GetPositionStaff(idstaff).Tables[0].Rows[0][0].ToString();
-                }
-
                 if (posstaff == "Giám Đốc")
                 {
-                    FrmMain frmmain = new FrmMain();
+                    FrmMain frmmain = new FrmMain(dbStaff.GetPosAndNameStaff(idstaff).Tables[0].Rows[0][0].ToString());
                     this.Hide();
                     frmmain.ShowDialog();
                     txtPassword.ResetText();
@@ -56,7 +50,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     if (posstaff == "Nhân Viên")
                     {
-                        FormStaff formstaff = new FormStaff();
+                        FormStaff formstaff = new FormStaff(dbStaff.GetPosAndNameStaff(idstaff).Tables[0].Rows[0][0].ToString());
                         this.Hide();
                         formstaff.ShowDialog();
                         txtPassword.ResetText();
@@ -68,12 +62,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     else
                     {
                         MessageBox.Show("UserName or Password incorrected");
+                        this.txtPassword.Focus();
                     }
                 }
             }
             else
             {
                 MessageBox.Show("UserName or Password incorrected");
+                this.txtPassword.Focus();
             }
         }
         #endregion

@@ -7,55 +7,90 @@ namespace MidtermProjectWindowsProgrammingUTE
 {
     public partial class FrmMain : Form
     {
+        string Name = "";
+
         #region Constructors
-        public FrmMain()
+        public FrmMain(string TenNV)
         {
             InitializeComponent();
+            this.Name = TenNV;
         }
         #endregion
 
         #region Events Click
         private void Client_Click(object sender, EventArgs e)
         {
-            FrmClient frmclient = new FrmClient();
+            FrmClient frmclient = new FrmClient(this.Name);
             frmclient.ShowDialog();
+            if (frmclient.Logout == true)
+            {
+                this.Close();
+            }
         }
         private void Staff_Click(object sender, EventArgs e)
         {
-            FrmStaff frmstaff = new FrmStaff();
+            FrmStaff frmstaff = new FrmStaff(this.Name);
             frmstaff.ShowDialog();
+            if (frmstaff.Logout == true)
+            {
+                this.Close();
+            }
         }
         private void ServiceUsing_Click(object sender, EventArgs e)
         {
-            FrmUseService frmuseService = new FrmUseService();
+            FrmUseService frmuseService = new FrmUseService(this.Name);
             frmuseService.ShowDialog();
+            if (frmuseService.Logout == true)
+            {
+                this.Close();
+            }
         }
         private void RoomUsing_Click(object sender, EventArgs e)
         {
-            FrmUseRoom frmuseRoom = new FrmUseRoom();
+            FrmUseRoom frmuseRoom = new FrmUseRoom(this.Name);
             frmuseRoom.ShowDialog();
+            if (frmuseRoom.Logout == true)
+            {
+                this.Close();
+            }
         }
         private void Purchase_Click(object sender, EventArgs e)
         {
-            FrmPurchase frmPurchase = new FrmPurchase();
+            FrmPurchase frmPurchase = new FrmPurchase(this.Name);
             frmPurchase.ShowDialog();
+            if (frmPurchase.Logout == true)
+            {
+                this.Close();
+            }
         }
         private void Room_Click(object sender, EventArgs e)
         {
-            FrmRoom frmroom = new FrmRoom();
+            FrmRoom frmroom = new FrmRoom(this.Name);
             frmroom.ShowDialog();
+            if (frmroom.Logout == true)
+            {
+                this.Close();
+            }
         }
 
         private void Service_Click(object sender, EventArgs e)
         {
-            FrmService frmservice = new FrmService();
+            FrmService frmservice = new FrmService(this.Name);
             frmservice.ShowDialog();
+            if (frmservice.Logout == true)
+            {
+                this.Close();
+            }
         }
 
         private void TypeRoom_Click(object sender, EventArgs e)
         {
-            FrmTypeRoom frmTypeRoom = new FrmTypeRoom();
+            FrmTypeRoom frmTypeRoom = new FrmTypeRoom(this.Name);
             frmTypeRoom.ShowDialog();
+            if (frmTypeRoom.Logout == true)
+            {
+                this.Close();
+            }
         }
         #endregion
 

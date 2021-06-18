@@ -12,9 +12,9 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             db = new DBMain();
         }
 
-        public DataSet GetPositionStaff(string IDStaff)
+        public DataSet GetPosAndNameStaff(string IDStaff)
         {
-            return db.ExecuteQueryDataSet("select ChucVu from NhanVien where MaNV='"+ IDStaff +"'", CommandType.Text);
+            return db.ExecuteQueryDataSet("select TenNV,ChucVu from NhanVien where MaNV='"+ IDStaff +"'", CommandType.Text);
         }
 
         public DataSet GetStaff()

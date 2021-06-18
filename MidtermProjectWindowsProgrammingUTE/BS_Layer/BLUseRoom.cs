@@ -22,6 +22,17 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select min(NgayVao) from ThuePhong Where MaPhong='" + idroom + "'", CommandType.Text);
         }
 
+        public DataSet GetUseRoomUnpaid()
+        {
+            return db.ExecuteQueryDataSet("select * from ThuePhong Where TrangThai=" + 0, CommandType.Text);
+        }
+
+        public bool CheckUseRoomStatus(string idroom,ref string err)
+        {
+            string sqlString = "select * from ThuePhong Where MaPhong='" + idroom + "'and ThanhToan='"+0+"'";
+            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+        }
+
         public bool AddUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, string MaNV, ref string err)
         {
             string sqlString = "Update Phong Set  TrangThai=" + 1 + "Where MaPhong ='" + MaPhong + "'";
@@ -35,6 +46,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             string sqlString = "Delete From ThuePhong Where MaPhong ='" + MaPhong + "' and CMND ='" + CMND + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
+
         public DataSet SearchUseRoom(string key)
         {
             string sqlString = "Select * From ThuePhong Where MaPhong Like'%" + key + "%'or CMND Like '%" + key + "%' or NgayVao Like '%" + key + "%'or NgayRa Like '%" + key + "%'or DatCoc Like '%" + key + "'";

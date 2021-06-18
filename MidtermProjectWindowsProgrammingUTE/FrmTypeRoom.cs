@@ -13,14 +13,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         DataTable dtTypeRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
+        bool logout = false;
         string err = "";
         BLTypeRoom dbTypeRoom = new BLTypeRoom();
         #endregion
 
         #region Constructors
-        public FrmTypeRoom()
+        public FrmTypeRoom(string TenNV)
         {
             InitializeComponent();
+            this.label8.Text = TenNV;
         }
 
         private void FrmTypeRoom_Load(object sender, EventArgs e)
@@ -387,5 +389,16 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            logout = true;
+            this.Close();
+        }
+
+        public bool Logout
+        {
+            get { return logout; }
+        }
     }
 }

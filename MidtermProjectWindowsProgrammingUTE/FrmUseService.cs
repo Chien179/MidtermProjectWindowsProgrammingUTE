@@ -16,6 +16,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         DataTable dtRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
+        bool logout = false;
         string err;
         BLUseService dbUseService = new BLUseService();
         BLService dbService = new BLService();
@@ -23,9 +24,10 @@ namespace MidtermProjectWindowsProgrammingUTE
         #endregion
 
         #region Constructors
-        public FrmUseService()
+        public FrmUseService(string TenNV)
         {
             InitializeComponent();
+            this.label8.Text = TenNV;
         }
 
         private void FrmUseService_Load(object sender, EventArgs e)
@@ -198,12 +200,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             Search();
         }
-
-        private void btnServices_Click(object sender, EventArgs e)
-        {
-            FrmService frmservice = new FrmService();
-            frmservice.ShowDialog();
-        }
         #endregion
 
         #region Events Mouse
@@ -369,5 +365,16 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            logout = true;
+            this.Close();
+        }
+
+        public bool Logout
+        {
+            get { return logout; }
+        }
     }
 }

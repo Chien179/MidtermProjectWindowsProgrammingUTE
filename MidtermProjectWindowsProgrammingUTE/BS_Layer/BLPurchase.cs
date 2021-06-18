@@ -18,14 +18,14 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select * from ThanhToan", CommandType.Text);
         }
 
-        public bool AddPurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, string MaNV, ref string err)
+        public bool AddPurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, string MaNV, string TrangThai, ref string err)
         {
-            string sqlString = "Insert Into ThanhToan Values('" + MaTT + "'," + ThanhTien + ",'" + NgayThanhToan + "','" + MaPhong + "','" + MaNV + "')";
+            string sqlString = "Insert Into ThanhToan Values('" + MaTT + "'," + ThanhTien + ",'" + NgayThanhToan + "','" + MaPhong + "','" + MaNV + "','" + TrangThai + "')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
-        public bool UpdatePurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, string MaNV, ref string err)
+        public bool UpdatePurchase(string MaTT, decimal ThanhTien, string NgayThanhToan, string MaPhong, string MaNV, string TrangThai, ref string err)
         {
-            string sqlString = "Update ThanhToan Set ThanhTien=" + ThanhTien + ",NgayThanhToan='" + NgayThanhToan + "',MaPhong='" + MaPhong + "', MaNV='" + MaNV + "' Where MaThanhToan='" + MaTT + "'";
+            string sqlString = "Update ThanhToan Set ThanhTien=" + ThanhTien + ",NgayThanhToan='" + NgayThanhToan + "',MaPhong='" + MaPhong + "', MaNV='" + MaNV + "', TrangThai='" + TrangThai + "'Where MaThanhToan='" + MaTT + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
@@ -37,7 +37,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public bool DeletePurchase(ref string err, string MaTT)
         {
-            
+
             string sqlString = "Delete From ThanhToan Where MaThanhToan='" + MaTT + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
 

@@ -15,6 +15,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         DataTable dtStaff = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
+        bool logout = false;
         string err = "";
         BLPurchase dbPurchase = new BLPurchase();
         BLUseRoom dbUseRoom = new BLUseRoom();
@@ -22,9 +23,10 @@ namespace MidtermProjectWindowsProgrammingUTE
         #endregion
 
         #region constructor
-        public FrmPurchase()
+        public FrmPurchase(string TenNV)
         {
             InitializeComponent();
+            this.label8.Text = TenNV;
         }
 
         private void FrmPurchase_Load(object sender, EventArgs e)
@@ -83,6 +85,16 @@ namespace MidtermProjectWindowsProgrammingUTE
                         txtPurchaseID.Focus();
                         return;
                     }
+
+                    string id = cmbRoomID.Text.Trim();
+
+                    if (id == dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString().Trim() && dbUseRoom.CheckUseRoomStatus(id, ref err) == false)
+                    {
+                        MessageBox.Show("hoa don phong " + i + "truoc do chua duoc thanh toan");//PHI ANH phiên dịch nha
+                        txtTotal.ResetText();
+                        txtPurchaseID.Focus();
+                        return;
+                    }
                 }
 
                 try
@@ -94,7 +106,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
                         if (Total != 0)
                         {
-                            blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.SelectedValue.ToString(), ref err);
+                            blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.SelectedValue.ToString(), this.cbStatus.Checked.ToString(), ref err);
                             // Load lại dữ liệu trên DataGridView
                             LoadData();
                             // Thông báo
@@ -123,7 +135,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 }
                 dbUseRoom.UpdateCheckInDay(this.cmbRoomID.SelectedValue.ToString(), this.dtpDateIn.Text, ref err);
                 decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
-                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, ref err);
+                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, this.cbStatus.Checked.ToString(), ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -148,6 +160,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     this.cmbRoomID.Text = dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString();
                     this.cmbStaffID.Text = dgvPurchase.Rows[r].Cells["StaffID"].Value.ToString();
                     this.dtpDateIn.Text = dgvPurchase.Rows[r].Cells["CheckIn"].Value.ToString();
+                    this.cbStatus.Checked = Convert.ToBoolean(dgvPurchase.Rows[r].Cells["Paid"].Value.ToString());
                 }
             }
             catch (Exception)
@@ -158,20 +171,20 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void dgvPurchase_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            try
             {
-                if (dgvPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "receipt")
+                if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
                 {
-                    MessageBox.Show("oki");
+                    if (dgvPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "receipt")
+                    {
+                        MessageBox.Show("oki");
+                    }
                 }
             }
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Cannot load data into DataGridView !");
-            //}
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot load data into DataGridView !");
+            }
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -364,7 +377,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
                 DataSet dsstaff = dbStaff.GetStaff();
                 DataSet ds = dbPurchase.GetPurchase();
-                DataSet dsroom = dbUseRoom.GetUseRoom();
+                DataSet dsroom = dbUseRoom.GetUseRoomUnpaid();
                 dtPurchase = ds.Tables[0];
                 dtUseRoom = dsroom.Tables[0];
                 dtStaff = dsstaff.Tables[0];
@@ -464,6 +477,17 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void btnReceipt_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            logout = true;
+            this.Close();
+        }
+
+        public bool Logout 
+        {
+            get { return logout; }
         }
     }
 }

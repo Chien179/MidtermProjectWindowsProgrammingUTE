@@ -35,10 +35,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvUseService = new System.Windows.Forms.DataGridView();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -55,8 +51,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbCMND = new System.Windows.Forms.ComboBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pbDelete = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblNhanVien = new System.Windows.Forms.Label();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Paid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUseService)).BeginInit();
@@ -118,7 +119,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.RoomID,
             this.ServiceID,
             this.DateUse,
-            this.Amount});
+            this.Amount,
+            this.Paid});
             this.dgvUseService.Location = new System.Drawing.Point(679, 251);
             this.dgvUseService.Name = "dgvUseService";
             this.dgvUseService.ReadOnly = true;
@@ -126,42 +128,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dgvUseService.Size = new System.Drawing.Size(593, 341);
             this.dgvUseService.TabIndex = 85;
             this.dgvUseService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUseService_CellClick);
-            // 
-            // RoomID
-            // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.MinimumWidth = 6;
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            this.RoomID.Width = 125;
-            // 
-            // ServiceID
-            // 
-            this.ServiceID.DataPropertyName = "MaDV";
-            this.ServiceID.HeaderText = "Service ID";
-            this.ServiceID.MinimumWidth = 6;
-            this.ServiceID.Name = "ServiceID";
-            this.ServiceID.ReadOnly = true;
-            this.ServiceID.Width = 125;
-            // 
-            // DateUse
-            // 
-            this.DateUse.DataPropertyName = "NgaySuDung";
-            this.DateUse.HeaderText = "Date Use";
-            this.DateUse.MinimumWidth = 6;
-            this.DateUse.Name = "DateUse";
-            this.DateUse.ReadOnly = true;
-            this.DateUse.Width = 125;
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "SoLuong";
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 125;
             // 
             // pbAdd
             // 
@@ -332,6 +298,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnLogout.TabIndex = 123;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pbDelete
             // 
@@ -343,33 +310,76 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbDelete.TabIndex = 126;
             this.pbDelete.TabStop = false;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(1090, 161);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 18);
-            this.label7.TabIndex = 128;
-            this.label7.Text = "label8";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(980, 161);
+            this.label8.Location = new System.Drawing.Point(1021, 161);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 18);
-            this.label8.TabIndex = 127;
-            this.label8.Text = "Nhân viên:";
+            this.label8.Size = new System.Drawing.Size(46, 18);
+            this.label8.TabIndex = 128;
+            this.label8.Text = "label8";
+            // 
+            // lblNhanVien
+            // 
+            this.lblNhanVien.AutoSize = true;
+            this.lblNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblNhanVien.Location = new System.Drawing.Point(938, 161);
+            this.lblNhanVien.Name = "lblNhanVien";
+            this.lblNhanVien.Size = new System.Drawing.Size(77, 18);
+            this.lblNhanVien.TabIndex = 127;
+            this.lblNhanVien.Text = "Nhân viên:";
+            // 
+            // RoomID
+            // 
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.MinimumWidth = 6;
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            this.RoomID.Width = 125;
+            // 
+            // ServiceID
+            // 
+            this.ServiceID.DataPropertyName = "MaDV";
+            this.ServiceID.HeaderText = "Service ID";
+            this.ServiceID.MinimumWidth = 6;
+            this.ServiceID.Name = "ServiceID";
+            this.ServiceID.ReadOnly = true;
+            this.ServiceID.Width = 125;
+            // 
+            // DateUse
+            // 
+            this.DateUse.DataPropertyName = "NgaySuDung";
+            this.DateUse.HeaderText = "Date Use";
+            this.DateUse.MinimumWidth = 6;
+            this.DateUse.Name = "DateUse";
+            this.DateUse.ReadOnly = true;
+            this.DateUse.Width = 125;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "SoLuong";
+            this.Amount.HeaderText = "Amount";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 125;
+            // 
+            // Paid
+            // 
+            this.Paid.DataPropertyName = "TrangThai";
+            this.Paid.HeaderText = "Paid";
+            this.Paid.Name = "Paid";
+            this.Paid.ReadOnly = true;
             // 
             // FrmUseService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblNhanVien);
             this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pbCancel);
@@ -416,10 +426,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.PictureBox pbSave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateUse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.GroupBox gbInfor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -431,7 +437,12 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.ComboBox cmbCMND;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pbDelete;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateUse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Paid;
     }
 }

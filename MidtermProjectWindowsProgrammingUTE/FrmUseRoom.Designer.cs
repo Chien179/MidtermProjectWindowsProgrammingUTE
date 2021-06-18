@@ -35,12 +35,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvRoom = new System.Windows.Forms.DataGridView();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Deposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -57,10 +51,16 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID = new System.Windows.Forms.ComboBox();
             this.cmbCMND = new System.Windows.Forms.ComboBox();
             this.txtDeposit = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblNhanVien = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pbDelete = new System.Windows.Forms.PictureBox();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Deposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
@@ -132,58 +132,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dgvRoom.Size = new System.Drawing.Size(593, 341);
             this.dgvRoom.TabIndex = 68;
             this.dgvRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRoom_CellClick);
-            // 
-            // RoomID
-            // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.MinimumWidth = 6;
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            this.RoomID.Width = 125;
-            // 
-            // CMND
-            // 
-            this.CMND.DataPropertyName = "CMND";
-            this.CMND.HeaderText = "ID";
-            this.CMND.MinimumWidth = 6;
-            this.CMND.Name = "CMND";
-            this.CMND.ReadOnly = true;
-            this.CMND.Width = 125;
-            // 
-            // CheckIn
-            // 
-            this.CheckIn.DataPropertyName = "NgayVao";
-            this.CheckIn.HeaderText = "Check In";
-            this.CheckIn.MinimumWidth = 6;
-            this.CheckIn.Name = "CheckIn";
-            this.CheckIn.ReadOnly = true;
-            this.CheckIn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CheckIn.Width = 125;
-            // 
-            // StaffID
-            // 
-            this.StaffID.DataPropertyName = "MaNV";
-            this.StaffID.HeaderText = "Staff ID";
-            this.StaffID.MinimumWidth = 6;
-            this.StaffID.Name = "StaffID";
-            this.StaffID.ReadOnly = true;
-            this.StaffID.Width = 125;
-            // 
-            // Deposit
-            // 
-            this.Deposit.DataPropertyName = "DatCoc";
-            this.Deposit.HeaderText = "Deposit";
-            this.Deposit.MinimumWidth = 6;
-            this.Deposit.Name = "Deposit";
-            this.Deposit.ReadOnly = true;
-            this.Deposit.Width = 125;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.HeaderText = "Full";
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
             // 
             // pbAdd
             // 
@@ -367,25 +315,25 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.txtDeposit.TabIndex = 78;
             this.txtDeposit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeposit_KeyPress);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(1085, 161);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 18);
-            this.label7.TabIndex = 125;
-            this.label7.Text = "label8";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(980, 161);
+            this.label8.Location = new System.Drawing.Point(1020, 161);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 18);
-            this.label8.TabIndex = 124;
-            this.label8.Text = "Nhân viên:";
+            this.label8.Size = new System.Drawing.Size(46, 18);
+            this.label8.TabIndex = 125;
+            this.label8.Text = "label8";
+            // 
+            // lblNhanVien
+            // 
+            this.lblNhanVien.AutoSize = true;
+            this.lblNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblNhanVien.Location = new System.Drawing.Point(937, 161);
+            this.lblNhanVien.Name = "lblNhanVien";
+            this.lblNhanVien.Size = new System.Drawing.Size(77, 18);
+            this.lblNhanVien.TabIndex = 124;
+            this.lblNhanVien.Text = "Nhân viên:";
             // 
             // btnLogout
             // 
@@ -395,6 +343,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnLogout.TabIndex = 123;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pbDelete
             // 
@@ -406,14 +355,67 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbDelete.TabIndex = 126;
             this.pbDelete.TabStop = false;
             // 
+            // RoomID
+            // 
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.MinimumWidth = 6;
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            this.RoomID.Width = 125;
+            // 
+            // CMND
+            // 
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "ID";
+            this.CMND.MinimumWidth = 6;
+            this.CMND.Name = "CMND";
+            this.CMND.ReadOnly = true;
+            this.CMND.Width = 125;
+            // 
+            // CheckIn
+            // 
+            this.CheckIn.DataPropertyName = "NgayVao";
+            this.CheckIn.HeaderText = "Check In";
+            this.CheckIn.MinimumWidth = 6;
+            this.CheckIn.Name = "CheckIn";
+            this.CheckIn.ReadOnly = true;
+            this.CheckIn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CheckIn.Width = 125;
+            // 
+            // StaffID
+            // 
+            this.StaffID.DataPropertyName = "MaNV";
+            this.StaffID.HeaderText = "Staff ID";
+            this.StaffID.MinimumWidth = 6;
+            this.StaffID.Name = "StaffID";
+            this.StaffID.ReadOnly = true;
+            this.StaffID.Width = 125;
+            // 
+            // Deposit
+            // 
+            this.Deposit.DataPropertyName = "DatCoc";
+            this.Deposit.HeaderText = "Deposit";
+            this.Deposit.MinimumWidth = 6;
+            this.Deposit.Name = "Deposit";
+            this.Deposit.ReadOnly = true;
+            this.Deposit.Width = 125;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "Paid";
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            // 
             // FrmUseRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
             this.Controls.Add(this.pbDelete);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblNhanVien);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
@@ -469,16 +471,16 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.ComboBox cmbCMND;
         private System.Windows.Forms.TextBox txtDeposit;
         private System.Windows.Forms.Label lblStaffID;
+        private System.Windows.Forms.ComboBox cmbStaffID;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblNhanVien;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.PictureBox pbDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Deposit;
-        private System.Windows.Forms.ComboBox cmbStaffID;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.DataGridViewCheckBoxColumn TrangThai;
-        private System.Windows.Forms.PictureBox pbDelete;
     }
 }

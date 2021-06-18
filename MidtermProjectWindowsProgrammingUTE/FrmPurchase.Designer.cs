@@ -40,6 +40,7 @@
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.gbInfor = new System.Windows.Forms.GroupBox();
+            this.cbStatus = new System.Windows.Forms.CheckBox();
             this.cmbStaffID = new System.Windows.Forms.ComboBox();
             this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,18 +56,17 @@
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.btnReceipt = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblNhanVien = new System.Windows.Forms.Label();
+            this.btnPaid = new System.Windows.Forms.Button();
             this.PurchaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Paid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Paid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Receipt = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.cbStatus = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
@@ -113,13 +113,12 @@
             this.dgvPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPurchase.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PurchaseID,
-            this.Paid,
             this.Total,
             this.RoomID,
             this.StaffID,
             this.CheckIn,
             this.PurchaseDate,
-            this.Status,
+            this.Paid,
             this.Receipt});
             this.dgvPurchase.Location = new System.Drawing.Point(679, 250);
             this.dgvPurchase.Name = "dgvPurchase";
@@ -130,26 +129,6 @@
             this.dgvPurchase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPurchase_CellClick);
             this.dgvPurchase.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPurchase_CellContentClick);
             this.dgvPurchase.Sorted += new System.EventHandler(this.dgvPurchase_Sorted);
-            // 
-            // PurchaseID
-            // 
-            this.PurchaseID.DataPropertyName = "MaThanhToan";
-            this.PurchaseID.HeaderText = "Purchase ID";
-            this.PurchaseID.MinimumWidth = 6;
-            this.PurchaseID.Name = "PurchaseID";
-            this.PurchaseID.ReadOnly = true;
-            this.PurchaseID.Width = 125;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "ThanhTien";
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 125;
-            // 
-            // RoomID
             // 
             // pbBack
             // 
@@ -250,6 +229,17 @@
             this.gbInfor.TabIndex = 104;
             this.gbInfor.TabStop = false;
             this.gbInfor.Text = "Information";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.AutoSize = true;
+            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbStatus.Location = new System.Drawing.Point(380, 117);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(74, 29);
+            this.cbStatus.TabIndex = 108;
+            this.cbStatus.Text = "Paid";
+            this.cbStatus.UseVisualStyleBackColor = true;
             // 
             // cmbStaffID
             // 
@@ -401,26 +391,36 @@
             this.btnLogout.TabIndex = 123;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(1082, 161);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 18);
-            this.label7.TabIndex = 127;
-            this.label7.Text = "label8";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(980, 161);
+            this.label8.Location = new System.Drawing.Point(1024, 161);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 18);
-            this.label8.TabIndex = 126;
-            this.label8.Text = "Nhân viên:";
+            this.label8.Size = new System.Drawing.Size(46, 18);
+            this.label8.TabIndex = 127;
+            this.label8.Text = "label8";
+            // 
+            // lblNhanVien
+            // 
+            this.lblNhanVien.AutoSize = true;
+            this.lblNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblNhanVien.Location = new System.Drawing.Point(941, 161);
+            this.lblNhanVien.Name = "lblNhanVien";
+            this.lblNhanVien.Size = new System.Drawing.Size(77, 18);
+            this.lblNhanVien.TabIndex = 126;
+            this.lblNhanVien.Text = "Nhân viên:";
+            // 
+            // btnPaid
+            // 
+            this.btnPaid.Location = new System.Drawing.Point(1027, 197);
+            this.btnPaid.Name = "btnPaid";
+            this.btnPaid.Size = new System.Drawing.Size(109, 40);
+            this.btnPaid.TabIndex = 128;
+            this.btnPaid.Text = "Paid";
+            this.btnPaid.UseVisualStyleBackColor = true;
             // 
             // PurchaseID
             // 
@@ -430,12 +430,6 @@
             this.PurchaseID.Name = "PurchaseID";
             this.PurchaseID.ReadOnly = true;
             this.PurchaseID.Width = 125;
-            // 
-            // Paid
-            // 
-            this.Paid.HeaderText = "Paid";
-            this.Paid.Name = "Paid";
-            this.Paid.ReadOnly = true;
             // 
             // Total
             // 
@@ -482,12 +476,12 @@
             this.PurchaseDate.ReadOnly = true;
             this.PurchaseDate.Width = 125;
             // 
-            // Status
+            // Paid
             // 
-            this.Status.DataPropertyName = "TrangThai";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
+            this.Paid.DataPropertyName = "TrangThai";
+            this.Paid.HeaderText = "Paid";
+            this.Paid.Name = "Paid";
+            this.Paid.ReadOnly = true;
             // 
             // Receipt
             // 
@@ -497,24 +491,14 @@
             this.Receipt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Receipt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // cbStatus
-            // 
-            this.cbStatus.AutoSize = true;
-            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbStatus.Location = new System.Drawing.Point(380, 117);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(92, 29);
-            this.cbStatus.TabIndex = 108;
-            this.cbStatus.Text = "Status";
-            this.cbStatus.UseVisualStyleBackColor = true;
-            // 
             // FrmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 604);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnPaid);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblNhanVien);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnReceipt);
             this.Controls.Add(this.pbDelete);
@@ -578,17 +562,17 @@
         private System.Windows.Forms.Button btnReceipt;
         private System.Windows.Forms.ComboBox cmbStaffID;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblNhanVien;
+        private System.Windows.Forms.CheckBox cbStatus;
+        private System.Windows.Forms.Button btnPaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseID;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Paid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Paid;
         private System.Windows.Forms.DataGridViewLinkColumn Receipt;
-        private System.Windows.Forms.CheckBox cbStatus;
     }
 }
