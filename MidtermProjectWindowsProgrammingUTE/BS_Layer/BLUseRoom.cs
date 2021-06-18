@@ -32,7 +32,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public DataSet SearchUseRoom(string key)
         {
-            string sqlString = "Select * From ThuePhong Where MaPhong Like'%" + key + "%'or CMND Like '%" + key + "%'or NgayRa Like '%" + key + "%'or DatCoc Like '%" + key + "'";
+            string sqlString = "Select * From ThuePhong Where MaPhong Like'%" + key + "%'or CMND Like '%" + key + "%' or NgayVao Like '%" + key + "%'or NgayRa Like '%" + key + "%'or DatCoc Like '%" + key + "'";
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
 
