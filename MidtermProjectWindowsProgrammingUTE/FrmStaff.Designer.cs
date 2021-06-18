@@ -57,9 +57,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.ChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Female = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
@@ -139,7 +139,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(22, 208);
+            this.label6.Location = new System.Drawing.Point(22, 215);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 25);
             this.label6.TabIndex = 23;
@@ -160,15 +160,15 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dtpBirthDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBirthDate.Location = new System.Drawing.Point(200, 203);
+            this.dtpBirthDate.Location = new System.Drawing.Point(200, 210);
             this.dtpBirthDate.Name = "dtpBirthDate";
-            this.dtpBirthDate.Size = new System.Drawing.Size(200, 30);
+            this.dtpBirthDate.Size = new System.Drawing.Size(176, 30);
             this.dtpBirthDate.TabIndex = 22;
             // 
             // txtChucVu
             // 
             this.txtChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtChucVu.Location = new System.Drawing.Point(200, 155);
+            this.txtChucVu.Location = new System.Drawing.Point(200, 160);
             this.txtChucVu.Name = "txtChucVu";
             this.txtChucVu.Size = new System.Drawing.Size(176, 30);
             this.txtChucVu.TabIndex = 19;
@@ -177,7 +177,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.cbFemale.AutoSize = true;
             this.cbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbFemale.Location = new System.Drawing.Point(411, 110);
+            this.cbFemale.Location = new System.Drawing.Point(395, 111);
             this.cbFemale.Name = "cbFemale";
             this.cbFemale.Size = new System.Drawing.Size(96, 29);
             this.cbFemale.TabIndex = 21;
@@ -187,7 +187,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtName.Location = new System.Drawing.Point(200, 106);
+            this.txtName.Location = new System.Drawing.Point(200, 108);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(176, 30);
             this.txtName.TabIndex = 18;
@@ -205,7 +205,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtID.Location = new System.Drawing.Point(200, 54);
+            this.txtID.Location = new System.Drawing.Point(200, 56);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(176, 30);
             this.txtID.TabIndex = 17;
@@ -214,7 +214,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(22, 160);
+            this.label4.Location = new System.Drawing.Point(22, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 25);
             this.label4.TabIndex = 3;
@@ -371,24 +371,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.BirthDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.BirthDate.Width = 125;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1095, 172);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 125;
-            this.label7.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1095, 151);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 124;
-            this.label8.Text = "label8";
-            // 
             // btnLogout
             // 
             this.btnLogout.Location = new System.Drawing.Point(1163, 151);
@@ -397,6 +379,26 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnLogout.TabIndex = 123;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label7.Location = new System.Drawing.Point(1086, 161);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 18);
+            this.label7.TabIndex = 127;
+            this.label7.Text = "label8";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label8.Location = new System.Drawing.Point(980, 161);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 18);
+            this.label8.TabIndex = 126;
+            this.label8.Text = "Nhân viên:";
             // 
             // FrmStaff
             // 
@@ -466,8 +468,8 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.DataGridViewTextBoxColumn ChucVu;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Female;
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnLogout;
     }
 }
