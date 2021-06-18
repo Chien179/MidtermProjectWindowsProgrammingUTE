@@ -90,10 +90,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                     BLPurchase blPurchase = new BLPurchase();
                     if (this.txtPurchaseID.Text != "" && this.cmbRoomID.Text != "")
                     {
-                        decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.txtPurchaseID.Text);
+                        decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
                         if (Total != 0)
                         {
-                            blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, this.dtpDateIn.Text, ref err);
+                            blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.SelectedValue.ToString(), ref err);
                             // Thông báo
                             MessageBox.Show("Added successfully!");
                             // Load lại dữ liệu trên DataGridView
@@ -120,7 +120,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     this.txtTotal.Text = "0";
                 }
-                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, this.dtpDateIn.Text, ref err);
+                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, ref err);
                 // Thông báo
                 MessageBox.Show("Edited successfully!");
                 // Load lại dữ liệu trên DataGridView
@@ -133,10 +133,11 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             try
             {
+                // Thứ tự dòng hiện hành
+                int r = dgvPurchase.CurrentCell.RowIndex;
                 if (dgvPurchase.Rows.Count > 0)
                 {
-                    // Thứ tự dòng hiện hành
-                    int r = dgvPurchase.CurrentCell.RowIndex;
+
                     // Chuyển thông tin lên panel
                     this.txtPurchaseID.Text = dgvPurchase.Rows[r].Cells["PurchaseID"].Value.ToString();
                     this.txtTotal.Text = dgvPurchase.Rows[r].Cells["Total"].Value.ToString();
@@ -144,6 +145,21 @@ namespace MidtermProjectWindowsProgrammingUTE
                     this.cmbRoomID.Text = dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString();
                     this.cmbStaffID.Text = dgvPurchase.Rows[r].Cells["StaffID"].Value.ToString();
                     this.dtpDateIn.Text = dgvPurchase.Rows[r].Cells["CheckIn"].Value.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot load data into DataGridView !");
+            }
+        }
+
+        private void dgvPurchase_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dgvPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "receipt")
+                {
+                    MessageBox.Show("oki");
                 }
             }
             catch (Exception)
@@ -346,11 +362,28 @@ namespace MidtermProjectWindowsProgrammingUTE
                 dtStaff = dsstaff.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvPurchase.DataSource = dtPurchase;
-                for(int i = 0; i < dgvPurchase.Rows.Count; i++)
+                for (int i = 0; i < dgvPurchase.Rows.Count; i++)
                 {
-                    DataSet roomusing= dbUseRoom.GetUseRoomCheckIn(dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString());                    
-                    dgvPurchase.Rows[i].Cells["CheckIn"].Value = roomusing.Tables[0].Rows[0][0].ToString();
+                    DataSet roomusing = dbUseRoom.GetUseRoomCheckIn(dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString());
+                    string[] NgayVao = roomusing.Tables[0].Rows[0][0].ToString().Split(' ');
+                    dgvPurchase.Rows[i].Cells["CheckIn"].Value = NgayVao[0];
                 }
+
+                for (int i = 0; i < this.dgvPurchase.Rows.Count; i++)
+                {
+                    dgvPurchase.Rows[i].Cells["Receipt"].Value = "receipt";
+                }
+
+                //Đưa dữ liệu mã phòng lên combobox
+                this.cmbRoomID.DataSource = dtUseRoom;
+                this.cmbRoomID.DisplayMember = dtUseRoom.Columns[0].ToString();
+                this.cmbRoomID.ValueMember = dtUseRoom.Columns[0].ToString();
+
+                //Đưa mã nv lên cmb
+                this.cmbStaffID.DataSource = dtStaff;
+                this.cmbStaffID.DisplayMember = dtStaff.Columns[0].ToString();
+                this.cmbStaffID.ValueMember = dtStaff.Columns[0].ToString();
+
                 // Thay đổi độ rộng cột
                 dgvPurchase.AutoResizeColumns();
                 // Xóa trống các đối tượng trong Panel
@@ -383,15 +416,6 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbEdit.Show();
                 this.pbDelete.Show();
                 this.pbBack.Show();
-                //Đưa dữ liệu mã phòng lên combobox
-                this.cmbRoomID.DataSource = dtUseRoom;
-                this.cmbRoomID.DisplayMember = dtUseRoom.Columns[0].ToString();
-                this.cmbRoomID.ValueMember = dtUseRoom.Columns[0].ToString();
-
-                //Đưa mã nv lên cmb
-                this.cmbStaffID.DataSource = dtStaff;
-                this.cmbStaffID.DisplayMember = dtStaff.Columns[0].ToString();
-                this.cmbStaffID.ValueMember = dtStaff.Columns[0].ToString();
 
                 dgvPurchase_CellClick(null, null);
             }
@@ -427,5 +451,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
+
+        private void btnReceipt_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
