@@ -47,9 +47,9 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
 
-        public bool UpdateUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, string MaNV, bool TrangThai, ref string err)
+        public bool UpdateUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, string MaNV, ref string err)
         {            
-            string sqlString = "Update ThuePhong Set NgayVao = '" + NgayVao + "',DatCoc=" + DatCoc + ",MaNV='" + MaNV + "',TrangThai=" + TrangThai + " Where MaPhong='" + MaPhong + "' and CMND='" + CMND + "'";
+            string sqlString = "Update ThuePhong Set NgayVao = '" + NgayVao + "',DatCoc=" + DatCoc + ",MaNV='" + MaNV + "',TrangThai='0'" + " Where MaPhong='" + MaPhong + "' and CMND='" + CMND + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 

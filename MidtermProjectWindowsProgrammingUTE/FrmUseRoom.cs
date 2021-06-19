@@ -75,6 +75,19 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
+                string roomid = cmbRoomID.Text.Trim();
+                string id = cmbCMND.Text.Trim();
+                for (int i = 0; i < dgvRoom.Rows.Count; i++)
+                {
+                    string temproomid = dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim();
+                    string tempid = dgvRoom.Rows[i].Cells["CMND"].Value.ToString().Trim();
+                    if (roomid == temproomid && id == tempid)
+                    {
+                        MessageBox.Show("Existed '" + roomid + "' and '" + id + "', please type another one !");
+                        txtDeposit.ResetText();
+                        return;
+                    }
+                }
                 if (this.cmbRoomID.Text == "" || this.cmbStaffID.Text == "" || this.cmbCMND.Text == "")
                 {
                     if (this.cmbRoomID.Text == "")
@@ -123,7 +136,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             else
             {
                 int r = dgvRoom.CurrentCell.RowIndex;
-                if (dgvRoom.Rows[r].Cells["TrangThai"].Value.ToString() == "True") //không thể edit dòng nào đã thanh toán rồi
+                if (bool.Parse(dgvRoom.Rows[r].Cells["TrangThai"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                 {
                     MessageBox.Show("Cannot edit paid rooms !");
                     return;
@@ -153,10 +166,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Thực hiện lệnh
                 BLUseRoom blUseRoom = new BLUseRoom();
                 blUseRoom.UpdateUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, float.Parse(this.txtDeposit.Text), this.cmbStaffID.SelectedValue.ToString(), ref err);
-                // Thông báo
-                MessageBox.Show("Edited successfully!");
+                
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
+                // Thông báo
+                MessageBox.Show("Edited successfully!");
             }
             // Đóng kết nối
         }
