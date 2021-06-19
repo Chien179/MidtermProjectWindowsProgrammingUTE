@@ -25,6 +25,12 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
+        public bool UpdateStatusRoom(string MaPhong, ref string err)
+        {
+            string sqlString = "Update Phong Set TrangThai=" + 0 + "Where MaPhong='" + MaPhong + "'";
+            return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
+        }
+
         public DataSet SearchRoom(string key, int Status)
         {
             string sqlString = "Select * From Phong Where TrangThai =" + Status + "and (MaPhong Like'%" + key + "%'or MaLoai Like N'%" + key + "%'or GhiChu Like N'%" + key + "%'or DienTich Like '%" + key + "%' or GiaThue Like '%" + key + "%')";

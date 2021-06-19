@@ -232,7 +232,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     }
                     // Thực hiện lệnh
                     BLUseService blUseService = new BLUseService();
-                    blUseService.UpdateUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbServiceID.SelectedValue.ToString(), this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
+                    blUseService.UpdateUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbServiceID.SelectedValue.ToString(), this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), Convert.ToBoolean(this.dgvUseService.Rows[dgvUseService.CurrentCell.RowIndex].Cells["Paid"].Value), ref err);
                     // Thông báo
                     MessageBox.Show("Edited successfully!");
                     // Load lại dữ liệu trên DataGridView

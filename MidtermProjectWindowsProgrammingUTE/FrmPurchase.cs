@@ -113,8 +113,6 @@ namespace MidtermProjectWindowsProgrammingUTE
 
                             string id = cmbRoomID.SelectedValue.ToString();
 
-                            MessageBox.Show(id, dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString());
-
                             if (id == dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString())
                             {
                                 if (Convert.ToBoolean(dgvPurchase.Rows[i].Cells["Paid"].Value) == false)
@@ -132,7 +130,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
                         if (Total != 0)
                         {
-                            blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.SelectedValue.ToString(), this.cbStatus.Checked.ToString(), ref err);
+                            blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.SelectedValue.ToString(), "0", ref err);
                             // Load lại dữ liệu trên DataGridView
                             LoadData();
                             // Thông báo
@@ -196,10 +194,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             try
             {
                 // Thứ tự dòng hiện hành
-                int r = dgvPurchase.CurrentCell.RowIndex;
                 if (dgvPurchase.Rows.Count > 0)
                 {
-
+                    int r = dgvPurchase.CurrentCell.RowIndex;
                     // Chuyển thông tin lên panel
                     this.txtPurchaseID.Text = dgvPurchase.Rows[r].Cells["PurchaseID"].Value.ToString();
                     this.txtTotal.Text = dgvPurchase.Rows[r].Cells["Total"].Value.ToString();
@@ -309,7 +306,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                 if (dgvPurchase.Rows.Count > 0)
                 {
                     int r = dgvPurchase.CurrentCell.RowIndex;
+                    BLUseService blUseService = new BLUseService();
                     dbPurchase.DeletePurchase(ref err, this.txtPurchaseID.Text);
+                    dbUseRoom.DeleteUseRoom(this.cmbRoomID.Text, ref err);
+                    blUseService.DeleteUseService(this.cmbRoomID.Text, ref err);
                     MessageBox.Show("Deleted all selected Clients' informations", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);//ne lam cho n giong may cai delete kia luon
                     LoadData();
                 }
@@ -539,17 +539,22 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void btnPaid_Click(object sender, EventArgs e)
         {
-            int r = dgvPurchase.CurrentCell.RowIndex;
-
-            if (Convert.ToBoolean(this.dgvPurchase.Rows[r].Cells["Paid"].Value) == false)
+            if (dgvPurchase.Rows.Count > 0)
             {
-                BLPurchase blPurchase = new BLPurchase();
-                BLUseService blUseService = new BLUseService();
-                blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, "1", ref err);
-                dbUseRoom.UpdateUseRoomStatus(this.cmbRoomID.SelectedValue.ToString(), ref err);
-                blUseService.UpdateStatusUseService(this.cmbRoomID.SelectedValue.ToString(), ref err);
-                LoadData();
-                MessageBox.Show("Paid", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int r = dgvPurchase.CurrentCell.RowIndex;
+
+                if (Convert.ToBoolean(this.dgvPurchase.Rows[r].Cells["Paid"].Value) == false)
+                {
+                    BLPurchase blPurchase = new BLPurchase();
+                    BLUseService blUseService = new BLUseService();
+                    BLRoom blRoom = new BLRoom();
+                    blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, "1", ref err);
+                    dbUseRoom.UpdateUseRoomStatus(this.cmbRoomID.SelectedValue.ToString(), ref err);
+                    blUseService.UpdateStatusUseService(this.cmbRoomID.SelectedValue.ToString(), ref err);
+                    blRoom.UpdateStatusRoom(this.cmbRoomID.SelectedValue.ToString(), ref err);
+                    LoadData();
+                    MessageBox.Show("Paid", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

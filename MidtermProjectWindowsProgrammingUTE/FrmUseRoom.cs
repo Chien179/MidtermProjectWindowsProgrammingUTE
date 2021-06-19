@@ -123,7 +123,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             else
             {
                 int r = dgvRoom.CurrentCell.RowIndex;
-                if (dgvRoom.Rows[r].Cells["TrangThai"].Value.ToString() == "True") //không thể edit dòng nào đã thanh toán rồi
+                if (Convert.ToBoolean(dgvRoom.Rows[r].Cells["TrangThai"].Value) == true) //không thể edit dòng nào đã thanh toán rồi
                 {
                     MessageBox.Show("Cannot edit paid rooms !");
                     return;
@@ -172,6 +172,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     // Chuyển thông tin lên panel
                     this.cmbRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
                     this.cmbCMND.Text = dgvRoom.Rows[r].Cells["CMND"].Value.ToString();
+                    this.cmbStaffID.Text= dgvRoom.Rows[r].Cells["StaffID"].Value.ToString();
                     this.dtpDateIn.Text = dgvRoom.Rows[r].Cells["CheckIn"].Value.ToString();
                     this.txtDeposit.Text = dgvRoom.Rows[r].Cells["Deposit"].Value.ToString();
                 }
