@@ -126,7 +126,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FmMenu";
             this.Text = "FmMenu";
-            this.Load += new System.EventHandler(this.FmMenu_Load);
             this.Click += new System.EventHandler(this.HotelManagement_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

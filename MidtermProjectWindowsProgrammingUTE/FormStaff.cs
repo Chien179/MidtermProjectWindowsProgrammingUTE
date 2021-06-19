@@ -21,38 +21,46 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void Client_Click(object sender, EventArgs e)
         {
             FrmClient frmclient = new FrmClient(this.Name);
+            this.Hide();
             frmclient.ShowDialog();
             if (frmclient.Logout == true)
             {
                 this.Close();
             }
+            this.Show();
         }
         private void ServiceUsing_Click(object sender, EventArgs e)
         {
             FrmUseService frmuseService = new FrmUseService(this.Name);
             frmuseService.ShowDialog();
+            this.Hide();
             if (frmuseService.Logout == true)
             {
                 this.Close();
             }
+            this.Show();
         }
         private void RoomUsing_Click(object sender, EventArgs e)
         {
             FrmUseRoom frmuseRoom = new FrmUseRoom(this.Name);
+            this.Hide();
             frmuseRoom.ShowDialog();
             if (frmuseRoom.Logout == true)
             {
                 this.Close();
             }
+            this.Show();
         }
         private void Purchase_Click(object sender, EventArgs e)
         {
             FrmPurchase frmPurchase = new FrmPurchase(this.Name);
+            this.Hide();
             frmPurchase.ShowDialog();
             if (frmPurchase.Logout == true)
             {
                 this.Close();
             }
+            this.Show();
         }
 
         #endregion

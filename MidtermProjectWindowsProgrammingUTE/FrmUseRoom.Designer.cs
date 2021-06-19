@@ -122,13 +122,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dgvRoom.AllowUserToAddRows = false;
             this.dgvRoom.AllowUserToDeleteRows = false;
             this.dgvRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RoomID,
-            this.CMND,
-            this.CheckIn,
-            this.StaffID,
-            this.Deposit,
-            this.TrangThai});
+            //this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            //this.RoomID,
+            //this.CMND,
+            //this.CheckIn,
+            //this.StaffID,
+            //this.Deposit,
+            //this.TrangThai});
             this.dgvRoom.Location = new System.Drawing.Point(905, 309);
             this.dgvRoom.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRoom.Name = "dgvRoom";
@@ -186,7 +186,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             // TrangThai
             // 
-            this.TrangThai.HeaderText = "Full";
+            this.TrangThai.HeaderText = "Paid";
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
             this.TrangThai.ReadOnly = true;

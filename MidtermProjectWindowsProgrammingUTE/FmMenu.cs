@@ -23,8 +23,13 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmManage frmmanage = new FrmManage(this.Name);
             this.Hide();
             frmmanage.ShowDialog();
+            if (frmmanage.logout == true)
+            {
+                this.Close();
+            }
             this.Show();
         }
+
         private void Report_Click(object sender, EventArgs e)
         {
             FrmReport frmreport = new FrmReport();
@@ -33,9 +38,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Show();
         }
         #endregion
-        private void FmMenu_Load(object sender, EventArgs e)
-        {
 
-        }
+
     }
 }
