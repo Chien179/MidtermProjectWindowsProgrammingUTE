@@ -217,7 +217,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 else
                 {
                     int r = dgvUseService.CurrentCell.RowIndex;
-                    if (bool.Parse(dgvUseService.Rows[r].Cells["TrangThai"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
+                    if (bool.Parse(dgvUseService.Rows[r].Cells["Paid"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                     {
                         MessageBox.Show("Cannot edit paid rooms !");
                         return;
@@ -245,7 +245,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     }
                     // Thực hiện lệnh
                     BLUseService blUseService = new BLUseService();
-                    blUseService.UpdateUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbServiceID.SelectedValue.ToString(), this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), Convert.ToBoolean(this.dgvUseService.Rows[dgvUseService.CurrentCell.RowIndex].Cells["Paid"].Value), ref err);
+                    blUseService.UpdateUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbServiceID.SelectedValue.ToString(), this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);
                     // Thông báo
                     MessageBox.Show("Edited successfully!");
                     // Load lại dữ liệu trên DataGridView

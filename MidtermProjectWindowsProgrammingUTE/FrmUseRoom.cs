@@ -136,7 +136,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             else
             {
                 int r = dgvRoom.CurrentCell.RowIndex;
-                if (bool.Parse(dgvRoom.Rows[r].Cells["TrangThai"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
+                if (bool.Parse(dgvRoom.Rows[r].Cells["Paid"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                 {
                     MessageBox.Show("Cannot edit paid rooms !");
                     return;

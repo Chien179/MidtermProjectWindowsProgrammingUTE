@@ -431,7 +431,6 @@
             this.txtPurchaseID.Name = "txtPurchaseID";
             this.txtPurchaseID.Size = new System.Drawing.Size(132, 36);
             this.txtPurchaseID.TabIndex = 29;
-            this.txtPurchaseID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPurchaseID_KeyPress);
             // 
             // label5
             // 

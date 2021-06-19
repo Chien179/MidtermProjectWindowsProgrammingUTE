@@ -153,7 +153,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             else
             {
                 int r = dgvPurchase.CurrentCell.RowIndex;
-                if (bool.Parse(dgvPurchase.Rows[r].Cells["TrangThai"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
+                if (bool.Parse(dgvPurchase.Rows[r].Cells["Paid"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                 {
                     MessageBox.Show("Cannot edit paid rooms !");
                     return;
@@ -185,7 +185,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     dbUseRoom.UpdateCheckInDay(this.cmbRoomID.SelectedValue.ToString(), this.dtpDateIn.Text, ref err);
                     decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
-                    blPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, ref err);
+                    blPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, 0, ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -198,8 +198,9 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void dgvPurchase_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
-            { 
+            {
                 if (dgvPurchase.Rows.Count > 0)
+                {
                     int r = dgvPurchase.CurrentCell.RowIndex;
                     // Chuyển thông tin lên panel
                     this.txtPurchaseID.Text = dgvPurchase.Rows[r].Cells["PurchaseID"].Value.ToString();
@@ -309,13 +310,47 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 if (dgvPurchase.Rows.Count > 0)
                 {
+                    this.gbInfor.Text = "Deleting.....";
+                    // Thực hiện lệnh 
+                    // Lấy thứ tự record hiện hành 
                     int r = dgvPurchase.CurrentCell.RowIndex;
-                    BLUseService blUseService = new BLUseService();
-                    dbPurchase.DeletePurchase(ref err, this.txtPurchaseID.Text);
-                    dbUseRoom.DeleteUseRoom(this.cmbRoomID.Text, ref err);
-                    blUseService.DeleteUseService(this.cmbRoomID.Text, ref err);
-                    MessageBox.Show("Deleted all selected Clients' informations", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);//ne lam cho n giong may cai delete kia luon
-                    LoadData();
+                    // Lấy MaKH của record hiện hành 
+                    string strCMND = dgvPurchase.Rows[r].Cells[0].Value.ToString();
+                    if (bool.Parse(dgvPurchase.Rows[r].Cells["Paid"].Value.ToString()) == true)
+                    {
+                        // Viết câu lệnh SQL 
+                        // Hiện thông báo xác nhận việc xóa mẫu tin 
+                        // Khai báo biến traloi 
+                        DialogResult traloi;
+                        // Hiện hộp thoại hỏi đáp 
+                        traloi = MessageBox.Show("Are you sure?", "Delete row",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        // Kiểm tra có nhắp chọn nút Ok không? 
+                        if (traloi == DialogResult.Yes)
+                        {
+                            dbPurchase.DeletePurchase(ref err, this.txtPurchaseID.Text);
+                            dbUseRoom.DeleteUseRoom(this.cmbRoomID.Text, ref err);
+                            if (err == "")
+                            {
+                                // Thông báo 
+                                MessageBox.Show("Deleted successfully!");
+                                // Cập nhật lại DataGridView 
+                                LoadData();
+                            }
+                            else
+                            {
+                                this.gbInfor.Text = "Information";
+                                // Thông báo 
+                                MessageBox.Show("Client is still using room !", "Delete failed!");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        this.gbInfor.Text = "Information";
+                        // Thông báo 
+                        MessageBox.Show("Delete failed!");
+                    }
                 }
             }
             catch (SqlException)
@@ -551,7 +586,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     BLPurchase blPurchase = new BLPurchase();
                     BLUseService blUseService = new BLUseService();
                     BLRoom blRoom = new BLRoom();
-                    blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, "1", ref err);
+                    blPurchase.UpdatePurchase(this.txtPurchaseID.Text, decimal.Parse(this.txtTotal.Text), this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, 1, ref err);
                     dbUseRoom.UpdateUseRoomStatus(this.cmbRoomID.SelectedValue.ToString(), ref err);
                     blUseService.UpdateStatusUseService(this.cmbRoomID.SelectedValue.ToString(), ref err);
                     blRoom.UpdateStatusRoom(this.cmbRoomID.SelectedValue.ToString(), ref err);
@@ -561,5 +596,4 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
         }
     }
-}
 }
