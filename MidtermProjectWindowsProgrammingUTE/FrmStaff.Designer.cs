@@ -76,7 +76,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1713, 177);
             this.panel1.TabIndex = 1;
@@ -96,7 +96,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
             this.pbDelete.Location = new System.Drawing.Point(383, 601);
-            this.pbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(4);
             this.pbDelete.Name = "pbDelete";
             this.pbDelete.Size = new System.Drawing.Size(80, 71);
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -110,7 +110,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
             this.pbCancel.Location = new System.Drawing.Point(684, 601);
-            this.pbCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCancel.Margin = new System.Windows.Forms.Padding(4);
             this.pbCancel.Name = "pbCancel";
             this.pbCancel.Size = new System.Drawing.Size(80, 71);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -133,9 +133,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Controls.Add(this.label4);
             this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gbInfor.Location = new System.Drawing.Point(157, 242);
-            this.gbInfor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInfor.Margin = new System.Windows.Forms.Padding(4);
             this.gbInfor.Name = "gbInfor";
-            this.gbInfor.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInfor.Padding = new System.Windows.Forms.Padding(4);
             this.gbInfor.Size = new System.Drawing.Size(677, 314);
             this.gbInfor.TabIndex = 115;
             this.gbInfor.TabStop = false;
@@ -169,7 +169,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dtpBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpBirthDate.Location = new System.Drawing.Point(267, 258);
-            this.dtpBirthDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpBirthDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpBirthDate.Name = "dtpBirthDate";
             this.dtpBirthDate.Size = new System.Drawing.Size(233, 36);
             this.dtpBirthDate.TabIndex = 22;
@@ -178,7 +178,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.txtChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtChucVu.Location = new System.Drawing.Point(267, 197);
-            this.txtChucVu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtChucVu.Margin = new System.Windows.Forms.Padding(4);
             this.txtChucVu.Name = "txtChucVu";
             this.txtChucVu.Size = new System.Drawing.Size(233, 36);
             this.txtChucVu.TabIndex = 19;
@@ -188,7 +188,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cbFemale.AutoSize = true;
             this.cbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbFemale.Location = new System.Drawing.Point(527, 137);
-            this.cbFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFemale.Margin = new System.Windows.Forms.Padding(4);
             this.cbFemale.Name = "cbFemale";
             this.cbFemale.Size = new System.Drawing.Size(120, 33);
             this.cbFemale.TabIndex = 21;
@@ -199,7 +199,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtName.Location = new System.Drawing.Point(267, 133);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(233, 36);
             this.txtName.TabIndex = 18;
@@ -219,10 +219,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtID.Location = new System.Drawing.Point(267, 69);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(233, 36);
             this.txtID.TabIndex = 17;
+            this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
             // 
             // label4
             // 
@@ -239,7 +240,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
             this.pbSave.Location = new System.Drawing.Point(579, 601);
-            this.pbSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbSave.Margin = new System.Windows.Forms.Padding(4);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(80, 71);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -259,7 +260,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             "Male",
             "Female"});
             this.cbSex.Location = new System.Drawing.Point(905, 204);
-            this.cbSex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbSex.Margin = new System.Windows.Forms.Padding(4);
             this.cbSex.Name = "cbSex";
             this.cbSex.Size = new System.Drawing.Size(160, 28);
             this.cbSex.TabIndex = 113;
@@ -270,7 +271,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Location = new System.Drawing.Point(1203, 242);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(43, 38);
             this.btnSearch.TabIndex = 114;
@@ -280,7 +281,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
             this.pbEdit.Location = new System.Drawing.Point(273, 601);
-            this.pbEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbEdit.Margin = new System.Windows.Forms.Padding(4);
             this.pbEdit.Name = "pbEdit";
             this.pbEdit.Size = new System.Drawing.Size(80, 71);
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -294,7 +295,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
             this.pbAdd.Location = new System.Drawing.Point(157, 601);
-            this.pbAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pbAdd.Name = "pbAdd";
             this.pbAdd.Size = new System.Drawing.Size(80, 71);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -308,7 +309,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
             this.pbBack.Location = new System.Drawing.Point(16, 186);
-            this.pbBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbBack.Margin = new System.Windows.Forms.Padding(4);
             this.pbBack.Name = "pbBack";
             this.pbBack.Size = new System.Drawing.Size(73, 64);
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -322,7 +323,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtFind.Location = new System.Drawing.Point(905, 242);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(288, 37);
             this.txtFind.TabIndex = 107;
@@ -340,7 +341,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Female,
             this.BirthDate});
             this.dgvStaff.Location = new System.Drawing.Point(905, 308);
-            this.dgvStaff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvStaff.Margin = new System.Windows.Forms.Padding(4);
             this.dgvStaff.Name = "dgvStaff";
             this.dgvStaff.ReadOnly = true;
             this.dgvStaff.RowHeadersWidth = 51;
@@ -398,7 +399,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // btnLogout
             // 
             this.btnLogout.Location = new System.Drawing.Point(1551, 186);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(145, 49);
             this.btnLogout.TabIndex = 123;
@@ -448,7 +449,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.txtFind);
             this.Controls.Add(this.dgvStaff);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmStaff";
             this.Text = "FrmStaff";
             this.Load += new System.EventHandler(this.FrmStaff_Load);

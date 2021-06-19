@@ -479,5 +479,13 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             get { return logout; }
         }
+
+        private void txtRoomID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -155,6 +155,19 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Thêm dữ liệu
                 if (Them)
                 {
+                    string roomid = cmbRoomID.Text.Trim();
+                    string serviceid = cmbServiceID.Text.Trim();
+                    for (int i = 0; i < dgvUseService.Rows.Count; i++)
+                    {
+                        string temproomid = dgvUseService.Rows[i].Cells["RoomID"].Value.ToString().Trim();
+                        string tempserviceid = dgvUseService.Rows[i].Cells["ServiceID"].Value.ToString().Trim();
+                        if (roomid == temproomid && serviceid == tempserviceid)
+                        {
+                            MessageBox.Show("Existed '" + roomid + "' and '" + serviceid + "', please type another one !");
+                            txtAmount.ResetText();
+                            return;
+                        }
+                    }
                     if (this.cmbRoomID.Text == "" || this.cmbServiceID.Text == "" || this.txtAmount.Text == "")
                     {
                         if (this.cmbRoomID.Text == "")
@@ -204,7 +217,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 else
                 {
                     int r = dgvUseService.CurrentCell.RowIndex;
-                    if (dgvUseService.Rows[r].Cells["TrangThai"].Value.ToString() == "True") //không thể edit dòng nào đã thanh toán rồi
+                    if (bool.Parse(dgvUseService.Rows[r].Cells["TrangThai"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                     {
                         MessageBox.Show("Cannot edit paid rooms !");
                         return;

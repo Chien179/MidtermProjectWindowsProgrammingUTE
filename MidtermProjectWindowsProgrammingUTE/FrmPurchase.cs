@@ -152,6 +152,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
             else
             {
+                int r = dgvPurchase.CurrentCell.RowIndex;
+                if (bool.Parse(dgvPurchase.Rows[r].Cells["TrangThai"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
+                {
+                    MessageBox.Show("Cannot edit paid rooms !");
+                    return;
+                }
                 // Thực hiện lệnh
                 BLPurchase blPurchase = new BLPurchase();
                 if (this.cmbRoomID.Text == "" || this.txtPurchaseID.Text == "" || this.cmbStaffID.Text == "")
@@ -179,7 +185,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     dbUseRoom.UpdateCheckInDay(this.cmbRoomID.SelectedValue.ToString(), this.dtpDateIn.Text, ref err);
                     decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
-                    blPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, this.cbStatus.Checked.ToString(), ref err);
+                    blPurchase.UpdatePurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.Text, ref err);
                     // Load lại dữ liệu trên DataGridView
                     LoadData();
                     // Thông báo
@@ -192,10 +198,8 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void dgvPurchase_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
-            {
-                // Thứ tự dòng hiện hành
+            { 
                 if (dgvPurchase.Rows.Count > 0)
-                {
                     int r = dgvPurchase.CurrentCell.RowIndex;
                     // Chuyển thông tin lên panel
                     this.txtPurchaseID.Text = dgvPurchase.Rows[r].Cells["PurchaseID"].Value.ToString();
@@ -542,7 +546,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             if (dgvPurchase.Rows.Count > 0)
             {
                 int r = dgvPurchase.CurrentCell.RowIndex;
-
                 if (Convert.ToBoolean(this.dgvPurchase.Rows[r].Cells["Paid"].Value) == false)
                 {
                     BLPurchase blPurchase = new BLPurchase();
@@ -558,4 +561,5 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
         }
     }
+}
 }
