@@ -1,7 +1,7 @@
 ﻿
 namespace MidtermProjectWindowsProgrammingUTE
 {
-    partial class FrmMain
+    partial class FrmManage
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmManage));
             this.label1 = new System.Windows.Forms.Label();
             this.lblPurchase = new System.Windows.Forms.Label();
             this.pbPurchase = new System.Windows.Forms.PictureBox();
@@ -297,7 +297,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbServiceUsing.MouseEnter += new System.EventHandler(this.ServiceUsing_MouseEnter);
             this.pbServiceUsing.MouseLeave += new System.EventHandler(this.ServiceUsing_MouseLeave);
             // 
-            // FrmMain
+            // FrmManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -320,9 +320,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmMain";
+            this.Name = "FrmManage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPurchase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbClient)).EndInit();
             this.plRoom.ResumeLayout(false);

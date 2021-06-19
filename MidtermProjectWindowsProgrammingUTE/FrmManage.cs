@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace MidtermProjectWindowsProgrammingUTE
 {
-    public partial class FrmMain : Form
+    public partial class FrmManage : Form
     {
         string Name = "";
 
@@ -186,5 +186,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
