@@ -17,15 +17,15 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select * from SuDungDichVu", CommandType.Text);
         }
 
-        public bool AddUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)//hàm này
+        public bool AddUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)
         {
-            string sqlString = "Insert Into SuDungDichVu Values('" + MaPhong + "','" + MaDV + "','" + NgaySuDung + "'," + SoLuong + ")";
+            string sqlString = "Insert Into SuDungDichVu Values('" + MaPhong + "','" + MaDV + "','" + NgaySuDung + "'," + SoLuong + ",'0')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool UpdateUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)//với hàm này sửa xong nhớ xoã cmt hết nha
+        public bool UpdateUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)
         {
-            string sqlString = "Update SuDungDichVu Set NgaySuDung = '" + NgaySuDung + "',SoLuong=" + SoLuong + "Where MaPhong='" + MaPhong + "' and MaDV='" + MaDV + "'";
+            string sqlString = "Update SuDungDichVu Set NgaySuDung = '" + NgaySuDung + "',SoLuong=" + SoLuong + ",TrangThai='0' " + "Where MaPhong='" + MaPhong + "' and MaDV='" + MaDV + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 

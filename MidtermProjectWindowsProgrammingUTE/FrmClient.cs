@@ -70,7 +70,21 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
-                for(int i = 0;i < dgvClient.Rows.Count; i++)
+                if (this.txtID.Text == "" || this.txtName.Text == "")
+                {
+                    if (this.txtID.Text == "")
+                    {
+                        MessageBox.Show("Please fill in CMND !");
+                        return;
+                    }
+                    else
+                    {
+
+                            MessageBox.Show("Please fill in Name !");
+                            return;
+                    }
+                }
+                for (int i = 0;i < dgvClient.Rows.Count; i++)
                 {
                     string t = txtID.Text.Trim();
                     if(t == dgvClient.Rows[i].Cells["CMND"].Value.ToString())
@@ -108,6 +122,20 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
             else
             {
+                if (this.txtID.Text == "" || this.txtName.Text == "")
+                {
+                    if (this.txtID.Text == "")
+                    {
+                        MessageBox.Show("Please fill in CMND !");
+                        return;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Please fill in Name !");
+                        return;
+                    }
+                }
                 // Thực hiện lệnh
                 BLClient blClient = new BLClient();
                 blClient.UpdateClient(this.txtID.Text, this.txtName.Text, this.txtAddress.Text, this.txtPhoneNumber.Text, this.cbFemale.Checked.ToString(), this.dtpBirthDate.Text, ref err);

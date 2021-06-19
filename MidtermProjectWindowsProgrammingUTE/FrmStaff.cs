@@ -149,6 +149,20 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
+                if (this.txtID.Text == "" || this.txtName.Text == "")
+                {
+                    if (this.txtID.Text == "")
+                    {
+                        MessageBox.Show("Please fill in Staff's CMND !");
+                        return;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Please fill in Staff's Name !");
+                        return;
+                    }
+                }
                 for (int i = 0; i < dgvStaff.Rows.Count; i++)
                 {
                     string t = txtID.Text.Trim();
@@ -185,6 +199,20 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
             else
             {
+                if (this.txtID.Text == "" || this.txtName.Text == "")
+                {
+                    if (this.txtID.Text == "")
+                    {
+                        MessageBox.Show("Please fill in Staff's CMND !");
+                        return;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Please fill in Staff's Name !");
+                        return;
+                    }
+                }
                 // Thực hiện lệnh
                 BLStaff blStaff = new BLStaff();
                 blStaff.UpdateStaff(this.txtID.Text, this.txtName.Text, this.txtChucVu.Text, this.dtpBirthDate.Text, this.cbFemale.Checked.ToString(), ref err);                
@@ -409,6 +437,11 @@ namespace MidtermProjectWindowsProgrammingUTE
         public bool Logout
         {
             get { return logout; }
+        }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

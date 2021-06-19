@@ -66,7 +66,21 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
-                for(int i = 0; i < dgvTypeRoom.Rows.Count; i++)
+                if (this.txtRoomType.Text == "" || this.txtNameType.Text == "")
+                {
+                    if (this.txtRoomType.Text == "")
+                    {
+                        MessageBox.Show("Please fill in Room Type !");
+                        return;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Please fill in Name Type !");
+                        return;
+                    }
+                }
+                for (int i = 0; i < dgvTypeRoom.Rows.Count; i++)
                 {
                     string t = txtRoomType.Text.Trim();
                     if (t == dgvTypeRoom.Rows[i].Cells["RoomType"].Value.ToString())
@@ -101,6 +115,20 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
             else
             {
+                if (this.txtRoomType.Text == "" || this.txtNameType.Text == "")
+                {
+                    if (this.txtRoomType.Text == "")
+                    {
+                        MessageBox.Show("Please fill in Room Type !");
+                        return;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Please fill in Name Type !");
+                        return;
+                    }
+                }
                 // Thực hiện lệnh
                 BLTypeRoom blTypeRoom = new BLTypeRoom();
                 blTypeRoom.UpdateTypeRoom(this.txtRoomType.Text, this.txtNameType.Text, ref err);

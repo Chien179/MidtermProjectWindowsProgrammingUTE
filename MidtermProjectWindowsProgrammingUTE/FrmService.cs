@@ -68,7 +68,21 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
-                for(int i = 0;i < dgvService.Rows.Count; i++)
+                if (this.txtServiceID.Text == "" || this.txtServiceName.Text == "")
+                {
+                    if (this.txtServiceID.Text == "")
+                    {
+                        MessageBox.Show("Please fill in Service ID !");
+                        return;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Please fill in Service Name !");
+                        return;
+                    }
+                }
+                for (int i = 0;i < dgvService.Rows.Count; i++)
                 {
                     string t = txtServiceID.Text.Trim();
                     if(t == dgvService.Rows[i].Cells["ID"].Value.ToString().Trim())
@@ -111,6 +125,20 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
             else
             {
+                if (this.txtServiceID.Text == "" || this.txtServiceName.Text == "")
+                {
+                    if (this.txtServiceID.Text == "")
+                    {
+                        MessageBox.Show("Please fill in Sẻvice ID !");
+                        return;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Please fill in Service Name !");
+                        return;
+                    }
+                }
                 // Thực hiện lệnh
                 BLService blService = new BLService();
                 blService.UpdateService(this.txtServiceID.Text, this.txtServiceName.Text, float.Parse(this.txtPrice.Text), this.txtUnit.Text, ref err);

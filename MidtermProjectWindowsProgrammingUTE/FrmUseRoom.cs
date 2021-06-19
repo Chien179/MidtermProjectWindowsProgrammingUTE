@@ -77,6 +77,27 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
+                if (this.cmbRoomID.Text == "" || this.cmbStaffID.Text == "" || this.cmbCMND.Text == "")
+                {
+                    if (this.cmbRoomID.Text == "")
+                    {
+                        MessageBox.Show("No Room ID selected !");
+                        return;
+                    }
+                    else
+                    {
+                        if (this.cmbStaffID.Text == "")
+                        {
+                            MessageBox.Show("No Staff ID selected !");
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please don't leave blank input");
+                            return;
+                        }
+                    }
+                }
                 try
                 {
                     // Thực hiện lệnh
@@ -103,6 +124,27 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
             else
             {
+                if (this.cmbRoomID.Text == "" || this.cmbStaffID.Text == "" || this.cmbCMND.Text == "")
+                {
+                    if (this.cmbRoomID.Text == "")
+                    {
+                        MessageBox.Show("No Room ID selected !");
+                        return;
+                    }
+                    else
+                    {
+                        if (this.cmbStaffID.Text == "")
+                        {
+                            MessageBox.Show("No Staff ID selected !");
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please don't leave blank input");
+                            return;
+                        }
+                    }
+                }
                 // Thực hiện lệnh
                 BLUseRoom blUseRoom = new BLUseRoom();
                 blUseRoom.UpdateUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, float.Parse(this.txtDeposit.Text), this.cmbStaffID.SelectedValue.ToString(), ref err);
@@ -156,6 +198,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbAdd.Hide();
                 this.pbEdit.Hide();
                 this.pbBack.Hide();
+                this.pbDelete.Hide();
                 //
                 this.cmbRoomID.Enabled = false;
                 this.cmbCMND.Enabled = false;

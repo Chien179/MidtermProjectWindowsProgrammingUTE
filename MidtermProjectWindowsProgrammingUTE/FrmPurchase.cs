@@ -80,17 +80,20 @@ namespace MidtermProjectWindowsProgrammingUTE
                     {
                         if (this.cmbRoomID.Text == "")
                         {
-                            MessageBox.Show("chua co phong nao duoc thue");
+                            MessageBox.Show("Choose a room !");
+                            return;
                         }
                         else
                         {
                             if (this.cmbStaffID.Text == "")
                             {
-                                MessageBox.Show("Thieu nhan vien");
+                                MessageBox.Show("Choose a staff !");
+                                return;
                             }
                             else
                             {
-                                MessageBox.Show("Khong the de trong 1 o thong tin nao");
+                                MessageBox.Show("Please don't leave blank input");
+                                return;
                             }
                         }
                     }
@@ -116,7 +119,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                             {
                                 if (Convert.ToBoolean(dgvPurchase.Rows[i].Cells["Paid"].Value) == false)
                                 {
-                                    MessageBox.Show("hoa don phong này truoc do chua duoc thanh toan");//PHI ANH phiên dịch nha
+                                    MessageBox.Show("This receipt hasn't been purchased");
                                     txtTotal.ResetText();
                                     txtPurchaseID.Focus();
                                     return;
@@ -153,26 +156,24 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 // Thực hiện lệnh
                 BLPurchase blPurchase = new BLPurchase();
-                if (this.txtTotal.Text == "")
-                {
-                    this.txtTotal.Text = "0";
-                }
-
-                if (this.cmbRoomID.Text == "" || this.txtPurchaseID.Text == "" || this.cmbStaffID.Text == "")//PA lam tung form theo cai nayf nha voi dich ra TA nha, đối vói cái nào combobox đi mượn ở mấy bảng khác á thì thêm if nhỏ r thông báo như t làm vs cmbRoomID á
+                if (this.cmbRoomID.Text == "" || this.txtPurchaseID.Text == "" || this.cmbStaffID.Text == "")
                 {
                     if (this.cmbRoomID.Text == "")
                     {
-                        MessageBox.Show("chua co phong nao duoc thue");
+                        MessageBox.Show("Choose a room !");
+                        return;
                     }
                     else
                     {
                         if (this.cmbStaffID.Text == "")
                         {
-                            MessageBox.Show("Thieu nhan vien");
+                            MessageBox.Show("Choose a staff !");
+                            return;
                         }
                         else
                         {
-                            MessageBox.Show("Khong the de trong 1 o thong tin nao");
+                            MessageBox.Show("Please don't leave blank input");
+                            return;
                         }
                     }
                 }

@@ -75,27 +75,30 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(2, 1);
+            this.panel1.Location = new System.Drawing.Point(3, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1285, 144);
+            this.panel1.Size = new System.Drawing.Size(1713, 177);
             this.panel1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(450, 44);
+            this.label1.Location = new System.Drawing.Point(600, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(355, 51);
+            this.label1.Size = new System.Drawing.Size(440, 63);
             this.label1.TabIndex = 0;
             this.label1.Text = "Staff Information";
             // 
             // pbDelete
             // 
             this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
-            this.pbDelete.Location = new System.Drawing.Point(287, 488);
+            this.pbDelete.Location = new System.Drawing.Point(383, 601);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbDelete.Name = "pbDelete";
-            this.pbDelete.Size = new System.Drawing.Size(60, 58);
+            this.pbDelete.Size = new System.Drawing.Size(80, 71);
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 116;
             this.pbDelete.TabStop = false;
@@ -106,9 +109,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbCancel
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
-            this.pbCancel.Location = new System.Drawing.Point(513, 488);
+            this.pbCancel.Location = new System.Drawing.Point(684, 601);
+            this.pbCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCancel.Name = "pbCancel";
-            this.pbCancel.Size = new System.Drawing.Size(60, 58);
+            this.pbCancel.Size = new System.Drawing.Size(80, 71);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCancel.TabIndex = 112;
             this.pbCancel.TabStop = false;
@@ -128,9 +132,11 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Controls.Add(this.txtID);
             this.gbInfor.Controls.Add(this.label4);
             this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gbInfor.Location = new System.Drawing.Point(118, 197);
+            this.gbInfor.Location = new System.Drawing.Point(157, 242);
+            this.gbInfor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbInfor.Name = "gbInfor";
-            this.gbInfor.Size = new System.Drawing.Size(508, 255);
+            this.gbInfor.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInfor.Size = new System.Drawing.Size(677, 314);
             this.gbInfor.TabIndex = 115;
             this.gbInfor.TabStop = false;
             this.gbInfor.Text = "Information";
@@ -139,9 +145,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(22, 215);
+            this.label6.Location = new System.Drawing.Point(29, 265);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 25);
+            this.label6.Size = new System.Drawing.Size(123, 31);
             this.label6.TabIndex = 23;
             this.label6.Text = "Birthdate";
             // 
@@ -149,9 +156,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(22, 59);
+            this.label2.Location = new System.Drawing.Point(29, 73);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 25);
+            this.label2.Size = new System.Drawing.Size(50, 31);
             this.label2.TabIndex = 1;
             this.label2.Text = "ID:";
             // 
@@ -160,26 +168,29 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dtpBirthDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBirthDate.Location = new System.Drawing.Point(200, 210);
+            this.dtpBirthDate.Location = new System.Drawing.Point(267, 258);
+            this.dtpBirthDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpBirthDate.Name = "dtpBirthDate";
-            this.dtpBirthDate.Size = new System.Drawing.Size(176, 30);
+            this.dtpBirthDate.Size = new System.Drawing.Size(233, 36);
             this.dtpBirthDate.TabIndex = 22;
             // 
             // txtChucVu
             // 
             this.txtChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtChucVu.Location = new System.Drawing.Point(200, 160);
+            this.txtChucVu.Location = new System.Drawing.Point(267, 197);
+            this.txtChucVu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.Size = new System.Drawing.Size(176, 30);
+            this.txtChucVu.Size = new System.Drawing.Size(233, 36);
             this.txtChucVu.TabIndex = 19;
             // 
             // cbFemale
             // 
             this.cbFemale.AutoSize = true;
             this.cbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbFemale.Location = new System.Drawing.Point(395, 111);
+            this.cbFemale.Location = new System.Drawing.Point(527, 137);
+            this.cbFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbFemale.Name = "cbFemale";
-            this.cbFemale.Size = new System.Drawing.Size(96, 29);
+            this.cbFemale.Size = new System.Drawing.Size(120, 33);
             this.cbFemale.TabIndex = 21;
             this.cbFemale.Text = "Female";
             this.cbFemale.UseVisualStyleBackColor = true;
@@ -187,45 +198,50 @@ namespace MidtermProjectWindowsProgrammingUTE
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtName.Location = new System.Drawing.Point(200, 108);
+            this.txtName.Location = new System.Drawing.Point(267, 133);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(176, 30);
+            this.txtName.Size = new System.Drawing.Size(233, 36);
             this.txtName.TabIndex = 18;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(22, 111);
+            this.label3.Location = new System.Drawing.Point(29, 137);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 25);
+            this.label3.Size = new System.Drawing.Size(94, 31);
             this.label3.TabIndex = 2;
             this.label3.Text = "Name:";
             // 
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtID.Location = new System.Drawing.Point(200, 56);
+            this.txtID.Location = new System.Drawing.Point(267, 69);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(176, 30);
+            this.txtID.Size = new System.Drawing.Size(233, 36);
             this.txtID.TabIndex = 17;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(22, 163);
+            this.label4.Location = new System.Drawing.Point(29, 201);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 25);
+            this.label4.Size = new System.Drawing.Size(122, 31);
             this.label4.TabIndex = 3;
             this.label4.Text = "Chức vụ:";
             // 
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(434, 488);
+            this.pbSave.Location = new System.Drawing.Point(579, 601);
+            this.pbSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbSave.Name = "pbSave";
-            this.pbSave.Size = new System.Drawing.Size(60, 58);
+            this.pbSave.Size = new System.Drawing.Size(80, 71);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSave.TabIndex = 111;
             this.pbSave.TabStop = false;
@@ -242,9 +258,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             "None",
             "Male",
             "Female"});
-            this.cbSex.Location = new System.Drawing.Point(679, 166);
+            this.cbSex.Location = new System.Drawing.Point(905, 204);
+            this.cbSex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(121, 24);
+            this.cbSex.Size = new System.Drawing.Size(160, 28);
             this.cbSex.TabIndex = 113;
             // 
             // btnSearch
@@ -252,18 +269,20 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnSearch.BackColor = System.Drawing.Color.Transparent;
             this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(902, 197);
+            this.btnSearch.Location = new System.Drawing.Point(1203, 242);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(32, 31);
+            this.btnSearch.Size = new System.Drawing.Size(43, 38);
             this.btnSearch.TabIndex = 114;
             this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // pbEdit
             // 
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
-            this.pbEdit.Location = new System.Drawing.Point(205, 488);
+            this.pbEdit.Location = new System.Drawing.Point(273, 601);
+            this.pbEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbEdit.Name = "pbEdit";
-            this.pbEdit.Size = new System.Drawing.Size(60, 58);
+            this.pbEdit.Size = new System.Drawing.Size(80, 71);
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEdit.TabIndex = 110;
             this.pbEdit.TabStop = false;
@@ -274,9 +293,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbAdd
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
-            this.pbAdd.Location = new System.Drawing.Point(118, 488);
+            this.pbAdd.Location = new System.Drawing.Point(157, 601);
+            this.pbAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAdd.Name = "pbAdd";
-            this.pbAdd.Size = new System.Drawing.Size(60, 58);
+            this.pbAdd.Size = new System.Drawing.Size(80, 71);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAdd.TabIndex = 109;
             this.pbAdd.TabStop = false;
@@ -287,21 +307,24 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbBack
             // 
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
-            this.pbBack.Location = new System.Drawing.Point(12, 151);
+            this.pbBack.Location = new System.Drawing.Point(16, 186);
+            this.pbBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbBack.Name = "pbBack";
-            this.pbBack.Size = new System.Drawing.Size(55, 52);
+            this.pbBack.Size = new System.Drawing.Size(73, 64);
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 108;
             this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             this.pbBack.MouseEnter += new System.EventHandler(this.pbBack_MouseEnter);
             this.pbBack.MouseLeave += new System.EventHandler(this.pbBack_MouseLeave);
             // 
             // txtFind
             // 
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtFind.Location = new System.Drawing.Point(679, 197);
+            this.txtFind.Location = new System.Drawing.Point(905, 242);
+            this.txtFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(217, 31);
+            this.txtFind.Size = new System.Drawing.Size(288, 37);
             this.txtFind.TabIndex = 107;
             this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
@@ -316,11 +339,12 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.ChucVu,
             this.Female,
             this.BirthDate});
-            this.dgvStaff.Location = new System.Drawing.Point(679, 250);
+            this.dgvStaff.Location = new System.Drawing.Point(905, 308);
+            this.dgvStaff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvStaff.Name = "dgvStaff";
             this.dgvStaff.ReadOnly = true;
             this.dgvStaff.RowHeadersWidth = 51;
-            this.dgvStaff.Size = new System.Drawing.Size(593, 341);
+            this.dgvStaff.Size = new System.Drawing.Size(791, 420);
             this.dgvStaff.TabIndex = 106;
             this.dgvStaff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStaff_CellClick);
             // 
@@ -373,9 +397,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(1163, 151);
+            this.btnLogout.Location = new System.Drawing.Point(1551, 186);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(109, 40);
+            this.btnLogout.Size = new System.Drawing.Size(145, 49);
             this.btnLogout.TabIndex = 123;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -385,9 +410,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(1023, 161);
+            this.label8.Location = new System.Drawing.Point(1364, 198);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 18);
+            this.label8.Size = new System.Drawing.Size(60, 24);
             this.label8.TabIndex = 127;
             this.label8.Text = "label8";
             // 
@@ -395,17 +421,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.lblNhanVien.AutoSize = true;
             this.lblNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblNhanVien.Location = new System.Drawing.Point(940, 161);
+            this.lblNhanVien.Location = new System.Drawing.Point(1253, 198);
+            this.lblNhanVien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNhanVien.Name = "lblNhanVien";
-            this.lblNhanVien.Size = new System.Drawing.Size(77, 18);
+            this.lblNhanVien.Size = new System.Drawing.Size(101, 24);
             this.lblNhanVien.TabIndex = 126;
             this.lblNhanVien.Text = "Nhân viên:";
             // 
             // FrmStaff
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 604);
+            this.ClientSize = new System.Drawing.Size(1712, 743);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblNhanVien);
             this.Controls.Add(this.btnLogout);
@@ -421,6 +448,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.txtFind);
             this.Controls.Add(this.dgvStaff);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmStaff";
             this.Text = "FrmStaff";
             this.Load += new System.EventHandler(this.FrmStaff_Load);

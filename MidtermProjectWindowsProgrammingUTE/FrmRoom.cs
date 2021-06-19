@@ -71,6 +71,20 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
+                if (this.txtRoomID.Text == "" || this.cmbRoomType.Text == "")
+                {
+                    if (this.txtRoomID.Text == "")
+                    {
+                        MessageBox.Show("Please fill in Room ID !");
+                        return;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Please fill in RoomType !");
+                        return;
+                    }
+                }
                 for (int i = 0; i < dgvRoom.Rows.Count; i++)
                 {
                     if (txtRoomID.Text == dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim())
@@ -112,6 +126,20 @@ namespace MidtermProjectWindowsProgrammingUTE
             }
             else
             {
+                if (this.txtRoomID.Text == "" || this.cmbRoomType.Text == "")
+                {
+                    if (this.txtRoomID.Text == "")
+                    {
+                        MessageBox.Show("Please fill in Room ID !");
+                        return;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Please fill in RoomType !");
+                        return;
+                    }
+                }
                 // Thực hiện lệnh
                 BLRoom blRoom = new BLRoom();
                 blRoom.UpdateRoom(this.txtRoomID.Text, this.cmbRoomType.SelectedValue.ToString(), this.cbStatus.Checked.ToString(), this.txtNote.Text, this.txtArea.Text, float.Parse(this.txtPrice.Text), ref err);

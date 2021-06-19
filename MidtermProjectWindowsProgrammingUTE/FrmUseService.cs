@@ -120,6 +120,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbEdit.Hide();
             this.pbBack.Hide();
             this.pbDelete.Hide();
+            this.pbDelete.Hide();
             // Đưa con trỏ đến cmbRoomID
             this.cmbRoomID.Focus();
         }
@@ -161,6 +162,27 @@ namespace MidtermProjectWindowsProgrammingUTE
                 // Thêm dữ liệu
                 if (Them)
                 {
+                    if (this.cmbRoomID.Text == "" || this.cmbServiceID.Text == "" || this.txtAmount.Text == "")
+                    {
+                        if (this.cmbRoomID.Text == "")
+                        {
+                            MessageBox.Show("No Room ID selected !");
+                            return;
+                        }
+                        else
+                        {
+                            if (this.cmbServiceID.Text == "")
+                            {
+                                MessageBox.Show("No Service ID selected !");
+                                return;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please don't leave blank input");
+                                return;
+                            }
+                        }
+                    }
                     try
                     {
                         // Thực hiện lệnh
@@ -188,6 +210,27 @@ namespace MidtermProjectWindowsProgrammingUTE
                 }
                 else
                 {
+                    if (this.cmbRoomID.Text == "" || this.cmbServiceID.Text == "" || this.txtAmount.Text == "")
+                    {
+                        if (this.cmbRoomID.Text == "")
+                        {
+                            MessageBox.Show("No Room ID selected !");
+                            return;
+                        }
+                        else
+                        {
+                            if (this.cmbServiceID.Text == "")
+                            {
+                                MessageBox.Show("No Service ID selected !");
+                                return;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please don't leave blank input");
+                                return;
+                            }
+                        }
+                    }
                     // Thực hiện lệnh
                     BLUseService blUseService = new BLUseService();
                     blUseService.UpdateUseService(this.cmbRoomID.SelectedValue.ToString(), this.cmbServiceID.SelectedValue.ToString(), this.dtpDateIn.Text, int.Parse(this.txtAmount.Text), ref err);

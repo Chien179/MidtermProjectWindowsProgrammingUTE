@@ -53,7 +53,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label8 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pbDelete = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.lblNhanVien = new System.Windows.Forms.Label();
             this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
