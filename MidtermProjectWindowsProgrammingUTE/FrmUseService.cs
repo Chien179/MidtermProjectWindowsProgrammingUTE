@@ -49,8 +49,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbEdit.Enabled = true;
             this.pbEdit.Enabled = true;
             this.pbBack.Enabled = true;
-            this.pbDelete.Enabled = true;
-            this.pbDelete.Show();
             this.pbAdd.Show();
             this.pbEdit.Show();
             this.pbBack.Show();
@@ -115,12 +113,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbAdd.Enabled = false;
             this.pbEdit.Enabled = false;
             this.pbBack.Enabled = false;
-            this.pbDelete.Enabled = false;
             this.pbAdd.Hide();
             this.pbEdit.Hide();
             this.pbBack.Hide();
-            this.pbDelete.Hide();
-            this.pbDelete.Hide();
             // Đưa con trỏ đến cmbRoomID
             this.cmbRoomID.Focus();
         }
@@ -142,12 +137,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbAdd.Enabled = false;
                 this.pbEdit.Enabled = false;
                 this.pbBack.Enabled = false;
-                this.pbDelete.Enabled = false;
 
                 this.pbAdd.Hide();
                 this.pbEdit.Hide();
                 this.pbBack.Hide();
-                this.pbDelete.Hide();
                 //
                 this.cmbRoomID.Enabled = false;
                 this.cmbServiceID.Enabled = false;
@@ -210,6 +203,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                 }
                 else
                 {
+                    int r = dgvUseService.CurrentCell.RowIndex;
+                    if (dgvUseService.Rows[r].Cells["TrangThai"].Value.ToString() == "True") //không thể edit dòng nào đã thanh toán rồi
+                    {
+                        MessageBox.Show("Cannot edit paid rooms !");
+                        return;
+                    }
                     if (this.cmbRoomID.Text == "" || this.cmbServiceID.Text == "" || this.txtAmount.Text == "")
                     {
                         if (this.cmbRoomID.Text == "")
@@ -245,53 +244,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         }
         private void pbDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (dgvUseService.Rows.Count > 0)
-                {
-                    this.gbInfor.Text = "Deleting.....";
-
-                    // Lấy MaKH của record hiện hành 
-                    string strRoomID = cmbRoomID.Text.Trim();
-                    string strSID = cmbServiceID.Text.Trim();
-                    // Viết câu lệnh SQL
-                    // Hiện thông báo xác nhận việc xóa mẫu tin
-                    // Khai báo biến traloi
-                    DialogResult traloi;
-                    // Hiện hộp thoại hỏi đáp 
-                    traloi = MessageBox.Show("Are you sure?", "Delete row",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    // Kiểm tra có nhắp chọn nút Ok không? 
-                    if (traloi == DialogResult.Yes)
-                    {
-                        dbUseService.DeleteUseService(strRoomID, strSID, ref err);
-                        if (err == null)
-                        {
-                            // Cập nhật lại DataGridView 
-                            LoadData();
-                            // Thông báo 
-                            MessageBox.Show("Deleted successfully!");
-                        }
-                        else
-                        {
-                            this.gbInfor.Text = "Information";
-                            // Thông báo 
-                            MessageBox.Show("Cannot delete this !", "Delete failed!");
-                        }
-                    }
-                    else
-                    {
-                        this.gbInfor.Text = "Information";
-                        // Thông báo 
-                        MessageBox.Show("Delete failed!");
-                    }
-                }
-            }
-            catch (SqlException)
-            {
-                this.gbInfor.Text = "Information";
-                MessageBox.Show("Delete failed!");
-            }
+            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -351,15 +304,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             ButtonColorChanged("cancel.png", this.pbCancel);
         }
 
-        private void pbDelete_MouseEnter(object sender, EventArgs e)
-        {
-            ButtonColorChanged("delete_blue.png", this.pbDelete);
-        }
-
-        private void pbDelete_MouseLeave(object sender, EventArgs e)
-        {
-            ButtonColorChanged("delete.png", this.pbDelete);
-        }
+        
         #endregion
 
         #region Other Events

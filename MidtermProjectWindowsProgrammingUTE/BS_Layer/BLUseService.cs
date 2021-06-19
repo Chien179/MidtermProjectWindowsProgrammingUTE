@@ -23,9 +23,9 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool UpdateUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong, ref string err)
+        public bool UpdateUseService(string MaPhong, string MaDV, string NgaySuDung, int SoLuong,bool TrangThai, ref string err)
         {
-            string sqlString = "Update SuDungDichVu Set NgaySuDung = '" + NgaySuDung + "',SoLuong=" + SoLuong + ",TrangThai='0' " + "Where MaPhong='" + MaPhong + "' and MaDV='" + MaDV + "'";
+            string sqlString = "Update SuDungDichVu Set NgaySuDung = '" + NgaySuDung + "',SoLuong=" + SoLuong + ",TrangThai=" + TrangThai + "Where MaPhong='" + MaPhong + "' and MaDV='" + MaDV + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
