@@ -61,7 +61,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Deposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblStaff = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
@@ -544,16 +543,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label8.Size = new System.Drawing.Size(46, 18);
             this.label8.TabIndex = 129;
             this.label8.Text = "label8";
-            // 
-            // lblStaff
-            // 
-            this.lblStaff.AutoSize = true;
-            this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblStaff.Location = new System.Drawing.Point(934, 163);
-            this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(42, 18);
-            this.lblStaff.TabIndex = 128;
-            this.lblStaff.Text = "Staff:";
             // 
             // FrmUseRoom
             // 

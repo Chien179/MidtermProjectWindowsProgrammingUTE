@@ -278,7 +278,6 @@
             // 
             // gbInfor
             // 
-            this.gbInfor.Controls.Add(this.cbPaid);
             this.gbInfor.Controls.Add(this.cmbStaffID);
             this.gbInfor.Controls.Add(this.dtpDateIn);
             this.gbInfor.Controls.Add(this.label6);

@@ -10,7 +10,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         string Name = "";
 
         #region Constructors
-        public FrmMain(string TenNV)
+        public FrmManage(string TenNV)
         {
             InitializeComponent();
             this.Name = TenNV;
