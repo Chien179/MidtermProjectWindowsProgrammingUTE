@@ -8,7 +8,6 @@ namespace MidtermProjectWindowsProgrammingUTE
     public partial class FrmManage : Form
     {
         string Name = "";
-        bool Logout = false;
 
         #region Constructors
         public FrmManage(string TenNV)
@@ -24,11 +23,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmClient frmclient = new FrmClient(this.Name);
             this.Hide();
             frmclient.ShowDialog();
-            if (frmclient.Logout == true)
-            {
-                this.Logout = true;
-                this.Close();
-            }
             this.Show();
         }
         private void Staff_Click(object sender, EventArgs e)
@@ -36,11 +30,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmStaff frmstaff = new FrmStaff(this.Name);
             this.Hide();
             frmstaff.ShowDialog();
-            if (frmstaff.Logout == true)
-            {
-                this.Logout = true;
-                this.Close();
-            }
             this.Show();
         }
         private void ServiceUsing_Click(object sender, EventArgs e)
@@ -48,11 +37,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmUseService frmuseService = new FrmUseService(this.Name);
             this.Hide();
             frmuseService.ShowDialog();
-            if (frmuseService.Logout == true)
-            {
-                this.Logout = true;
-                this.Close();
-            }
             this.Show();
         }
         private void RoomUsing_Click(object sender, EventArgs e)
@@ -60,11 +44,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmUseRoom frmuseRoom = new FrmUseRoom(this.Name);
             this.Hide();
             frmuseRoom.ShowDialog();
-            if (frmuseRoom.Logout == true)
-            {
-                this.Logout = true;
-                this.Close();
-            }
             this.Show();
         }
         private void Purchase_Click(object sender, EventArgs e)
@@ -72,11 +51,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmPurchase frmPurchase = new FrmPurchase(this.Name);
             this.Hide();
             frmPurchase.ShowDialog();
-            if (frmPurchase.Logout == true)
-            {
-                this.Logout = true;
-                this.Close();
-            }
             this.Show();
         }
         private void Room_Click(object sender, EventArgs e)
@@ -84,11 +58,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmRoom frmroom = new FrmRoom(this.Name);
             this.Hide();
             frmroom.ShowDialog();
-            if (frmroom.Logout == true)
-            {
-                this.Logout = true;
-                this.Close();
-            }
             this.Show();
         }
 
@@ -97,11 +66,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmService frmservice = new FrmService(this.Name);
             this.Hide();
             frmservice.ShowDialog();
-            if (frmservice.Logout == true)
-            {
-                this.Logout = true;
-                this.Close();
-            }
             this.Show();
         }
 
@@ -110,11 +74,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             FrmTypeRoom frmTypeRoom = new FrmTypeRoom(this.Name);
             this.Hide();
             frmTypeRoom.ShowDialog();
-            if (frmTypeRoom.Logout == true)
-            {
-                this.Logout = true;
-                this.Close();
-            }
             this.Show();
         }
         #endregion
@@ -211,10 +170,5 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
-
-        public bool logout
-        {
-            get { return Logout; }
-        }
     }
 }

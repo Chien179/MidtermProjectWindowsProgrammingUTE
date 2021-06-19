@@ -369,7 +369,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void txtDeposit_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != 8)
             {
                 e.Handled = true;
             }

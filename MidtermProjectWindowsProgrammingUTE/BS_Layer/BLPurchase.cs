@@ -37,10 +37,8 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public bool DeletePurchase(ref string err, string MaTT)
         {
-
             string sqlString = "Delete From ThanhToan Where MaThanhToan='" + MaTT + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-
         }
 
         public decimal Bill(ref string err, string MaPhong, string NgayThanhToan)

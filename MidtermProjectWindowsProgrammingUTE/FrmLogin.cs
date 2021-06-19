@@ -37,7 +37,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 if (posstaff == "Giám Đốc")
                 {
-                    FmMenu frmmain = new FmMenu(dbStaff.GetPosAndNameStaff(idstaff).Tables[0].Rows[0][0].ToString());
+                    FrmManage frmmain = new FrmManage(dbStaff.GetPosAndNameStaff(idstaff).Tables[0].Rows[0][0].ToString());
                     this.Hide();
                     frmmain.ShowDialog();
                     txtPassword.ResetText();
