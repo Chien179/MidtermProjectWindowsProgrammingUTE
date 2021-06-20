@@ -17,7 +17,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         public FrmBill(string x)
         {
             InitializeComponent();
-            MessageBox.Show(x);
             this.roomid = x;
             // TODO: This line of code loads data into the 'QuanLyKhachSan.HoaDon' table. You can move, or remove it, as needed.
             this.HoaDonTableAdapter.Fill(this.QuanLyKhachSan.HoaDon, this.roomid);
