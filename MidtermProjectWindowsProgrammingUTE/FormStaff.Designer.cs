@@ -39,11 +39,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbPurchase = new System.Windows.Forms.PictureBox();
             this.lblPurchase = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plRoom = new System.Windows.Forms.Panel();
             this.lblRoom = new System.Windows.Forms.Label();
             this.pbRoom = new System.Windows.Forms.PictureBox();
@@ -51,7 +46,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomUsing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPurchase)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.plRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoom)).BeginInit();
             this.SuspendLayout();
@@ -179,48 +173,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label1.TabIndex = 15;
             this.label1.Text = "Hotel Management";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.viewToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(883, 28);
-            this.menuStrip1.TabIndex = 30;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logOutToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
-            this.logOutToolStripMenuItem.Text = "Log out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reportToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // reportToolStripMenuItem
-            // 
-            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
-            this.reportToolStripMenuItem.Text = "Report";
-            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
-            // 
             // plRoom
             // 
             this.plRoom.Controls.Add(this.lblRoom);
@@ -275,8 +227,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.pbPurchase);
             this.Controls.Add(this.lblPurchase);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormStaff";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -285,8 +235,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomUsing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPurchase)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.plRoom.ResumeLayout(false);
             this.plRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoom)).EndInit();
@@ -306,11 +254,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.PictureBox pbPurchase;
         private System.Windows.Forms.Label lblPurchase;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.Panel plRoom;
         private System.Windows.Forms.Label lblRoom;
         private System.Windows.Forms.PictureBox pbRoom;

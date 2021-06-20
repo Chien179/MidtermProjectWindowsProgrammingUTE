@@ -59,6 +59,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbEdit.Enabled = false;
             this.pbBack.Enabled = false;
             this.pbDelete.Enabled = false;
+            this.dtpDateIn.Enabled = false;
             this.pbAdd.Hide();
             this.pbEdit.Hide();
             this.pbBack.Hide();
