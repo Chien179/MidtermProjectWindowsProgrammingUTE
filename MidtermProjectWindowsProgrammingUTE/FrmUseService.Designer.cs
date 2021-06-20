@@ -35,10 +35,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvUseService = new System.Windows.Forms.DataGridView();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -57,6 +53,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.label8 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblNhanVien = new System.Windows.Forms.Label();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DateUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Paid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
@@ -73,29 +73,26 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1713, 177);
+            this.panel1.Size = new System.Drawing.Size(1285, 144);
             this.panel1.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(648, 50);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(486, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 63);
+            this.label1.Size = new System.Drawing.Size(302, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Service Using";
             // 
             // pbBack
             // 
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
-            this.pbBack.Location = new System.Drawing.Point(16, 186);
-            this.pbBack.Margin = new System.Windows.Forms.Padding(4);
+            this.pbBack.Location = new System.Drawing.Point(12, 151);
             this.pbBack.Name = "pbBack";
-            this.pbBack.Size = new System.Drawing.Size(73, 64);
+            this.pbBack.Size = new System.Drawing.Size(55, 52);
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 82;
             this.pbBack.TabStop = false;
@@ -106,10 +103,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // txtFind
             // 
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtFind.Location = new System.Drawing.Point(905, 244);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFind.Location = new System.Drawing.Point(679, 198);
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(288, 37);
+            this.txtFind.Size = new System.Drawing.Size(217, 31);
             this.txtFind.TabIndex = 86;
             this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
@@ -122,59 +118,22 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.RoomID,
             this.ServiceID,
             this.DateUse,
-            this.Amount});
-            this.dgvUseService.Location = new System.Drawing.Point(905, 309);
-            this.dgvUseService.Margin = new System.Windows.Forms.Padding(4);
+            this.Amount,
+            this.Paid});
+            this.dgvUseService.Location = new System.Drawing.Point(679, 251);
             this.dgvUseService.Name = "dgvUseService";
             this.dgvUseService.ReadOnly = true;
             this.dgvUseService.RowHeadersWidth = 51;
-            this.dgvUseService.Size = new System.Drawing.Size(791, 420);
+            this.dgvUseService.Size = new System.Drawing.Size(593, 341);
             this.dgvUseService.TabIndex = 85;
             this.dgvUseService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUseService_CellClick);
-            // 
-            // RoomID
-            // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.MinimumWidth = 6;
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            this.RoomID.Width = 125;
-            // 
-            // ServiceID
-            // 
-            this.ServiceID.DataPropertyName = "MaDV";
-            this.ServiceID.HeaderText = "Service ID";
-            this.ServiceID.MinimumWidth = 6;
-            this.ServiceID.Name = "ServiceID";
-            this.ServiceID.ReadOnly = true;
-            this.ServiceID.Width = 125;
-            // 
-            // DateUse
-            // 
-            this.DateUse.DataPropertyName = "NgaySuDung";
-            this.DateUse.HeaderText = "Date Use";
-            this.DateUse.MinimumWidth = 6;
-            this.DateUse.Name = "DateUse";
-            this.DateUse.ReadOnly = true;
-            this.DateUse.Width = 125;
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "SoLuong";
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 125;
             // 
             // pbAdd
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
-            this.pbAdd.Location = new System.Drawing.Point(159, 615);
-            this.pbAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.pbAdd.Location = new System.Drawing.Point(119, 500);
             this.pbAdd.Name = "pbAdd";
-            this.pbAdd.Size = new System.Drawing.Size(80, 71);
+            this.pbAdd.Size = new System.Drawing.Size(60, 58);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAdd.TabIndex = 90;
             this.pbAdd.TabStop = false;
@@ -185,10 +144,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbEdit
             // 
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
-            this.pbEdit.Location = new System.Drawing.Point(268, 615);
-            this.pbEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.pbEdit.Location = new System.Drawing.Point(201, 500);
             this.pbEdit.Name = "pbEdit";
-            this.pbEdit.Size = new System.Drawing.Size(80, 71);
+            this.pbEdit.Size = new System.Drawing.Size(60, 58);
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEdit.TabIndex = 88;
             this.pbEdit.TabStop = false;
@@ -201,10 +159,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.btnSearch.BackColor = System.Drawing.Color.Transparent;
             this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(1203, 244);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Location = new System.Drawing.Point(902, 198);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(47, 38);
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 100;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -212,10 +169,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbCancel
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
-            this.pbCancel.Location = new System.Drawing.Point(691, 615);
-            this.pbCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.pbCancel.Location = new System.Drawing.Point(518, 500);
             this.pbCancel.Name = "pbCancel";
-            this.pbCancel.Size = new System.Drawing.Size(80, 71);
+            this.pbCancel.Size = new System.Drawing.Size(60, 58);
             this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCancel.TabIndex = 98;
             this.pbCancel.TabStop = false;
@@ -226,10 +182,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(585, 615);
-            this.pbSave.Margin = new System.Windows.Forms.Padding(4);
+            this.pbSave.Location = new System.Drawing.Point(439, 500);
             this.pbSave.Name = "pbSave";
-            this.pbSave.Size = new System.Drawing.Size(80, 71);
+            this.pbSave.Size = new System.Drawing.Size(60, 58);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSave.TabIndex = 97;
             this.pbSave.TabStop = false;
@@ -248,11 +203,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.gbInfor.Controls.Add(this.dtpDateIn);
             this.gbInfor.Controls.Add(this.cmbServiceID);
             this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbInfor.Location = new System.Drawing.Point(157, 244);
-            this.gbInfor.Margin = new System.Windows.Forms.Padding(4);
+            this.gbInfor.Location = new System.Drawing.Point(118, 198);
             this.gbInfor.Name = "gbInfor";
-            this.gbInfor.Padding = new System.Windows.Forms.Padding(4);
-            this.gbInfor.Size = new System.Drawing.Size(533, 320);
+            this.gbInfor.Size = new System.Drawing.Size(400, 260);
             this.gbInfor.TabIndex = 85;
             this.gbInfor.TabStop = false;
             this.gbInfor.Text = "Information";
@@ -261,10 +214,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(8, 71);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(6, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 31);
+            this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 78;
             this.label2.Text = "Room ID:";
             // 
@@ -272,20 +224,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(8, 139);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(6, 113);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 31);
+            this.label4.Size = new System.Drawing.Size(90, 25);
             this.label4.TabIndex = 76;
-            this.label4.Text = "Service ID:";
+            this.label4.Text = "Service:";
             // 
             // txtAmount
             // 
             this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtAmount.Location = new System.Drawing.Point(208, 272);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAmount.Location = new System.Drawing.Point(156, 221);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(265, 36);
+            this.txtAmount.Size = new System.Drawing.Size(200, 30);
             this.txtAmount.TabIndex = 84;
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
@@ -293,10 +243,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(8, 207);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(6, 168);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 31);
+            this.label5.Size = new System.Drawing.Size(63, 25);
             this.label5.TabIndex = 77;
             this.label5.Text = "Date:";
             // 
@@ -304,10 +253,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(8, 274);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(6, 223);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 31);
+            this.label6.Size = new System.Drawing.Size(91, 25);
             this.label6.TabIndex = 83;
             this.label6.Text = "Amount:";
             // 
@@ -316,10 +264,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbRoomID.FormattingEnabled = true;
-            this.cmbRoomID.Location = new System.Drawing.Point(208, 62);
-            this.cmbRoomID.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbRoomID.Location = new System.Drawing.Point(156, 50);
             this.cmbRoomID.Name = "cmbRoomID";
-            this.cmbRoomID.Size = new System.Drawing.Size(213, 37);
+            this.cmbRoomID.Size = new System.Drawing.Size(161, 33);
             this.cmbRoomID.TabIndex = 79;
             // 
             // dtpDateIn
@@ -327,10 +274,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.dtpDateIn.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateIn.Location = new System.Drawing.Point(208, 202);
-            this.dtpDateIn.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpDateIn.Location = new System.Drawing.Point(156, 164);
             this.dtpDateIn.Name = "dtpDateIn";
-            this.dtpDateIn.Size = new System.Drawing.Size(265, 36);
+            this.dtpDateIn.Size = new System.Drawing.Size(200, 30);
             this.dtpDateIn.TabIndex = 81;
             // 
             // cmbServiceID
@@ -338,10 +284,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbServiceID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbServiceID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbServiceID.FormattingEnabled = true;
-            this.cmbServiceID.Location = new System.Drawing.Point(208, 132);
-            this.cmbServiceID.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbServiceID.Location = new System.Drawing.Point(156, 107);
             this.cmbServiceID.Name = "cmbServiceID";
-            this.cmbServiceID.Size = new System.Drawing.Size(265, 37);
+            this.cmbServiceID.Size = new System.Drawing.Size(200, 33);
             this.cmbServiceID.TabIndex = 80;
             // 
             // label7
@@ -367,10 +312,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(1551, 186);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogout.Location = new System.Drawing.Point(1163, 151);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(145, 49);
+            this.btnLogout.Size = new System.Drawing.Size(109, 40);
             this.btnLogout.TabIndex = 123;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -386,20 +330,56 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.lblNhanVien.TabIndex = 127;
             this.lblNhanVien.Text = "Nhân viên:";
             // 
+            // RoomID
+            // 
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.MinimumWidth = 6;
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            this.RoomID.Width = 125;
+            // 
+            // ServiceID
+            // 
+            this.ServiceID.DataPropertyName = "MaDV";
+            this.ServiceID.HeaderText = "Service";
+            this.ServiceID.MinimumWidth = 6;
+            this.ServiceID.Name = "ServiceID";
+            this.ServiceID.ReadOnly = true;
+            this.ServiceID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ServiceID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ServiceID.Width = 125;
+            // 
+            // DateUse
+            // 
+            this.DateUse.DataPropertyName = "NgaySuDung";
+            this.DateUse.HeaderText = "Date Use";
+            this.DateUse.MinimumWidth = 6;
+            this.DateUse.Name = "DateUse";
+            this.DateUse.ReadOnly = true;
+            this.DateUse.Width = 125;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "SoLuong";
+            this.Amount.HeaderText = "Amount";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 125;
+            // 
             // Paid
             // 
             this.Paid.DataPropertyName = "TrangThai";
             this.Paid.HeaderText = "Paid";
-            this.Paid.MinimumWidth = 6;
             this.Paid.Name = "Paid";
             this.Paid.ReadOnly = true;
-            this.Paid.Width = 125;
             // 
             // FrmUseService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1712, 743);
+            this.ClientSize = new System.Drawing.Size(1284, 604);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
@@ -413,7 +393,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmUseService";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Use Service";
@@ -459,7 +438,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ServiceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateUse;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Paid;

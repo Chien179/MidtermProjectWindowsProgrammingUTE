@@ -130,6 +130,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                         decimal Total = dbPurchase.Bill(ref err, this.cmbRoomID.SelectedValue.ToString(), this.dtpPurchaseDate.Text);
                         if (Total != 0)
                         {
+                            DataSet roomusing = dbUseRoom.GetUseRoomCheckIn(this.cmbRoomID.SelectedValue.ToString());
+                            string[] NgayVao = roomusing.Tables[0].Rows[0][0].ToString().Split(' ');
+                            this.dtpDateIn.Text = NgayVao[0];
+
                             blPurchase.AddPurchase(this.txtPurchaseID.Text, Total, this.dtpPurchaseDate.Text, this.cmbRoomID.SelectedValue.ToString(), this.cmbStaffID.SelectedValue.ToString(), "0", ref err);
                             // Load lại dữ liệu trên DataGridView
                             LoadData();
@@ -226,7 +230,8 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     if (dgvPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "receipt")
                     {
-                        MessageBox.Show("oki");
+                        FrmReport frmreport = new FrmReport();
+                        frmreport.Show();
                     }
                 }
             }

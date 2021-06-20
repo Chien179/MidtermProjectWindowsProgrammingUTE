@@ -13,14 +13,14 @@ namespace MidtermProjectWindowsProgrammingUTE
         #region Properties
         DataTable dtUseService = null;
         DataTable dtService = null;
-        DataTable dtRoom = null;
+        DataTable dtUseRoom = null;
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         bool logout = false;
         string err;
         BLUseService dbUseService = new BLUseService();
         BLService dbService = new BLService();
-        BLRoom dbRoom = new BLRoom();
+        BLUseRoom dbRoom = new BLUseRoom();
         #endregion
 
         #region Constructors
@@ -328,7 +328,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != 8)
             {
                 e.Handled = true;
             }
@@ -341,23 +341,26 @@ namespace MidtermProjectWindowsProgrammingUTE
             try
             {
                 dtUseService = new DataTable();
-                dtRoom = new DataTable();
+                dtUseRoom = new DataTable();
                 dtService = new DataTable();
 
                 dtUseService.Clear();
-                dtRoom.Clear();
+                dtUseRoom.Clear();
                 dtService.Clear();
 
                 DataSet ds = dbUseService.GetUseService();
                 dtUseService = ds.Tables[0];
 
-                DataSet dsRoom = dbRoom.GetRoom();
-                dtRoom = dsRoom.Tables[0];
+                DataSet dsUseRoom = dbRoom.GetUseRoomUnpaid();
+                dtUseRoom = dsUseRoom.Tables[0];
 
                 DataSet dsService = dbService.GetService();
                 dtService = dsService.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvUseService.DataSource = dtUseService;
+                (dgvUseService.Columns["ServiceID"] as DataGridViewComboBoxColumn).DataSource = dtService;
+                (dgvUseService.Columns["ServiceID"] as DataGridViewComboBoxColumn).DisplayMember = dtService.Columns[1].ToString();
+                (dgvUseService.Columns["ServiceID"] as DataGridViewComboBoxColumn).ValueMember = dtService.Columns[0].ToString();
                 // Thay đổi độ rộng cột
                 dgvUseService.AutoResizeColumns();
                 // Xóa trống các đối tượng trong Panel
@@ -386,12 +389,12 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.pbEdit.Show();
                 this.pbBack.Show();
                 //đẩy dữ liệu lên cmb RoomID và CMND
-                this.cmbRoomID.DataSource = dtRoom;
-                this.cmbRoomID.DisplayMember = dtRoom.Columns[0].ToString();
-                this.cmbRoomID.ValueMember = dtRoom.Columns[0].ToString();
+                this.cmbRoomID.DataSource = dtUseRoom;
+                this.cmbRoomID.DisplayMember = dtUseRoom.Columns[0].ToString();
+                this.cmbRoomID.ValueMember = dtUseRoom.Columns[0].ToString();
 
                 this.cmbServiceID.DataSource = dtService;
-                this.cmbServiceID.DisplayMember = dtService.Columns[0].ToString();
+                this.cmbServiceID.DisplayMember = dtService.Columns[1].ToString();
                 this.cmbServiceID.ValueMember = dtService.Columns[0].ToString();
                 dgvUseService_CellClick(null, null);
             }

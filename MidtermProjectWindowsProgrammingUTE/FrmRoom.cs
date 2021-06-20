@@ -487,5 +487,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                 e.Handled = true;
             }
         }
+
+        private void txtPrice_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
