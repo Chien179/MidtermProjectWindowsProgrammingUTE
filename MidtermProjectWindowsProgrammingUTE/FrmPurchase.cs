@@ -228,9 +228,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
                 {
-                    if (dgvPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "receipt")
+                    if (dgvPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "receipt" && Convert.ToBoolean(dgvPurchase.Rows[e.RowIndex].Cells["Paid"].Value) == true)
                     {
-                        FrmReport frmreport = new FrmReport();
+                        FrmBill frmreport = new FrmBill(dgvPurchase.Rows[e.RowIndex].Cells["RoomID"].Value.ToString());
                         frmreport.Show();
                     }
                 }
@@ -333,8 +333,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                         // Kiểm tra có nhắp chọn nút Ok không? 
                         if (traloi == DialogResult.Yes)
                         {
+                            BLUseService blUseService = new BLUseService();
+                            blUseService.DeleteUseService(dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString(), ref err);
+                            dbUseRoom.DeleteUseRoom(dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString(), ref err);
                             dbPurchase.DeletePurchase(ref err, this.txtPurchaseID.Text);
-                            dbUseRoom.DeleteUseRoom(this.cmbRoomID.Text, ref err);
                             if (err == "")
                             {
                                 // Thông báo 
@@ -553,6 +555,17 @@ namespace MidtermProjectWindowsProgrammingUTE
                 dtPurchase = dsPurchase.Tables[0];
                 // Đưa dữ liệu lên DataGridView
                 dgvPurchase.DataSource = dtPurchase;
+                for (int i = 0; i < dgvPurchase.Rows.Count; i++)
+                {
+                    DataSet roomusing = dbUseRoom.GetUseRoomCheckIn(dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString());
+                    string[] NgayVao = roomusing.Tables[0].Rows[0][0].ToString().Split(' ');
+                    dgvPurchase.Rows[i].Cells["CheckIn"].Value = NgayVao[0];
+                }
+
+                for (int i = 0; i < this.dgvPurchase.Rows.Count; i++)
+                {
+                    dgvPurchase.Rows[i].Cells["Receipt"].Value = "receipt";
+                }
                 // Thay đổi độ rộng cột
                 dgvPurchase.AutoResizeColumns();
             }
@@ -564,11 +577,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         #endregion
-
-        private void btnReceipt_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {

@@ -10,21 +10,24 @@ using System.Windows.Forms;
 
 namespace MidtermProjectWindowsProgrammingUTE
 {
-    public partial class FrmReport : Form
+    public partial class FrmBill : Form
     {
-        public FrmReport()
+        string roomid = "";
+
+        public FrmBill(string x)
         {
             InitializeComponent();
+            MessageBox.Show(x);
+            this.roomid = x;
+            // TODO: This line of code loads data into the 'QuanLyKhachSan.HoaDon' table. You can move, or remove it, as needed.
+            this.HoaDonTableAdapter.Fill(this.QuanLyKhachSan.HoaDon, this.roomid);
+
+            this.HoaDon.RefreshReport();
         }
 
         private void FrmReport_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'QuanLyKhachSan.HoaDon' table. You can move, or remove it, as needed.
-            this.HoaDonTableAdapter.Fill(this.QuanLyKhachSan.HoaDon);
 
-            this.reportViewer1.RefreshReport();
-            this.reportViewer1.RefreshReport();
-            this.reportViewer1.RefreshReport();
         }
     }
 }
