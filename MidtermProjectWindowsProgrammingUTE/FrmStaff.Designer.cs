@@ -249,6 +249,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cbSex.Name = "cbSex";
             this.cbSex.Size = new System.Drawing.Size(121, 24);
             this.cbSex.TabIndex = 113;
+            this.cbSex.SelectedIndexChanged += new System.EventHandler(this.cbSex_SelectedIndexChanged);
             // 
             // btnSearch
             // 

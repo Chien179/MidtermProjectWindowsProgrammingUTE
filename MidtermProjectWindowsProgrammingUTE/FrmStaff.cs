@@ -467,5 +467,11 @@ namespace MidtermProjectWindowsProgrammingUTE
                 e.Handled = true;
             }
         }
+
+        private void cbSex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.txtFind.Focus();
+            Search();
+        }
     }
 }

@@ -27,11 +27,11 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
             return db.ExecuteQueryDataSet("select * from ThuePhong Where TrangThai=" + 0, CommandType.Text);
         }
 
-        public bool AddUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, string MaNV, ref string err)
+        public bool AddUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, ref string err)
         {
             string sqlString = "Update Phong Set  TrangThai=" + 1 + "Where MaPhong ='" + MaPhong + "'";
             db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
-            sqlString = "Insert Into ThuePhong Values('" + MaPhong + "','" + CMND + "','" + NgayVao + "'," + DatCoc + ",'" + MaNV + "', '0')";
+            sqlString = "Insert Into ThuePhong Values('" + MaPhong + "','" + CMND + "','" + NgayVao + "'," + DatCoc + ", '0')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
@@ -43,13 +43,13 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public DataSet SearchUseRoom(string key)
         {
-            string sqlString = "Select * From ThuePhong Where MaPhong Like'%" + key + "%'or CMND Like '%" + key + "%' or NgayVao Like '%" + key + "%'or NgayRa Like '%" + key + "%'or DatCoc Like '%" + key + "'";
+            string sqlString = "Select * From ThuePhong Where MaPhong Like'%" + key + "%'or CMND Like '%" + key + "%' or NgayVao Like '%" + key + "%'or DatCoc Like '%" + key + "'";
             return db.ExecuteQueryDataSet(sqlString, CommandType.Text);
         }
 
-        public bool UpdateUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, string MaNV, ref string err)
+        public bool UpdateUseRoom(string MaPhong, string CMND, string NgayVao, float DatCoc, ref string err)
         {            
-            string sqlString = "Update ThuePhong Set NgayVao = '" + NgayVao + "',DatCoc=" + DatCoc + ",MaNV='" + MaNV + "',TrangThai=" + 0 + " Where MaPhong='" + MaPhong + "' and CMND='" + CMND + "'";
+            string sqlString = "Update ThuePhong Set NgayVao = '" + NgayVao + "',DatCoc=" + DatCoc + ",TrangThai=" + 0 + " Where MaPhong='" + MaPhong + "' and CMND='" + CMND + "'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 

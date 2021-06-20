@@ -49,7 +49,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID.ResetText();
             this.cmbCMND.ResetText();
             this.dtpDateIn.ResetText();
-            this.cmbStaffID.ResetText();
             this.txtDeposit.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.pbSave.Show();
@@ -88,7 +87,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         return;
                     }
                 }
-                if (this.cmbRoomID.Text == "" || this.cmbStaffID.Text == "" || this.cmbCMND.Text == "")
+                if (this.cmbRoomID.Text == "" || this.cmbCMND.Text == "")
                 {
                     if (this.cmbRoomID.Text == "")
                     {
@@ -97,16 +96,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                     }
                     else
                     {
-                        if (this.cmbStaffID.Text == "")
-                        {
-                            MessageBox.Show("No Staff ID selected !");
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please don't leave blank input");
-                            return;
-                        }
+
+                        MessageBox.Show("Please don't leave blank input");
+                        return;
+
                     }
                 }
                 try
@@ -120,7 +113,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         {
                             Deposit = float.Parse(this.txtDeposit.Text);
                         }
-                        blUseRoom.AddUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, Deposit, this.cmbStaffID.SelectedValue.ToString(), ref err);
+                        blUseRoom.AddUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, Deposit, ref err);
                         // Load lại dữ liệu trên DataGridView
                         LoadData();
                         // Thông báo
@@ -142,7 +135,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     return;
                 }
 
-                if (this.cmbRoomID.Text == "" || this.cmbStaffID.Text == "" || this.cmbCMND.Text == "")
+                if (this.cmbRoomID.Text == "" || this.cmbCMND.Text == "")
                 {
                     if (this.cmbRoomID.Text == "")
                     {
@@ -151,22 +144,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     }
                     else
                     {
-                        if (this.cmbStaffID.Text == "")
-                        {
-                            MessageBox.Show("No Staff ID selected !");
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please don't leave blank input");
-                            return;
-                        }
+                        MessageBox.Show("Please don't leave blank input");
+                        return;
                     }
                 }
                 // Thực hiện lệnh
                 BLUseRoom blUseRoom = new BLUseRoom();
-                blUseRoom.UpdateUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, float.Parse(this.txtDeposit.Text), this.cmbStaffID.SelectedValue.ToString(), ref err);
-                
+                blUseRoom.UpdateUseRoom(this.cmbRoomID.SelectedValue.ToString(), this.cmbCMND.SelectedValue.ToString(), this.dtpDateIn.Text, float.Parse(this.txtDeposit.Text), ref err);
+
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -186,7 +171,6 @@ namespace MidtermProjectWindowsProgrammingUTE
                     // Chuyển thông tin lên panel
                     this.cmbRoomID.Text = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString();
                     this.cmbCMND.Text = dgvRoom.Rows[r].Cells["CMND"].Value.ToString();
-                    this.cmbStaffID.Text= dgvRoom.Rows[r].Cells["StaffID"].Value.ToString();
                     this.dtpDateIn.Text = dgvRoom.Rows[r].Cells["CheckIn"].Value.ToString();
                     this.txtDeposit.Text = dgvRoom.Rows[r].Cells["Deposit"].Value.ToString();
                 }
@@ -229,12 +213,10 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cmbRoomID.ResetText();
             this.cmbCMND.ResetText();
             this.dtpDateIn.ResetText();
-            this.cmbStaffID.ResetText();
             this.txtDeposit.ResetText();
             this.cmbRoomID.Enabled = true;
             this.cmbCMND.Enabled = true;
             this.dtpDateIn.Enabled = true;
-            this.cmbStaffID.Enabled = true;
             this.txtDeposit.Enabled = true;
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.pbAdd.Enabled = true;
@@ -256,7 +238,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void pbDelete_Click(object sender, EventArgs e)
         {
-            
+
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -320,7 +302,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             ButtonColorChanged("cancel.png", this.pbCancel);
         }
 
-        
+
         #endregion
 
         #region Other Events
@@ -372,12 +354,10 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbRoomID.ResetText();
                 this.cmbCMND.ResetText();
                 this.dtpDateIn.ResetText();
-                this.cmbStaffID.ResetText();
                 this.txtDeposit.ResetText();
                 this.cmbRoomID.Enabled = true;
                 this.cmbCMND.Enabled = true;
                 this.dtpDateIn.Enabled = true;
-                this.cmbStaffID.Enabled = true;
                 this.txtDeposit.Enabled = true;
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.pbSave.Enabled = false;
@@ -403,11 +383,6 @@ namespace MidtermProjectWindowsProgrammingUTE
                 this.cmbCMND.DataSource = dtClient;
                 this.cmbCMND.DisplayMember = dtClient.Columns[0].ToString();
                 this.cmbCMND.ValueMember = dtClient.Columns[0].ToString();
-
-                this.cmbStaffID.DataSource = dtStaff;
-                this.cmbStaffID.DisplayMember = dtStaff.Columns[0].ToString();
-                this.cmbStaffID.ValueMember = dtStaff.Columns[0].ToString();
-
 
                 dgvRoom_CellClick(null, null);
             }

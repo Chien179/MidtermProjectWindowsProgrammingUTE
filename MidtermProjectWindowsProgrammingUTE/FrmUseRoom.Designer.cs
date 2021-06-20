@@ -40,8 +40,6 @@
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.gbInfor = new System.Windows.Forms.GroupBox();
-            this.cmbStaffID = new System.Windows.Forms.ComboBox();
-            this.lblStaffID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
@@ -56,7 +54,6 @@
             this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Deposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Paid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
@@ -119,7 +116,6 @@
             this.RoomID,
             this.CMND,
             this.CheckIn,
-            this.StaffID,
             this.Deposit,
             this.Paid});
             this.dgvRoom.Location = new System.Drawing.Point(679, 251);
@@ -196,8 +192,6 @@
             // 
             // gbInfor
             // 
-            this.gbInfor.Controls.Add(this.cmbStaffID);
-            this.gbInfor.Controls.Add(this.lblStaffID);
             this.gbInfor.Controls.Add(this.label2);
             this.gbInfor.Controls.Add(this.label4);
             this.gbInfor.Controls.Add(this.dtpDateIn);
@@ -207,32 +201,12 @@
             this.gbInfor.Controls.Add(this.cmbCMND);
             this.gbInfor.Controls.Add(this.txtDeposit);
             this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gbInfor.Location = new System.Drawing.Point(124, 187);
+            this.gbInfor.Location = new System.Drawing.Point(122, 217);
             this.gbInfor.Name = "gbInfor";
-            this.gbInfor.Size = new System.Drawing.Size(422, 316);
+            this.gbInfor.Size = new System.Drawing.Size(422, 269);
             this.gbInfor.TabIndex = 104;
             this.gbInfor.TabStop = false;
             this.gbInfor.Text = "Information";
-            // 
-            // cmbStaffID
-            // 
-            this.cmbStaffID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbStaffID.FormattingEnabled = true;
-            this.cmbStaffID.Location = new System.Drawing.Point(166, 169);
-            this.cmbStaffID.Name = "cmbStaffID";
-            this.cmbStaffID.Size = new System.Drawing.Size(200, 32);
-            this.cmbStaffID.TabIndex = 80;
-            // 
-            // lblStaffID
-            // 
-            this.lblStaffID.AutoSize = true;
-            this.lblStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblStaffID.Location = new System.Drawing.Point(6, 174);
-            this.lblStaffID.Name = "lblStaffID";
-            this.lblStaffID.Size = new System.Drawing.Size(88, 25);
-            this.lblStaffID.TabIndex = 79;
-            this.lblStaffID.Text = "Staff ID:";
             // 
             // label2
             // 
@@ -258,7 +232,7 @@
             // 
             this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateIn.Location = new System.Drawing.Point(166, 223);
+            this.dtpDateIn.Location = new System.Drawing.Point(164, 170);
             this.dtpDateIn.Name = "dtpDateIn";
             this.dtpDateIn.Size = new System.Drawing.Size(200, 30);
             this.dtpDateIn.TabIndex = 76;
@@ -267,7 +241,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(6, 228);
+            this.label3.Location = new System.Drawing.Point(4, 175);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 25);
             this.label3.TabIndex = 71;
@@ -277,7 +251,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(6, 278);
+            this.label6.Location = new System.Drawing.Point(4, 225);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 25);
             this.label6.TabIndex = 77;
@@ -306,7 +280,7 @@
             // txtDeposit
             // 
             this.txtDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtDeposit.Location = new System.Drawing.Point(166, 273);
+            this.txtDeposit.Location = new System.Drawing.Point(164, 220);
             this.txtDeposit.Name = "txtDeposit";
             this.txtDeposit.Size = new System.Drawing.Size(200, 30);
             this.txtDeposit.TabIndex = 78;
@@ -369,15 +343,6 @@
             this.CheckIn.ReadOnly = true;
             this.CheckIn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CheckIn.Width = 125;
-            // 
-            // StaffID
-            // 
-            this.StaffID.DataPropertyName = "MaNV";
-            this.StaffID.HeaderText = "Staff ID";
-            this.StaffID.MinimumWidth = 6;
-            this.StaffID.Name = "StaffID";
-            this.StaffID.ReadOnly = true;
-            this.StaffID.Width = 125;
             // 
             // Deposit
             // 
@@ -457,15 +422,12 @@
         private System.Windows.Forms.ComboBox cmbRoomID;
         private System.Windows.Forms.ComboBox cmbCMND;
         private System.Windows.Forms.TextBox txtDeposit;
-        private System.Windows.Forms.Label lblStaffID;
-        private System.Windows.Forms.ComboBox cmbStaffID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblNhanVien;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StaffID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Deposit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Paid;
     }

@@ -424,7 +424,6 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label8.Location = new System.Drawing.Point(1023, 161);
-            this.label8.Location = new System.Drawing.Point(984, 161);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 18);
             this.label8.TabIndex = 127;

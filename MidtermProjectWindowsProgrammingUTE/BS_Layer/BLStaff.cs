@@ -42,7 +42,7 @@ namespace MidtermProjectWindowsProgrammingUTE.BS_Layer
 
         public DataSet SearchStaff(string key, int Sex)
         {
-            string sqlString = "Select * From NhanVien Where Nu =" + Sex + "and (MaNV Like'%" + key + "%'or TenNV Like N'%" + key + "%'or ChucVu Like N'%" + key + "%'or NamSinh Like '%" + key +"%')";
+            string sqlString = "Select * From NhanVien Where Nu = " + Sex + " and (MaNV Like'%" + key + "%' or TenNV Like N'%" + key + "%'or ChucVu Like N'%" + key + "%'or NamSinh Like '%" + key +"%')";
             if (Sex == -1)
             {
                 sqlString = "Select * From NhanVien Where MaNV Like'%" + key + "%'or TenNV Like N'%" + key + "%'or ChucVu Like N'%" + key + "%'or NamSinh Like '%" + key + "%'";
