@@ -128,8 +128,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void reportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmReport f = new FrmReport();
-            f.ShowDialog();
+            
         }
     }
 }

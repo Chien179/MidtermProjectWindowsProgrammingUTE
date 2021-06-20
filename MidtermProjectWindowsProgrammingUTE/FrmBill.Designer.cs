@@ -1,7 +1,7 @@
 ﻿
 namespace MidtermProjectWindowsProgrammingUTE
 {
-    partial class FrmReport
+    partial class FrmBill
     {
         /// <summary>
         /// Required designer variable.
@@ -31,8 +31,8 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReport));
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBill));
+            this.HoaDon = new Microsoft.Reporting.WinForms.ReportViewer();
             this.QuanLyKhachSan = new MidtermProjectWindowsProgrammingUTE.QuanLyKhachSan();
             this.HoaDonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.HoaDonTableAdapter = new MidtermProjectWindowsProgrammingUTE.QuanLyKhachSanTableAdapters.HoaDonTableAdapter();
@@ -40,18 +40,18 @@ namespace MidtermProjectWindowsProgrammingUTE
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // HoaDon
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
+            this.HoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "QLKS";
             reportDataSource1.Value = this.HoaDonBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "MidtermProjectWindowsProgrammingUTE.Bill.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.reportViewer1.TabIndex = 0;
+            this.HoaDon.LocalReport.DataSources.Add(reportDataSource1);
+            this.HoaDon.LocalReport.ReportEmbeddedResource = "MidtermProjectWindowsProgrammingUTE.Bill.rdlc";
+            this.HoaDon.Location = new System.Drawing.Point(0, 0);
+            this.HoaDon.Name = "HoaDon";
+            this.HoaDon.ServerReport.BearerToken = null;
+            this.HoaDon.Size = new System.Drawing.Size(1019, 655);
+            this.HoaDon.TabIndex = 0;
             // 
             // QuanLyKhachSan
             // 
@@ -67,14 +67,14 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.HoaDonTableAdapter.ClearBeforeFill = true;
             // 
-            // FrmReport
+            // FrmBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.reportViewer1);
+            this.ClientSize = new System.Drawing.Size(1019, 655);
+            this.Controls.Add(this.HoaDon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmReport";
+            this.Name = "FrmBill";
             this.Text = "FrmReport";
             this.Load += new System.EventHandler(this.FrmReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.QuanLyKhachSan)).EndInit();
@@ -85,7 +85,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer HoaDon;
         private System.Windows.Forms.BindingSource HoaDonBindingSource;
         private QuanLyKhachSan QuanLyKhachSan;
         private QuanLyKhachSanTableAdapters.HoaDonTableAdapter HoaDonTableAdapter;
