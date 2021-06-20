@@ -130,5 +130,25 @@ namespace MidtermProjectWindowsProgrammingUTE
         {
             
         }
+
+        
+        
+
+        private void Room_Click(object sender, EventArgs e)
+        {
+            FrmRoom frmroom = new FrmRoom(this.Name);
+            this.Hide();
+            frmroom.ShowDialog();
+            this.Show();
+        }
+        private void Room_MouseEnter(object sender, EventArgs e)
+        {
+            ButtonColorChanged_Enter("room_yellow.png", this.lblRoom, this.pbRoom);
+        }
+
+        private void Room_MouseLeave(object sender, EventArgs e)
+        {
+            ButtonColorChanged_Leave("room.png", this.lblRoom, this.pbRoom);
+        }
     }
 }

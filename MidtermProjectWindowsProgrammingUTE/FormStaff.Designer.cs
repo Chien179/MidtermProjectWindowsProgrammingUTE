@@ -44,18 +44,23 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plRoom = new System.Windows.Forms.Panel();
+            this.lblRoom = new System.Windows.Forms.Label();
+            this.pbRoom = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbServiceUsing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomUsing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPurchase)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.plRoom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRoom)).BeginInit();
             this.SuspendLayout();
             // 
             // pbServiceUsing
             // 
             this.pbServiceUsing.Image = ((System.Drawing.Image)(resources.GetObject("pbServiceUsing.Image")));
             this.pbServiceUsing.Location = new System.Drawing.Point(196, 340);
-            this.pbServiceUsing.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbServiceUsing.Margin = new System.Windows.Forms.Padding(4);
             this.pbServiceUsing.Name = "pbServiceUsing";
             this.pbServiceUsing.Size = new System.Drawing.Size(111, 97);
             this.pbServiceUsing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -69,7 +74,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.pbRoomUsing.Image = ((System.Drawing.Image)(resources.GetObject("pbRoomUsing.Image")));
             this.pbRoomUsing.Location = new System.Drawing.Point(196, 155);
-            this.pbRoomUsing.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbRoomUsing.Margin = new System.Windows.Forms.Padding(4);
             this.pbRoomUsing.Name = "pbRoomUsing";
             this.pbRoomUsing.Size = new System.Drawing.Size(111, 97);
             this.pbRoomUsing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -110,8 +115,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             // pbClient
             // 
             this.pbClient.Image = ((System.Drawing.Image)(resources.GetObject("pbClient.Image")));
-            this.pbClient.Location = new System.Drawing.Point(568, 340);
-            this.pbClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbClient.Location = new System.Drawing.Point(388, 256);
+            this.pbClient.Margin = new System.Windows.Forms.Padding(4);
             this.pbClient.Name = "pbClient";
             this.pbClient.Size = new System.Drawing.Size(111, 97);
             this.pbClient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -125,7 +130,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.lblClient.AutoSize = true;
             this.lblClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblClient.Location = new System.Drawing.Point(575, 305);
+            this.lblClient.Location = new System.Drawing.Point(395, 221);
             this.lblClient.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblClient.Name = "lblClient";
             this.lblClient.Size = new System.Drawing.Size(84, 31);
@@ -139,7 +144,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.pbPurchase.Image = ((System.Drawing.Image)(resources.GetObject("pbPurchase.Image")));
             this.pbPurchase.Location = new System.Drawing.Point(568, 155);
-            this.pbPurchase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.pbPurchase.Name = "pbPurchase";
             this.pbPurchase.Size = new System.Drawing.Size(111, 97);
             this.pbPurchase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -197,7 +202,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -212,9 +217,47 @@ namespace MidtermProjectWindowsProgrammingUTE
             // reportToolStripMenuItem
             // 
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.reportToolStripMenuItem.Text = "Report";
             this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
+            // 
+            // plRoom
+            // 
+            this.plRoom.Controls.Add(this.lblRoom);
+            this.plRoom.Controls.Add(this.pbRoom);
+            this.plRoom.Location = new System.Drawing.Point(568, 300);
+            this.plRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.plRoom.Name = "plRoom";
+            this.plRoom.Size = new System.Drawing.Size(111, 137);
+            this.plRoom.TabIndex = 31;
+            // 
+            // lblRoom
+            // 
+            this.lblRoom.AutoSize = true;
+            this.lblRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblRoom.Location = new System.Drawing.Point(8, 5);
+            this.lblRoom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRoom.Name = "lblRoom";
+            this.lblRoom.Size = new System.Drawing.Size(86, 31);
+            this.lblRoom.TabIndex = 2;
+            this.lblRoom.Text = "Room";
+            this.lblRoom.Click += new System.EventHandler(this.Room_Click);
+            this.lblRoom.MouseEnter += new System.EventHandler(this.Room_MouseEnter);
+            this.lblRoom.MouseLeave += new System.EventHandler(this.Room_MouseLeave);
+            // 
+            // pbRoom
+            // 
+            this.pbRoom.Image = ((System.Drawing.Image)(resources.GetObject("pbRoom.Image")));
+            this.pbRoom.Location = new System.Drawing.Point(0, 39);
+            this.pbRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.pbRoom.Name = "pbRoom";
+            this.pbRoom.Size = new System.Drawing.Size(111, 97);
+            this.pbRoom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRoom.TabIndex = 6;
+            this.pbRoom.TabStop = false;
+            this.pbRoom.Click += new System.EventHandler(this.Room_Click);
+            this.pbRoom.MouseEnter += new System.EventHandler(this.Room_MouseEnter);
+            this.pbRoom.MouseLeave += new System.EventHandler(this.Room_MouseLeave);
             // 
             // FormStaff
             // 
@@ -222,6 +265,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(883, 469);
+            this.Controls.Add(this.plRoom);
             this.Controls.Add(this.pbServiceUsing);
             this.Controls.Add(this.pbRoomUsing);
             this.Controls.Add(this.lblServiceUsing);
@@ -233,8 +277,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormStaff";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormStaff";
             ((System.ComponentModel.ISupportInitialize)(this.pbServiceUsing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomUsing)).EndInit();
@@ -242,6 +287,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             ((System.ComponentModel.ISupportInitialize)(this.pbPurchase)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.plRoom.ResumeLayout(false);
+            this.plRoom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRoom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +311,8 @@ namespace MidtermProjectWindowsProgrammingUTE
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.Panel plRoom;
+        private System.Windows.Forms.Label lblRoom;
+        private System.Windows.Forms.PictureBox pbRoom;
     }
 }
