@@ -82,6 +82,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         if (this.cmbRoomID.Text == "")
                         {
                             MessageBox.Show("Choose a room !");
+                            pbCancel_Click(sender, e);
                             return;
                         }
                         else
@@ -89,11 +90,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                             if (this.cmbStaffID.Text == "")
                             {
                                 MessageBox.Show("Choose a staff !");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                             else
                             {
                                 MessageBox.Show("Please don't leave blank input");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                         }
@@ -109,6 +112,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                                 txtPurchaseID.ResetText();
                                 txtTotal.ResetText();
                                 txtPurchaseID.Focus();
+                                pbCancel_Click(sender, e);
                                 return;
                             }
 
@@ -121,6 +125,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                                     MessageBox.Show("This receipt hasn't been purchased");
                                     txtTotal.ResetText();
                                     txtPurchaseID.Focus();
+                                    pbCancel_Click(sender, e);
                                     return;
                                 }
                             }
@@ -161,6 +166,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 if (bool.Parse(dgvPurchase.Rows[r].Cells["Paid"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                 {
                     MessageBox.Show("Cannot edit paid rooms !");
+                    pbCancel_Click(sender, e);
                     return;
                 }
                 // Thực hiện lệnh
@@ -170,6 +176,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.cmbRoomID.Text == "")
                     {
                         MessageBox.Show("Choose a room !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
@@ -177,11 +184,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                         if (this.cmbStaffID.Text == "")
                         {
                             MessageBox.Show("Choose a staff !");
+                            pbCancel_Click(sender, e);
                             return;
                         }
                         else
                         {
                             MessageBox.Show("Please don't leave blank input");
+                            pbCancel_Click(sender, e);
                             return;
                         }
                     }
@@ -231,6 +240,18 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     if (dgvPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "receipt" && Convert.ToBoolean(dgvPurchase.Rows[e.RowIndex].Cells["Paid"].Value) == true)
                     {
+
+                        string roomid = dgvPurchase.Rows[e.RowIndex].Cells["RoomID"].Value.ToString().Trim();
+                        for (int i = 0; i < dgvPurchase.Rows.Count; i++) //kiểm tra trùng lặp mã phòng
+                        {
+                            if (i != e.RowIndex) {
+                                if (roomid == dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString().Trim())
+                                {
+                                    MessageBox.Show("Cannot purchase room id : '" + roomid + "', please delete duplicate room id");
+                                    return;
+                                }
+                            }
+                        }
                         FrmBill frmreport = new FrmBill(dgvPurchase.Rows[e.RowIndex].Cells["RoomID"].Value.ToString());
                         frmreport.Show();
                     }

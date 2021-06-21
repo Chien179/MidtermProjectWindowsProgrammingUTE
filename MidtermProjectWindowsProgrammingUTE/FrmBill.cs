@@ -26,7 +26,7 @@ namespace MidtermProjectWindowsProgrammingUTE
 
         private void FrmReport_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

@@ -75,13 +75,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.txtID.Text == "")
                     {
                         MessageBox.Show("Please fill in CMND !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
-
-                            MessageBox.Show("Please fill in Name !");
-                            return;
+                        MessageBox.Show("Please fill in Name !");
+                        pbCancel_Click(sender, e);
+                        return;
                     }
                 }
                 for (int i = 0;i < dgvClient.Rows.Count; i++)
@@ -96,6 +97,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         txtPhoneNumber.ResetText();
                         cbFemale.ResetText();
                         txtID.Focus();
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }
@@ -127,12 +129,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.txtID.Text == "")
                     {
                         MessageBox.Show("Please fill in CMND !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
 
                         MessageBox.Show("Please fill in Name !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }

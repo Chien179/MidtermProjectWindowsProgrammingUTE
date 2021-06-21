@@ -165,14 +165,34 @@ namespace MidtermProjectWindowsProgrammingUTE
                         {
                             MessageBox.Show("Existed '" + roomid + "' and '" + serviceid + "', please type another one !");
                             txtAmount.ResetText();
+                            pbCancel_Click(sender, e);
                             return;
                         }
                     }
+                    int r = dgvUseService.CurrentCell.RowIndex;
+                    string current_roomid = dgvUseService.Rows[r].Cells["RoomID"].Value.ToString().Trim(); //roomid đang được chọn 
+                    for (int i = 0; i < dgvUseService.Rows.Count; i++) //kiểm tra trùng mã phòng nếu đã thanh toán thì không được thêm vào
+                    {
+                        string temproomid = dgvUseService.Rows[i].Cells["RoomID"].Value.ToString().Trim();
+                        if (current_roomid == temproomid)
+                        {
+                            string tempstatus = dgvUseService.Rows[i].Cells["Paid"].Value.ToString().Trim();
+                            if (tempstatus == "True")
+                            {
+                                MessageBox.Show("You have to delete paid roomid before adding '" + roomid + "'");
+                                txtAmount.ResetText();
+                                pbCancel_Click(sender, e);
+                                return;
+                            }
+                        }
+                    }
+
                     if (this.cmbRoomID.Text == "" || this.cmbServiceID.Text == "" || this.txtAmount.Text == "")
                     {
                         if (this.cmbRoomID.Text == "")
                         {
                             MessageBox.Show("No Room ID selected !");
+                            pbCancel_Click(sender, e);
                             return;
                         }
                         else
@@ -180,11 +200,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                             if (this.cmbServiceID.Text == "")
                             {
                                 MessageBox.Show("No Service ID selected !");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                             else
                             {
                                 MessageBox.Show("Please don't leave blank input");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                         }
@@ -220,6 +242,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (bool.Parse(dgvUseService.Rows[r].Cells["Paid"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                     {
                         MessageBox.Show("Cannot edit paid rooms !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     if (this.cmbRoomID.Text == "" || this.cmbServiceID.Text == "" || this.txtAmount.Text == "")
@@ -227,6 +250,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         if (this.cmbRoomID.Text == "")
                         {
                             MessageBox.Show("No Room ID selected !");
+                            pbCancel_Click(sender, e);
                             return;
                         }
                         else
@@ -234,11 +258,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                             if (this.cmbServiceID.Text == "")
                             {
                                 MessageBox.Show("No Service ID selected !");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                             else
                             {
                                 MessageBox.Show("Please don't leave blank input");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                         }

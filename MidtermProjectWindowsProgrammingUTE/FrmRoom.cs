@@ -76,12 +76,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.txtRoomID.Text == "")
                     {
                         MessageBox.Show("Please fill in Room ID !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
 
                         MessageBox.Show("Please fill in RoomType !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }
@@ -95,6 +97,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         txtNote.ResetText();
                         txtPrice.ResetText();
                         txtRoomID.Focus();
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }
@@ -131,12 +134,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.txtRoomID.Text == "")
                     {
                         MessageBox.Show("Please fill in Room ID !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
 
                         MessageBox.Show("Please fill in RoomType !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }

@@ -36,7 +36,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void FrmUseRoom_Load(object sender, EventArgs e)
         {
             LoadData();
-
         }
         #endregion
 
@@ -74,9 +73,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
-                string roomid = cmbRoomID.Text.Trim();
-                string id = cmbCMND.Text.Trim();
-                for (int i = 0; i < dgvRoom.Rows.Count; i++)
+                string roomid = cmbRoomID.Text.ToString().Trim();
+                string id = cmbCMND.Text.ToString().Trim();
+                for (int i = 0; i < dgvRoom.Rows.Count; i++) //kiểm tra trùng mã phòng và trùng CMND
                 {
                     string temproomid = dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim();
                     string tempid = dgvRoom.Rows[i].Cells["CMND"].Value.ToString().Trim();
@@ -84,20 +83,41 @@ namespace MidtermProjectWindowsProgrammingUTE
                     {
                         MessageBox.Show("Existed '" + roomid + "' and '" + id + "', please type another one !");
                         txtDeposit.ResetText();
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }
-                if (this.cmbRoomID.Text == "" || this.cmbCMND.Text == "")
+                int r = dgvRoom.CurrentCell.RowIndex;
+                string current_roomid = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString().Trim(); //roomid đang được chọn 
+                for (int i = 0; i < dgvRoom.Rows.Count; i++) //kiểm tra trùng mã phòng nếu đã thanh toán thì không được thêm vào
+                {
+                    string temproomid = dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim();
+                    if (current_roomid == temproomid)
+                    {
+                        string tempstatus = dgvRoom.Rows[i].Cells["Paid"].Value.ToString().Trim();
+                        if(tempstatus == "True")
+                        {
+                            MessageBox.Show("You have to delete paid roomid before adding '" + roomid + "'");
+                            txtDeposit.ResetText();
+                            pbCancel_Click(sender, e);
+                            return;
+                        }
+                    }
+                }
+
+                if (this.cmbRoomID.Text == "" || this.cmbCMND.Text == "") //kiểm tra Roomid và CMND có bị bỏ trống hay không
                 {
                     if (this.cmbRoomID.Text == "")
                     {
                         MessageBox.Show("No Room ID selected !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
 
                         MessageBox.Show("Please don't leave blank input");
+                        pbCancel_Click(sender, e);
                         return;
 
                     }
@@ -132,6 +152,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 if (bool.Parse(dgvRoom.Rows[r].Cells["Paid"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                 {
                     MessageBox.Show("Cannot edit paid rooms !");
+                    pbCancel_Click(sender, e);
                     return;
                 }
 
@@ -140,11 +161,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.cmbRoomID.Text == "")
                     {
                         MessageBox.Show("No Room ID selected !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
                         MessageBox.Show("Please don't leave blank input");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }
