@@ -244,7 +244,8 @@ namespace MidtermProjectWindowsProgrammingUTE
                         string roomid = dgvPurchase.Rows[e.RowIndex].Cells["RoomID"].Value.ToString().Trim();
                         for (int i = 0; i < dgvPurchase.Rows.Count; i++) //kiểm tra trùng lặp mã phòng
                         {
-                            if (i != e.RowIndex) {
+                            if (i != e.RowIndex)
+                            {
                                 if (roomid == dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString().Trim())
                                 {
                                     MessageBox.Show("Cannot purchase room id : '" + roomid + "', please delete duplicate room id");
@@ -343,35 +344,35 @@ namespace MidtermProjectWindowsProgrammingUTE
                     int r = dgvPurchase.CurrentCell.RowIndex;
                     // Lấy MaKH của record hiện hành 
                     string strCMND = dgvPurchase.Rows[r].Cells[0].Value.ToString();
-                    if (bool.Parse(dgvPurchase.Rows[r].Cells["Paid"].Value.ToString()) == true)
+                    // Viết câu lệnh SQL 
+                    // Hiện thông báo xác nhận việc xóa mẫu tin 
+                    // Khai báo biến traloi 
+                    DialogResult traloi;
+                    // Hiện hộp thoại hỏi đáp 
+                    traloi = MessageBox.Show("Are you sure?", "Delete row",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    // Kiểm tra có nhắp chọn nút Ok không? 
+                    if (traloi == DialogResult.Yes)
                     {
-                        // Viết câu lệnh SQL 
-                        // Hiện thông báo xác nhận việc xóa mẫu tin 
-                        // Khai báo biến traloi 
-                        DialogResult traloi;
-                        // Hiện hộp thoại hỏi đáp 
-                        traloi = MessageBox.Show("Are you sure?", "Delete row",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        // Kiểm tra có nhắp chọn nút Ok không? 
-                        if (traloi == DialogResult.Yes)
+                        BLUseService blUseService = new BLUseService();
+                        if (bool.Parse(dgvPurchase.Rows[r].Cells["Paid"].Value.ToString()) == true)
                         {
-                            BLUseService blUseService = new BLUseService();
                             blUseService.DeleteUseService(dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString(), ref err);
                             dbUseRoom.DeleteUseRoom(dgvPurchase.Rows[r].Cells["RoomID"].Value.ToString(), ref err);
-                            dbPurchase.DeletePurchase(ref err, this.txtPurchaseID.Text);
-                            if (err == "")
-                            {
-                                // Thông báo 
-                                MessageBox.Show("Deleted successfully!");
-                                // Cập nhật lại DataGridView 
-                                LoadData();
-                            }
-                            else
-                            {
-                                this.gbInfor.Text = "Information";
-                                // Thông báo 
-                                MessageBox.Show("Client is still using room !", "Delete failed!");
-                            }
+                        }
+                        dbPurchase.DeletePurchase(ref err, this.txtPurchaseID.Text);
+                        if (err == "")
+                        {
+                            // Thông báo 
+                            MessageBox.Show("Deleted successfully!");
+                            // Cập nhật lại DataGridView 
+                            LoadData();
+                        }
+                        else
+                        {
+                            this.gbInfor.Text = "Information";
+                            // Thông báo 
+                            MessageBox.Show("Client is still using room !", "Delete failed!");
                         }
                     }
                     else
