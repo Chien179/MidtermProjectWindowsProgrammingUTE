@@ -36,7 +36,6 @@ namespace MidtermProjectWindowsProgrammingUTE
         private void FrmUseRoom_Load(object sender, EventArgs e)
         {
             LoadData();
-
         }
         #endregion
 
@@ -74,8 +73,8 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
-                string roomid = cmbRoomID.Text.Trim();
-                string id = cmbCMND.Text.Trim();
+                string roomid = cmbRoomID.Text.ToString().Trim();
+                string id = cmbCMND.Text.ToString().Trim();
                 for (int i = 0; i < dgvRoom.Rows.Count; i++) //kiểm tra trùng mã phòng và trùng CMND
                 {
                     string temproomid = dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim();
@@ -88,7 +87,25 @@ namespace MidtermProjectWindowsProgrammingUTE
                         return;
                     }
                 }
-                if (this.cmbRoomID.Text == "" || this.cmbCMND.Text == "")
+                int r = dgvRoom.CurrentCell.RowIndex;
+                string current_roomid = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString().Trim(); //roomid đang được chọn 
+                for (int i = 0; i < dgvRoom.Rows.Count; i++) //kiểm tra trùng mã phòng nếu đã thanh toán thì không được thêm vào
+                {
+                    string temproomid = dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim();
+                    if (current_roomid == temproomid)
+                    {
+                        string tempstatus = dgvRoom.Rows[i].Cells["Paid"].Value.ToString().Trim();
+                        if(tempstatus == "True")
+                        {
+                            MessageBox.Show("You have to delete paid roomid before adding '" + roomid + "'");
+                            txtDeposit.ResetText();
+                            pbCancel_Click(sender, e);
+                            return;
+                        }
+                    }
+                }
+
+                if (this.cmbRoomID.Text == "" || this.cmbCMND.Text == "") //kiểm tra Roomid và CMND có bị bỏ trống hay không
                 {
                     if (this.cmbRoomID.Text == "")
                     {
