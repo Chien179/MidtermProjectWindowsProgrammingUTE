@@ -76,7 +76,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             {
                 string roomid = cmbRoomID.Text.Trim();
                 string id = cmbCMND.Text.Trim();
-                for (int i = 0; i < dgvRoom.Rows.Count; i++)
+                for (int i = 0; i < dgvRoom.Rows.Count; i++) //kiểm tra trùng mã phòng và trùng CMND
                 {
                     string temproomid = dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim();
                     string tempid = dgvRoom.Rows[i].Cells["CMND"].Value.ToString().Trim();

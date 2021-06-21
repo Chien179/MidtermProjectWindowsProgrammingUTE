@@ -231,6 +231,18 @@ namespace MidtermProjectWindowsProgrammingUTE
                 {
                     if (dgvPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "receipt" && Convert.ToBoolean(dgvPurchase.Rows[e.RowIndex].Cells["Paid"].Value) == true)
                     {
+
+                        string roomid = dgvPurchase.Rows[e.RowIndex].Cells["RoomID"].Value.ToString().Trim();
+                        for (int i = 0; i < dgvPurchase.Rows.Count; i++) //kiểm tra trùng lặp mã phòng
+                        {
+                            if (i != e.RowIndex) {
+                                if (roomid == dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString().Trim())
+                                {
+                                    MessageBox.Show("Cannot purchase room id : '" + roomid + "', please delete duplicate room id");
+                                    return;
+                                }
+                            }
+                        }
                         FrmBill frmreport = new FrmBill(dgvPurchase.Rows[e.RowIndex].Cells["RoomID"].Value.ToString());
                         frmreport.Show();
                     }

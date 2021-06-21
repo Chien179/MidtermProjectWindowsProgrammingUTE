@@ -59,9 +59,9 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox1.Location = new System.Drawing.Point(240, 235);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(640, 374);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -72,7 +72,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.cbShow.AutoSize = true;
             this.cbShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbShow.Location = new System.Drawing.Point(97, 282);
-            this.cbShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbShow.Margin = new System.Windows.Forms.Padding(4);
             this.cbShow.Name = "cbShow";
             this.cbShow.Size = new System.Drawing.Size(128, 21);
             this.cbShow.TabIndex = 7;
@@ -84,7 +84,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(97, 192);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(36, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -95,7 +95,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(97, 79);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(36, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,7 +106,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLogin.Location = new System.Drawing.Point(209, 305);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(212, 44);
             this.btnLogin.TabIndex = 4;
@@ -117,7 +117,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(97, 239);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(429, 34);
             this.txtPassword.TabIndex = 3;
@@ -136,7 +136,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(97, 123);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(429, 34);
             this.txtUsername.TabIndex = 1;
@@ -157,7 +157,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(0, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1149, 177);
             this.panel1.TabIndex = 1;
@@ -181,7 +181,7 @@ namespace MidtermProjectWindowsProgrammingUTE
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";

@@ -32,5 +32,15 @@ namespace MidtermProjectWindowsProgrammingUTE.Properties {
                 return ((string)(this["QLKSConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PHIANH;Initial Catalog=QLKS;Integrated Security=True")]
+        public string QLKSConnectionString1 {
+            get {
+                return ((string)(this["QLKSConnectionString1"]));
+            }
+        }
     }
 }
