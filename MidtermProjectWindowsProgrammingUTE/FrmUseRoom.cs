@@ -84,6 +84,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     {
                         MessageBox.Show("Existed '" + roomid + "' and '" + id + "', please type another one !");
                         txtDeposit.ResetText();
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }
@@ -92,12 +93,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.cmbRoomID.Text == "")
                     {
                         MessageBox.Show("No Room ID selected !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
 
                         MessageBox.Show("Please don't leave blank input");
+                        pbCancel_Click(sender, e);
                         return;
 
                     }
@@ -132,6 +135,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 if (bool.Parse(dgvRoom.Rows[r].Cells["Paid"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                 {
                     MessageBox.Show("Cannot edit paid rooms !");
+                    pbCancel_Click(sender, e);
                     return;
                 }
 
@@ -140,11 +144,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.cmbRoomID.Text == "")
                     {
                         MessageBox.Show("No Room ID selected !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
                         MessageBox.Show("Please don't leave blank input");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }

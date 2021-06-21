@@ -82,6 +82,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         if (this.cmbRoomID.Text == "")
                         {
                             MessageBox.Show("Choose a room !");
+                            pbCancel_Click(sender, e);
                             return;
                         }
                         else
@@ -89,11 +90,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                             if (this.cmbStaffID.Text == "")
                             {
                                 MessageBox.Show("Choose a staff !");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                             else
                             {
                                 MessageBox.Show("Please don't leave blank input");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                         }
@@ -109,6 +112,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                                 txtPurchaseID.ResetText();
                                 txtTotal.ResetText();
                                 txtPurchaseID.Focus();
+                                pbCancel_Click(sender, e);
                                 return;
                             }
 
@@ -121,6 +125,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                                     MessageBox.Show("This receipt hasn't been purchased");
                                     txtTotal.ResetText();
                                     txtPurchaseID.Focus();
+                                    pbCancel_Click(sender, e);
                                     return;
                                 }
                             }
@@ -161,6 +166,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                 if (bool.Parse(dgvPurchase.Rows[r].Cells["Paid"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                 {
                     MessageBox.Show("Cannot edit paid rooms !");
+                    pbCancel_Click(sender, e);
                     return;
                 }
                 // Thực hiện lệnh
@@ -170,6 +176,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.cmbRoomID.Text == "")
                     {
                         MessageBox.Show("Choose a room !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
@@ -177,11 +184,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                         if (this.cmbStaffID.Text == "")
                         {
                             MessageBox.Show("Choose a staff !");
+                            pbCancel_Click(sender, e);
                             return;
                         }
                         else
                         {
                             MessageBox.Show("Please don't leave blank input");
+                            pbCancel_Click(sender, e);
                             return;
                         }
                     }

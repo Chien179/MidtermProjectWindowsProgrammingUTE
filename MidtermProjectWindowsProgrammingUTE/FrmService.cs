@@ -73,12 +73,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.txtServiceID.Text == "")
                     {
                         MessageBox.Show("Please fill in Service ID !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
 
                         MessageBox.Show("Please fill in Service Name !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }
@@ -92,8 +94,8 @@ namespace MidtermProjectWindowsProgrammingUTE
                         txtPrice.ResetText();
                         txtServiceName.ResetText();
                         txtUnit.ResetText();
-
                         txtServiceID.Focus();
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }
@@ -130,12 +132,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.txtServiceID.Text == "")
                     {
                         MessageBox.Show("Please fill in Sẻvice ID !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
 
                         MessageBox.Show("Please fill in Service Name !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }

@@ -154,12 +154,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.txtID.Text == "")
                     {
                         MessageBox.Show("Please fill in Staff's CMND !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
 
                         MessageBox.Show("Please fill in Staff's Name !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }
@@ -173,6 +175,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         txtChucVu.ResetText();
                         txtName.ResetText();
                         txtID.Focus();
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }
@@ -204,12 +207,14 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (this.txtID.Text == "")
                     {
                         MessageBox.Show("Please fill in Staff's CMND !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     else
                     {
 
                         MessageBox.Show("Please fill in Staff's Name !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                 }

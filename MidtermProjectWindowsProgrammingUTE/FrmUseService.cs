@@ -165,6 +165,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         {
                             MessageBox.Show("Existed '" + roomid + "' and '" + serviceid + "', please type another one !");
                             txtAmount.ResetText();
+                            pbCancel_Click(sender, e);
                             return;
                         }
                     }
@@ -173,6 +174,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         if (this.cmbRoomID.Text == "")
                         {
                             MessageBox.Show("No Room ID selected !");
+                            pbCancel_Click(sender, e);
                             return;
                         }
                         else
@@ -180,11 +182,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                             if (this.cmbServiceID.Text == "")
                             {
                                 MessageBox.Show("No Service ID selected !");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                             else
                             {
                                 MessageBox.Show("Please don't leave blank input");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                         }
@@ -220,6 +224,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                     if (bool.Parse(dgvUseService.Rows[r].Cells["Paid"].Value.ToString()) == true) //không thể edit dòng nào đã thanh toán rồi
                     {
                         MessageBox.Show("Cannot edit paid rooms !");
+                        pbCancel_Click(sender, e);
                         return;
                     }
                     if (this.cmbRoomID.Text == "" || this.cmbServiceID.Text == "" || this.txtAmount.Text == "")
@@ -227,6 +232,7 @@ namespace MidtermProjectWindowsProgrammingUTE
                         if (this.cmbRoomID.Text == "")
                         {
                             MessageBox.Show("No Room ID selected !");
+                            pbCancel_Click(sender, e);
                             return;
                         }
                         else
@@ -234,11 +240,13 @@ namespace MidtermProjectWindowsProgrammingUTE
                             if (this.cmbServiceID.Text == "")
                             {
                                 MessageBox.Show("No Service ID selected !");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                             else
                             {
                                 MessageBox.Show("Please don't leave blank input");
+                                pbCancel_Click(sender, e);
                                 return;
                             }
                         }
