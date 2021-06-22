@@ -169,20 +169,24 @@ namespace MidtermProjectWindowsProgrammingUTE
                             return;
                         }
                     }
-                    int r = dgvUseService.CurrentCell.RowIndex;
-                    string current_roomid = dgvUseService.Rows[r].Cells["RoomID"].Value.ToString().Trim(); //roomid đang được chọn 
-                    for (int i = 0; i < dgvUseService.Rows.Count; i++) //kiểm tra trùng mã phòng nếu đã thanh toán thì không được thêm vào
+
+                    if (dgvUseService.Rows.Count > 0)
                     {
-                        string temproomid = dgvUseService.Rows[i].Cells["RoomID"].Value.ToString().Trim();
-                        if (current_roomid == temproomid)
+                        int r = dgvUseService.CurrentCell.RowIndex;
+                        string current_roomid = dgvUseService.Rows[r].Cells["RoomID"].Value.ToString().Trim(); //roomid đang được chọn 
+                        for (int i = 0; i < dgvUseService.Rows.Count; i++) //kiểm tra trùng mã phòng nếu đã thanh toán thì không được thêm vào
                         {
-                            string tempstatus = dgvUseService.Rows[i].Cells["Paid"].Value.ToString().Trim();
-                            if (tempstatus == "True")
+                            string temproomid = dgvUseService.Rows[i].Cells["RoomID"].Value.ToString().Trim();
+                            if (current_roomid == temproomid)
                             {
-                                MessageBox.Show("You have to delete paid roomid before adding '" + roomid + "'");
-                                txtAmount.ResetText();
-                                pbCancel_Click(sender, e);
-                                return;
+                                string tempstatus = dgvUseService.Rows[i].Cells["Paid"].Value.ToString().Trim();
+                                if (tempstatus == "True")
+                                {
+                                    MessageBox.Show("You have to delete paid roomid before adding '" + roomid + "'");
+                                    txtAmount.ResetText();
+                                    pbCancel_Click(sender, e);
+                                    return;
+                                }
                             }
                         }
                     }

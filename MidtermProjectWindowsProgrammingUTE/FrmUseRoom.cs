@@ -87,20 +87,24 @@ namespace MidtermProjectWindowsProgrammingUTE
                         return;
                     }
                 }
-                int r = dgvRoom.CurrentCell.RowIndex;
-                string current_roomid = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString().Trim(); //roomid đang được chọn 
-                for (int i = 0; i < dgvRoom.Rows.Count; i++) //kiểm tra trùng mã phòng nếu đã thanh toán thì không được thêm vào
+
+                if (dgvRoom.Rows.Count > 0)
                 {
-                    string temproomid = dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim();
-                    if (current_roomid == temproomid)
+                    int r = dgvRoom.CurrentCell.RowIndex;
+                    string current_roomid = dgvRoom.Rows[r].Cells["RoomID"].Value.ToString().Trim(); //roomid đang được chọn 
+                    for (int i = 0; i < dgvRoom.Rows.Count; i++) //kiểm tra trùng mã phòng nếu đã thanh toán thì không được thêm vào
                     {
-                        string tempstatus = dgvRoom.Rows[i].Cells["Paid"].Value.ToString().Trim();
-                        if(tempstatus == "True")
+                        string temproomid = dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim();
+                        if (current_roomid == temproomid)
                         {
-                            MessageBox.Show("You have to delete paid roomid before adding '" + roomid + "'");
-                            txtDeposit.ResetText();
-                            pbCancel_Click(sender, e);
-                            return;
+                            string tempstatus = dgvRoom.Rows[i].Cells["Paid"].Value.ToString().Trim();
+                            if (tempstatus == "True")
+                            {
+                                MessageBox.Show("You have to delete paid roomid before adding '" + roomid + "'");
+                                txtDeposit.ResetText();
+                                pbCancel_Click(sender, e);
+                                return;
+                            }
                         }
                     }
                 }
@@ -259,10 +263,6 @@ namespace MidtermProjectWindowsProgrammingUTE
             dgvRoom_CellClick(null, null);
         }
 
-        private void pbDelete_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             Search();
