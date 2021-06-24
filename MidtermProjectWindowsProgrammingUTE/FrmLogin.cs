@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace MidtermProjectWindowsProgrammingUTE
 {
-    public partial class FrmLogin : Form
+    public partial class Login : Form
     {
         #region Properties
         BLLogin dbLogin = new BLLogin();
@@ -14,7 +14,7 @@ namespace MidtermProjectWindowsProgrammingUTE
         #endregion
 
         #region Construction
-        public FrmLogin()
+        public Login()
         {
             InitializeComponent();
             this.txtPassword.UseSystemPasswordChar = true;

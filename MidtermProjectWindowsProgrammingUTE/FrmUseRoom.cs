@@ -74,14 +74,14 @@ namespace MidtermProjectWindowsProgrammingUTE
             if (Them)
             {
                 string roomid = cmbRoomID.Text.ToString().Trim();
-                string id = cmbCMND.Text.ToString().Trim();
-                for (int i = 0; i < dgvRoom.Rows.Count; i++) //kiểm tra trùng mã phòng và trùng CMND
+                //string id = cmbCMND.Text.ToString().Trim();
+                for (int i = 0; i < dgvRoom.Rows.Count; i++) //kiểm tra trùng mã phòng
                 {
                     string temproomid = dgvRoom.Rows[i].Cells["RoomID"].Value.ToString().Trim();
-                    string tempid = dgvRoom.Rows[i].Cells["CMND"].Value.ToString().Trim();
-                    if (roomid == temproomid && id == tempid)
+                    //string tempid = dgvRoom.Rows[i].Cells["CMND"].Value.ToString().Trim();
+                    if (roomid == temproomid)
                     {
-                        MessageBox.Show("Existed '" + roomid + "' and '" + id + "', please type another one !");
+                        MessageBox.Show("Existed '" + roomid + ", please type another one !");
                         txtDeposit.ResetText();
                         pbCancel_Click(sender, e);
                         return;

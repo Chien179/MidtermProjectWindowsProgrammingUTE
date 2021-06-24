@@ -75,6 +75,20 @@ namespace MidtermProjectWindowsProgrammingUTE
             // Thêm dữ liệu
             if (Them)
             {
+                string roomid = cmbRoomID.Text.ToString().Trim();
+                //string id = cmbCMND.Text.ToString().Trim();
+                for (int i = 0; i < dgvPurchase.Rows.Count; i++) //kiểm tra trùng mã phòng
+                {
+                    string temproomid = dgvPurchase.Rows[i].Cells["RoomID"].Value.ToString().Trim();
+                    //string tempid = dgvRoom.Rows[i].Cells["CMND"].Value.ToString().Trim();
+                    if (roomid == temproomid)
+                    {
+                        MessageBox.Show("Existed '" + roomid + ", please type another one !");
+                        txtTotal.ResetText();
+                        pbCancel_Click(sender, e);
+                        return;
+                    }
+                }
                 try
                 {
                     if (this.cmbRoomID.Text == "" || this.txtPurchaseID.Text == "" || this.cmbStaffID.Text == "")
