@@ -2,15 +2,14 @@
 <xs:schema id="QuanLyKhachSan" targetNamespace="http://tempuri.org/QuanLyKhachSan.xsd" xmlns:mstns="http://tempuri.org/QuanLyKhachSan.xsd" xmlns="http://tempuri.org/QuanLyKhachSan.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QLKSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QLKSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MidtermProjectWindowsProgrammingUTE.Properties.Settings.GlobalReference.Default.QLKSConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QLKSConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QLKSConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MidtermProjectWindowsProgrammingUTE.Properties.Settings.GlobalReference.Default.QLKSConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DichVuTableAdapter" GeneratorDataComponentClassName="DichVuTableAdapter" Name="DichVu" UserDataComponentName="DichVuTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLKSConnectionString1 (Settings)" DbObjectName="QLKS.dbo.DichVu" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectName="QLKS.dbo.DichVu" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[DichVu] WHERE (([MaDV] = @Original_MaDV) AND ((@IsNull_TenDV = 1 AND [TenDV] IS NULL) OR ([TenDV] = @Original_TenDV)) AND ((@IsNull_GiaTien = 1 AND [GiaTien] IS NULL) OR ([GiaTien] = @Original_GiaTien)) AND ((@IsNull_DonViTinh = 1 AND [DonViTinh] IS NULL) OR ([DonViTinh] = @Original_DonViTinh)))</CommandText>
@@ -72,78 +71,9 @@ SELECT MaDV, TenDV, GiaTien, DonViTinh FROM DichVu WHERE (MaDV = @MaDV)</Command
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ThuePhongTableAdapter" GeneratorDataComponentClassName="ThuePhongTableAdapter" Name="ThuePhong" UserDataComponentName="ThuePhongTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="QLKSConnectionString1 (Settings)" DbObjectName="QLKS.dbo.ThuePhong" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[ThuePhong] WHERE (([MaPhong] = @Original_MaPhong) AND ([CMND] = @Original_CMND) AND ((@IsNull_NgayVao = 1 AND [NgayVao] IS NULL) OR ([NgayVao] = @Original_NgayVao)) AND ((@IsNull_DatCoc = 1 AND [DatCoc] IS NULL) OR ([DatCoc] = @Original_DatCoc)) AND ((@IsNull_TrangThai = 1 AND [TrangThai] IS NULL) OR ([TrangThai] = @Original_TrangThai)))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaPhong" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaPhong" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CMND" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CMND" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NgayVao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_NgayVao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DatCoc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_DatCoc" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TrangThai" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_TrangThai" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[ThuePhong] ([MaPhong], [CMND], [NgayVao], [DatCoc], [TrangThai]) VALUES (@MaPhong, @CMND, @NgayVao, @DatCoc, @TrangThai);
-SELECT MaPhong, CMND, NgayVao, DatCoc, TrangThai FROM ThuePhong WHERE (CMND = @CMND) AND (MaPhong = @MaPhong)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaPhong" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaPhong" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CMND" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CMND" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@NgayVao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@DatCoc" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@TrangThai" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT MaPhong, CMND, NgayVao, DatCoc, TrangThai FROM dbo.ThuePhong</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[ThuePhong] SET [MaPhong] = @MaPhong, [CMND] = @CMND, [NgayVao] = @NgayVao, [DatCoc] = @DatCoc, [TrangThai] = @TrangThai WHERE (([MaPhong] = @Original_MaPhong) AND ([CMND] = @Original_CMND) AND ((@IsNull_NgayVao = 1 AND [NgayVao] IS NULL) OR ([NgayVao] = @Original_NgayVao)) AND ((@IsNull_DatCoc = 1 AND [DatCoc] IS NULL) OR ([DatCoc] = @Original_DatCoc)) AND ((@IsNull_TrangThai = 1 AND [TrangThai] IS NULL) OR ([TrangThai] = @Original_TrangThai)));
-SELECT MaPhong, CMND, NgayVao, DatCoc, TrangThai FROM ThuePhong WHERE (CMND = @CMND) AND (MaPhong = @MaPhong)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaPhong" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaPhong" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CMND" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CMND" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@NgayVao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@DatCoc" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@TrangThai" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaPhong" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaPhong" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CMND" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CMND" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NgayVao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_NgayVao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DatCoc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_DatCoc" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TrangThai" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_TrangThai" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="MaPhong" DataSetColumn="MaPhong" />
-              <Mapping SourceColumn="CMND" DataSetColumn="CMND" />
-              <Mapping SourceColumn="NgayVao" DataSetColumn="NgayVao" />
-              <Mapping SourceColumn="DatCoc" DataSetColumn="DatCoc" />
-              <Mapping SourceColumn="TrangThai" DataSetColumn="TrangThai" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KhachHangTableAdapter" GeneratorDataComponentClassName="KhachHangTableAdapter" Name="KhachHang" UserDataComponentName="KhachHangTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLKSConnectionString1 (Settings)" DbObjectName="QLKS.dbo.KhachHang" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectName="QLKS.dbo.KhachHang" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[KhachHang] WHERE (([CMND] = @Original_CMND) AND ((@IsNull_TenKH = 1 AND [TenKH] IS NULL) OR ([TenKH] = @Original_TenKH)) AND ((@IsNull_DiaChi = 1 AND [DiaChi] IS NULL) OR ([DiaChi] = @Original_DiaChi)) AND ((@IsNull_SoDienThoai = 1 AND [SoDienThoai] IS NULL) OR ([SoDienThoai] = @Original_SoDienThoai)) AND ((@IsNull_Nu = 1 AND [Nu] IS NULL) OR ([Nu] = @Original_Nu)) AND ((@IsNull_NgaySinh = 1 AND [NgaySinh] IS NULL) OR ([NgaySinh] = @Original_NgaySinh)))</CommandText>
@@ -221,7 +151,7 @@ SELECT CMND, TenKH, DiaChi, SoDienThoai, Nu, NgaySinh FROM KhachHang WHERE (CMND
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LoaiPhongTableAdapter" GeneratorDataComponentClassName="LoaiPhongTableAdapter" Name="LoaiPhong" UserDataComponentName="LoaiPhongTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLKSConnectionString1 (Settings)" DbObjectName="QLKS.dbo.LoaiPhong" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectName="QLKS.dbo.LoaiPhong" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[LoaiPhong] WHERE (([MaLoai] = @Original_MaLoai) AND ((@IsNull_TenLoai = 1 AND [TenLoai] IS NULL) OR ([TenLoai] = @Original_TenLoai)))</CommandText>
@@ -271,7 +201,7 @@ SELECT MaLoai, TenLoai FROM LoaiPhong WHERE (MaLoai = @MaLoai)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NhanVienTableAdapter" GeneratorDataComponentClassName="NhanVienTableAdapter" Name="NhanVien" UserDataComponentName="NhanVienTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLKSConnectionString1 (Settings)" DbObjectName="QLKS.dbo.NhanVien" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectName="QLKS.dbo.NhanVien" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[NhanVien] WHERE (([MaNV] = @Original_MaNV) AND ((@IsNull_TenNV = 1 AND [TenNV] IS NULL) OR ([TenNV] = @Original_TenNV)) AND ((@IsNull_ChucVu = 1 AND [ChucVu] IS NULL) OR ([ChucVu] = @Original_ChucVu)) AND ((@IsNull_NamSinh = 1 AND [NamSinh] IS NULL) OR ([NamSinh] = @Original_NamSinh)) AND ((@IsNull_Nu = 1 AND [Nu] IS NULL) OR ([Nu] = @Original_Nu)))</CommandText>
@@ -342,7 +272,7 @@ SELECT MaNV, TenNV, ChucVu, NamSinh, Nu FROM NhanVien WHERE (MaNV = @MaNV)</Comm
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PhongTableAdapter" GeneratorDataComponentClassName="PhongTableAdapter" Name="Phong" UserDataComponentName="PhongTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLKSConnectionString1 (Settings)" DbObjectName="QLKS.dbo.Phong" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectName="QLKS.dbo.Phong" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Phong] WHERE (([MaPhong] = @Original_MaPhong) AND ((@IsNull_MaLoai = 1 AND [MaLoai] IS NULL) OR ([MaLoai] = @Original_MaLoai)) AND ((@IsNull_TrangThai = 1 AND [TrangThai] IS NULL) OR ([TrangThai] = @Original_TrangThai)) AND ((@IsNull_GhiChu = 1 AND [GhiChu] IS NULL) OR ([GhiChu] = @Original_GhiChu)) AND ((@IsNull_DienTich = 1 AND [DienTich] IS NULL) OR ([DienTich] = @Original_DienTich)) AND ((@IsNull_GiaThue = 1 AND [GiaThue] IS NULL) OR ([GiaThue] = @Original_GiaThue)))</CommandText>
@@ -420,7 +350,7 @@ SELECT MaPhong, MaLoai, TrangThai, GhiChu, DienTich, GiaThue FROM Phong WHERE (M
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SuDungDichVuTableAdapter" GeneratorDataComponentClassName="SuDungDichVuTableAdapter" Name="SuDungDichVu" UserDataComponentName="SuDungDichVuTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLKSConnectionString1 (Settings)" DbObjectName="QLKS.dbo.SuDungDichVu" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectName="QLKS.dbo.SuDungDichVu" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[SuDungDichVu] WHERE (([MaPhong] = @Original_MaPhong) AND ([MaDV] = @Original_MaDV) AND ((@IsNull_NgaySuDung = 1 AND [NgaySuDung] IS NULL) OR ([NgaySuDung] = @Original_NgaySuDung)) AND ((@IsNull_SoLuong = 1 AND [SoLuong] IS NULL) OR ([SoLuong] = @Original_SoLuong)) AND ((@IsNull_TrangThai = 1 AND [TrangThai] IS NULL) OR ([TrangThai] = @Original_TrangThai)))</CommandText>
@@ -489,7 +419,7 @@ SELECT MaPhong, MaDV, NgaySuDung, SoLuong, TrangThai FROM SuDungDichVu WHERE (Ma
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TaiKhoanTableAdapter" GeneratorDataComponentClassName="TaiKhoanTableAdapter" Name="TaiKhoan" UserDataComponentName="TaiKhoanTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLKSConnectionString1 (Settings)" DbObjectName="QLKS.dbo.TaiKhoan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectName="QLKS.dbo.TaiKhoan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[TaiKhoan] WHERE (([TenDangNhap] = @Original_TenDangNhap) AND ([MatKhau] = @Original_MatKhau) AND ((@IsNull_MaNV = 1 AND [MaNV] IS NULL) OR ([MaNV] = @Original_MaNV)))</CommandText>
@@ -544,7 +474,7 @@ SELECT TenDangNhap, MatKhau, MaNV FROM TaiKhoan WHERE (MatKhau = @MatKhau) AND (
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ThanhToanTableAdapter" GeneratorDataComponentClassName="ThanhToanTableAdapter" Name="ThanhToan" UserDataComponentName="ThanhToanTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLKSConnectionString1 (Settings)" DbObjectName="QLKS.dbo.ThanhToan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectName="QLKS.dbo.ThanhToan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[ThanhToan] WHERE (([MaThanhToan] = @Original_MaThanhToan) AND ((@IsNull_ThanhTien = 1 AND [ThanhTien] IS NULL) OR ([ThanhTien] = @Original_ThanhTien)) AND ((@IsNull_NgayThanhToan = 1 AND [NgayThanhToan] IS NULL) OR ([NgayThanhToan] = @Original_NgayThanhToan)) AND ([MaPhong] = @Original_MaPhong) AND ((@IsNull_MaNV = 1 AND [MaNV] IS NULL) OR ([MaNV] = @Original_MaNV)) AND ((@IsNull_TrangThai = 1 AND [TrangThai] IS NULL) OR ([TrangThai] = @Original_TrangThai)))</CommandText>
@@ -618,12 +548,82 @@ SELECT MaThanhToan, ThanhTien, NgayThanhToan, MaPhong, MaNV, TrangThai FROM Than
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ThuePhongTableAdapter" GeneratorDataComponentClassName="ThuePhongTableAdapter" Name="ThuePhong" UserDataComponentName="ThuePhongTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectName="QLKS.dbo.ThuePhong" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[ThuePhong] WHERE (([MaPhong] = @Original_MaPhong) AND ([CMND] = @Original_CMND) AND ((@IsNull_NgayVao = 1 AND [NgayVao] IS NULL) OR ([NgayVao] = @Original_NgayVao)) AND ((@IsNull_DatCoc = 1 AND [DatCoc] IS NULL) OR ([DatCoc] = @Original_DatCoc)) AND ((@IsNull_TrangThai = 1 AND [TrangThai] IS NULL) OR ([TrangThai] = @Original_TrangThai)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaPhong" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaPhong" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CMND" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CMND" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NgayVao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_NgayVao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DatCoc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_DatCoc" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TrangThai" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_TrangThai" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[ThuePhong] ([MaPhong], [CMND], [NgayVao], [DatCoc], [TrangThai]) VALUES (@MaPhong, @CMND, @NgayVao, @DatCoc, @TrangThai);
+SELECT MaPhong, CMND, NgayVao, DatCoc, TrangThai FROM ThuePhong WHERE (CMND = @CMND) AND (MaPhong = @MaPhong)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaPhong" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaPhong" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CMND" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CMND" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@NgayVao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@DatCoc" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@TrangThai" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MaPhong, CMND, NgayVao, DatCoc, TrangThai FROM dbo.ThuePhong</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[ThuePhong] SET [MaPhong] = @MaPhong, [CMND] = @CMND, [NgayVao] = @NgayVao, [DatCoc] = @DatCoc, [TrangThai] = @TrangThai WHERE (([MaPhong] = @Original_MaPhong) AND ([CMND] = @Original_CMND) AND ((@IsNull_NgayVao = 1 AND [NgayVao] IS NULL) OR ([NgayVao] = @Original_NgayVao)) AND ((@IsNull_DatCoc = 1 AND [DatCoc] IS NULL) OR ([DatCoc] = @Original_DatCoc)) AND ((@IsNull_TrangThai = 1 AND [TrangThai] IS NULL) OR ([TrangThai] = @Original_TrangThai)));
+SELECT MaPhong, CMND, NgayVao, DatCoc, TrangThai FROM ThuePhong WHERE (CMND = @CMND) AND (MaPhong = @MaPhong)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaPhong" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaPhong" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CMND" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CMND" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@NgayVao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@DatCoc" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@TrangThai" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaPhong" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaPhong" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CMND" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CMND" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NgayVao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_NgayVao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="NgayVao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DatCoc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_DatCoc" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="DatCoc" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TrangThai" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_TrangThai" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TrangThai" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaPhong" DataSetColumn="MaPhong" />
+              <Mapping SourceColumn="CMND" DataSetColumn="CMND" />
+              <Mapping SourceColumn="NgayVao" DataSetColumn="NgayVao" />
+              <Mapping SourceColumn="DatCoc" DataSetColumn="DatCoc" />
+              <Mapping SourceColumn="TrangThai" DataSetColumn="TrangThai" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="HoaDonTableAdapter" GeneratorDataComponentClassName="HoaDonTableAdapter" Name="HoaDon" UserDataComponentName="HoaDonTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLKSConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>select a.MaPhong, g.TenLoai, a.GiaThue, b.NgayVao,b.DatCoc, c.TenKH, c.SoDienThoai,c.DiaChi,d.TenNV, e.MaThanhToan,e.NgayThanhToan, e.ThanhTien, f.SoLuong,f.NgaySuDung, h.DonViTinh, h.GiaTien, h.TenDV
+                    <CommandText>
+select a.MaPhong, a.GiaThue, b.NgayVao, b.DatCoc, c.TenKH, d.TenNV, e.NgayThanhToan, e.ThanhTien, f.SoLuong,f.NgaySuDung, h.DonViTinh, h.GiaTien, h.TenDV,c.SoDienThoai,c.DiaChi,e.MaThanhToan, g.TenLoai
 from phong a, thuephong b, khachhang c, nhanvien d, thanhtoan e, sudungdichvu f, dichvu h, LoaiPhong g
 where e.MaPhong = a.MaPhong 
 and e.MaPhong = b.MaPhong 
@@ -631,11 +631,13 @@ and e.MaPhong = f.MaPhong
 and b.CMND = c.CMND 
 and e.MaNV = d.MaNV 
 and f.MaDV = h.MaDV 
-and a.MaLoai = g.MaLoai
 and b.TrangThai = 1 
 and f.TrangThai = 1 
-and e.TrangThai = 1
-and e.MaPhong = @x</CommandText>
+and e.TrangThai = 1 
+and g.MaLoai = a.MaLoai
+and c.TenKH in (select c.TenKH
+from thuephong b, khachhang c,thanhtoan e
+where e.MaPhong = b.MaPhong and b.CMND = c.CMND and e.TrangThai = 1 and e.MaPhong= @x)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="x" ColumnName="MaPhong" DataSourceName="QLKS.dbo.ThanhToan" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@x" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="MaPhong" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -645,15 +647,11 @@ and e.MaPhong = @x</CommandText>
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="MaPhong" DataSetColumn="MaPhong" />
-              <Mapping SourceColumn="TenLoai" DataSetColumn="TenLoai" />
               <Mapping SourceColumn="GiaThue" DataSetColumn="GiaThue" />
               <Mapping SourceColumn="NgayVao" DataSetColumn="NgayVao" />
               <Mapping SourceColumn="DatCoc" DataSetColumn="DatCoc" />
               <Mapping SourceColumn="TenKH" DataSetColumn="TenKH" />
-              <Mapping SourceColumn="SoDienThoai" DataSetColumn="SoDienThoai" />
-              <Mapping SourceColumn="DiaChi" DataSetColumn="DiaChi" />
               <Mapping SourceColumn="TenNV" DataSetColumn="TenNV" />
-              <Mapping SourceColumn="MaThanhToan" DataSetColumn="MaThanhToan" />
               <Mapping SourceColumn="NgayThanhToan" DataSetColumn="NgayThanhToan" />
               <Mapping SourceColumn="ThanhTien" DataSetColumn="ThanhTien" />
               <Mapping SourceColumn="SoLuong" DataSetColumn="SoLuong" />
@@ -661,6 +659,30 @@ and e.MaPhong = @x</CommandText>
               <Mapping SourceColumn="DonViTinh" DataSetColumn="DonViTinh" />
               <Mapping SourceColumn="GiaTien" DataSetColumn="GiaTien" />
               <Mapping SourceColumn="TenDV" DataSetColumn="TenDV" />
+              <Mapping SourceColumn="SoDienThoai" DataSetColumn="SoDienThoai" />
+              <Mapping SourceColumn="DiaChi" DataSetColumn="DiaChi" />
+              <Mapping SourceColumn="MaThanhToan" DataSetColumn="MaThanhToan" />
+              <Mapping SourceColumn="TenLoai" DataSetColumn="TenLoai" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TongDichVuTableAdapter" GeneratorDataComponentClassName="TongDichVuTableAdapter" Name="TongDichVu" UserDataComponentName="TongDichVuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLKSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select SUM(a.GiaTien * b.SoLuong) as tong
+from DichVu a,SuDungDichVu b
+where a.MaDV = b.MaDV and b.MaPhong = @x</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="x" ColumnName="MaPhong" DataSourceName="QLKS.dbo.SuDungDichVu" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@x" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="MaPhong" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="tong" DataSetColumn="tong" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -697,29 +719,6 @@ and e.MaPhong = @x</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="ThuePhong" msprop:Generator_TableClassName="ThuePhongDataTable" msprop:Generator_TableVarName="tableThuePhong" msprop:Generator_TablePropName="ThuePhong" msprop:Generator_RowDeletingName="ThuePhongRowDeleting" msprop:Generator_RowChangingName="ThuePhongRowChanging" msprop:Generator_RowEvHandlerName="ThuePhongRowChangeEventHandler" msprop:Generator_RowDeletedName="ThuePhongRowDeleted" msprop:Generator_UserTableName="ThuePhong" msprop:Generator_RowChangedName="ThuePhongRowChanged" msprop:Generator_RowEvArgName="ThuePhongRowChangeEvent" msprop:Generator_RowClassName="ThuePhongRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="MaPhong" msprop:Generator_ColumnVarNameInTable="columnMaPhong" msprop:Generator_ColumnPropNameInRow="MaPhong" msprop:Generator_ColumnPropNameInTable="MaPhongColumn" msprop:Generator_UserColumnName="MaPhong">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="CMND" msprop:Generator_ColumnVarNameInTable="columnCMND" msprop:Generator_ColumnPropNameInRow="CMND" msprop:Generator_ColumnPropNameInTable="CMNDColumn" msprop:Generator_UserColumnName="CMND">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="NgayVao" msprop:Generator_ColumnVarNameInTable="columnNgayVao" msprop:Generator_ColumnPropNameInRow="NgayVao" msprop:Generator_ColumnPropNameInTable="NgayVaoColumn" msprop:Generator_UserColumnName="NgayVao" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="DatCoc" msprop:Generator_ColumnVarNameInTable="columnDatCoc" msprop:Generator_ColumnPropNameInRow="DatCoc" msprop:Generator_ColumnPropNameInTable="DatCocColumn" msprop:Generator_UserColumnName="DatCoc" type="xs:double" minOccurs="0" />
-              <xs:element name="TrangThai" msprop:Generator_ColumnVarNameInTable="columnTrangThai" msprop:Generator_ColumnPropNameInRow="TrangThai" msprop:Generator_ColumnPropNameInTable="TrangThaiColumn" msprop:Generator_UserColumnName="TrangThai" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -924,7 +923,7 @@ and e.MaPhong = @x</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HoaDon" msprop:Generator_TableClassName="HoaDonDataTable" msprop:Generator_TableVarName="tableHoaDon" msprop:Generator_TablePropName="HoaDon" msprop:Generator_RowDeletingName="HoaDonRowDeleting" msprop:Generator_RowChangingName="HoaDonRowChanging" msprop:Generator_RowEvHandlerName="HoaDonRowChangeEventHandler" msprop:Generator_RowDeletedName="HoaDonRowDeleted" msprop:Generator_UserTableName="HoaDon" msprop:Generator_RowChangedName="HoaDonRowChanged" msprop:Generator_RowEvArgName="HoaDonRowChangeEvent" msprop:Generator_RowClassName="HoaDonRow">
+        <xs:element name="ThuePhong" msprop:Generator_TableClassName="ThuePhongDataTable" msprop:Generator_TableVarName="tableThuePhong" msprop:Generator_TablePropName="ThuePhong" msprop:Generator_RowDeletingName="ThuePhongRowDeleting" msprop:Generator_RowChangingName="ThuePhongRowChanging" msprop:Generator_RowEvHandlerName="ThuePhongRowChangeEventHandler" msprop:Generator_RowDeletedName="ThuePhongRowDeleted" msprop:Generator_UserTableName="ThuePhong" msprop:Generator_RowChangedName="ThuePhongRowChanged" msprop:Generator_RowEvArgName="ThuePhongRowChangeEvent" msprop:Generator_RowClassName="ThuePhongRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaPhong" msprop:Generator_ColumnVarNameInTable="columnMaPhong" msprop:Generator_ColumnPropNameInRow="MaPhong" msprop:Generator_ColumnPropNameInTable="MaPhongColumn" msprop:Generator_UserColumnName="MaPhong">
@@ -934,7 +933,23 @@ and e.MaPhong = @x</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TenLoai" msprop:Generator_ColumnVarNameInTable="columnTenLoai" msprop:Generator_ColumnPropNameInRow="TenLoai" msprop:Generator_ColumnPropNameInTable="TenLoaiColumn" msprop:Generator_UserColumnName="TenLoai" minOccurs="0">
+              <xs:element name="CMND" msprop:Generator_ColumnVarNameInTable="columnCMND" msprop:Generator_ColumnPropNameInRow="CMND" msprop:Generator_ColumnPropNameInTable="CMNDColumn" msprop:Generator_UserColumnName="CMND">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NgayVao" msprop:Generator_ColumnVarNameInTable="columnNgayVao" msprop:Generator_ColumnPropNameInRow="NgayVao" msprop:Generator_ColumnPropNameInTable="NgayVaoColumn" msprop:Generator_UserColumnName="NgayVao" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DatCoc" msprop:Generator_ColumnVarNameInTable="columnDatCoc" msprop:Generator_ColumnPropNameInRow="DatCoc" msprop:Generator_ColumnPropNameInTable="DatCocColumn" msprop:Generator_UserColumnName="DatCoc" type="xs:double" minOccurs="0" />
+              <xs:element name="TrangThai" msprop:Generator_ColumnVarNameInTable="columnTrangThai" msprop:Generator_ColumnPropNameInRow="TrangThai" msprop:Generator_ColumnPropNameInTable="TrangThaiColumn" msprop:Generator_UserColumnName="TrangThai" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HoaDon" msprop:Generator_TableClassName="HoaDonDataTable" msprop:Generator_TableVarName="tableHoaDon" msprop:Generator_TablePropName="HoaDon" msprop:Generator_RowDeletingName="HoaDonRowDeleting" msprop:Generator_RowChangingName="HoaDonRowChanging" msprop:Generator_RowEvHandlerName="HoaDonRowChangeEventHandler" msprop:Generator_RowDeletedName="HoaDonRowDeleted" msprop:Generator_UserTableName="HoaDon" msprop:Generator_RowChangedName="HoaDonRowChanged" msprop:Generator_RowEvArgName="HoaDonRowChangeEvent" msprop:Generator_RowClassName="HoaDonRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaPhong" msprop:Generator_ColumnVarNameInTable="columnMaPhong" msprop:Generator_ColumnPropNameInRow="MaPhong" msprop:Generator_ColumnPropNameInTable="MaPhongColumn" msprop:Generator_UserColumnName="MaPhong">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -951,28 +966,7 @@ and e.MaPhong = @x</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SoDienThoai" msprop:Generator_ColumnVarNameInTable="columnSoDienThoai" msprop:Generator_ColumnPropNameInRow="SoDienThoai" msprop:Generator_ColumnPropNameInTable="SoDienThoaiColumn" msprop:Generator_UserColumnName="SoDienThoai" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DiaChi" msprop:Generator_ColumnVarNameInTable="columnDiaChi" msprop:Generator_ColumnPropNameInRow="DiaChi" msprop:Generator_ColumnPropNameInTable="DiaChiColumn" msprop:Generator_UserColumnName="DiaChi" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="TenNV" msprop:Generator_ColumnVarNameInTable="columnTenNV" msprop:Generator_ColumnPropNameInRow="TenNV" msprop:Generator_ColumnPropNameInTable="TenNVColumn" msprop:Generator_UserColumnName="TenNV" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="MaThanhToan" msprop:Generator_ColumnVarNameInTable="columnMaThanhToan" msprop:Generator_ColumnPropNameInRow="MaThanhToan" msprop:Generator_ColumnPropNameInTable="MaThanhToanColumn" msprop:Generator_UserColumnName="MaThanhToan">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -998,6 +992,41 @@ and e.MaPhong = @x</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="SoDienThoai" msprop:Generator_ColumnVarNameInTable="columnSoDienThoai" msprop:Generator_ColumnPropNameInRow="SoDienThoai" msprop:Generator_ColumnPropNameInTable="SoDienThoaiColumn" msprop:Generator_UserColumnName="SoDienThoai" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DiaChi" msprop:Generator_ColumnVarNameInTable="columnDiaChi" msprop:Generator_ColumnPropNameInRow="DiaChi" msprop:Generator_ColumnPropNameInTable="DiaChiColumn" msprop:Generator_UserColumnName="DiaChi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaThanhToan" msprop:Generator_ColumnVarNameInTable="columnMaThanhToan" msprop:Generator_ColumnPropNameInRow="MaThanhToan" msprop:Generator_ColumnPropNameInTable="MaThanhToanColumn" msprop:Generator_UserColumnName="MaThanhToan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenLoai" msprop:Generator_ColumnVarNameInTable="columnTenLoai" msprop:Generator_ColumnPropNameInRow="TenLoai" msprop:Generator_ColumnPropNameInTable="TenLoaiColumn" msprop:Generator_UserColumnName="TenLoai" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TongDichVu" msprop:Generator_TableClassName="TongDichVuDataTable" msprop:Generator_TableVarName="tableTongDichVu" msprop:Generator_TablePropName="TongDichVu" msprop:Generator_RowDeletingName="TongDichVuRowDeleting" msprop:Generator_RowChangingName="TongDichVuRowChanging" msprop:Generator_RowEvHandlerName="TongDichVuRowChangeEventHandler" msprop:Generator_RowDeletedName="TongDichVuRowDeleted" msprop:Generator_UserTableName="TongDichVu" msprop:Generator_RowChangedName="TongDichVuRowChanged" msprop:Generator_RowEvArgName="TongDichVuRowChangeEvent" msprop:Generator_RowClassName="TongDichVuRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tong" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntong" msprop:Generator_ColumnPropNameInRow="tong" msprop:Generator_ColumnPropNameInTable="tongColumn" msprop:Generator_UserColumnName="tong" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1006,11 +1035,6 @@ and e.MaPhong = @x</CommandText>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:DichVu" />
       <xs:field xpath="mstns:MaDV" />
-    </xs:unique>
-    <xs:unique name="ThuePhong_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ThuePhong" />
-      <xs:field xpath="mstns:MaPhong" />
-      <xs:field xpath="mstns:CMND" />
     </xs:unique>
     <xs:unique name="KhachHang_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:KhachHang" />
@@ -1042,20 +1066,25 @@ and e.MaPhong = @x</CommandText>
       <xs:selector xpath=".//mstns:ThanhToan" />
       <xs:field xpath="mstns:MaThanhToan" />
     </xs:unique>
+    <xs:unique name="ThuePhong_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ThuePhong" />
+      <xs:field xpath="mstns:MaPhong" />
+      <xs:field xpath="mstns:CMND" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_ThuePhong_KhachHang" msdata:parent="KhachHang" msdata:child="ThuePhong" msdata:parentkey="CMND" msdata:childkey="CMND" msprop:Generator_UserChildTable="ThuePhong" msprop:Generator_ChildPropName="GetThuePhongRows" msprop:Generator_UserRelationName="FK_ThuePhong_KhachHang" msprop:Generator_RelationVarName="relationFK_ThuePhong_KhachHang" msprop:Generator_UserParentTable="KhachHang" msprop:Generator_ParentPropName="KhachHangRow" />
-      <msdata:Relationship name="FK_ThuePhong_Phong" msdata:parent="Phong" msdata:child="ThuePhong" msdata:parentkey="MaPhong" msdata:childkey="MaPhong" msprop:Generator_UserChildTable="ThuePhong" msprop:Generator_ChildPropName="GetThuePhongRows" msprop:Generator_UserRelationName="FK_ThuePhong_Phong" msprop:Generator_RelationVarName="relationFK_ThuePhong_Phong" msprop:Generator_UserParentTable="Phong" msprop:Generator_ParentPropName="PhongRow" />
       <msdata:Relationship name="FK_Phong_LoaiPhong" msdata:parent="LoaiPhong" msdata:child="Phong" msdata:parentkey="MaLoai" msdata:childkey="MaLoai" msprop:Generator_UserChildTable="Phong" msprop:Generator_ChildPropName="GetPhongRows" msprop:Generator_UserRelationName="FK_Phong_LoaiPhong" msprop:Generator_ParentPropName="LoaiPhongRow" msprop:Generator_RelationVarName="relationFK_Phong_LoaiPhong" msprop:Generator_UserParentTable="LoaiPhong" />
       <msdata:Relationship name="FK_SuDungDichVu_DichVu" msdata:parent="DichVu" msdata:child="SuDungDichVu" msdata:parentkey="MaDV" msdata:childkey="MaDV" msprop:Generator_UserChildTable="SuDungDichVu" msprop:Generator_ChildPropName="GetSuDungDichVuRows" msprop:Generator_UserRelationName="FK_SuDungDichVu_DichVu" msprop:Generator_ParentPropName="DichVuRow" msprop:Generator_RelationVarName="relationFK_SuDungDichVu_DichVu" msprop:Generator_UserParentTable="DichVu" />
       <msdata:Relationship name="FK_SuDungDichVu_Phong" msdata:parent="Phong" msdata:child="SuDungDichVu" msdata:parentkey="MaPhong" msdata:childkey="MaPhong" msprop:Generator_UserChildTable="SuDungDichVu" msprop:Generator_ChildPropName="GetSuDungDichVuRows" msprop:Generator_UserRelationName="FK_SuDungDichVu_Phong" msprop:Generator_ParentPropName="PhongRow" msprop:Generator_RelationVarName="relationFK_SuDungDichVu_Phong" msprop:Generator_UserParentTable="Phong" />
       <msdata:Relationship name="FK_TaiKhoan_NhanVien" msdata:parent="NhanVien" msdata:child="TaiKhoan" msdata:parentkey="MaNV" msdata:childkey="MaNV" msprop:Generator_UserChildTable="TaiKhoan" msprop:Generator_ChildPropName="GetTaiKhoanRows" msprop:Generator_UserRelationName="FK_TaiKhoan_NhanVien" msprop:Generator_ParentPropName="NhanVienRow" msprop:Generator_RelationVarName="relationFK_TaiKhoan_NhanVien" msprop:Generator_UserParentTable="NhanVien" />
       <msdata:Relationship name="FK_ThanhToan_NhanVien" msdata:parent="NhanVien" msdata:child="ThanhToan" msdata:parentkey="MaNV" msdata:childkey="MaNV" msprop:Generator_UserChildTable="ThanhToan" msprop:Generator_ChildPropName="GetThanhToanRows" msprop:Generator_UserRelationName="FK_ThanhToan_NhanVien" msprop:Generator_ParentPropName="NhanVienRow" msprop:Generator_RelationVarName="relationFK_ThanhToan_NhanVien" msprop:Generator_UserParentTable="NhanVien" />
       <msdata:Relationship name="FK_ThanhToan_Phong" msdata:parent="Phong" msdata:child="ThanhToan" msdata:parentkey="MaPhong" msdata:childkey="MaPhong" msprop:Generator_UserChildTable="ThanhToan" msprop:Generator_ChildPropName="GetThanhToanRows" msprop:Generator_UserRelationName="FK_ThanhToan_Phong" msprop:Generator_ParentPropName="PhongRow" msprop:Generator_RelationVarName="relationFK_ThanhToan_Phong" msprop:Generator_UserParentTable="Phong" />
-      <msdata:Relationship name="FK_ThuePhong_Phong1" msdata:parent="HoaDon" msdata:child="ThuePhong" msdata:parentkey="MaPhong" msdata:childkey="MaPhong" msprop:Generator_UserChildTable="ThuePhong" msprop:Generator_ChildPropName="GetThuePhongRows" msprop:Generator_UserRelationName="FK_ThuePhong_Phong1" msprop:Generator_RelationVarName="relationFK_ThuePhong_Phong1" msprop:Generator_UserParentTable="HoaDon" msprop:Generator_ParentPropName="HoaDonRow" />
+      <msdata:Relationship name="FK_ThuePhong_KhachHang" msdata:parent="KhachHang" msdata:child="ThuePhong" msdata:parentkey="CMND" msdata:childkey="CMND" msprop:Generator_UserChildTable="ThuePhong" msprop:Generator_ChildPropName="GetThuePhongRows" msprop:Generator_UserRelationName="FK_ThuePhong_KhachHang" msprop:Generator_ParentPropName="KhachHangRow" msprop:Generator_RelationVarName="relationFK_ThuePhong_KhachHang" msprop:Generator_UserParentTable="KhachHang" />
+      <msdata:Relationship name="FK_ThuePhong_Phong" msdata:parent="Phong" msdata:child="ThuePhong" msdata:parentkey="MaPhong" msdata:childkey="MaPhong" msprop:Generator_UserChildTable="ThuePhong" msprop:Generator_ChildPropName="GetThuePhongRows" msprop:Generator_UserRelationName="FK_ThuePhong_Phong" msprop:Generator_ParentPropName="PhongRow" msprop:Generator_RelationVarName="relationFK_ThuePhong_Phong" msprop:Generator_UserParentTable="Phong" />
       <msdata:Relationship name="FK_SuDungDichVu_Phong1" msdata:parent="HoaDon" msdata:child="SuDungDichVu" msdata:parentkey="MaPhong" msdata:childkey="MaPhong" msprop:Generator_UserChildTable="SuDungDichVu" msprop:Generator_ChildPropName="GetSuDungDichVuRows" msprop:Generator_UserRelationName="FK_SuDungDichVu_Phong1" msprop:Generator_RelationVarName="relationFK_SuDungDichVu_Phong1" msprop:Generator_UserParentTable="HoaDon" msprop:Generator_ParentPropName="HoaDonRow" />
       <msdata:Relationship name="FK_ThanhToan_Phong1" msdata:parent="HoaDon" msdata:child="ThanhToan" msdata:parentkey="MaPhong" msdata:childkey="MaPhong" msprop:Generator_UserChildTable="ThanhToan" msprop:Generator_ChildPropName="GetThanhToanRows" msprop:Generator_UserRelationName="FK_ThanhToan_Phong1" msprop:Generator_RelationVarName="relationFK_ThanhToan_Phong1" msprop:Generator_UserParentTable="HoaDon" msprop:Generator_ParentPropName="HoaDonRow" />
+      <msdata:Relationship name="FK_ThuePhong_Phong1" msdata:parent="HoaDon" msdata:child="ThuePhong" msdata:parentkey="MaPhong" msdata:childkey="MaPhong" msprop:Generator_UserChildTable="ThuePhong" msprop:Generator_ChildPropName="GetThuePhongRows" msprop:Generator_UserRelationName="FK_ThuePhong_Phong1" msprop:Generator_RelationVarName="relationFK_ThuePhong_Phong1" msprop:Generator_UserParentTable="HoaDon" msprop:Generator_ParentPropName="HoaDonRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
